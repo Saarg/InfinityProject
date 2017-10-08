@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Dungeon {
 
 	public class Room {
-		public GameObject gameobject;
+		public GameObject gameObject;
 		public Room top;
 		public Room down;
 		public Room left;
@@ -125,44 +125,40 @@ namespace Dungeon {
 					bool horizontal = _grid [x, y].left != null && _grid [x, y].right != null;
 						
 					if (countExits > 3) {
-						Instantiate (_Xrooms [Random.Range(0, _Xrooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						_grid [x, y].gameObject = Instantiate (_Xrooms [Random.Range(0, _Xrooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
 					} else if (countExits == 3) {
-						int r = Random.Range (0, _Trooms.Length);
+						_grid [x, y].gameObject = Instantiate (_Trooms [Random.Range (0, _Trooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
 
-						if(horizontal && _grid [x, y].top != null)
-							Instantiate (_Trooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate(0, 180f, 0);
-						else if(horizontal && _grid [x, y].down != null)
-							Instantiate (_Trooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						if (horizontal && _grid [x, y].top != null)
+							_grid [x, y].gameObject.transform.Rotate (0, 180f, 0);
 						else if(vertical && _grid [x, y].right != null)
-							Instantiate (_Trooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate(0, -90f, 0);
+							_grid [x, y].gameObject.transform.Rotate(0, -90f, 0);
 						else if(vertical && _grid [x, y].left != null)
-							Instantiate (_Trooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate(0, 90f, 0);
+							_grid [x, y].gameObject.transform.Rotate(0, 90f, 0);
 					} else if (countExits == 2 && !vertical && !horizontal) {
-						int r = Random.Range (0, _Lrooms.Length);
+						_grid [x, y].gameObject = Instantiate (_Lrooms [Random.Range (0, _Lrooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
 
-						if (_grid [x, y].down != null && _grid [x, y].left != null)
-							Instantiate (_Lrooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
-						else if (_grid [x, y].down != null && _grid [x, y].right != null)
-							Instantiate (_Lrooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate (0, -90f, 0);
+
+						if (_grid [x, y].down != null && _grid [x, y].right != null)
+							_grid [x, y].gameObject.transform.Rotate (0, -90f, 0);
 						else if (_grid [x, y].top != null && _grid [x, y].left != null)
-							Instantiate (_Lrooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate (0, 90f, 0);
+							_grid [x, y].gameObject.transform.Rotate (0, 90f, 0);
 						else if (_grid [x, y].top != null && _grid [x, y].right != null)
-							Instantiate (_Lrooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate (0, 180f, 0);
+							_grid [x, y].gameObject.transform.Rotate (0, 180f, 0);
 					} else if (countExits == 2 && vertical) {
-						Instantiate (_Srooms [Random.Range (0, _Srooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						_grid [x, y].gameObject = Instantiate (_Srooms [Random.Range (0, _Srooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
 					} else if (countExits == 2 && horizontal) {
-						Instantiate (_Srooms [Random.Range (0, _Srooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate (0, 90f, 0);
+						_grid [x, y].gameObject = Instantiate (_Srooms [Random.Range (0, _Srooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						_grid [x, y].gameObject.transform.Rotate (0, 90f, 0);
 					} else if (countExits == 1) {
-						int r = Random.Range (0, _Irooms.Length);
+						_grid [x, y].gameObject = Instantiate (_Irooms [Random.Range (0, _Irooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
 
-						if (_grid [x, y].down != null)
-							Instantiate (_Irooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
-						else if (_grid [x, y].left != null)
-							Instantiate (_Irooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate (0, 90f, 0);
+						if (_grid [x, y].left != null)
+							_grid [x, y].gameObject.transform.Rotate (0, 90f, 0);
 						else if (_grid [x, y].top != null)
-							Instantiate (_Irooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate (0, 180f, 0);
+							_grid [x, y].gameObject.transform.Rotate (0, 180f, 0);
 						else if (_grid [x, y].right != null)
-							Instantiate (_Irooms [r], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity).transform.Rotate (0, -90f, 0);
+							_grid [x, y].gameObject.transform.Rotate (0, -90f, 0);
 					}
 				}
 				yield return new WaitForEndOfFrame ();
