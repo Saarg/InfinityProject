@@ -5,20 +5,19 @@ using UnityEngine;
 public class EnemyIA : Living {
 
 	[SerializeField]
-	private float _gravity = 20.0F;
-
-	private Vector3 _moveDirection = Vector3.zero;
-	[SerializeField]
-	private CharacterController _controller;
-	[SerializeField]
 	private Transform _target;
 
-	void Start(){
-		_controller = GetComponent<CharacterController>();
+	protected override void Start(){
+		base.Start ();
+
+		if (_target == null)
+			_target = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
 
-	void Update() 
+	protected override void Update() 
 	{
+		base.Update ();
+
 		Vector3 LookAt = _target.position - transform.position;
 
 		if (LookAt != Vector3.zero)

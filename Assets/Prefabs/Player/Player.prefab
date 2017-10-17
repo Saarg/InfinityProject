@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65486323562091368}
   - component: {fileID: 23524318212319922}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Glasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 1667058515165978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.581, z: 0.328}
-  m_LocalScale: {x: 0.6, y: 0.2, z: 0.3}
+  m_LocalScale: {x: 0.8, y: 0.2, z: 0.3}
   m_Children: []
   m_Father: {fileID: 4425603087709552}
   m_RootOrder: 0
@@ -90,7 +90,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5d3aeccbaf3e2401696796d8afae91b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,7 +124,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5ecf4bdaaabc649d4a2e92a35a2b9bbd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -181,9 +181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eace0761de80f4d0fb113847c04335e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  gravity: 10
-  controller: {fileID: 143808444913122978}
+  _life: 100
+  _maxLife: 100
+  _speed: 6
+  _gravity: 20
+  _controller: {fileID: 0}
 --- !u!136 &136127385553721194
 CapsuleCollider:
   m_ObjectHideFlags: 1

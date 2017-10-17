@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 136818250324587402}
   - component: {fileID: 23408827342656498}
   - component: {fileID: 143827167985431480}
+  - component: {fileID: 114590907781309172}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -55,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507785927779818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.347, z: 0}
+  m_LocalPosition: {x: -2.82, y: 1.347, z: -2.39}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4230479748636270}
@@ -89,7 +90,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d3aeccbaf3e2401696796d8afae91b1, type: 2}
+  - {fileID: 2100000, guid: 745340395d0044045b9fe9a058e5f04e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,7 +124,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5ecf4bdaaabc649d4a2e92a35a2b9bbd, type: 2}
+  - {fileID: 2100000, guid: b12d95a05eca74a9a8a0eab78b26f595, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -169,6 +170,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114590907781309172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507785927779818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0c871e331304bd098bc5e53e5265b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _life: 100
+  _maxLife: 100
+  _speed: 1
+  _gravity: 20
+  _controller: {fileID: 143827167985431480}
+  _target: {fileID: 0}
 --- !u!136 &136818250324587402
 CapsuleCollider:
   m_ObjectHideFlags: 1

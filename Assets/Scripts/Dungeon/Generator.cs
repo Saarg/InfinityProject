@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Dungeon {
 
-	public class Room {
+	public class IRoom {
 		public GameObject gameObject;
-		public Room top;
-		public Room down;
-		public Room left;
-		public Room right;
+		public IRoom top;
+		public IRoom down;
+		public IRoom left;
+		public IRoom right;
 
 		public bool generated = false;
 		public bool validated = false;
@@ -34,7 +34,7 @@ namespace Dungeon {
 
 		[SerializeField]
 		private const int _levelSize = 6;
-		private Room[,] _grid = new Room[_levelSize, _levelSize];
+		private IRoom[,] _grid = new IRoom[_levelSize, _levelSize];
 
 		void Start () {
 			Random.InitState (System.Environment.TickCount);
@@ -78,7 +78,7 @@ namespace Dungeon {
 
 			for (int x = 0; x < _levelSize; x++) {
 				for (int y = 0; y < _levelSize; y++) {
-					_grid [x, y] = new Room ();
+					_grid [x, y] = new IRoom ();
 				}
 			}
 
@@ -104,12 +104,12 @@ namespace Dungeon {
 
 			for (int x = 0; x < _levelSize; x++) {
 				for (int y = 0; y < _levelSize; y++) {
-					GenerateRoom (x, y);
+					GenerateIRoom (x, y);
 				}
 				yield return new WaitForEndOfFrame ();
 			}
 
-			ValidateRooms (_grid [0, 0]);
+			ValidateIRooms (_grid [0, 0]);
 
 			for (int x = 0; x < _levelSize; x++) {
 				for (int y = 0; y < _levelSize; y++) {
@@ -168,7 +168,7 @@ namespace Dungeon {
 			yield return null;
 		}
 
-		void GenerateRoom(int x, int y) {
+		void GenerateIRoom(int x, int y) {
 			if (_grid [x, y].generated)
 				return;
 
@@ -195,23 +195,23 @@ namespace Dungeon {
 			_grid [x, y].generated = true;
 		}
 
-		void ValidateRooms(Room r) {
+		void ValidateIRooms(IRoom r) {
 			if (r.validated)
 				return;
 
 			r.validated = true;
 
 			if (r.top != null)
-				ValidateRooms(r.top);
+				ValidateIRooms(r.top);
 
 			if (r.down != null)
-				ValidateRooms(r.down);
+				ValidateIRooms(r.down);
 
 			if (r.left != null)
-				ValidateRooms(r.left);
+				ValidateIRooms(r.left);
 
 			if (r.right != null)
-				ValidateRooms(r.right);
+				ValidateIRooms(r.right);
 		}
 	}
 }
