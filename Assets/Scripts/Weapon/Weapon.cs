@@ -16,5 +16,9 @@ namespace Weapons {
 		public void Fire() {
 			_specs.Fire (transform);
 		}
+
+		public float GetFireRate() {
+			return _specs.firerate;
+		}
 	}
 }

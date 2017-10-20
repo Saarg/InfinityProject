@@ -21,6 +21,9 @@ public class PlayerController : Living {
 
 		_moveDirection.y -= _gravity * Time.deltaTime;
 		_controller.Move(_moveDirection * Time.deltaTime);
-		
+
+		if (_gun != null && Input.GetButtonDown ("Fire1")) {
+			_gun.Fire ();
+		}
 	}
 }

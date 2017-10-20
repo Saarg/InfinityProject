@@ -26,8 +26,6 @@ public class Living : MonoBehaviour {
 	}
 
 	protected virtual void Update() {
-		if (_gun != null && Input.GetButtonDown ("Fire1")) {
-			_gun.Fire ();
-		}
+		
 	}
 }
