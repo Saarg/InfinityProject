@@ -488,6 +488,11 @@ Prefab:
       propertyPath: _gun
       value: 
       objectReference: {fileID: 375836261}
+    - target: {fileID: 136127385553721194, guid: 99d735a2e0bc94ac9aceec99b42d0df0,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99d735a2e0bc94ac9aceec99b42d0df0, type: 2}
   m_IsPrefabParent: 0

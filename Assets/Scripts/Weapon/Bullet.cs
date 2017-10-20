@@ -25,5 +25,9 @@ namespace Weapons {
 		void OnCollisionEnter(Collision collision) {
 			Destroy (gameObject);
 		}
+
+		public float GetDamages() {
+			return _specs.damage;
+		}
 	}
 }
