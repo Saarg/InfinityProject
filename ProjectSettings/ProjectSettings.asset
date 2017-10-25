@@ -609,7 +609,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 358841b5-47d2-48f1-aa2b-4c9b11956b6a
   projectName: InfinityProject
   organizationId: milsonneau-jean-free-fr

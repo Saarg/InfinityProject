@@ -9,14 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c001dea2ee1df4a748fb99813c62c378, type: 3}
-  m_Name: Wave01
+  m_Name: Wave04
   m_EditorClassIdentifier: 
   spawns:
-  - p: {x: 2, y: 1, z: 2}
+  - p: {x: 0, y: 0.5, z: 2}
     go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
-  - p: {x: 2, y: 1, z: 0}
+  - p: {x: 0, y: 0.5, z: -2}
     go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
-  - p: {x: 0, y: 1, z: 2}
+  - p: {x: 2, y: 0.5, z: 0}
+    go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
+  - p: {x: -2, y: 0.5, z: 0}
     go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
   nextWaveCompletion: 100
   rewards: []

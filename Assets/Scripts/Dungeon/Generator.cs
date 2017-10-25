@@ -16,6 +16,12 @@ namespace Dungeon {
 	}
 	
 	public class Generator : MonoBehaviour {
+
+		[SerializeField]
+		private GameObject _start;
+		[SerializeField]
+		private GameObject _finish;
+
 		[SerializeField]
 		private GameObject[] _Xrooms;
 		[SerializeField]
@@ -41,19 +47,16 @@ namespace Dungeon {
 			_perlinScale = Random.Range (0.9f, 1.1f);
 
 			StartCoroutine (Generate());
+
+			#if UNITY_EDITOR
 			StartCoroutine (DrawLines());
+			#endif
 		}
 
 		IEnumerator DrawLines() {
 			yield return new WaitForSeconds (0.1f);
 
 			while (true) {
-				for (int x = 0 ; x <= _levelSize ; x++)
-					Debug.DrawLine (new Vector3 (x * 9f, 0, 0), new Vector3 (x * 9f, 0, _levelSize * 9f), Color.red, 0.1f);
-
-				for (int y = 0 ; y <= _levelSize ; y++)
-					Debug.DrawLine (new Vector3 (0, 0, y * 9f), new Vector3 (_levelSize * 9f, 0, y * 9f), Color.red, 0.1f);
-
 				for (int x = 0; x < _levelSize; x++) {
 					for (int y = 0; y < _levelSize; y++) {
 						if(_grid[x, y].top != null)
@@ -109,7 +112,15 @@ namespace Dungeon {
 				yield return new WaitForEndOfFrame ();
 			}
 
+			_grid [_levelSize - 1, _levelSize - 1].top = new IRoom();
+			_grid [_levelSize - 1, _levelSize - 1].top.gameObject = _finish;
+
+			_grid [0, 0].left = new IRoom();
+			_grid [0, 0].left.gameObject = _start;
+
 			ValidateIRooms (_grid [0, 0]);
+
+			yield return new WaitForEndOfFrame();
 
 			for (int x = 0; x < _levelSize; x++) {
 				for (int y = 0; y < _levelSize; y++) {
@@ -164,6 +175,16 @@ namespace Dungeon {
 				yield return new WaitForEndOfFrame ();
 			}
 
+			#if UNITY_EDITOR
+			for (int x = 0; x < _levelSize; x++) {
+				for (int y = 0; y < _levelSize; y++) {
+					if (_grid[x, y].gameObject != null)
+						_grid[x, y].gameObject.transform.SetParent(transform);
+				}
+				yield return new WaitForEndOfFrame ();
+			}
+			#endif
+
 			Time.timeScale = 1f;
 			yield return null;
 		}
@@ -212,6 +233,16 @@ namespace Dungeon {
 
 			if (r.right != null)
 				ValidateIRooms(r.right);
+		}
+
+		void OnDrawGizmos() {
+			Gizmos.color = Color.red;
+
+			for (int x = 0 ; x <= _levelSize ; x++)
+				Gizmos.DrawLine (new Vector3 (x * 9f, 0, 0), new Vector3 (x * 9f, 0, _levelSize * 9f));
+
+			for (int y = 0 ; y <= _levelSize ; y++)
+				Gizmos.DrawLine (new Vector3 (0, 0, y * 9f), new Vector3 (_levelSize * 9f, 0, y * 9f));
 		}
 	}
 }

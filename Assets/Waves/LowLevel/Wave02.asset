@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c001dea2ee1df4a748fb99813c62c378, type: 3}
+  m_Name: Wave02
+  m_EditorClassIdentifier: 
+  spawns:
+  - p: {x: 2, y: 0.5, z: 0}
+    go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
+  - p: {x: -2, y: 0.5, z: 0}
+    go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
+  nextWaveCompletion: 100
+  rewards: []
+  completed: 0

@@ -19,10 +19,24 @@ namespace Dungeon {
 		public GameObject[] rewards;
 		public bool completed;
 
-		public void StartWave() {
-			foreach (ISpawns s in spawns) {
-				Instantiate (s.go, s.p, Quaternion.identity);
+		private GameObject[] _spawned;
+
+		public void StartWave(Vector3 position) {
+			_spawned = new GameObject[spawns.Length];
+
+			for (int i = 0; i < spawns.Length; i++) {
+				_spawned[i] = Instantiate (spawns[i].go, position + spawns[i].p, Quaternion.identity);
 			}
+		}
+
+		public bool Completed() {
+			bool done = true;
+
+			for (int i = 0; i < spawns.Length; i++) {
+					done = _spawned[i] == null ? done : false;
+			}
+
+			return done;
 		}
 	}
 }
