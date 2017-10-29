@@ -10,6 +10,7 @@ public class Living : MonoBehaviour {
 	public float attackRate = 1f;
 	public float attackForce = 10f;
 
+	public Transform sight;
 	public float sightRange;
 	public Vector3 destination;
 

@@ -5,15 +5,19 @@ using UnityEngine;
 public class Enemy : Living {
 
 	public EnemySpecs specs;
+	public Transform target;
 
 	private float inverseMoveTime; //useful to improve efficiency of calculation
-	private Transform target;
 	private float shootingCooldown; //time since the last bullet was fire
+
+	private EnemyFSM stateMachine;
 
 	protected void Start ()
 	{
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 		shootingCooldown = 0;
+
+		if(stateMachine == null) stateMachine = GetComponent<EnemyFSM> ();
 
 		base.Start ();
 	}
@@ -21,21 +25,11 @@ public class Enemy : Living {
 	protected void Update()
 	{
 		base.Update ();
+
 		shootingCooldown += Time.deltaTime;
 
-		Vector3 direction = target.position - transform.position;
-
-		if(direction != Vector3.zero){
-			transform.rotation = Quaternion.LookRotation(direction);
-		}
-
-		if (direction.magnitude > specs.attackRange) {
-			//too far
-			Move (direction);
-		} else {
-			//close enough to attack
-			Shoot();
-		}
+		if(stateMachine != null)
+			stateMachine.Update();
 	}
 
 	/** Move(Vector3 direction) : Try to move to the given direction
