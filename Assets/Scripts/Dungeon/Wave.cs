@@ -21,7 +21,7 @@ namespace Dungeon {
 
 		public void StartWave() {
 			foreach (ISpawns s in spawns) {
-				Instantiate (s.go, s.p, Quaternion.identity);
+//				Instantiate (s.go, s.p, Quaternion.identity);
 			}
 		}
 	}

@@ -15,6 +15,7 @@ namespace Weapons {
 
 		public void Fire() {
 			_specs.Fire (transform);
+			Debug.Log ("pew !");
 		}
 	}
 }
