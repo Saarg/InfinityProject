@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "Enemy/EnemySpecs", order = 1)]
 public class EnemySpecs : ScriptableObject {
-	public float speed = 0.1f;
+	public float speed = 1f;
 	public float turnSpeed = 180f;
 
 	public float attackRange = 10f;
@@ -18,6 +18,6 @@ public class EnemySpecs : ScriptableObject {
 	public float searchTurningSpeed = 120f;
 	public float searchDuration = 3f; //time before returning to patrol after engaging player
 
-	public float sightRange = 40f;
+	public float sightRange = 2.5f;
 	public float sightSphereCastRadius = 1f;
 }

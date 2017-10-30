@@ -7,10 +7,15 @@ public class Enemy : Living {
 	public EnemySpecs specs;
 	public Transform target;
 
-	private float inverseMoveTime; //useful to improve efficiency of calculation
+	private float inverseMoveTime; 	//useful to improve efficiency of calculation
 	private float shootingCooldown; //time since the last bullet was fire
 
 	private EnemyFSM stateMachine;
+
+	public EnemyFSM StateMachine()
+	{
+		return stateMachine;
+	}
 
 	protected void Start ()
 	{

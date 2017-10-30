@@ -18,7 +18,7 @@ public class Living : MonoBehaviour {
 	[SerializeField] protected float _maxLife = 100.0F;
 	[SerializeField] protected float _speed = 6.0F;
 
-	protected CharacterController _controller;
+	public CharacterController _controller;
 	protected Vector3 _moveDirection = Vector3.zero;
 
 	[SerializeField] protected float _gravity = 20.0F;

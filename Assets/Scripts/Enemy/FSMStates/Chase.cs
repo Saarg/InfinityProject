@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chase : FSMState {
 	
-	public override void Enter(){
+	public override void Enter(Enemy enemy){
 		sightColor = Color.red;
 	}
 
@@ -24,6 +24,6 @@ public class Chase : FSMState {
 		}
 	}
 
-	public override void Exit(){}
+	public override void Exit(Enemy enemy){}
 
 }

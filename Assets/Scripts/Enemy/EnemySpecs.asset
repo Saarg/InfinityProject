@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683a1d0860c421d44a0b4e359703637c, type: 3}
   m_Name: EnemySpecs
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 1
   turnSpeed: 180
   attackRange: 3
   attackRate: 0.1
