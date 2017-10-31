@@ -17,8 +17,9 @@ namespace Weapons {
 				Debug.LogWarning ("No rigidbody found on bullet, destroying bullet script");
 				Destroy (this);
 			}
-			_rb.velocity = transform.forward * _specs.velocity;
-			Destroy (gameObject, _specs.lifespan);
+            Vector3 vector = Quaternion.Euler(-90, 0, 0) * transform.forward;
+            _rb.velocity = vector * _specs.velocity;
+            Destroy(gameObject, _specs.lifespan);
 		}
 
 

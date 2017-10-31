@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammos: 20
   clips: 999
-  firerate: 0.3
+  firerate: 3
   accuracy: 1
   dispersion: 30
   ammoPrefab: {fileID: 1440888136604070, guid: 524e3e1b26454493cbb67b34071f4ac9, type: 2}
