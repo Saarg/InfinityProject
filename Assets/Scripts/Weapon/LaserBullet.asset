@@ -8,12 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1a8269d5e5694ffdb0a753bd2362f65, type: 3}
-  m_Name: BasicGun
+  m_Script: {fileID: 11500000, guid: 875e02802a5524d199265b43a665de76, type: 3}
+  m_Name: LaserBullet
   m_EditorClassIdentifier: 
-  ammos: 20
-  clips: 999
-  firerate: 0.3
-  accuracy: 1
-  dispersion: 30
-  ammoPrefab: {fileID: 1440888136604070, guid: 524e3e1b26454493cbb67b34071f4ac9, type: 2}
+  damage: 15
+  velocity: 5
+  lifespan: 10
+  bounces: 0
+  bounceChance: 0

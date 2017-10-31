@@ -17,10 +17,11 @@ namespace Weapons {
 				Debug.LogWarning ("No rigidbody found on bullet, destroying bullet script");
 				Destroy (this);
 			}
-
-			_rb.velocity = transform.forward * _specs.velocity;
+            _rb.velocity = new Vector3(0,0,1) * _specs.velocity;
 			Destroy (gameObject, _specs.lifespan);
 		}
+
+
 
 		void OnCollisionEnter(Collision collision) {
 			Destroy (gameObject);
