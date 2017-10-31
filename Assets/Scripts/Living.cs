@@ -8,8 +8,12 @@ public class Living : MonoBehaviour {
 
 	[SerializeField]
 	protected float _life = 100.0F;
+	public float life { get { return _life; } }
+
 	[SerializeField]
 	protected float _maxLife = 100.0F;
+	public float maxLife { get { return _maxLife; } }
+
 	[SerializeField]
 	protected float _speed = 6.0F;
 
