@@ -16,7 +16,7 @@ public class Enemy : Living {
 	public Color sightColor;
 
 
-	protected void Start ()
+	protected override void Start ()
 	{
 		lastPlayerKnownLocation = Vector3.zero;
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -28,7 +28,7 @@ public class Enemy : Living {
 		base.Start ();
 	}
 
-	protected void Update()
+	protected override void Update()
 	{
 		base.Update ();
 

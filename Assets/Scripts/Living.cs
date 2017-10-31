@@ -14,7 +14,7 @@ public class Living : MonoBehaviour {
 	public float sightRange;
 	public Vector3 destination;
 
-  [SerializeField]
+  	[SerializeField]
 	protected float _life = 100.0F;
 	public float life { get { return _life; } }
 

@@ -28,11 +28,13 @@ public class ChaseBehaviour : EnemyState {
 		if(direction != Vector3.zero){
 			enemy.transform.rotation = Quaternion.LookRotation(direction);
 		}
-
-		if (direction.magnitude > enemy.specs.attackRange) {
+			
+		if (direction.magnitude > enemy.specs.attackRange*.5f) {
 			//too far
 			enemy.Move (direction);
-		} else {
+		} 
+
+		if (direction.magnitude <= enemy.specs.attackRange){ 
 			//close enough to attack
 			enemy.Shoot();
 		}

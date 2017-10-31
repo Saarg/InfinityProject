@@ -16,7 +16,7 @@ namespace Weapons {
 
 		public void Fire(Transform t) {
 			Transform canon = t.Find ("Canon");
-            Instantiate(ammoPrefab, canon.position, Quaternion.Euler(90, 0, 0));
+			Instantiate(ammoPrefab, canon.position, canon.rotation);
         }
 	}
 }
