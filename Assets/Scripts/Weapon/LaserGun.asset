@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1a8269d5e5694ffdb0a753bd2362f65, type: 3}
-  m_Name: BasicGun
+  m_Name: LaserGun
   m_EditorClassIdentifier: 
-  ammos: 20
-  clips: 999
-  firerate: 0.3
+  ammos: 5
+  clips: 25
+  firerate: 1
   accuracy: 1
-  dispersion: 30
-  ammoPrefab: {fileID: 1440888136604070, guid: 524e3e1b26454493cbb67b34071f4ac9, type: 2}
+  dispersion: 0
+  ammoPrefab: {fileID: 1781866126722772, guid: 450272abb6c40bb47bc02c8b903411e4, type: 2}

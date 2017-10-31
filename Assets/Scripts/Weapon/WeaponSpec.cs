@@ -10,12 +10,13 @@ namespace Weapons {
 
 		public float firerate;
 		public float accuracy;
+        public float dispersion;
 
-		public GameObject ammoPrefab;
+        public GameObject ammoPrefab;
 
 		public void Fire(Transform t) {
 			Transform canon = t.Find ("Canon");
-			Instantiate (ammoPrefab, canon.position, canon.rotation);
-		}
+            Instantiate(ammoPrefab, canon.position, Quaternion.Euler(90, 0, 0));
+        }
 	}
 }
