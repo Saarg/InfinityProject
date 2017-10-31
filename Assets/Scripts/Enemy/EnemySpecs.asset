@@ -20,5 +20,5 @@ MonoBehaviour:
   securityDistance: 2
   searchTurningSpeed: 120
   searchDuration: 3
-  sightRange: 40
+  sightRange: 2.5
   sightSphereCastRadius: 1

@@ -7,6 +7,8 @@ public class EnemySpecs : ScriptableObject {
 	public float speed = 1f;
 	public float turnSpeed = 180f;
 
+	public float alertDuration = 3f;
+
 	public float attackRange = 10f;
 	public float attackRate = 1f; //cooldown until next attack in seconds
 	public float attackForce = 10f;

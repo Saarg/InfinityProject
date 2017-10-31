@@ -7,22 +7,23 @@ public class Enemy : Living {
 	public EnemySpecs specs;
 	public Transform target;
 
+	public Vector3 lastPlayerKnownLocation;
+
 	private float inverseMoveTime; 	//useful to improve efficiency of calculation
 	private float shootingCooldown; //time since the last bullet was fire
 
-	private EnemyFSM stateMachine;
+	private Animator stateMachine;
+	public Color sightColor;
 
-	public EnemyFSM StateMachine()
-	{
-		return stateMachine;
-	}
 
 	protected void Start ()
 	{
+		lastPlayerKnownLocation = Vector3.zero;
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 		shootingCooldown = 0;
+		sightColor = Color.grey;
 
-		if(stateMachine == null) stateMachine = GetComponent<EnemyFSM> ();
+		if (stateMachine == null) stateMachine = GetComponent<Animator> ();
 
 		base.Start ();
 	}
@@ -32,9 +33,15 @@ public class Enemy : Living {
 		base.Update ();
 
 		shootingCooldown += Time.deltaTime;
+	}
 
-		if(stateMachine != null)
-			stateMachine.Update();
+	void OnDrawGizmos()
+	{
+		if(sight != null && stateMachine != null)
+		{
+			Gizmos.color = sightColor;
+			Gizmos.DrawRay(sight.position, sight.forward.normalized * specs.sightRange);
+		}
 	}
 
 	/** Move(Vector3 direction) : Try to move to the given direction
@@ -63,6 +70,25 @@ public class Enemy : Living {
 		} else {
 			return false;
 		}					
+	}
+
+	/** PlayerIsSeen() : bool
+	 * cast a ray as line of sight and
+	 * return true if the player intersect with raycast
+	 * return false otherwise
+	 */
+	public bool PlayerIsSeen()
+	{
+		Ray ray = new Ray (sight.position, sight.forward.normalized * specs.sightRange);
+		RaycastHit hit;
+
+		if (Physics.Raycast (ray, out hit, specs.sightRange))
+		if (hit.collider.CompareTag ("Player")) {
+			lastPlayerKnownLocation = hit.collider.transform.position;
+			return true;
+		}
+
+		return false;
 	}
 }
 	
