@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LifeBonus : Bonus {
+public class GunDrop : Bonus {
 
-	public float lifeRegen = 20f;
+	public GameObject gun;
 
 	protected override void Apply(Living entity) {
-		entity.life += lifeRegen;
+		entity.PickGun (gun);
 
 		Destroy (gameObject);
 	}

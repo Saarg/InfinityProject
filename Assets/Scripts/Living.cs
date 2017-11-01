@@ -31,6 +31,7 @@ public class Living : MonoBehaviour {
 
 	[SerializeField] protected float _gravity = 20.0F;
 
+	[SerializeField] protected Transform _gunAnchor;
 	[SerializeField] protected Weapon _gun;
 
 	protected virtual void Start() {
@@ -50,4 +51,16 @@ public class Living : MonoBehaviour {
 				Destroy (this.gameObject);
 		}
 	}
+
+	public void PickGun(GameObject g) {
+		if (g != null && g.GetComponent<Weapon> () != null) {
+			GameObject newGun = Instantiate (g, _gunAnchor.position, _gunAnchor.rotation);
+			newGun.transform.SetParent (transform);
+
+			if (_gun != null)
+				Destroy (_gun.gameObject);
+
+			_gun = newGun.GetComponent<Weapon> ();
+		}
+	} 
 }
