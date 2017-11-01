@@ -16,7 +16,10 @@ public class Living : MonoBehaviour {
 
   	[SerializeField]
 	protected float _life = 100.0F;
-	public float life { get { return _life; } }
+	public float life { 
+		get { return _life; } 
+		set { _life = value > _maxLife ? _maxLife : value ; }
+	}
 
 	[SerializeField]
 	protected float _maxLife = 100.0F;
