@@ -7,15 +7,20 @@ namespace Weapons {
 
 		[SerializeField]
 		private WeaponSpec _specs;
+        private float nextFire = 0.0F;
 
-		// Use this for initialization
-		void Start () {
+        // Use this for initialization
+        void Start () {
 			
 		}
 
 		public void Fire() {
-			_specs.Fire (transform);
-			Debug.Log ("pew !");
+            if(Time.time > nextFire)
+            {
+                nextFire = Time.time + this.GetFireRate();
+                _specs.Fire(transform);
+            }
+            Debug.Log ("pew !");
 		}
 
 		public float GetFireRate() {
