@@ -51,7 +51,15 @@ public class Living : MonoBehaviour {
 			if (_life <= 0)
 				Destroy (this.gameObject);
 		}
-	}
+        if (collision.transform.tag == "ExplProjectile")
+        {
+            _life -= collision.transform.GetComponent<ExplBullet>().GetDamages();
+
+            if (_life <= 0)
+                Destroy(this.gameObject);
+            collision.transform.GetComponent<ExplBullet>().AreaDamage();
+        }
+    }
 
 	public void PickGun(GameObject g) {
 		if (g != null && g.GetComponent<Weapon> () != null) {
@@ -63,5 +71,20 @@ public class Living : MonoBehaviour {
 
 			_gun = newGun.GetComponent<Weapon> ();
 		}
-	} 
+	}
+
+    void ApplyDamage(float damage)
+    {
+        this.SetLife(this.GetLife() - damage);
+    }
+
+    public void SetLife(float n)
+    {
+        this.life = n;
+    }
+
+    public float GetLife()
+    {
+        return this.life;
+    }
 }
