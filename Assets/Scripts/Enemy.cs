@@ -51,7 +51,6 @@ public class Enemy : Living {
 	public bool Move(Vector3 direction)
 	{
 		direction.Normalize ();
-		direction *= specs.speed;
 		direction.y -= _gravity * Time.deltaTime;
 		_controller.Move (direction * Time.deltaTime);
 		return true;
@@ -83,8 +82,32 @@ public class Enemy : Living {
 		RaycastHit hit;
 
 		if (Physics.Raycast (ray, out hit, specs.sightRange))
-		if (hit.collider.CompareTag ("Player")) {
-			lastPlayerKnownLocation = hit.collider.transform.position;
+			if (hit.collider.CompareTag ("Player")) {
+				lastPlayerKnownLocation = hit.collider.transform.position;
+				return true;
+			}
+
+		return false;
+	}
+
+	/** WallIsSeen() : bool
+	 * cast 1 ray as wall detectors and
+	 * return true if a wall intersect with raycast
+	 * return false otherwise
+	 */
+	public bool WallIsSeen()
+	{
+		Ray ray = new Ray (sight.position, sight.forward.normalized * specs.sightRange);
+		RaycastHit hit;
+
+		if (Physics.Raycast (ray, out hit, specs.sightRange))
+		if (hit.collider.CompareTag ("Player"))
+			return false;
+		else {
+//			Vector3 incomingVec = hit.point - transform.position;
+//			Vector3 reflect = Vector3.Reflect(incomingVec, hit.normal);
+//			Vector3 wallAvoidance = incomingVec + reflect;
+//			Debug.DrawRay (transform.position, wallAvoidance, Color.red);
 			return true;
 		}
 

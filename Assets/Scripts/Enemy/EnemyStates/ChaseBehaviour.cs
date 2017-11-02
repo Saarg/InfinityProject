@@ -9,6 +9,7 @@ public class ChaseBehaviour : EnemyState {
 		enemy.sightColor = Color.red;
 		animator.SetBool ("PlayerIsSeen", true);
 		animator.SetBool ("PlayerIsDead", false);
+		animator.SetBool ("PlayerIsLost", false);
 
 	}
 
