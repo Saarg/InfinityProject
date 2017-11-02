@@ -15,11 +15,17 @@ public class EnemySpecs : ScriptableObject {
 
 	public float moveTime = 0.1f; //time for the object to move in sec
 
+	public float patrollingSpeed = 1f;
+	public float chasingSpeed = 1f;
+	public float alertSpeed = 1f;
+
 	public float securityDistance = 2f;
 
 	public float searchTurningSpeed = 120f;
-	public float searchDuration = 3f; //time before returning to patrol after engaging player
+	public float searchDuration = 2f; //time before returning to patrol after engaging player
 
 	public float sightRange = 2.5f;
 	public float sightSphereCastRadius = 1f;
+
+	public float wanderingRange = 10f;
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PatrolBehaviour : EnemyState {
 
 	private float elapsedTime;
+	public Vector3 target;
 
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		enemy = animator.GetComponent<Enemy> ();
@@ -20,6 +21,9 @@ public class PatrolBehaviour : EnemyState {
 		if (enemy.PlayerIsSeen ())
 			animator.SetBool ("PlayerIsSeen", true);
 		else {
+			if (enemy.WallIsSeen ()) {
+				elapsedTime = 1; //force direction change
+			}
 			Patrol ();
 		}
 	}
@@ -29,5 +33,16 @@ public class PatrolBehaviour : EnemyState {
 	private void Patrol()
 	{
 //		Debug.Log ("patrolling");
+		if (elapsedTime >= 1f) {
+			//modify rotation
+			Vector3 rot = enemy.transform.rotation.eulerAngles;
+			float jitter = Random.Range (enemy.specs.wanderingRange * -1, enemy.specs.wanderingRange);
+			rot.y += jitter;
+			enemy.transform.Rotate (rot);
+			elapsedTime = 0;
+		}
+
+		//move forward
+		enemy.Move (enemy.transform.forward.normalized * enemy.specs.patrollingSpeed);
 	}
 }
