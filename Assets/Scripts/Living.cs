@@ -33,6 +33,7 @@ public class Living : MonoBehaviour {
 
 	[SerializeField] protected Transform _gunAnchor;
 	[SerializeField] protected Weapon _gun;
+	public Weapon gun { get { return _gun; } }
 
 	protected virtual void Start() {
 		_controller = GetComponent<CharacterController>();
