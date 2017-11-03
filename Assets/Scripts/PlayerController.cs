@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class PlayerController : Living {
 
-	protected override void Update() 
+    [SerializeField] protected float _jumpSpeed = 6;
+    [SerializeField] protected float _jumpHeight = 4;
+
+    protected override void Update() 
 	{
 		base.Update ();
-
-		Vector3 LookAt = new Vector3(Input.GetAxisRaw("RHorizontal"), 0, -Input.GetAxisRaw("RVertical"));
+        Vector3 LookAt = new Vector3(Input.GetAxisRaw("RHorizontal"), 0, -Input.GetAxisRaw("RVertical"));
 		if (LookAt != Vector3.zero)
 			transform.rotation = Quaternion.LookRotation(LookAt);
 
 		if (_controller.isGrounded) 
 		{
 			_moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-			//moveDirection = transform.TransformDirection(moveDirection);
-			_moveDirection *= _speed;
+            /*faceDirection = transform.TransformDirection(new Vector3(0, Input.GetAxis("Horizontal")* _speed, 0));
+            transform.Rotate(faceDirection);*/
+            if (Input.GetKeyDown("space"))
+            {
+                _moveDirection *= _jumpSpeed;
+                _moveDirection.y = _jumpHeight;
+                StartCoroutine("Jump");
+            }
+            else
+            {
+                _moveDirection *= _speed;
+            }
 		}
+        else
+        {
+            
+        }
 
 		_moveDirection.y -= _gravity * Time.deltaTime;
 		_controller.Move(_moveDirection * Time.deltaTime);
@@ -26,4 +42,40 @@ public class PlayerController : Living {
 			_gun.Fire ();
 		}
 	}
+
+    IEnumerator Jump()
+    {
+        //Debug.Log("Coroutine de saut");
+        Vector3 faceDirection = Vector3.zero;
+        Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y +" Z " + faceDirection.z);
+        if (_moveDirection.x > 0)
+        {
+            faceDirection.y = 20;
+            Debug.Log("Droite");
+        }
+        else if (_moveDirection.x < 0)
+        {
+            faceDirection.y = -20;
+            Debug.Log("Gauche");
+        }
+        Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y + " Z " + faceDirection.z);
+        if (_moveDirection.y > 0)
+        {
+            faceDirection.x = 20;
+            Debug.Log("Avant");
+        }
+        else if (_moveDirection.y < 0)
+        {
+            faceDirection.x = -20;
+            Debug.Log("Arriere");
+        }
+        Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y + " Z " + faceDirection.z);
+        Debug.Log("Coroutine de saut");
+        for (int i = 0; i < 18; i++)
+        {
+            transform.Rotate(faceDirection);
+            yield return null;
+        }
+        
+    }
 }
