@@ -26,6 +26,7 @@ public class EnemySpecs : ScriptableObject {
 
 	public float sightRange = 2.5f;
 	public float sightSphereCastRadius = 1f;
+	public float sightAngle = 10f;
 
 	public float wanderingRange = 10f;
 }

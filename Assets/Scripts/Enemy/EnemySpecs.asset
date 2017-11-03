@@ -13,12 +13,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   turnSpeed: 180
+  alertDuration: 3
   attackRange: 3
   attackRate: 0.1
   attackForce: 10
   moveTime: 0.1
+  patrollingSpeed: 0.7
+  chasingSpeed: 1
+  alertSpeed: 1
   securityDistance: 2
   searchTurningSpeed: 120
-  searchDuration: 3
+  searchDuration: 2
   sightRange: 2.5
   sightSphereCastRadius: 1
+  wanderingRange: 10
