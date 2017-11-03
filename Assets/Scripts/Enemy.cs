@@ -40,18 +40,20 @@ public class Enemy : Living {
 	{
 		if(sight != null && stateMachine != null)
 		{
+			//Draw sight
 			Gizmos.color = sightColor;
-
-			Vector3 centerSight = sight.forward.normalized * specs.sightRange;
-//			Gizmos.DrawRay(sight.position, centerSight);
-		
+			Vector3 centerSight = sight.forward.normalized * specs.sightRange;		
 			Quaternion leftRotation	= Quaternion.Euler (0, specs.sightAngle / 2f, 0);
 			Vector3 leftSight = leftRotation * centerSight;
 			Gizmos.DrawRay(sight.position, leftSight);
-
 			Quaternion rightRotation = Quaternion.Euler (0, specs.sightAngle / -2f, 0);
 			Vector3 rightSight = rightRotation * centerSight;
 			Gizmos.DrawRay(sight.position, rightSight);
+
+			//Draw attack range
+			Gizmos.color = Color.magenta;
+			Vector3 attackRay = sight.forward.normalized * specs.attackRange;
+			Gizmos.DrawRay (sight.position, attackRay);
 		}
 	}
 
@@ -61,7 +63,6 @@ public class Enemy : Living {
 	 */
 	public bool Move(Vector3 direction)
 	{
-		direction.Normalize ();
 		direction.y -= _gravity * Time.deltaTime;
 		_controller.Move (direction * Time.deltaTime);
 		return true;

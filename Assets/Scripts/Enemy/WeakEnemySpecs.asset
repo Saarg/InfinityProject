@@ -9,17 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 683a1d0860c421d44a0b4e359703637c, type: 3}
-  m_Name: EnemySpecs
+  m_Name: WeakEnemySpecs
   m_EditorClassIdentifier: 
   alertDuration: 3
   attackRange: 3
   attackRate: 0.1
-  attackForce: 30
+  attackForce: 20
   patrollingSpeed: 0.7
-  chasingSpeed: 1.2
+  chasingSpeed: 1
   alertSpeed: 1
   securityDistance: 2
   searchTurningSpeed: 120
-  sightRange: 2.5
+  sightRange: 2
   sightAngle: 10
   wanderingRange: 10
