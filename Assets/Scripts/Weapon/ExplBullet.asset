@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: ExplBullet
   m_EditorClassIdentifier: 
   damage: 15
-  velocity: 6
+  velocity: 1
   lifespan: 10
   bounces: 0
   bounceChance: 0
-  Areaofeffect: 5
+  Areaofeffect: 1

@@ -24,7 +24,8 @@ namespace Weapons {
 
 
 		void OnCollisionEnter(Collision collision) {
-			Destroy (gameObject);
+            _rb.velocity = new Vector3(0,0,0);
+            Destroy (gameObject);
 		}
 
 		public float GetDamages() {

@@ -33,6 +33,7 @@ namespace Weapons
 
         void OnCollisionEnter(Collision collision)
         {
+            _rb.velocity = new Vector3(0, 0, 0);
             AreaDamage();
             Destroy(gameObject);
         }
@@ -49,7 +50,7 @@ namespace Weapons
 
         public void AreaDamage()
         {
-            Collider[] colls = Physics.OverlapSphere(transform.position, this.GetArea());
+            Collider[] colls = Physics.OverlapSphere(transform.position, GetArea());
             foreach (Collider col in colls)
             {
                 if (col.CompareTag("Enemy"))
@@ -64,10 +65,12 @@ namespace Weapons
                     else if(distance <= GetArea()*0.6 && distance > GetArea() * 0.3) {
                         //Deal 80% dmg to the enemy
                         col.SendMessage("ApplyDamage", GetDamages()*0.8, SendMessageOptions.DontRequireReceiver);
+
                     }
                     else if(distance <= GetArea()*0.3 && distance > 0) {
                         //Deal 100% dmg to the enemy
-                       col.SendMessage("ApplyDamage",GetDamages(), SendMessageOptions.DontRequireReceiver);
+                       col.SendMessage("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
+
                     }
                 }
             }
