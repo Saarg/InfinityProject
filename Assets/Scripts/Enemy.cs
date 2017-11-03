@@ -5,7 +5,8 @@ using UnityEngine;
 public class Enemy : Living {
 
 	public EnemySpecs specs;
-	public Transform target;
+
+	public Transform player;
 
 	public Vector3 lastPlayerKnownLocation;
 
@@ -19,7 +20,7 @@ public class Enemy : Living {
 	protected override void Start ()
 	{
 		lastPlayerKnownLocation = Vector3.zero;
-		target = GameObject.FindGameObjectWithTag ("Player").transform;
+		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		shootingCooldown = 0;
 		sightColor = Color.grey;
 
@@ -39,8 +40,20 @@ public class Enemy : Living {
 	{
 		if(sight != null && stateMachine != null)
 		{
+			//Draw sight
 			Gizmos.color = sightColor;
-			Gizmos.DrawRay(sight.position, sight.forward.normalized * specs.sightRange);
+			Vector3 centerSight = sight.forward.normalized * specs.sightRange;		
+			Quaternion leftRotation	= Quaternion.Euler (0, specs.sightAngle / 2f, 0);
+			Vector3 leftSight = leftRotation * centerSight;
+			Gizmos.DrawRay(sight.position, leftSight);
+			Quaternion rightRotation = Quaternion.Euler (0, specs.sightAngle / -2f, 0);
+			Vector3 rightSight = rightRotation * centerSight;
+			Gizmos.DrawRay(sight.position, rightSight);
+
+			//Draw attack range
+			Gizmos.color = Color.magenta;
+			Vector3 attackRay = sight.forward.normalized * specs.attackRange;
+			Gizmos.DrawRay (sight.position, attackRay);
 		}
 	}
 
@@ -50,8 +63,6 @@ public class Enemy : Living {
 	 */
 	public bool Move(Vector3 direction)
 	{
-		direction.Normalize ();
-		direction *= specs.speed;
 		direction.y -= _gravity * Time.deltaTime;
 		_controller.Move (direction * Time.deltaTime);
 		return true;
@@ -79,12 +90,35 @@ public class Enemy : Living {
 	 */
 	public bool PlayerIsSeen()
 	{
+		if (player != null) {
+			Vector3 diff = player.position - transform.position;
+			float angle = Vector3.Angle (diff, transform.forward);
+
+			if (diff.magnitude < specs.sightRange && angle < (specs.sightAngle / 2f)) 
+				return true;
+		}
+
+		return false;
+	}
+
+	/** WallIsSeen() : bool
+//	 * cast 1 ray as wall detectors and
+//	 * return true if a wall intersect with raycast
+//	 * return false otherwise
+//	 */
+	public bool WallIsSeen()
+	{
 		Ray ray = new Ray (sight.position, sight.forward.normalized * specs.sightRange);
 		RaycastHit hit;
 
 		if (Physics.Raycast (ray, out hit, specs.sightRange))
-		if (hit.collider.CompareTag ("Player")) {
-			lastPlayerKnownLocation = hit.collider.transform.position;
+		if (hit.collider.CompareTag ("Player"))
+			return false;
+		else {
+//			Vector3 incomingVec = hit.point - transform.position;
+//			Vector3 reflect = Vector3.Reflect(incomingVec, hit.normal);
+//			Vector3 wallAvoidance = incomingVec + reflect;
+//			Debug.DrawRay (transform.position, wallAvoidance, Color.red);
 			return true;
 		}
 

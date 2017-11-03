@@ -9,6 +9,7 @@ public class ChaseBehaviour : EnemyState {
 		enemy.sightColor = Color.red;
 		animator.SetBool ("PlayerIsSeen", true);
 		animator.SetBool ("PlayerIsDead", false);
+		animator.SetBool ("PlayerIsLost", false);
 
 	}
 
@@ -23,7 +24,7 @@ public class ChaseBehaviour : EnemyState {
 
 	private void Chase()
 	{
-		Vector3 direction = enemy.target.position - enemy.transform.position;
+		Vector3 direction = enemy.player.position - enemy.transform.position;
 
 		if(direction != Vector3.zero){
 			enemy.transform.rotation = Quaternion.LookRotation(direction);

@@ -8,17 +8,39 @@ namespace Dungeon {
 
 		static Color[] waveColors = {Color.red, Color.green, Color.blue, Color.yellow, Color.cyan};
 
+		[Header("Waves config")]
 		[SerializeField]
 		protected Wave[] _waves;
-
 		protected int _curWave = -1;
 
+		[SerializeField]
+		protected GameObject _reward;
+
+		[Range(0f, 1f)]
+		[SerializeField]
+		protected float _rewardChance = 0.2f;
+
+		[Header("Room Events")]
 		public UnityEvent OnStart;
 		public UnityEvent OnCompleted;
 		public UnityEvent OnPlayerEnter;
 
+		protected PlayerController _player;
+		public PlayerController player { get { return _player; } }
+
 		void Start () {
+			if (_reward != null) {
+				_reward.SetActive (false);
+			}
+
 			OnStart.Invoke ();
+
+			if (_waves.Length == 0) {
+				OnCompleted.Invoke ();
+
+				SpawnReward ();
+				Destroy (this);
+			}
 		}
 
 		IEnumerator ManageWaves () {
@@ -35,6 +57,8 @@ namespace Dungeon {
 					} else {
 						Debug.Log ("Room Cleared");
 
+						SpawnReward ();
+
 						OnCompleted.Invoke ();
 
 						break;
@@ -47,9 +71,17 @@ namespace Dungeon {
 
 		void OnTriggerEnter(Collider other) {
 			if (other.tag == "Player" && _curWave == -1) {
+				_player = other.GetComponent<PlayerController>();
+
 				StartCoroutine (ManageWaves());
 
 				OnPlayerEnter.Invoke ();
+			}
+		}
+
+		void SpawnReward() {
+			if (_reward != null && Random.Range (0f, 1f) < _rewardChance) {
+				_reward.SetActive (true);
 			}
 		}
 

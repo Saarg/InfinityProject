@@ -11,14 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683a1d0860c421d44a0b4e359703637c, type: 3}
   m_Name: EnemySpecs
   m_EditorClassIdentifier: 
-  speed: 1
-  turnSpeed: 180
+  alertDuration: 3
   attackRange: 3
   attackRate: 0.1
-  attackForce: 10
-  moveTime: 0.1
+  attackForce: 30
+  patrollingSpeed: 0.7
+  chasingSpeed: 1.2
+  alertSpeed: 1
   securityDistance: 2
   searchTurningSpeed: 120
-  searchDuration: 3
   sightRange: 2.5
-  sightSphereCastRadius: 1
+  sightAngle: 10
+  wanderingRange: 10

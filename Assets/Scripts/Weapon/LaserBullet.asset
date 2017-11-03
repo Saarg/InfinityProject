@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875e02802a5524d199265b43a665de76, type: 3}
   m_Name: LaserBullet
   m_EditorClassIdentifier: 
-  damage: 15
-  velocity: 5
+  damage: 20
+  velocity: 8
   lifespan: 10
   bounces: 0
   bounceChance: 0

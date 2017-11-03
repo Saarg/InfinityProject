@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683a1d0860c421d44a0b4e359703637c, type: 3}
+  m_Name: WeakEnemySpecs
+  m_EditorClassIdentifier: 
+  alertDuration: 3
+  attackRange: 3
+  attackRate: 0.1
+  attackForce: 20
+  patrollingSpeed: 0.7
+  chasingSpeed: 1
+  alertSpeed: 1
+  securityDistance: 2
+  searchTurningSpeed: 120
+  sightRange: 2
+  sightAngle: 10
+  wanderingRange: 10
