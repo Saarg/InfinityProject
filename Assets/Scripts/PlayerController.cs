@@ -41,7 +41,7 @@ public class PlayerController : Living {
 		if (_gun != null && Input.GetButtonDown ("Fire1")) {
 			_gun.Fire ();
 		}
-//		Debug.Log (Input.GetButtonDown ("Reload"));
+		
 		if (_gun != null && Input.GetButtonDown ("Reload")) {
 			_gun.StartReload ();
 		}

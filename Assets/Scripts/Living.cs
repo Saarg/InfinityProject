@@ -44,17 +44,7 @@ public class Living : MonoBehaviour {
 	}
 
 	protected virtual void OnCollisionEnter(Collision collision) {
-		Debug.Log (collision.transform.tag);
-		if (collision.transform.tag == "Projectile") {
-			_life -= collision.transform.GetComponent<Bullet> ().GetDamages ();
-
-			if (_life <= 0)
-				Destroy (this.gameObject);
-		}
-        if (collision.transform.tag == "ExplProjectile")
-        {
-           
-        }
+		
     }
 
 	public void PickGun(GameObject g) {

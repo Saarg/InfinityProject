@@ -5,11 +5,15 @@ using UnityEngine;
 namespace Weapons{
 	[CreateAssetMenu(fileName = "Bullet", menuName = "Weapons/Bullet", order = 1)]
 	public class BulletSpec : ScriptableObject {
-        public float damage = 1;
+        public float damage = 15;
 
-		public float velocity;
-		public float lifespan;
-		public int bounces;
-		public float bounceChance;
+		public float velocity = 6;
+		public float lifespan = 10;
+		public int bounces = 0;
+		public float bounceChance = 0;
+
+		public bool isExplosive = false;
+		public float areaofeffect = 1;
+		public float explosiveDamage = 8;
 	}
 }
