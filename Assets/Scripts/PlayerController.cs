@@ -10,15 +10,37 @@ public class PlayerController : Living {
     protected override void Update() 
 	{
 		base.Update ();
-        Vector3 LookAt = new Vector3(Input.GetAxisRaw("RHorizontal"), 0, -Input.GetAxisRaw("RVertical"));
-		if (LookAt != Vector3.zero)
-			transform.rotation = Quaternion.LookRotation(LookAt);
 
+		/*
+		 * Look at
+		 */
+		if (_controller.isGrounded) {
+			Vector3 LookAt = new Vector3 (Input.GetAxisRaw ("RHorizontal"), 0, -Input.GetAxisRaw ("RVertical"));
+			if (LookAt != Vector3.zero)
+				transform.rotation = Quaternion.LookRotation (LookAt);
+			else { // If no controler use mouse
+				Vector3 cursorPos = Input.mousePosition;
+
+				Vector3 playerScreenPos = Camera.main.WorldToScreenPoint (transform.position);
+
+				Vector3 PtoC = cursorPos - playerScreenPos;
+				PtoC.Normalize ();
+
+				PtoC.z = PtoC.y;
+				PtoC.y = 0;
+
+				transform.rotation = Quaternion.LookRotation (PtoC);
+
+				Debug.DrawLine (transform.position, transform.position + PtoC, Color.grey);
+			}
+		}
+
+		/*
+		 * Movement
+		 */
 		if (_controller.isGrounded) 
 		{
 			_moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            /*faceDirection = transform.TransformDirection(new Vector3(0, Input.GetAxis("Horizontal")* _speed, 0));
-            transform.Rotate(faceDirection);*/
             
 
             if (Input.GetKeyDown("space"))
@@ -37,9 +59,15 @@ public class PlayerController : Living {
             
         }
 
+		/*
+		 * Apply Movement
+		 */
 		_moveDirection.y -= _gravity * Time.deltaTime;
 		_controller.Move(_moveDirection * Time.deltaTime);
 
+		/*
+		 * Gun managment
+		 */
 		if (_gun != null && Input.GetButtonDown ("Fire1")) {
 			_gun.Fire ();
 		}
