@@ -40,7 +40,8 @@ public class Living : MonoBehaviour {
 	}
 
 	protected virtual void Update() {
-
+		if (transform.position.y < -10)
+			ApplyDamage(-transform.position.y);
 	}
 
 	protected virtual void OnCollisionEnter(Collision collision) {
