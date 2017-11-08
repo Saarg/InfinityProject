@@ -80,37 +80,18 @@ public class PlayerController : Living {
     IEnumerator Jump()
     {
         Debug.Log("Coroutine de saut");
-        Vector3 faceDirection = Vector3.zero;
-        
-        //Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y +" Z " + faceDirection.z);
-        //Debug.Log("_moveDirection X " + _moveDirection.x + " Y " + _moveDirection.y + " Z " + _moveDirection.z);
-        if (_moveDirection.z > 0)
-        {
-            faceDirection.x = 20;
-            Debug.Log("Avant");
-        }
-        else if (_moveDirection.z < 0)
-        {
-            faceDirection.x = -20;
-            Debug.Log("Arriere");
-        }
-        if (_moveDirection.x > 0)
-        {
-            faceDirection.z = 20;
-            Debug.Log("Droite");
-        }
-        else if (_moveDirection.x < 0)
-        {
-            faceDirection.z = -20;
-            Debug.Log("Gauche");
-        }
-        //Debug.Log("_moveDirection X " + _moveDirection.x + " Y " + _moveDirection.y + " Z " + _moveDirection.z);
+
+		Vector3 planeModeDir = _moveDirection;
+		planeModeDir.y = 0;
+
+		Vector3 rotationAxis = Quaternion.AngleAxis (90, Vector3.up) * planeModeDir;
+		rotationAxis.Normalize ();
         
         for (int i = 0; i < 18; i++)
         {
-            transform.Rotate(faceDirection);
+			transform.RotateAround (transform.position, rotationAxis, 20);
             //Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y + " Z " + faceDirection.z);
-            yield return null;
+			yield return new WaitForSeconds(0.01f);
         }
         
     }
