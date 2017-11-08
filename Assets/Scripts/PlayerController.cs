@@ -19,6 +19,8 @@ public class PlayerController : Living {
 			_moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             /*faceDirection = transform.TransformDirection(new Vector3(0, Input.GetAxis("Horizontal")* _speed, 0));
             transform.Rotate(faceDirection);*/
+            
+
             if (Input.GetKeyDown("space"))
             {
                 _moveDirection *= _jumpSpeed;
@@ -49,35 +51,37 @@ public class PlayerController : Living {
 
     IEnumerator Jump()
     {
-        //Debug.Log("Coroutine de saut");
+        Debug.Log("Coroutine de saut");
         Vector3 faceDirection = Vector3.zero;
-        Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y +" Z " + faceDirection.z);
-        if (_moveDirection.x > 0)
-        {
-            faceDirection.y = 20;
-            Debug.Log("Droite");
-        }
-        else if (_moveDirection.x < 0)
-        {
-            faceDirection.y = -20;
-            Debug.Log("Gauche");
-        }
-        Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y + " Z " + faceDirection.z);
-        if (_moveDirection.y > 0)
+        
+        //Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y +" Z " + faceDirection.z);
+        //Debug.Log("_moveDirection X " + _moveDirection.x + " Y " + _moveDirection.y + " Z " + _moveDirection.z);
+        if (_moveDirection.z > 0)
         {
             faceDirection.x = 20;
             Debug.Log("Avant");
         }
-        else if (_moveDirection.y < 0)
+        else if (_moveDirection.z < 0)
         {
             faceDirection.x = -20;
             Debug.Log("Arriere");
         }
-        Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y + " Z " + faceDirection.z);
-        Debug.Log("Coroutine de saut");
+        if (_moveDirection.x > 0)
+        {
+            faceDirection.z = 20;
+            Debug.Log("Droite");
+        }
+        else if (_moveDirection.x < 0)
+        {
+            faceDirection.z = -20;
+            Debug.Log("Gauche");
+        }
+        //Debug.Log("_moveDirection X " + _moveDirection.x + " Y " + _moveDirection.y + " Z " + _moveDirection.z);
+        
         for (int i = 0; i < 18; i++)
         {
             transform.Rotate(faceDirection);
+            //Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y + " Z " + faceDirection.z);
             yield return null;
         }
         
