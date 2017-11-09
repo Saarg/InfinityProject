@@ -3,9 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Living {
+    
+    public Dictionary<string, int> stats = new Dictionary<string, int>();
 
+    [Header("Player Stats")]
     [SerializeField] protected float _jumpSpeed = 6;
     [SerializeField] protected float _jumpHeight = 4;
+    [Space(10)]
+    public int levelAtk = 1;
+    public int levelHp = 1;
+    public int levelSpe = 1;
+    public int levelEnd = 1;
+    public int levelRan = 1;
+    public int levelRol = 1;
+
+    protected int expAtk = 0;
+    protected int expHp = 0;
+    protected int expSpe = 0;
+    protected int expEnd = 0;
+    protected int expRan = 0;
+    protected int expRol = 0;
+
+    protected int countAtk = 0;
+    protected int countHp = 0;
+    protected int countSpe = 0;
+    protected int countEnd = 0;
+    protected int countRan = 0;
+    protected int countRol = 0;
+
+    protected override void Start()
+    {
+        base.Start();
+        stats.Add("Atk", levelAtk);
+        stats.Add("Hp", levelHp);
+        stats.Add("Spe", levelSpe);
+        stats.Add("End", levelEnd);
+        stats.Add("Ran", levelRan);
+        stats.Add("Rol", levelRol);
+    }
 
     protected override void Update() 
 	{
@@ -47,6 +82,7 @@ public class PlayerController : Living {
                 _moveDirection *= _jumpSpeed;
                 _moveDirection.y = _jumpHeight;
                 StartCoroutine("Jump");
+                countRol++;
             }
             else
             {
@@ -58,7 +94,7 @@ public class PlayerController : Living {
             
         }
 
-		if (_moveDirection.magnitude > 0.1 && !_audioSource.isPlaying) {
+		if (_moveDirection.magnitude > 0.1 && !_audioSource.isPlaying && _moveDirection.y == 0) {
 			_audioSource.clip = stepSound;
 			_audioSource.loop = true;
 			_audioSource.Play ();
@@ -77,6 +113,7 @@ public class PlayerController : Living {
 		 */
 		if (_gun != null && Input.GetButtonDown ("Fire1")) {
 			_gun.Fire ();
+            countAtk++;
 		}
 		
 		if (_gun != null && Input.GetButtonDown ("Reload")) {
@@ -96,14 +133,24 @@ public class PlayerController : Living {
 		planeModeDir.y = 0;
 
 		Vector3 rotationAxis = Quaternion.AngleAxis (90, Vector3.up) * planeModeDir;
-		rotationAxis.Normalize ();
         
         for (int i = 0; i < 18; i++)
         {
 			transform.RotateAround (transform.position, rotationAxis, 20);
-            //Debug.Log("FaceDirection X " + faceDirection.x + " Y " + faceDirection.y + " Z " + faceDirection.z);
-			yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.01f);
         }
         
+    }
+
+    protected void LevelUp(string stat)
+    {
+        if (stats.ContainsKey(stat))
+        {
+            stats[stat]++;
+        }
+        else
+        {
+            Debug.Log("erreur de statistique");
+        }
     }
 }
