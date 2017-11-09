@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ExplosifBullet
   m_EditorClassIdentifier: 
   damage: 15
-  velocity: 3
+  velocity: 2
   lifespan: 30
   bounces: 0
   bounceChance: 0

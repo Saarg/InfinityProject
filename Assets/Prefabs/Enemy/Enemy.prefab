@@ -673,9 +673,9 @@ MonoBehaviour:
   sight: {fileID: 4092190069715842}
   sightRange: 0
   destination: {x: 0, y: 0, z: 0}
-  _life: 100
-  _maxLife: 100
-  _speed: 6
+  _life: 50
+  _maxLife: 50
+  _speed: 5
   _controller: {fileID: 143491459001291206}
   _gravity: 20
   _gunAnchor: {fileID: 4729878374162280}

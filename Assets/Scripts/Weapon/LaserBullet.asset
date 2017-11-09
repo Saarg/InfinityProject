@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Name: LaserBullet
   m_EditorClassIdentifier: 
   damage: 20
-  velocity: 8
+  velocity: 5
   lifespan: 10
   bounces: 0
   bounceChance: 0
+  isExplosive: 0
+  areaofeffect: 1
+  explosiveDamage: 8

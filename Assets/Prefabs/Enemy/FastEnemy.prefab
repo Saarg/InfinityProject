@@ -848,13 +848,13 @@ MonoBehaviour:
   sight: {fileID: 4700452271847942}
   sightRange: 0
   destination: {x: 0, y: 0, z: 0}
-  _life: 70
-  _maxLife: 70
+  _life: 40
+  _maxLife: 40
   _speed: 6
   _controller: {fileID: 143628069505014040}
   _gravity: 20
   _gunAnchor: {fileID: 4878850020247616}
-  _gun: {fileID: 0}
+  _gun: {fileID: 114347764419834202}
   stepSound: {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   jumpSound: {fileID: 8300000, guid: 5a618c007fe353c459f6916c3860e274, type: 3}
   hurtSound: {fileID: 8300000, guid: a9646a6173bb6ad4b951ea60adaaa407, type: 3}

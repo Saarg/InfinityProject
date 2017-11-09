@@ -20,6 +20,6 @@ MonoBehaviour:
   alertSpeed: 1
   securityDistance: 2
   searchTurningSpeed: 120
-  sightRange: 2.5
-  sightAngle: 10
+  sightRange: 7
+  sightAngle: 20
   wanderingRange: 10
