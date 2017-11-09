@@ -40,10 +40,7 @@ namespace Weapons {
 		 */
 
 		public void ImpactDamage(Collision collision) {
-			if (collision.gameObject.CompareTag("Enemy"))
-			{
-				collision.gameObject.SendMessage ("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
-			}
+			collision.gameObject.SendMessage ("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
 		}
 
 		public float GetDamages() {
