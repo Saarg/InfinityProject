@@ -4,8 +4,11 @@ using UnityEngine;
 
 using Weapons;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class Living : MonoBehaviour {
 
+	[Header("Stats")]
 	public float attackRange = 10f;
 	public float attackRate = 1f;
 	public float attackForce = 10f;
@@ -26,26 +29,41 @@ public class Living : MonoBehaviour {
 	public float maxLife { get { return _maxLife; } }
 	[SerializeField] protected float _speed = 6.0F;
 
+	[Header("Movement")]
 	public CharacterController _controller;
 	protected Vector3 _moveDirection = Vector3.zero;
 
 	[SerializeField] protected float _gravity = 20.0F;
 
+	[Header("Gun")]
 	[SerializeField] protected Transform _gunAnchor;
 	[SerializeField] protected Weapon _gun;
 	public Weapon gun { get { return _gun; } }
 
+	[Header("Sounds")]
+	public AudioClip stepSound;
+	public AudioClip jumpSound;
+	public AudioClip hurtSound;
+	protected AudioSource _audioSource;
+
 	protected virtual void Start() {
 		_controller = GetComponent<CharacterController>();
+
+		_audioSource = GetComponent<AudioSource> ();
 	}
 
 	protected virtual void Update() {
 		if (transform.position.y < -10)
 			ApplyDamage(-transform.position.y);
+
+		if (_controller.velocity == Vector3.zero && _audioSource.clip == stepSound)
+			_audioSource.Pause ();
 	}
 
 	protected virtual void OnCollisionEnter(Collision collision) {
-		
+		_audioSource.clip = hurtSound;
+		_audioSource.loop = false;
+		_audioSource.Play ();
     }
 
 	public void PickGun(GameObject g) {

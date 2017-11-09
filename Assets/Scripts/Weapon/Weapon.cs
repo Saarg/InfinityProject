@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Weapons {
+	
+	[RequireComponent(typeof(AudioSource))]
+
 	public class Weapon : MonoBehaviour {
 
 		[SerializeField]
@@ -14,12 +17,18 @@ namespace Weapons {
 
 		public bool canShoot { get; internal set; }
 
+		public AudioClip fireSound;
+		public AudioClip reloadSound;
+		private AudioSource _source;
+
         // Use this for initialization
         void Start () {
 			ammos = _specs.clipSize;
 			clips = _specs.clips;
 
 			canShoot = true;
+
+			_source = GetComponent<AudioSource> ();
 		}
 
 		public void Fire() {
@@ -32,6 +41,10 @@ namespace Weapons {
 			else if (Time.time > nextFire)
             {
                 nextFire = Time.time + this.GetFireRate();
+
+				_source.clip = fireSound;
+				_source.Play ();
+
                 _specs.Fire(transform);
 
 				ammos--;
@@ -45,6 +58,9 @@ namespace Weapons {
 		IEnumerator Reload() {
 			canShoot = false;
 			float startTime = Time.realtimeSinceStartup;
+
+			_source.clip = reloadSound;
+			_source.Play ();
 
 			while (ammos < _specs.clipSize) {
 				ammos++;

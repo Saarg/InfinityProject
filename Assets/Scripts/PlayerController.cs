@@ -41,7 +41,6 @@ public class PlayerController : Living {
 		if (_controller.isGrounded) 
 		{
 			_moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            
 
             if (Input.GetKeyDown("space"))
             {
@@ -58,6 +57,14 @@ public class PlayerController : Living {
         {
             
         }
+
+		if (_moveDirection.magnitude > 0.1 && !_audioSource.isPlaying) {
+			_audioSource.clip = stepSound;
+			_audioSource.loop = true;
+			_audioSource.Play ();
+		} else if (_moveDirection.magnitude < 0.1 && _audioSource.isPlaying) {
+			_audioSource.Stop ();
+		}
 
 		/*
 		 * Apply Movement
@@ -79,7 +86,11 @@ public class PlayerController : Living {
 
     IEnumerator Jump()
     {
-        Debug.Log("Coroutine de saut");
+		Debug.Log ("Coroutine de saut");
+
+		_audioSource.clip = jumpSound;
+		_audioSource.loop = false;
+		_audioSource.Play ();
 
 		Vector3 planeModeDir = _moveDirection;
 		planeModeDir.y = 0;
