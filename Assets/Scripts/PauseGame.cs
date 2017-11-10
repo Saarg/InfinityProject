@@ -1,5 +1,7 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+//using UnityStandardAssets.Characters.FirstPerson;
 
 public class PauseGame : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class PauseGame : MonoBehaviour
     public Transform videoSettingsMenu;
     public Transform controlsMenu;
     public Transform Player;
+    SaveGame saveGame;
 
 
 
@@ -35,6 +38,8 @@ public class PauseGame : MonoBehaviour
             canvas.gameObject.SetActive(true);
             Time.timeScale = 0;
             AudioListener.volume = 0;
+            saveGame = gameObject.GetComponent<SaveGame>();
+            saveGame.SaveGameSettings(false);
         }
         else
         {
