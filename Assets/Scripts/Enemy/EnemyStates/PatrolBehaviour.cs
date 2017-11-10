@@ -35,10 +35,9 @@ public class PatrolBehaviour : EnemyState {
 //		Debug.Log ("patrolling");
 		if (elapsedTime >= 1f) {
 			//modify rotation
-			Vector3 rot = enemy.transform.rotation.eulerAngles;
 			float jitter = Random.Range (enemy.specs.wanderingRange * -1, enemy.specs.wanderingRange);
-			rot.y += jitter;
-			enemy.transform.Rotate (rot);
+			enemy.transform.Rotate(enemy.transform.up * jitter);
+
 			elapsedTime = 0;
 		}
 
