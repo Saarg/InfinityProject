@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4421487354950424}
   - component: {fileID: 65038960056083706}
   - component: {fileID: 114038208292963764}
+  - component: {fileID: 114299615764304520}
   m_Layer: 0
   m_Name: L_Room02
   m_TagString: Untagged
@@ -656,6 +657,34 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   gun: {fileID: 1465193414209524, guid: 8858fd1bbf84f41aaa5ac9fc6a75f9ca, type: 2}
+--- !u!114 &114299615764304520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002499312716850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.1
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}
 --- !u!135 &135181552088279300
 SphereCollider:
   m_ObjectHideFlags: 1

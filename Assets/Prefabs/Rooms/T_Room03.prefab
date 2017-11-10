@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 4811159419543928}
   - component: {fileID: 65484045401070600}
   - component: {fileID: 114343518713702314}
+  - component: {fileID: 114103976120557498}
   m_Layer: 0
   m_Name: T_Room03
   m_TagString: Untagged
@@ -426,6 +427,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114103976120557498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728720994403856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.1
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}
 --- !u!114 &114343518713702314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,6 +468,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - {fileID: 11400000, guid: 9381d91caf54449478fbe700c435ee9e, type: 2}
+  _reward: {fileID: 0}
+  _rewardChance: 0.2
   OnStart:
     m_PersistentCalls:
       m_Calls:

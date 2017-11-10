@@ -1021,6 +1021,7 @@ GameObject:
   - component: {fileID: 4989498793013834}
   - component: {fileID: 65332052893340360}
   - component: {fileID: 114044331302023624}
+  - component: {fileID: 114243393917106240}
   m_Layer: 0
   m_Name: X_Room03
   m_TagString: Untagged
@@ -8409,7 +8410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a35a6d6bdc0494abc75fc0283b6dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeRegen: 20
   yMovement:
     serializedVersion: 2
     m_Curve:
@@ -8440,6 +8440,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  lifeRegen: 20
 --- !u!114 &114044331302023624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8504,6 +8505,34 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114243393917106240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524286337281996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.1
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}
 --- !u!135 &135933361519199734
 SphereCollider:
   m_ObjectHideFlags: 1

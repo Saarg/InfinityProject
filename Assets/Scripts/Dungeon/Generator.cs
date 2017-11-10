@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Dungeon {
 
@@ -184,6 +185,14 @@ namespace Dungeon {
 				yield return new WaitForEndOfFrame ();
 			}
 			#endif
+
+			for (int x = 0; x < _levelSize; x++) {
+				for (int y = 0; y < _levelSize; y++) {
+					if (_grid[x, y].gameObject != null)
+						_grid[x, y].gameObject.GetComponent<NavMeshSurface>().BuildNavMesh ();
+				}
+				yield return new WaitForEndOfFrame ();
+			}
 
 			Time.timeScale = 1f;
 			yield return null;
