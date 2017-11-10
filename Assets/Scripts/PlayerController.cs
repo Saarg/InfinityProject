@@ -3,43 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Living {
-    
-    public Dictionary<string, int> stats = new Dictionary<string, int>();
+
+    //public Dictionary<string, PlayerStats> stats = new Dictionary<string, PlayerStats>();
+    protected PlayerStats[] stats = new PlayerStats[6];
 
     [Header("Player Stats")]
     [SerializeField] protected float _jumpSpeed = 6;
     [SerializeField] protected float _jumpHeight = 4;
     [Space(10)]
-    public int levelAtk = 1;
-    public int levelHp = 1;
-    public int levelSpe = 1;
-    public int levelEnd = 1;
-    public int levelRan = 1;
-    public int levelRol = 1;
-
-    protected int expAtk = 0;
-    protected int expHp = 0;
-    protected int expSpe = 0;
-    protected int expEnd = 0;
-    protected int expRan = 0;
-    protected int expRol = 0;
-
-    protected int countAtk = 0;
-    protected int countHp = 0;
-    protected int countSpe = 0;
-    protected int countEnd = 0;
-    protected int countRan = 0;
-    protected int countRol = 0;
+    public PlayerStats atk;
+    public PlayerStats hp;
+    public PlayerStats spe;
+    public PlayerStats end;
+    public PlayerStats ran;
+    public PlayerStats rol;
+    [Space(10)]
+    public int[] experienceTable = new int[20];
+    
 
     protected override void Start()
     {
         base.Start();
-        stats.Add("Atk", levelAtk);
-        stats.Add("Hp", levelHp);
-        stats.Add("Spe", levelSpe);
-        stats.Add("End", levelEnd);
-        stats.Add("Ran", levelRan);
-        stats.Add("Rol", levelRol);
+        
+
+        atk = new PlayerStats();
+        hp = new PlayerStats();
+        spe = new PlayerStats();
+        end = new PlayerStats();
+        ran = new PlayerStats();
+        rol = new PlayerStats();
+
+        stats[0] = atk;
+        stats[1] = hp;
+        stats[2] = spe;
+        stats[3] = end;
+        stats[4] = ran;
+        stats[5] = rol;
     }
 
     protected override void Update() 
@@ -82,7 +81,8 @@ public class PlayerController : Living {
                 _moveDirection *= _jumpSpeed;
                 _moveDirection.y = _jumpHeight;
                 StartCoroutine("Jump");
-                countRol++;
+                rol.experience++;
+                Debug.Log("Xp rol " + rol.experience);
             }
             else
             {
@@ -113,13 +113,19 @@ public class PlayerController : Living {
 		 */
 		if (_gun != null && Input.GetButtonDown ("Fire1")) {
 			_gun.Fire ();
-            countAtk++;
+            atk.experience++;
+            Debug.Log("Xp atk " + atk.experience);
 		}
 		
 		if (_gun != null && Input.GetButtonDown ("Reload")) {
 			_gun.StartReload ();
 		}
-	}
+
+        if (Input.GetKeyDown("a"))
+        {
+            LevelUp();
+        }
+    }
 
     IEnumerator Jump()
     {
@@ -142,15 +148,14 @@ public class PlayerController : Living {
         
     }
 
-    protected void LevelUp(string stat)
+    protected void LevelUp()
     {
-        if (stats.ContainsKey(stat))
+        foreach(PlayerStats ps in stats)
         {
-            stats[stat]++;
-        }
-        else
-        {
-            Debug.Log("erreur de statistique");
+            while(ps.LevelUp(experienceTable[ps.level]))
+            {
+                Debug.Log("Level :" + ps.level +" xp restant :"+ ps.experience);
+            }
         }
     }
 }
