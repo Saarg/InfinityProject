@@ -4,8 +4,11 @@ using UnityEngine;
 
 using Weapons;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class Living : MonoBehaviour {
 
+	[Header("Stats")]
 	public float attackRange = 10f;
 	public float attackRate = 1f;
 	public float attackForce = 10f;
@@ -15,7 +18,7 @@ public class Living : MonoBehaviour {
 	public Vector3 destination;
 
   	[SerializeField]
-	protected float _life = 100.0F;
+    protected float _life = 100.0F;
 	public float life { 
 		get { return _life; } 
 		set { _life = value > _maxLife ? _maxLife : value ; }
@@ -26,39 +29,41 @@ public class Living : MonoBehaviour {
 	public float maxLife { get { return _maxLife; } }
 	[SerializeField] protected float _speed = 6.0F;
 
+	[Header("Movement")]
 	public CharacterController _controller;
 	protected Vector3 _moveDirection = Vector3.zero;
 
 	[SerializeField] protected float _gravity = 20.0F;
 
+	[Header("Gun")]
 	[SerializeField] protected Transform _gunAnchor;
 	[SerializeField] protected Weapon _gun;
 	public Weapon gun { get { return _gun; } }
 
+	[Header("Sounds")]
+	public AudioClip stepSound;
+	public AudioClip jumpSound;
+	public AudioClip hurtSound;
+	protected AudioSource _audioSource;
+
 	protected virtual void Start() {
 		_controller = GetComponent<CharacterController>();
+
+		_audioSource = GetComponent<AudioSource> ();
 	}
 
 	protected virtual void Update() {
+		if (transform.position.y < -10)
+			ApplyDamage(-transform.position.y);
 
+		if (_controller.velocity == Vector3.zero && _audioSource.clip == stepSound)
+			_audioSource.Pause ();
 	}
 
 	protected virtual void OnCollisionEnter(Collision collision) {
-		Debug.Log (collision.transform.tag);
-		if (collision.transform.tag == "Projectile") {
-			_life -= collision.transform.GetComponent<Bullet> ().GetDamages ();
-
-			if (_life <= 0)
-				Destroy (this.gameObject);
-		}
-        if (collision.transform.tag == "ExplProjectile")
-        {
-            _life -= collision.transform.GetComponent<ExplBullet>().GetDamages();
-
-            if (_life <= 0)
-                Destroy(this.gameObject);
-            collision.transform.GetComponent<ExplBullet>().AreaDamage();
-        }
+		_audioSource.clip = hurtSound;
+		_audioSource.loop = false;
+		_audioSource.Play ();
     }
 
 	public void PickGun(GameObject g) {
@@ -75,16 +80,8 @@ public class Living : MonoBehaviour {
 
     void ApplyDamage(float damage)
     {
-        this.SetLife(this.GetLife() - damage);
-    }
-
-    public void SetLife(float n)
-    {
-        this.life = n;
-    }
-
-    public float GetLife()
-    {
-        return this.life;
+        _life = _life - damage;
+        if (_life <= 0)
+            Destroy(this.gameObject);
     }
 }

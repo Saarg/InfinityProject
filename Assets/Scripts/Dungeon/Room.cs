@@ -50,9 +50,7 @@ namespace Dungeon {
 				if (_waves [_curWave].Completed ()) {
 					_curWave++;
 
-					if (_curWave < _waves.Length) {
-						Debug.Log ("Spawning wave " + _curWave);
-
+					if (_curWave < _waves.Length - Random.Range(0, 1)) {
 						_waves [_curWave].StartWave (transform.position);
 					} else {
 						Debug.Log ("Room Cleared");

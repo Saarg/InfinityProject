@@ -13,13 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawns:
   - p: {x: 2, y: 0.5, z: 2}
-    go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
+    go: {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   - p: {x: 2, y: 0.5, z: -2}
-    go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
+    go: {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   - p: {x: -2, y: 0.5, z: -2}
-    go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
+    go: {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   - p: {x: -2, y: 0.5, z: 2}
-    go: {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
+    go: {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   nextWaveCompletion: 100
   rewards: []
   completed: 0

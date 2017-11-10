@@ -20,6 +20,11 @@ MonoBehaviour:
   alertSpeed: 0.7
   securityDistance: 3
   searchTurningSpeed: 120
+<<<<<<< HEAD
   sightRange: 3
   sightAngle: 10
+=======
+  sightRange: 5
+  sightAngle: 40
+>>>>>>> a0ed22334d29c764d6825aa3ad92f80f3a7960c5
   wanderingRange: 10

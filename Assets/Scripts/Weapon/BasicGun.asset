@@ -17,4 +17,4 @@ MonoBehaviour:
   accuracy: 1
   dispersion: 30
   reloadTime: 1
-  ammoPrefab: {fileID: 1440888136604070, guid: 524e3e1b26454493cbb67b34071f4ac9, type: 2}
+  ammoPrefab: {fileID: 1002785135788406, guid: b2397ef13ab504523bd66393f32adbd3, type: 2}

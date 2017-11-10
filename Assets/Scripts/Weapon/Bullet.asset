@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Name: Bullet
   m_EditorClassIdentifier: 
   damage: 10
-  velocity: 6
+  velocity: 4
   lifespan: 10
   bounces: 0
   bounceChance: 0
+  isExplosive: 0
+  areaofeffect: 1
+  explosiveDamage: 8
