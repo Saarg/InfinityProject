@@ -22,6 +22,7 @@ public class PatrolBehaviour : EnemyState {
 			animator.SetBool ("PlayerIsSeen", true);
 		else {
 			if (enemy.WallIsSeen ()) {
+				AvoidWall ();
 				elapsedTime = 1; //force direction change
 			}
 			Patrol ();
@@ -43,5 +44,18 @@ public class PatrolBehaviour : EnemyState {
 
 		//move forward
 		enemy.Move (enemy.transform.forward.normalized * enemy.specs.patrollingSpeed);
+	}
+
+	private void AvoidWall()
+	{
+		if (enemy.wallHit.collider != null) {
+			Vector3 incomingVec = enemy.wallHit.point - enemy.transform.position;
+			Debug.DrawRay (enemy.transform.position, incomingVec, Color.red);
+
+			Vector3 wallAvoidance = incomingVec + enemy.wallHit.normal;
+			Debug.DrawRay (enemy.transform.position, wallAvoidance, Color.blue);
+
+//			enemy.transform.rotation = Quaternion.LookRotation (wallAvoidance);
+		}
 	}
 }

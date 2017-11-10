@@ -49,7 +49,7 @@ public class PlayerController : Living {
 		/*
 		 * Look at
 		 */
-		if (_controller.isGrounded) {
+//		if (_controller.isGrounded) {
 			Vector3 LookAt = new Vector3 (Input.GetAxisRaw ("RHorizontal"), 0, -Input.GetAxisRaw ("RVertical"));
 			if (LookAt != Vector3.zero)
 				transform.rotation = Quaternion.LookRotation (LookAt);
@@ -68,7 +68,7 @@ public class PlayerController : Living {
 
 				Debug.DrawLine (transform.position, transform.position + PtoC, Color.grey);
 			}
-		}
+//		}
 
 		/*
 		 * Movement
