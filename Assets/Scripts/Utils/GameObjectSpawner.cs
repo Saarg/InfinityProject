@@ -27,7 +27,7 @@ public class GameObjectSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		lastSpawn = Time.realtimeSinceStartup;
+		lastSpawn = Time.realtimeSinceStartup + Random.Range(0, spawnRate/10);
 
 		_spawned = Instantiate (spawns [Random.Range(0, spawns.Length-1)], transform.position, transform.rotation);
 
