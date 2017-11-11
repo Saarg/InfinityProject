@@ -29,6 +29,7 @@ public class PlayerController : Living {
         atk = new PlayerStats();
         hp = new PlayerStats();
         spe = new PlayerStats();
+        spe.ratio = 1000;
         end = new PlayerStats();
         ran = new PlayerStats();
         rol = new PlayerStats();
@@ -86,7 +87,7 @@ public class PlayerController : Living {
             }
             else
             {
-                _moveDirection *= _speed;
+                _moveDirection *= _speed + (float)spe.level/10;
             }
 		}
         else
@@ -102,6 +103,11 @@ public class PlayerController : Living {
 			_audioSource.Stop ();
 		}
 
+        if(_moveDirection.magnitude > 0.1)
+        {
+            spe.count++;
+        }
+
 		/*
 		 * Apply Movement
 		 */
@@ -113,8 +119,8 @@ public class PlayerController : Living {
 		 */
 		if (_gun != null && Input.GetButtonDown ("Fire1")) {
 			_gun.Fire ();
-            atk.experience++;
-            Debug.Log("Xp atk " + atk.experience);
+            end.experience++;
+            Debug.Log("Xp end " + end.experience);
 		}
 		
 		if (_gun != null && Input.GetButtonDown ("Reload")) {
@@ -127,7 +133,13 @@ public class PlayerController : Living {
         }
     }
 
-    IEnumerator Jump()
+    protected override void OnCollisionEnter(Collision collision)
+    {
+        base.OnCollisionEnter(collision);
+        hp.count++;
+    }
+
+        IEnumerator Jump()
     {
 		Debug.Log ("Coroutine de saut");
 
@@ -150,9 +162,11 @@ public class PlayerController : Living {
 
     protected void LevelUp()
     {
-        foreach(PlayerStats ps in stats)
+
+        foreach (PlayerStats ps in stats)
         {
-            while(ps.LevelUp(experienceTable[ps.level]))
+            ps.Convert();
+            while (ps.LevelUp(experienceTable[ps.level]))
             {
                 Debug.Log("Level :" + ps.level +" xp restant :"+ ps.experience);
             }
