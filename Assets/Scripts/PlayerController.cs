@@ -49,35 +49,33 @@ public class PlayerController : Living {
 		/*
 		 * Look at
 		 */
-//		if (_controller.isGrounded) {
-			Vector3 LookAt = new Vector3 (Input.GetAxisRaw ("RHorizontal"), 0, -Input.GetAxisRaw ("RVertical"));
-			if (LookAt != Vector3.zero)
-				transform.rotation = Quaternion.LookRotation (LookAt);
-			else { // If no controler use mouse
-				Vector3 cursorPos = Input.mousePosition;
+		Vector3 LookAt = new Vector3 (MultiOSControls.GetValue ("RHorizontal"), 0, -MultiOSControls.GetValue ("RVertical"));
+		if (LookAt != Vector3.zero)
+			transform.rotation = Quaternion.LookRotation (LookAt);
+		else { // If no controler use mouse
+			Vector3 cursorPos = Input.mousePosition;
 
-				Vector3 playerScreenPos = Camera.main.WorldToScreenPoint (transform.position);
+			Vector3 playerScreenPos = Camera.main.WorldToScreenPoint (transform.position);
 
-				Vector3 PtoC = cursorPos - playerScreenPos;
-				PtoC.Normalize ();
+			Vector3 PtoC = cursorPos - playerScreenPos;
+			PtoC.Normalize ();
 
-				PtoC.z = PtoC.y;
-				PtoC.y = 0;
+			PtoC.z = PtoC.y;
+			PtoC.y = 0;
 
-				transform.rotation = Quaternion.LookRotation (PtoC);
+			transform.rotation = Quaternion.LookRotation (PtoC);
 
-				Debug.DrawLine (transform.position, transform.position + PtoC, Color.grey);
-			}
-//		}
+			Debug.DrawLine (transform.position, transform.position + PtoC, Color.grey);
+		}
 
 		/*
 		 * Movement
 		 */
 		if (_controller.isGrounded) 
 		{
-			_moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			_moveDirection = new Vector3(MultiOSControls.GetValue ("Horizontal"), 0, -MultiOSControls.GetValue ("Vertical"));
 
-			if (Input.GetButtonDown ("Jump"))
+			if (MultiOSControls.GetValue ("Jump") != 0)
             {
                 _moveDirection *= _jumpSpeed;
                 _moveDirection.y = _jumpHeight;
@@ -112,18 +110,19 @@ public class PlayerController : Living {
 		 * Apply Movement
 		 */
 		_moveDirection.y -= _gravity * Time.deltaTime;
+		_moveDirection *= Time.timeScale;
 		_controller.Move(_moveDirection * Time.deltaTime);
 
 		/*
 		 * Gun managment
 		 */
-		if (_gun != null && Input.GetButtonDown ("Fire1")) {
+		if (_gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
 			_gun.Fire ();
             end.experience++;
             Debug.Log("Xp end " + end.experience);
 		}
 		
-		if (_gun != null && Input.GetButtonDown ("Reload")) {
+		if (_gun != null && MultiOSControls.GetValue ("Reload") != 0) {
 			_gun.StartReload ();
 		}
 
@@ -139,7 +138,7 @@ public class PlayerController : Living {
         hp.count++;
     }
 
-        IEnumerator Jump()
+    IEnumerator Jump()
     {
 		Debug.Log ("Coroutine de saut");
 
@@ -154,7 +153,7 @@ public class PlayerController : Living {
         
         for (int i = 0; i < 18; i++)
         {
-			transform.RotateAround (transform.position, rotationAxis, 20);
+			transform.RotateAround (transform.position, rotationAxis, i*20);
             yield return new WaitForSeconds(0.01f);
         }
         

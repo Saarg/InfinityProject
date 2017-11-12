@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750680854738356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4573665, y: 5.9873004, z: 0.49435925}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,5 +112,13 @@ MonoBehaviour:
     negKeys: []
     axis: 
     buttons: 03000000
+    deadzone: 0
+    value: 0
+  - name: Pause
+    posKeys:
+    - p
+    negKeys: []
+    axis: 
+    buttons: 07000000
     deadzone: 0
     value: 0

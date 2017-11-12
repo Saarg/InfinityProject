@@ -13,19 +13,29 @@ public class PauseGame : MonoBehaviour
     public Transform Player;
     SaveGame saveGame;
 
+	private float lastToggle;
 
+	void Start() {
+		Player = GameObject.FindGameObjectWithTag ("Player").transform;
 
+		lastToggle = Time.realtimeSinceStartup;
+	}
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("p"))
+		if (MultiOSControls.GetValue("Pause") != 0 )
         {
             Pause();
         }
     }
     public void Pause()
     {
+		if (Time.realtimeSinceStartup - lastToggle > 0.3f)
+			lastToggle = Time.realtimeSinceStartup;
+		else
+			return;
+
         if (canvas.gameObject.activeInHierarchy == false)
         {
             if (pauseMenu.gameObject.activeInHierarchy == false)

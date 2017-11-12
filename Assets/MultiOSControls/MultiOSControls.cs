@@ -114,7 +114,7 @@ public class MultiOSControls : MonoBehaviour {
 		}
 	}
 
-	static public float getValue(string name) {
+	static public float GetValue(string name) {
 		foreach (InputDefinition i in instance._inputs) {
 			if (i.name == name) {
 				return Mathf.Clamp(i.value, -1.0f, 1.0f);
