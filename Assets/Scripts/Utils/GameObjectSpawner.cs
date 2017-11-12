@@ -22,6 +22,7 @@ public class GameObjectSpawner : MonoBehaviour {
 	private float nextSpawn;
 	private int spawnCount = 0;
 	public bool waitForDeath;
+	public bool spawnOnDeath;
 
 	private float lastSpawn;
 
@@ -56,6 +57,10 @@ public class GameObjectSpawner : MonoBehaviour {
 			lastSpawn = Time.realtimeSinceStartup;
 
 			return;
+		}
+
+		if (spawnOnDeath && _spawned == null) {
+			nextSpawn = 0;
 		}
 
 		if (Time.realtimeSinceStartup - lastSpawn > nextSpawn) {
