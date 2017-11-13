@@ -56,6 +56,9 @@ namespace Weapons {
 		}
 
 		IEnumerator Reload() {
+			if (clips <= 0)
+				yield return null;
+
 			canShoot = false;
 			float startTime = Time.realtimeSinceStartup;
 
@@ -81,6 +84,10 @@ namespace Weapons {
 
 		public float GetClipSize() {
 			return _specs.clipSize;
+		}
+
+		public Sprite GetLogo() {
+			return _specs.logo;
 		}
 	}
 }

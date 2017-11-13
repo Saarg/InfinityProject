@@ -16,6 +16,8 @@ namespace Weapons {
 
         public GameObject ammoPrefab;
 
+		public Sprite logo;
+
 		public void Fire(Transform t) {
 			Transform canon = t.Find ("Canon");
             Instantiate(ammoPrefab, canon.position, canon.rotation);

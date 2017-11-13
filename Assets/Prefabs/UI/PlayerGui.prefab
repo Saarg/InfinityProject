@@ -415,6 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  gunLogo: {fileID: 114629983448886056}
   healthBar: {fileID: 114280323776585168}
   ammoBar: {fileID: 114214940751439040}
 --- !u!114 &114246833665687232
