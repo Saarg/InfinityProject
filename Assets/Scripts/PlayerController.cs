@@ -29,6 +29,7 @@ public class PlayerController : Living {
         atk = new PlayerStats();
         hp = new PlayerStats();
         spe = new PlayerStats();
+        spe.ratio = 1000;
         end = new PlayerStats();
         ran = new PlayerStats();
         rol = new PlayerStats();
@@ -48,35 +49,43 @@ public class PlayerController : Living {
 		/*
 		 * Look at
 		 */
-//		if (_controller.isGrounded) {
-			Vector3 LookAt = new Vector3 (Input.GetAxisRaw ("RHorizontal"), 0, -Input.GetAxisRaw ("RVertical"));
-			if (LookAt != Vector3.zero)
-				transform.rotation = Quaternion.LookRotation (LookAt);
-			else { // If no controler use mouse
-				Vector3 cursorPos = Input.mousePosition;
+		Vector3 LookAt = new Vector3 (MultiOSControls.GetValue ("RHorizontal"), 0, -MultiOSControls.GetValue ("RVertical"));
+		if (LookAt == Vector3.zero) {
+			Vector3 cursorPos = Input.mousePosition;
 
-				Vector3 playerScreenPos = Camera.main.WorldToScreenPoint (transform.position);
+			Vector3 playerScreenPos = Camera.main.WorldToScreenPoint (transform.position);
 
-				Vector3 PtoC = cursorPos - playerScreenPos;
-				PtoC.Normalize ();
+			LookAt = cursorPos - playerScreenPos;
 
-				PtoC.z = PtoC.y;
-				PtoC.y = 0;
+			LookAt.z = LookAt.y;
+			LookAt.y = 0;
 
-				transform.rotation = Quaternion.LookRotation (PtoC);
+			LookAt.Normalize ();
+		}
 
-				Debug.DrawLine (transform.position, transform.position + PtoC, Color.grey);
+		transform.rotation = Quaternion.LookRotation (LookAt);
+
+		/*
+		 * Aim correction
+		 */
+		if (gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
+			RaycastHit hit;
+
+			if (Physics.Raycast (transform.position, transform.forward, out hit, 10.0f)) {
+				print ("Found an object - distance: " + hit.distance);
+
+				gun.transform.LookAt (transform.position + transform.forward * hit.distance);
 			}
-//		}
+		}
 
 		/*
 		 * Movement
 		 */
 		if (_controller.isGrounded) 
 		{
-			_moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			_moveDirection = new Vector3(MultiOSControls.GetValue ("Horizontal"), 0, -MultiOSControls.GetValue ("Vertical"));
 
-			if (Input.GetButtonDown ("Jump"))
+			if (MultiOSControls.GetValue ("Jump") != 0)
             {
                 _moveDirection *= _jumpSpeed;
                 _moveDirection.y = _jumpHeight;
@@ -86,7 +95,7 @@ public class PlayerController : Living {
             }
             else
             {
-                _moveDirection *= _speed;
+                _moveDirection *= _speed + (float)spe.level/10;
             }
 		}
         else
@@ -102,22 +111,28 @@ public class PlayerController : Living {
 			_audioSource.Stop ();
 		}
 
+        if(_moveDirection.magnitude > 0.1)
+        {
+            spe.count++;
+        }
+
 		/*
 		 * Apply Movement
 		 */
 		_moveDirection.y -= _gravity * Time.deltaTime;
+		_moveDirection *= Time.timeScale;
 		_controller.Move(_moveDirection * Time.deltaTime);
 
 		/*
 		 * Gun managment
 		 */
-		if (_gun != null && Input.GetButtonDown ("Fire1")) {
+		if (_gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
 			_gun.Fire ();
-            atk.experience++;
-            Debug.Log("Xp atk " + atk.experience);
+            end.experience++;
+            Debug.Log("Xp end " + end.experience);
 		}
 		
-		if (_gun != null && Input.GetButtonDown ("Reload")) {
+		if (_gun != null && MultiOSControls.GetValue ("Reload") != 0) {
 			_gun.StartReload ();
 		}
 
@@ -125,6 +140,12 @@ public class PlayerController : Living {
         {
             LevelUp();
         }
+    }
+
+    protected override void OnCollisionEnter(Collision collision)
+    {
+        base.OnCollisionEnter(collision);
+        hp.count++;
     }
 
     IEnumerator Jump()
@@ -140,19 +161,21 @@ public class PlayerController : Living {
 
 		Vector3 rotationAxis = Quaternion.AngleAxis (90, Vector3.up) * planeModeDir;
         
-        for (int i = 0; i < 18; i++)
+        for (int i = 0; i < 9; i++)
         {
-			transform.RotateAround (transform.position, rotationAxis, 20);
-            yield return new WaitForSeconds(0.01f);
+			transform.RotateAround (transform.position, rotationAxis, i*40);
+            yield return null;
         }
         
     }
 
     protected void LevelUp()
     {
-        foreach(PlayerStats ps in stats)
+
+        foreach (PlayerStats ps in stats)
         {
-            while(ps.LevelUp(experienceTable[ps.level]))
+            ps.Convert();
+            while (ps.LevelUp(experienceTable[ps.level]))
             {
                 Debug.Log("Level :" + ps.level +" xp restant :"+ ps.experience);
             }

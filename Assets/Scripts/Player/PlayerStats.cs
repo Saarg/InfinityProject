@@ -6,7 +6,8 @@ public class PlayerStats{
     public int level;
     public int experience;
     public int count;
-   
+    public int ratio = 2;
+
     public PlayerStats()
     {
         level = 0;
@@ -34,9 +35,7 @@ public class PlayerStats{
         this.experience = experience;
         this.count = count;
     }
-
     
-
     public bool LevelUp(int experienceCap)
     {
         if(experience >= experienceCap)
@@ -46,5 +45,12 @@ public class PlayerStats{
             return true;
         }
         return false;
+    }
+
+    public void Convert()
+    {
+        
+        experience += count / ratio;
+        count = 0;
     }
 }

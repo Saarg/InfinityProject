@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 using Weapons;
 
@@ -31,7 +30,6 @@ public class Living : MonoBehaviour {
 	[SerializeField] protected float _speed = 6.0F;
 
 	[Header("Movement")]
-	public NavMeshAgent navMeshAgent;
 	public CharacterController _controller;
 	protected Vector3 _moveDirection = Vector3.zero;
 
@@ -50,7 +48,7 @@ public class Living : MonoBehaviour {
 
 	protected virtual void Start() {
 		_controller = GetComponent<CharacterController>();
-		navMeshAgent = GetComponent<NavMeshAgent> ();
+
 		_audioSource = GetComponent<AudioSource> ();
 	}
 
@@ -58,9 +56,8 @@ public class Living : MonoBehaviour {
 		if (transform.position.y < -10)
 			ApplyDamage(-transform.position.y);
 
-		//now commented ; waiting for the player to get its own NavMeshAgent
-//		if (navMeshAgent.velocity == Vector3.zero && _audioSource.clip == stepSound)
-//			_audioSource.Pause ();
+		if (_controller.velocity == Vector3.zero && _audioSource.clip == stepSound)
+			_audioSource.Pause ();
 	}
 
 	protected virtual void OnCollisionEnter(Collision collision) {

@@ -12,6 +12,8 @@ namespace Weapons{
 		public int bounces = 0;
 		public float bounceChance = 0;
 
+		public GameObject onHitParticles;
+
 		public bool isExplosive = false;
 		public float areaofeffect = 1;
 		public float explosiveDamage = 8;

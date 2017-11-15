@@ -18,3 +18,4 @@ MonoBehaviour:
   dispersion: 0
   reloadTime: 2
   ammoPrefab: {fileID: 1781866126722772, guid: 450272abb6c40bb47bc02c8b903411e4, type: 2}
+  logo: {fileID: 21300000, guid: cdaa509cad4ed40abb1b9669280abbe4, type: 3}

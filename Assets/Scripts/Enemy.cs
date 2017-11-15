@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemy : Living {
 
@@ -16,8 +15,6 @@ public class Enemy : Living {
 
 	private Animator stateMachine;
 	public Color sightColor;
-
-	public RaycastHit wallHit;
 
 
 	protected override void Start ()
@@ -45,12 +42,10 @@ public class Enemy : Living {
 		{
 			//Draw sight
 			Gizmos.color = sightColor;
-			Vector3 centerSight = sight.forward.normalized * specs.sightRange;	
-
+			Vector3 centerSight = sight.forward.normalized * specs.sightRange;		
 			Quaternion leftRotation	= Quaternion.Euler (0, specs.sightAngle / 2f, 0);
 			Vector3 leftSight = leftRotation * centerSight;
 			Gizmos.DrawRay(sight.position, leftSight);
-
 			Quaternion rightRotation = Quaternion.Euler (0, specs.sightAngle / -2f, 0);
 			Vector3 rightSight = rightRotation * centerSight;
 			Gizmos.DrawRay(sight.position, rightSight);
@@ -69,7 +64,7 @@ public class Enemy : Living {
 	public bool Move(Vector3 direction)
 	{
 		direction.y -= _gravity * Time.deltaTime;
-		navMeshAgent.Move (direction * Time.deltaTime);
+		_controller.Move (direction * Time.deltaTime);
 		return true;
 	}
 
@@ -116,17 +111,16 @@ public class Enemy : Living {
 		Ray ray = new Ray (sight.position, sight.forward.normalized * specs.sightRange);
 		RaycastHit hit;
 
-		if (Physics.Raycast (ray, out wallHit, specs.sightRange))
-			if (wallHit.collider.CompareTag ("Player")) {
-				return false;
-			}
-			else {
-//				Vector3 incomingVec = hit.point - transform.position;
-//				Vector3 reflect = Vector3.Reflect(incomingVec, hit.normal);
-//				Vector3 wallAvoidance = incomingVec + reflect;
-//				Debug.DrawRay (transform.position, wallAvoidance, Color.red);
-				return true;
-			}
+		if (Physics.Raycast (ray, out hit, specs.sightRange))
+		if (hit.collider.CompareTag ("Player"))
+			return false;
+		else {
+//			Vector3 incomingVec = hit.point - transform.position;
+//			Vector3 reflect = Vector3.Reflect(incomingVec, hit.normal);
+//			Vector3 wallAvoidance = incomingVec + reflect;
+//			Debug.DrawRay (transform.position, wallAvoidance, Color.red);
+			return true;
+		}
 
 		return false;
 	}

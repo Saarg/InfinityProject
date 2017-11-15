@@ -9,16 +9,16 @@ namespace Weapons {
 		public int clips;
 
 		public float firerate;
-		public float accuracy;
-        public float dispersion;
 
 		public float reloadTime;
 
         public GameObject ammoPrefab;
 
-		public void Fire(Transform t) {
+		public Sprite logo;
+
+		public virtual void Fire(Transform t) {
 			Transform canon = t.Find ("Canon");
-            Instantiate(ammoPrefab, canon.position, canon.rotation);
+            GameObject go = Instantiate(ammoPrefab, canon.position, canon.rotation);
         }
 	}
 }

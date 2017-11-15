@@ -11,11 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875e02802a5524d199265b43a665de76, type: 3}
   m_Name: ExplosifBullet
   m_EditorClassIdentifier: 
-  damage: 15
-  velocity: 2
+  damage: 20
+  velocity: 4
   lifespan: 30
   bounces: 0
   bounceChance: 0
+  onHitParticles: {fileID: 1388731745231246, guid: 98f9a98ea77214b83b7824e02e5282bf,
+    type: 2}
   isExplosive: 1
   areaofeffect: 1
-  explosiveDamage: 8
+  explosiveDamage: 10

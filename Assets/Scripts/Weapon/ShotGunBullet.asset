@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875e02802a5524d199265b43a665de76, type: 3}
+  m_Name: ShotGunBullet
+  m_EditorClassIdentifier: 
+  damage: 8
+  velocity: 4
+  lifespan: 1
+  bounces: 0
+  bounceChance: 0
+  onHitParticles: {fileID: 1104873213060804, guid: 83b92e0a9e3a84acea738700b2dd42e3,
+    type: 2}
+  isExplosive: 1
+  areaofeffect: 0.1
+  explosiveDamage: 1
