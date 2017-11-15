@@ -694,6 +694,7 @@ MonoBehaviour:
   - {fileID: 1547212003787376, guid: 81d0c9740ea6949f6b2a75f16e10e129, type: 2}
   - {fileID: 1108543867442708, guid: ac1c87ac17fda4c13b8b3ed329aaffaa, type: 2}
   - {fileID: 1765193283609484, guid: b9d048ba8864f47d39f33694e4c334b4, type: 2}
+  - {fileID: 1765193283609484, guid: b9d048ba8864f47d39f33694e4c334b4, type: 2}
   spawnRateCurve: 0
   spawnRate: 30
   waitForDeath: 1
@@ -829,7 +830,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514521206}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 7, z: -10}
+  m_LocalPosition: {x: 0, y: 5.5, z: -9.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

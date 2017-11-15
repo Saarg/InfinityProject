@@ -50,22 +50,32 @@ public class PlayerController : Living {
 		 * Look at
 		 */
 		Vector3 LookAt = new Vector3 (MultiOSControls.GetValue ("RHorizontal"), 0, -MultiOSControls.GetValue ("RVertical"));
-		if (LookAt != Vector3.zero)
-			transform.rotation = Quaternion.LookRotation (LookAt);
-		else { // If no controler use mouse
+		if (LookAt == Vector3.zero) {
 			Vector3 cursorPos = Input.mousePosition;
 
 			Vector3 playerScreenPos = Camera.main.WorldToScreenPoint (transform.position);
 
-			Vector3 PtoC = cursorPos - playerScreenPos;
-			PtoC.Normalize ();
+			LookAt = cursorPos - playerScreenPos;
 
-			PtoC.z = PtoC.y;
-			PtoC.y = 0;
+			LookAt.z = LookAt.y;
+			LookAt.y = 0;
 
-			transform.rotation = Quaternion.LookRotation (PtoC);
+			LookAt.Normalize ();
+		}
 
-			Debug.DrawLine (transform.position, transform.position + PtoC, Color.grey);
+		transform.rotation = Quaternion.LookRotation (LookAt);
+
+		/*
+		 * Aim correction
+		 */
+		if (gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
+			RaycastHit hit;
+
+			if (Physics.Raycast (transform.position, transform.forward, out hit, 10.0f)) {
+				print ("Found an object - distance: " + hit.distance);
+
+				gun.transform.LookAt (transform.position + transform.forward * hit.distance);
+			}
 		}
 
 		/*
@@ -151,10 +161,10 @@ public class PlayerController : Living {
 
 		Vector3 rotationAxis = Quaternion.AngleAxis (90, Vector3.up) * planeModeDir;
         
-        for (int i = 0; i < 18; i++)
+        for (int i = 0; i < 9; i++)
         {
-			transform.RotateAround (transform.position, rotationAxis, i*20);
-            yield return new WaitForSeconds(0.01f);
+			transform.RotateAround (transform.position, rotationAxis, i*40);
+            yield return null;
         }
         
     }

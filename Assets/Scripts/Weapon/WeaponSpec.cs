@@ -18,7 +18,7 @@ namespace Weapons {
 
 		public virtual void Fire(Transform t) {
 			Transform canon = t.Find ("Canon");
-            Instantiate(ammoPrefab, canon.position, canon.rotation);
+            GameObject go = Instantiate(ammoPrefab, canon.position, canon.rotation);
         }
 	}
 }
