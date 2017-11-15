@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 875e02802a5524d199265b43a665de76, type: 3}
-  m_Name: ExplosifBullet
+  m_Name: ShotGunBullet
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 8
   velocity: 4
-  lifespan: 30
+  lifespan: 1
   bounces: 0
   bounceChance: 0
   isExplosive: 1
-  areaofeffect: 1
-  explosiveDamage: 10
+  areaofeffect: 0.1
+  explosiveDamage: 1

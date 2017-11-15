@@ -9,8 +9,6 @@ namespace Weapons {
 		public int clips;
 
 		public float firerate;
-		public float accuracy;
-        public float dispersion;
 
 		public float reloadTime;
 
@@ -18,7 +16,7 @@ namespace Weapons {
 
 		public Sprite logo;
 
-		public void Fire(Transform t) {
+		public virtual void Fire(Transform t) {
 			Transform canon = t.Find ("Canon");
             Instantiate(ammoPrefab, canon.position, canon.rotation);
         }

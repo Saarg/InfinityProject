@@ -146,6 +146,7 @@ MonoBehaviour:
   - {fileID: 1270397070864932, guid: ad7a22e32e0d94b5f91ca29860b2105a, type: 2}
   - {fileID: 1897186504913054, guid: b90f6a0e1e7e84fcd90a3dc90d4673fe, type: 2}
   - {fileID: 1524286337281996, guid: 80cd492d94a774b139e3ed9196cb0d59, type: 2}
+  - {fileID: 1437880770771980, guid: a9e7daa6cc2914dfc86b60ca7c1f096b, type: 2}
   _Trooms:
   - {fileID: 1524112121248958, guid: d5c9bff3aaf7f493791e72b25347d135, type: 2}
   - {fileID: 1331009545188078, guid: 539014e4b03bc495ca5c324fd8bf6838, type: 2}
@@ -160,6 +161,7 @@ MonoBehaviour:
   - {fileID: 1516606528009174, guid: 05fd393548e384f90bc734e0aff43eb7, type: 2}
   _Srooms:
   - {fileID: 1879621155196528, guid: bf9053b2d1b1d41d18976c9074047dfc, type: 2}
+  - {fileID: 1406346141614052, guid: 8d034652873cb40f3a4429ab02b2aa49, type: 2}
   _connectionFactor: 0.32
 --- !u!4 &7986039
 Transform:
@@ -304,12 +306,12 @@ Prefab:
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 391
+      value: 396
       objectReference: {fileID: 0}
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 219.5
+      value: 223
       objectReference: {fileID: 0}
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
