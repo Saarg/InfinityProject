@@ -26,6 +26,9 @@ namespace Weapons {
 		void OnCollisionEnter(Collision collision) {
             _rb.velocity = new Vector3(0,0,0);
 
+			if (_specs.onHitParticles != null)
+				Destroy (Instantiate (_specs.onHitParticles, transform.position - transform.forward/10, Quaternion.identity), 1);
+
 			ImpactDamage (collision);
 
 			if (_specs.isExplosive) {
@@ -63,6 +66,7 @@ namespace Weapons {
 		public void AreaDamage()
 		{
 			Collider[] colls = Physics.OverlapSphere(transform.position, GetArea());
+
 			foreach (Collider col in colls)
 			{
 				if (col.CompareTag("Enemy"))

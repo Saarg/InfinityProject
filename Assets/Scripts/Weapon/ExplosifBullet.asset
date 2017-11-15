@@ -16,6 +16,8 @@ MonoBehaviour:
   lifespan: 30
   bounces: 0
   bounceChance: 0
+  onHitParticles: {fileID: 1388731745231246, guid: 98f9a98ea77214b83b7824e02e5282bf,
+    type: 2}
   isExplosive: 1
   areaofeffect: 1
   explosiveDamage: 10
