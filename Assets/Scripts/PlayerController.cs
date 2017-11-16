@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Living {
-
-    //public Dictionary<string, PlayerStats> stats = new Dictionary<string, PlayerStats>();
+    
     protected PlayerStats[] stats = new PlayerStats[6];
 
     [Header("Player Stats")]
@@ -13,36 +12,13 @@ public class PlayerController : Living {
 	[SerializeField] protected AnimationCurve _heightCurve;
 	[SerializeField] protected AnimationCurve _rollCurve;
 
-    [Space(10)]
-    public PlayerStats atk;
-    public PlayerStats hp;
-    public PlayerStats spe;
-    public PlayerStats end;
-    public PlayerStats ran;
-    public PlayerStats rol;
-    [Space(10)]
-    public int[] experienceTable = new int[20];
+    protected StatManager stat;
     
 
     protected override void Start()
     {
         base.Start();
-        
-
-        atk = new PlayerStats();
-        hp = new PlayerStats();
-        spe = new PlayerStats();
-        spe.ratio = 1000;
-        end = new PlayerStats();
-        ran = new PlayerStats();
-        rol = new PlayerStats();
-
-        stats[0] = atk;
-        stats[1] = hp;
-        stats[2] = spe;
-        stats[3] = end;
-        stats[4] = ran;
-        stats[5] = rol;
+        stat = StatManager.instance;
     }
 
     protected override void Update() 
@@ -91,12 +67,11 @@ public class PlayerController : Living {
 			if (MultiOSControls.GetValue ("Jump") != 0)
             {
                 StartCoroutine("Jump");
-                rol.experience++;
-                Debug.Log("Xp rol " + rol.experience);
+                stat.rol.experience++;
             }
             else
             {
-                _moveDirection *= _speed + (float)spe.level/10;
+                _moveDirection *= _speed + (float)stat.spe.level/10;
             }
 		}
         else
@@ -114,7 +89,7 @@ public class PlayerController : Living {
 
         if(_moveDirection.magnitude > 0.1)
         {
-            spe.count++;
+            stat.spe.count++;
         }
 
 		/*
@@ -129,8 +104,7 @@ public class PlayerController : Living {
 		 */
 		if (_gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
 			_gun.Fire ();
-            end.experience++;
-            Debug.Log("Xp end " + end.experience);
+            stat.end.count++;
 		}
 		
 		if (_gun != null && MultiOSControls.GetValue ("Reload") != 0) {
@@ -139,19 +113,18 @@ public class PlayerController : Living {
 
         if (Input.GetKeyDown("a"))
         {
-            LevelUp();
+            stat.LevelUp();
         }
     }
 
     protected override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
-        hp.count++;
+        stat.hp.count++;
     }
 
     IEnumerator Jump()
     {
-		Debug.Log ("Coroutine de saut");
 
 		_audioSource.clip = jumpSound;
 		_audioSource.loop = false;
@@ -176,16 +149,4 @@ public class PlayerController : Living {
         
     }
 
-    protected void LevelUp()
-    {
-
-        foreach (PlayerStats ps in stats)
-        {
-            ps.Convert();
-            while (ps.LevelUp(experienceTable[ps.level]))
-            {
-                Debug.Log("Level :" + ps.level +" xp restant :"+ ps.experience);
-            }
-        }
-    }
 }
