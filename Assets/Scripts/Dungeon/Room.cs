@@ -4,21 +4,32 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace Dungeon {
+	[System.Serializable]
+	public struct RewardEditor {
+		public GameObject gameobject;
+
+		[Range(0f, 1f)]
+		public float rewardChance;
+	}
+
 	public class Room : MonoBehaviour {
 
 		static Color[] waveColors = {Color.red, Color.green, Color.blue, Color.yellow, Color.cyan};
 
 		[Header("Waves config")]
+
+		[SerializeField]
+		protected int _minWaves = 0;
+		[SerializeField]
+		protected int _maxWaves = 10;
+
 		[SerializeField]
 		protected Wave[] _waves;
 		protected int _curWave = -1;
 
+		[Header("Rewards config")]
 		[SerializeField]
-		protected GameObject _reward;
-
-		[Range(0f, 1f)]
-		[SerializeField]
-		protected float _rewardChance = 0.2f;
+		protected RewardEditor[] _rewards;
 
 		[Header("Room Events")]
 		public UnityEvent OnStart;
@@ -29,8 +40,12 @@ namespace Dungeon {
 		public PlayerController player { get { return _player; } }
 
 		void Start () {
-			if (_reward != null) {
-				_reward.SetActive (false);
+			_maxWaves = Mathf.Clamp(_maxWaves, 0, _waves.Length);
+			_minWaves = Mathf.Clamp(_minWaves, 0, _maxWaves);
+			_maxWaves = Mathf.Clamp(_maxWaves, _minWaves, _waves.Length);
+
+			foreach (RewardEditor r in _rewards) {
+				r.gameobject.SetActive (false);
 			}
 
 			OnStart.Invoke ();
@@ -44,13 +59,15 @@ namespace Dungeon {
 		}
 
 		IEnumerator ManageWaves () {
+			int nbWaves = Random.Range (_minWaves, _maxWaves);
+
 			_waves [++_curWave].StartWave (transform.position);
 
 			while (true) {
 				if (_waves [_curWave].Completed ()) {
 					_curWave++;
 
-					if (_curWave < _waves.Length - Random.Range(0, 1)) {
+					if (_curWave < nbWaves) {
 						_waves [_curWave].StartWave (transform.position);
 					} else {
 						Debug.Log ("Room Cleared");
@@ -78,8 +95,11 @@ namespace Dungeon {
 		}
 
 		void SpawnReward() {
-			if (_reward != null && Random.Range (0f, 1f) < _rewardChance) {
-				_reward.SetActive (true);
+			foreach (RewardEditor r in _rewards) {
+				if (Random.Range (0f, 1f) < r.rewardChance) {
+					r.gameobject.SetActive (true);
+					break;
+				}
 			}
 		}
 

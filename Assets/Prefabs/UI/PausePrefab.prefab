@@ -2513,7 +2513,7 @@ MonoBehaviour:
   m_MinValue: -40
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: -10
+  m_Value: -5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4087,6 +4087,7 @@ MonoBehaviour:
   videoSettingsMenu: {fileID: 224778022187543708}
   controlsMenu: {fileID: 224256951260635858}
   Player: {fileID: 0}
+  gc: {fileID: 0}
 --- !u!114 &114679855669348790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4613,7 +4614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef552ee9dab5b4b6db31f84639513065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: eee498cd05e244fe794c18bed58e6452, type: 2}
 --- !u!114 &114839102128581034
 MonoBehaviour:
   m_ObjectHideFlags: 1

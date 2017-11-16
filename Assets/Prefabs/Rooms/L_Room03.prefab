@@ -557,10 +557,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39b1f9757d894db2a700d4f246dfc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minWaves: 1
+  _maxWaves: 10
   _waves:
   - {fileID: 11400000, guid: 9894e2cbb9b5347acb53896aed893292, type: 2}
-  _reward: {fileID: 1012668618836024}
-  _rewardChance: 0.3
+  _rewards:
+  - gameobject: {fileID: 1012668618836024}
+    rewardChance: 1
   OnStart:
     m_PersistentCalls:
       m_Calls:
