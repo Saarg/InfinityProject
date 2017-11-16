@@ -22,4 +22,4 @@ MonoBehaviour:
   searchTurningSpeed: 120
   sightRange: 5
   sightAngle: 30
-  wanderingRange: 10
+  wanderingRange: 15
