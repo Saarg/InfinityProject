@@ -10,7 +10,7 @@ public class PatrolBehaviour : EnemyState {
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		enemy = animator.GetComponent<Enemy> ();
 		enemy.sightColor = Color.green;
-		animator.SetBool ("PlayerIsSeen", false);
+		animator.SetBool ("PlayerIsDetected", false);
 
 		elapsedTime = 0;
 	}
@@ -18,8 +18,8 @@ public class PatrolBehaviour : EnemyState {
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		elapsedTime += Time.deltaTime;
 
-		if (enemy.PlayerIsSeen ())
-			animator.SetBool ("PlayerIsSeen", true);
+		if (enemy.PlayerIsSeen () || enemy.PlayerIsHeard())
+			animator.SetBool ("PlayerIsDetected", true);
 		else {
 			if (enemy.WallIsSeen ()) {
 				elapsedTime = 1; //force direction change

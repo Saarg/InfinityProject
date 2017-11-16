@@ -50,6 +50,9 @@ public class Enemy : Living {
 			Vector3 rightSight = rightRotation * centerSight;
 			Gizmos.DrawRay(sight.position, rightSight);
 
+			//Draw hearing area
+			Gizmos.DrawWireSphere(transform.position, specs.soundDetectionRange);
+
 			//Draw attack range
 			Gizmos.color = Color.magenta;
 			Vector3 attackRay = sight.forward.normalized * specs.attackRange;
@@ -97,7 +100,22 @@ public class Enemy : Living {
 			if (diff.magnitude < specs.sightRange && angle < (specs.sightAngle / 2f)) 
 				return true;
 		}
+		return false;
+	}
 
+	/** PlayerIsHeard() : bool
+	 * cast a sphere wrapping the enemy and
+	 * return true if the player enters it (even in the back)
+	 * return false otherwise
+	 */
+	public bool PlayerIsHeard()
+	{
+		if (player != null) {
+			Vector3 diff = player.position - transform.position;
+
+			if (diff.magnitude < specs.soundDetectionRange) 
+				return true;
+		}
 		return false;
 	}
 

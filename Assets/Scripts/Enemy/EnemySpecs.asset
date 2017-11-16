@@ -22,4 +22,5 @@ MonoBehaviour:
   searchTurningSpeed: 120
   sightRange: 5
   sightAngle: 30
+  soundDetectionRange: 1.5
   wanderingRange: 15

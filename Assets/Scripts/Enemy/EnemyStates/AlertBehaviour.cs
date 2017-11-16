@@ -14,8 +14,8 @@ public class AlertBehaviour : EnemyState {
 	}
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		if (enemy.PlayerIsSeen ())
-			animator.SetBool ("PlayerIsSeen", true);
+		if (enemy.PlayerIsSeen () || enemy.PlayerIsHeard())
+			animator.SetBool ("PlayerIsDetected", true);
 		else
 			SearchForPlayer(animator);
 		}
