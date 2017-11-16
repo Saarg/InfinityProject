@@ -20,7 +20,6 @@ public class PauseGame : MonoBehaviour
 
 	void Start() {
 		Player = GameObject.FindGameObjectWithTag ("Player").transform;
-
 		lastToggle = Time.realtimeSinceStartup;
 	}
 

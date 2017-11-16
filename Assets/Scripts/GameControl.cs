@@ -3,17 +3,21 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour {
 
     public static GameControl control;
     public GameObject player;
+    public float life;
 
-    void Awake () {
+    void Awake() {
         if(control == null)
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             control = this;
+            player = GameObject.FindGameObjectWithTag("Player");
+            life = player.GetComponent<PlayerController>().life;
         }
         else if(control != this)
         {
@@ -23,13 +27,15 @@ public class GameControl : MonoBehaviour {
 	}
 
     public void Save()
-    {
-        player = GameObject.Find("Player");
+    {    
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
 
         PlayerData data = new PlayerData();
-        data.player = player;
+
+        float pl = player.GetComponent<PlayerController>().life;
+        data.life = pl;
+        life = pl;
 
         bf.Serialize(file, data);
         file.Close();
@@ -42,16 +48,27 @@ public class GameControl : MonoBehaviour {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
             PlayerData data = (PlayerData)bf.Deserialize(file);
+
             file.Close();
 
-            player = data.player;
+            life = data.life;
+            player.GetComponent<PlayerController>().life = data.life;
         }
     }
 
+    void Update()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Load();
+    }
 }
 
 [Serializable]
 class PlayerData
 {
-       public GameObject player;
+       public float life;
 }
