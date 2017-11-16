@@ -5,14 +5,18 @@ using UnityEngine.PostProcessing;
 
 public class PostProcesingController : MonoBehaviour {
 
-	public PostProcessingProfile profile;
+	private PostProcessingProfile _profile;
+
+	void Start() {
+		_profile = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+	}
 
 	public void EnableAntialiasing(bool value) {
-		profile.antialiasing.enabled = value;
+		_profile.antialiasing.enabled = value;
 	}
 
 	public void AntialiasingQuality(int value) {
-		AntialiasingModel.Settings s = profile.antialiasing.settings;
+		AntialiasingModel.Settings s = _profile.antialiasing.settings;
 
 		switch (value) {
 		case 0:
@@ -32,14 +36,14 @@ public class PostProcesingController : MonoBehaviour {
 			break;
 		}
 
-		profile.antialiasing.settings = s;
+		_profile.antialiasing.settings = s;
 	}
 
 	public void EnableMotionBlur(bool value) {
-		profile.motionBlur.enabled = value;
+		_profile.motionBlur.enabled = value;
 	}
 
 	public void EnableAO(bool value) {
-		profile.ambientOcclusion.enabled = value;
+		_profile.ambientOcclusion.enabled = value;
 	}
 }
