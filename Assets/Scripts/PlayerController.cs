@@ -9,7 +9,10 @@ public class PlayerController : Living {
 
     [Header("Player Stats")]
     [SerializeField] protected float _jumpSpeed = 6;
-    [SerializeField] protected float _jumpHeight = 4;
+	[SerializeField] protected float _jumptime = 1f;
+	[SerializeField] protected AnimationCurve _heightCurve;
+	[SerializeField] protected AnimationCurve _rollCurve;
+
     [Space(10)]
     public PlayerStats atk;
     public PlayerStats hp;
@@ -87,8 +90,6 @@ public class PlayerController : Living {
 
 			if (MultiOSControls.GetValue ("Jump") != 0)
             {
-                _moveDirection *= _jumpSpeed;
-                _moveDirection.y = _jumpHeight;
                 StartCoroutine("Jump");
                 rol.experience++;
                 Debug.Log("Xp rol " + rol.experience);
@@ -156,14 +157,20 @@ public class PlayerController : Living {
 		_audioSource.loop = false;
 		_audioSource.Play ();
 
+		float start = Time.realtimeSinceStartup;
+
 		Vector3 planeModeDir = _moveDirection;
 		planeModeDir.y = 0;
 
 		Vector3 rotationAxis = Quaternion.AngleAxis (90, Vector3.up) * planeModeDir;
+
+		_moveDirection *= _jumpSpeed;
         
-        for (int i = 0; i < 9; i++)
+		while (Time.realtimeSinceStartup - start < _jumptime)
         {
-			transform.RotateAround (transform.position, rotationAxis, i*40);
+			_moveDirection.y = _heightCurve.Evaluate((Time.realtimeSinceStartup - start) / _jumptime);
+
+			transform.RotateAround (transform.position, rotationAxis, _rollCurve.Evaluate((Time.realtimeSinceStartup - start) / _jumptime));
             yield return null;
         }
         

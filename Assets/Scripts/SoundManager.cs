@@ -1,26 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.Collections;
 
+[RequireComponent(typeof(Slider))]
+
 public class SoundManager : MonoBehaviour
 {
-    public Slider volumeSlider;
-    public float volume=1.0F; 
+	public string param;
+	public AudioMixer AudioMixer;
+
     void Start()
     {
-        AudioListener.volume = volumeSlider.value* AudioListener.volume;
-        volume = AudioListener.volume;
+		AudioMixer.SetFloat(param, GetComponent<Slider>().value);
+
+		GetComponent<Slider>().onValueChanged.AddListener(delegate {ValueChangeCheck(); });
     }
 
-    void Update()
+	public void ValueChangeCheck()
     {
-        AudioListener.volume = volumeSlider.value * AudioListener.volume;
-        volume = AudioListener.volume;
-    }
-
-    void OnValueChanged()
-    {
-        AudioListener.volume = volumeSlider.value * AudioListener.volume;
-        volume = AudioListener.volume;
+		AudioMixer.SetFloat(param, GetComponent<Slider>().value);
     }
 }
