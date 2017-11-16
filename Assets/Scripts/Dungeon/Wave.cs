@@ -16,7 +16,7 @@ namespace Dungeon {
 
 		public ISpawns[] spawns;
 		public float nextWaveCompletion;
-		public GameObject[] rewards;
+
 		public bool completed;
 
 		private GameObject[] _spawned;

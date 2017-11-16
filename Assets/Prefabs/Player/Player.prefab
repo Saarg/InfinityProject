@@ -309,7 +309,6 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 5a618c007fe353c459f6916c3860e274, type: 3}
   hurtSound: {fileID: 8300000, guid: a9646a6173bb6ad4b951ea60adaaa407, type: 3}
   _jumpSpeed: 6
-  _jumpHeight: 4
   _jumptime: 0.3
   _heightCurve:
     serializedVersion: 2

@@ -466,10 +466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39b1f9757d894db2a700d4f246dfc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minWaves: 1
+  _maxWaves: 1
   _waves:
   - {fileID: 11400000, guid: 9381d91caf54449478fbe700c435ee9e, type: 2}
-  _reward: {fileID: 0}
-  _rewardChance: 0.2
+  _rewards: []
   OnStart:
     m_PersistentCalls:
       m_Calls:

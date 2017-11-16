@@ -328,9 +328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Survival
-
-'
+  m_Text: Survie
 --- !u!222 &399638769
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -619,8 +617,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 965424823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 396, y: 223, z: 0}
-  m_LocalScale: {x: 0.4125, y: 0.4125, z: 0.4125}
+  m_LocalPosition: {x: 429.5, y: 213, z: 0}
+  m_LocalScale: {x: 0.44739583, y: 0.44739583, z: 0.44739583}
   m_Children:
   - {fileID: 915300224}
   - {fileID: 1293619423}
@@ -893,7 +891,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DungonGenTest
+          m_StringArgument: ErwannScene
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1063,7 +1061,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start internship
+  m_Text: Commencer stage
 --- !u!222 &1976038160
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1259,9 +1257,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit
-
-'
+  m_Text: Quitter
 --- !u!222 &2013739142
 CanvasRenderer:
   m_ObjectHideFlags: 0
