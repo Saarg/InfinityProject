@@ -9,7 +9,6 @@ public class GameControl : MonoBehaviour {
 
     public static GameControl control;
     public GameObject player;
-    public float life;
 
     void Awake() {
         if(control == null)
@@ -17,7 +16,6 @@ public class GameControl : MonoBehaviour {
             //DontDestroyOnLoad(gameObject);
             control = this;
             player = GameObject.FindGameObjectWithTag("Player");
-            life = player.GetComponent<PlayerController>().life;
         }
         else if(control != this)
         {
@@ -30,12 +28,12 @@ public class GameControl : MonoBehaviour {
     {    
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
-
         PlayerData data = new PlayerData();
 
-        float pl = player.GetComponent<PlayerController>().life;
-        data.life = pl;
-        life = pl;
+        data.life = player.GetComponent<PlayerController>().life;
+        /*data.level = player.GetComponent<PlayerStats>().level;
+        data.experience = player.GetComponent<PlayerStats>().experience;
+        data.count = player.GetComponent<PlayerStats>().count;*/
 
         bf.Serialize(file, data);
         file.Close();
@@ -51,7 +49,6 @@ public class GameControl : MonoBehaviour {
 
             file.Close();
 
-            life = data.life;
             player.GetComponent<PlayerController>().life = data.life;
         }
     }
