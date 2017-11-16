@@ -52,6 +52,6 @@ public class ChaseBehaviour : EnemyState {
 
 		enemy.transform.rotation = Quaternion.Lerp (start, finish, interp);
 
-		interp += 0.5f * Time.deltaTime;
+		interp += enemy.specs.chasingTurningSpeed * Time.deltaTime;
 	}
 }

@@ -40,14 +40,3 @@ public class AlertBehaviour : EnemyState {
 		}
 	}
 }
-
-
-/**
- * GameObject go;
- * float angle = 360f;
- * float time = 1.0f;
- * 
- * Vector3 axis = vector3.up; //rotation axis
- * 
- * 
-*/
