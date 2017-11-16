@@ -27,7 +27,7 @@ namespace Weapons {
             _rb.velocity = new Vector3(0,0,0);
 
 			if (_specs.onHitParticles != null)
-				Destroy (Instantiate (_specs.onHitParticles, transform.position - transform.forward/10, Quaternion.identity), 1);
+				Destroy (Instantiate (_specs.onHitParticles, transform.position, Quaternion.identity), 1);
 
 			ImpactDamage (collision);
 

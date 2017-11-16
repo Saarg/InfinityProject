@@ -15,7 +15,7 @@ namespace Dungeon {
 		public bool generated = false;
 		public bool validated = false;
 	}
-	
+
 	public class Generator : MonoBehaviour {
 
 		[SerializeField]
@@ -41,6 +41,8 @@ namespace Dungeon {
 
 		[SerializeField]
 		private const int _levelSize = 6;
+	    private const float _roomSize = 9f*1.3f;
+		private const float _HroomSize = _roomSize/2;
 		private IRoom[,] _grid = new IRoom[_levelSize, _levelSize];
 
 		void Start () {
@@ -61,16 +63,16 @@ namespace Dungeon {
 				for (int x = 0; x < _levelSize; x++) {
 					for (int y = 0; y < _levelSize; y++) {
 						if(_grid[x, y].top != null)
-							Debug.DrawLine (new Vector3 (x * 9f + 4.5f, 0.1f, y * 9f + 4.5f), new Vector3 (x * 9f + 4.5f, 0.1f, y * 9f + 9f), Color.blue, 0.1f);
+							Debug.DrawLine (new Vector3 (x * _roomSize + _HroomSize, 0.1f, y * _roomSize + _HroomSize), new Vector3 (x * _roomSize + _HroomSize, 0.1f, y * _roomSize + _roomSize), Color.blue, 0.1f);
 
 						if(_grid[x, y].down != null)
-							Debug.DrawLine (new Vector3 (x * 9f + 4.5f, 0.1f, y * 9f + 4.5f), new Vector3 (x * 9f + 4.5f, 0.1f, y * 9f), Color.blue, 0.1f);
+							Debug.DrawLine (new Vector3 (x * _roomSize + _HroomSize, 0.1f, y * _roomSize + _HroomSize), new Vector3 (x * _roomSize + _HroomSize, 0.1f, y * _roomSize), Color.blue, 0.1f);
 
 						if(_grid[x, y].left != null)
-							Debug.DrawLine (new Vector3 (x * 9f + 4.5f, 0.1f, y * 9f + 4.5f), new Vector3 (x * 9f, 0.1f, y * 9f + 4.5f), Color.blue, 0.1f);
+							Debug.DrawLine (new Vector3 (x * _roomSize + _HroomSize, 0.1f, y * _roomSize + _HroomSize), new Vector3 (x * _roomSize, 0.1f, y * _roomSize + _HroomSize), Color.blue, 0.1f);
 
 						if(_grid[x, y].right != null)
-							Debug.DrawLine (new Vector3 (x * 9f + 4.5f, 0.1f, y * 9f + 4.5f), new Vector3 (x * 9f + 9f, 0.1f, y * 9f + 4.5f), Color.blue, 0.1f);
+							Debug.DrawLine (new Vector3 (x * _roomSize + _HroomSize, 0.1f, y * _roomSize + _HroomSize), new Vector3 (x * _roomSize + _roomSize, 0.1f, y * _roomSize + _HroomSize), Color.blue, 0.1f);
 					}
 				}
 				yield return new WaitForSeconds (0.1f);
@@ -135,11 +137,11 @@ namespace Dungeon {
 					int countExits = (_grid [x, y].top != null ? 1 : 0) + (_grid [x, y].down != null ? 1 : 0) + (_grid [x, y].left != null ? 1 : 0) + (_grid [x, y].right != null ? 1 : 0);
 					bool vertical = _grid [x, y].top != null && _grid [x, y].down != null;
 					bool horizontal = _grid [x, y].left != null && _grid [x, y].right != null;
-						
+
 					if (countExits > 3) {
-						_grid [x, y].gameObject = Instantiate (_Xrooms [Random.Range(0, _Xrooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						_grid [x, y].gameObject = Instantiate (_Xrooms [Random.Range(0, _Xrooms.Length)], new Vector3 (x * _roomSize + _HroomSize, 0, y * _roomSize + _HroomSize), Quaternion.identity);
 					} else if (countExits == 3) {
-						_grid [x, y].gameObject = Instantiate (_Trooms [Random.Range (0, _Trooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						_grid [x, y].gameObject = Instantiate (_Trooms [Random.Range (0, _Trooms.Length)], new Vector3 (x * _roomSize + _HroomSize, 0, y * _roomSize + _HroomSize), Quaternion.identity);
 
 						if (horizontal && _grid [x, y].top != null)
 							_grid [x, y].gameObject.transform.Rotate (0, 180f, 0);
@@ -148,7 +150,7 @@ namespace Dungeon {
 						else if(vertical && _grid [x, y].left != null)
 							_grid [x, y].gameObject.transform.Rotate(0, 90f, 0);
 					} else if (countExits == 2 && !vertical && !horizontal) {
-						_grid [x, y].gameObject = Instantiate (_Lrooms [Random.Range (0, _Lrooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						_grid [x, y].gameObject = Instantiate (_Lrooms [Random.Range (0, _Lrooms.Length)], new Vector3 (x * _roomSize + _HroomSize, 0, y * _roomSize + _HroomSize), Quaternion.identity);
 
 
 						if (_grid [x, y].down != null && _grid [x, y].right != null)
@@ -158,12 +160,12 @@ namespace Dungeon {
 						else if (_grid [x, y].top != null && _grid [x, y].right != null)
 							_grid [x, y].gameObject.transform.Rotate (0, 180f, 0);
 					} else if (countExits == 2 && vertical) {
-						_grid [x, y].gameObject = Instantiate (_Srooms [Random.Range (0, _Srooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						_grid [x, y].gameObject = Instantiate (_Srooms [Random.Range (0, _Srooms.Length)], new Vector3 (x * _roomSize + _HroomSize, 0, y * _roomSize + _HroomSize), Quaternion.identity);
 					} else if (countExits == 2 && horizontal) {
-						_grid [x, y].gameObject = Instantiate (_Srooms [Random.Range (0, _Srooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						_grid [x, y].gameObject = Instantiate (_Srooms [Random.Range (0, _Srooms.Length)], new Vector3 (x * _roomSize + _HroomSize, 0, y * _roomSize + _HroomSize), Quaternion.identity);
 						_grid [x, y].gameObject.transform.Rotate (0, 90f, 0);
 					} else if (countExits == 1) {
-						_grid [x, y].gameObject = Instantiate (_Irooms [Random.Range (0, _Irooms.Length)], new Vector3 (x * 9f + 4.5f, 0, y * 9f + 4.5f), Quaternion.identity);
+						_grid [x, y].gameObject = Instantiate (_Irooms [Random.Range (0, _Irooms.Length)], new Vector3 (x * _roomSize + _HroomSize, 0, y * _roomSize + _HroomSize), Quaternion.identity);
 
 						if (_grid [x, y].left != null)
 							_grid [x, y].gameObject.transform.Rotate (0, 90f, 0);
@@ -248,10 +250,10 @@ namespace Dungeon {
 			Gizmos.color = Color.red;
 
 			for (int x = 0 ; x <= _levelSize ; x++)
-				Gizmos.DrawLine (new Vector3 (x * 9f, 0, 0), new Vector3 (x * 9f, 0, _levelSize * 9f));
+				Gizmos.DrawLine (new Vector3 (x * _roomSize, 0, 0), new Vector3 (x * _roomSize, 0, _levelSize * _roomSize));
 
 			for (int y = 0 ; y <= _levelSize ; y++)
-				Gizmos.DrawLine (new Vector3 (0, 0, y * 9f), new Vector3 (_levelSize * 9f, 0, y * 9f));
+				Gizmos.DrawLine (new Vector3 (0, 0, y * _roomSize), new Vector3 (_levelSize * _roomSize, 0, y * _roomSize));
 		}
 	}
 }

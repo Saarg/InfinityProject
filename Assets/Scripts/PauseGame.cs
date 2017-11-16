@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
+
 //using UnityStandardAssets.Characters.FirstPerson;
 
 public class PauseGame : MonoBehaviour
@@ -102,4 +104,20 @@ public class PauseGame : MonoBehaviour
             pauseMenu.gameObject.SetActive(true);
         }
     }
+
+	void OnApplicationQuit() {
+		Debug.Log ("Reseting video params");
+		PostProcessingProfile profile = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+
+		profile.antialiasing.enabled = true;
+
+		AntialiasingModel.Settings s = profile.antialiasing.settings;
+		s.fxaaSettings.preset = AntialiasingModel.FxaaPreset.Default;
+
+		profile.antialiasing.settings = s;
+
+		profile.motionBlur.enabled = true;
+		profile.ambientOcclusion.enabled = true;
+	}
+
 }
