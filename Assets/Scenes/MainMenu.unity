@@ -328,7 +328,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Survie
+  m_Text: 'Survival
+
+'
 --- !u!222 &399638769
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -617,8 +619,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 965424823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 395.5, y: 222, z: 0}
-  m_LocalScale: {x: 0.41197917, y: 0.41197917, z: 0.41197917}
+  m_LocalPosition: {x: 396, y: 223, z: 0}
+  m_LocalScale: {x: 0.4125, y: 0.4125, z: 0.4125}
   m_Children:
   - {fileID: 915300224}
   - {fileID: 1293619423}
@@ -1061,7 +1063,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Commencer stage
+  m_Text: Start internship
 --- !u!222 &1976038160
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1257,7 +1259,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quitter
+  m_Text: 'Quit
+
+'
 --- !u!222 &2013739142
 CanvasRenderer:
   m_ObjectHideFlags: 0

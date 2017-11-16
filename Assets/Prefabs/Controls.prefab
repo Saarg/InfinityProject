@@ -117,6 +117,7 @@ MonoBehaviour:
   - name: Pause
     posKeys:
     - p
+    - escape
     negKeys: []
     axis: 
     buttons: 07000000
