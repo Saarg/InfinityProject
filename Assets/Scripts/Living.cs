@@ -48,16 +48,12 @@ public class Living : MonoBehaviour {
 
 	protected virtual void Start() {
 		_controller = GetComponent<CharacterController>();
-
 		_audioSource = GetComponent<AudioSource> ();
 	}
 
 	protected virtual void Update() {
 		if (transform.position.y < -10)
 			ApplyDamage(-transform.position.y);
-
-		if (_controller.velocity == Vector3.zero && _audioSource.clip == stepSound)
-			_audioSource.Pause ();
 	}
 
 	protected virtual void OnCollisionEnter(Collision collision) {

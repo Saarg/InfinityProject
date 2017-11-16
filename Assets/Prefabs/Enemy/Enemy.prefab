@@ -121,10 +121,10 @@ GameObject:
   - component: {fileID: 33367643531604738}
   - component: {fileID: 136818250324587402}
   - component: {fileID: 23408827342656498}
-  - component: {fileID: 143491459001291206}
   - component: {fileID: 114967098204740048}
   - component: {fileID: 95591461014172878}
   - component: {fileID: 82167234577476670}
+  - component: {fileID: 195591857232980992}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -196,8 +196,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507785927779818}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.479, z: 0.944}
+  m_LocalRotation: {x: 0, y: -0.42443648, z: 0, w: 0.90545774}
+  m_LocalPosition: {x: 0.049, y: 0.5, z: -1.06}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4230479748636270}
@@ -677,7 +677,7 @@ MonoBehaviour:
   _life: 50
   _maxLife: 50
   _speed: 5
-  _controller: {fileID: 143491459001291206}
+  _controller: {fileID: 0}
   _gravity: 20
   _gunAnchor: {fileID: 4729878374162280}
   _gun: {fileID: 114406342402922978}
@@ -688,6 +688,7 @@ MonoBehaviour:
   player: {fileID: 0}
   lastPlayerKnownLocation: {x: -2.4410598, y: 0.37, z: -0.97575146}
   sightColor: {r: 0, g: 0, b: 0, a: 0}
+  nma: {fileID: 0}
 --- !u!136 &136818250324587402
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -701,20 +702,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &143491459001291206
-CharacterController:
+--- !u!195 &195591857232980992
+NavMeshAgent:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507785927779818}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
   m_Height: 1.9999999
-  m_Radius: 0.49999997
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_BaseOffset: 0.99999994
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

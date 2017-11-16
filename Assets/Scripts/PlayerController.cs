@@ -49,6 +49,9 @@ public class PlayerController : Living {
 	{
 		base.Update ();
 
+		if (_controller.velocity == Vector3.zero && _audioSource.clip == stepSound)
+			_audioSource.Pause ();
+
 		/*
 		 * Look at
 		 */

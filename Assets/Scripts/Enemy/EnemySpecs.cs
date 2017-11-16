@@ -10,10 +10,12 @@ public class EnemySpecs : ScriptableObject {
 	public float sightAngle = 10f;
 	public float soundDetectionRange = 1.5f;
 	public float securityDistance = 2f;
+	public float wallAvoidance = 1.5f;
 
 
 //	[Header("Patrol")]
 	public float patrollingSpeed = 1f;
+	public float patrollingTurningSpeed = 0.5f;
 	public float wanderingRange = 10f;
 
 
