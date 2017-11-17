@@ -3,44 +3,90 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats{
-    public int level;
-    public int experience;
-    public int count;
-    public int ratio = 2;
-    
+    protected int level;
+    public int Level
+    {
+        get
+        {
+            return this.level;
+        }
+        set
+        {
+            if (value < 0)
+                this.level = 0;
+            else if (value > 20)
+                this.level = 20;
+            else
+                this.level = value;
+        }
+    }
+
+    protected int experience;
+    public int Experience
+    {
+        get
+        {
+            return this.experience;
+        }
+        set
+        {
+            if (value < 0)
+                this.experience = 0;
+            else
+                this.experience = value;
+        }
+    }
+
+    protected int count;
+    public int Count
+    {
+        get
+        {
+            return this.count;
+        }
+        set
+        {
+            if (value < 0)
+                this.count = 0;
+            else
+                this.count = value;
+        }
+    }
+
+    protected int ratio = 2;
+    public int Ratio
+    {
+        get
+        {
+            return this.ratio;
+        }
+        set
+        {
+            if (value < 0)
+                this.ratio = 0;
+            else
+                this.ratio = value;
+        }
+    }
+    public ArrayList bonus;
+    public ArrayList malus;
+
     public PlayerStats()
     {
-        
-
         level = 0;
         experience = 0;
         count = 0;
     }
 
-    /*
-
-    public PlayerStats(int level)
+    public void GiveBonusTo(PlayerStats ps)
     {
-        this.level = level;
-        this.experience = 0;
-        this.count = 0;
+        bonus.Add(ps);
     }
 
-    public PlayerStats(int level, int experience)
+    public void GiveMalusTo(PlayerStats ps)
     {
-        this.level = level;
-        this.experience = experience;
-        this.count = 0;
+        malus.Add(ps);
     }
-
-    public PlayerStats(int level, int experience, int count)
-    {
-        this.level = level;
-        this.experience = experience;
-        this.count = count;
-    }
-    
-    */
 
     public bool LevelUp(int experienceCap)
     {
@@ -48,6 +94,17 @@ public class PlayerStats{
         {
             experience -= experienceCap;
             level++;
+            if(level % 3 == 0)
+            {
+                foreach(PlayerStats ps in bonus)
+                {
+                    ps.level++;
+                }
+                foreach (PlayerStats ps in malus)
+                {
+                    ps.level--;
+                }
+            }
             return true;
         }
         return false;
@@ -56,7 +113,7 @@ public class PlayerStats{
     public void Convert()
     {
         
-        experience += count / ratio;
+        experience += count / Ratio;
         count = 0;
     }
 }

@@ -23,7 +23,7 @@ public class PlayerController : Living {
     protected override void Start()
     {
         base.Start();
-        stat = StatManager.instance;
+        stat = StatManager.Instance;
 
 		_stamina = _staminaMax;
     }
@@ -83,11 +83,11 @@ public class PlayerController : Living {
             {
 				_stamina -= 2;
                 StartCoroutine("Jump");
-                stat.rol.experience++;
+                stat.Rol.Experience++;
             }
             else
             {
-                _moveDirection *= _speed + (float)stat.spe.level/10;
+                _moveDirection *= _speed + (float)stat.Spe.Level/10;
             }
 		}
         else
@@ -105,7 +105,7 @@ public class PlayerController : Living {
 
         if(_moveDirection.magnitude > 0.1)
         {
-            stat.spe.count++;
+            stat.Spe.Count++;
         }
 
 		/*
@@ -120,7 +120,7 @@ public class PlayerController : Living {
 		 */
 		if (_gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
 			_gun.Fire ();
-            stat.end.count++;
+            stat.End.Count++;
 		}
 		
 		if (_gun != null && MultiOSControls.GetValue ("Reload") != 0) {
@@ -136,7 +136,7 @@ public class PlayerController : Living {
     protected override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
-        stat.hp.count++;
+        stat.Hp.Count++;
     }
 
     IEnumerator Jump()

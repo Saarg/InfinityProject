@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class StatManager {
 
-    public int[] experienceTable = new int[20] {3,6,8,11,14,17,21,24,29,33,38,43,49,56,63,70,78,87,97,107};
-    public PlayerStats atk;
-    public PlayerStats hp;
-    public PlayerStats spe;
-    public PlayerStats end;
-    public PlayerStats ran;
-    public PlayerStats rol;
+    protected int[] experienceTable = new int[20] {3,6,8,11,14,17,21,24,29,33,38,43,49,56,63,70,78,87,97,107};
+    public PlayerStats Atk { get; }
+    public PlayerStats Hp { get; }
+    public PlayerStats Spe { get; }
+    public PlayerStats End { get; }
+    public PlayerStats Ran { get; }
+    public PlayerStats Rol { get; }
 
     protected PlayerStats[] stats = new PlayerStats[6];
     protected static StatManager _instance = null;
 
-    public static StatManager instance
+    public static StatManager Instance
     {
         get
         {
@@ -25,24 +25,38 @@ public class StatManager {
         }
     }
 
-    public StatManager()
+    protected StatManager()
     {
-        atk = new PlayerStats();
-        hp = new PlayerStats();
-        spe = new PlayerStats();
-        end = new PlayerStats();
-        ran = new PlayerStats();
-        rol = new PlayerStats();
+        Atk = new PlayerStats();
+        Hp = new PlayerStats();
+        Spe = new PlayerStats();
+        End = new PlayerStats();
+        Ran = new PlayerStats();
+        Rol = new PlayerStats();
 
-        spe.ratio = 1000;
-        ran.ratio = 8;
+        Atk.GiveBonusTo(End);
+        Hp.GiveBonusTo(Rol);
+        Spe.GiveBonusTo(Ran);
 
-        stats[0] = atk;
-        stats[1] = hp;
-        stats[2] = spe;
-        stats[3] = end;
-        stats[4] = ran;
-        stats[5] = rol;
+        Atk.GiveMalusTo(Rol);
+        Atk.GiveMalusTo(Hp);
+        Hp.GiveMalusTo(Ran);
+        Hp.GiveMalusTo(Spe);
+        Spe.GiveMalusTo(Atk);
+        Spe.GiveMalusTo(End);
+        End.GiveMalusTo(Hp);
+        Ran.GiveMalusTo(Atk);
+        Rol.GiveMalusTo(Spe);
+
+        Spe.Ratio = 1000;
+        Ran.Ratio = 8;
+        
+        stats[0] = Atk;
+        stats[1] = Hp;
+        stats[2] = Spe;
+        stats[3] = End;
+        stats[4] = Ran;
+        stats[5] = Rol;
     }
 
     public void LevelUp()
@@ -50,9 +64,9 @@ public class StatManager {
         foreach (PlayerStats ps in stats)
         {
             ps.Convert();
-            while (ps.LevelUp(experienceTable[ps.level]))
+            while (ps.LevelUp(experienceTable[ps.Level]))
             {
-                // Debug.Log("Level :" + ps.level + " xp restant :" + ps.experience);
+
             }
         }
     }
