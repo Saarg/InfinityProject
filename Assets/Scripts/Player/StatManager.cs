@@ -51,7 +51,7 @@ public class StatManager {
             ps.Convert();
             while (ps.LevelUp(experienceTable[ps.level]))
             {
-                Debug.Log("Level :" + ps.level + " xp restant :" + ps.experience);
+                // Debug.Log("Level :" + ps.level + " xp restant :" + ps.experience);
             }
         }
     }

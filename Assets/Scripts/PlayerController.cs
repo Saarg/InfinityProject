@@ -14,11 +14,18 @@ public class PlayerController : Living {
 
     protected StatManager stat;
     
+	protected float _stamina = 10;
+	public float stamina { get {return _stamina; }}
+	[SerializeField] protected float _staminaMax = 10;
+	public float staminaMax { get {return _staminaMax; }}
+	[SerializeField] protected float _staminaRegen = 1;
 
     protected override void Start()
     {
         base.Start();
         stat = StatManager.instance;
+
+		_stamina = _staminaMax;
     }
 
     protected override void Update() 
@@ -27,6 +34,11 @@ public class PlayerController : Living {
 
 		if (_controller.velocity == Vector3.zero && _audioSource.clip == stepSound)
 			_audioSource.Pause ();
+
+		/*
+		 * Stamina regen
+		 */
+		_stamina = Mathf.Clamp(_stamina + _staminaRegen * Time.deltaTime, 0, _staminaMax);
 
 		/*
 		 * Look at
@@ -67,8 +79,9 @@ public class PlayerController : Living {
 		{
 			_moveDirection = new Vector3(MultiOSControls.GetValue ("Horizontal"), 0, -MultiOSControls.GetValue ("Vertical"));
 
-			if (MultiOSControls.GetValue ("Jump") != 0)
+			if (MultiOSControls.GetValue ("Jump") != 0 && _stamina >= 2)
             {
+				_stamina -= 2;
                 StartCoroutine("Jump");
                 stat.rol.experience++;
             }
