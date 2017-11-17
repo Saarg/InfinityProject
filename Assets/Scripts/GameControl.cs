@@ -33,12 +33,12 @@ public class GameControl : MonoBehaviour {
         PlayerData data = new PlayerData();
 
         data.life = player.GetComponent<PlayerController>().life;
-        data.atk = sm.atk;
+        /*data.atk = sm.atk;
         data.hp = sm.hp;
         data.spe = sm.spe;
         data.end = sm.end;
         data.ran = sm.ran;
-        data.rol = sm.rol;
+        data.rol = sm.rol;*/
 
 
         bf.Serialize(file, data);
@@ -56,16 +56,16 @@ public class GameControl : MonoBehaviour {
             file.Close();
 
             player.GetComponent<PlayerController>().life = data.life;
-            player.GetComponent<StatManager>().atk = data.atk;
+            /*player.GetComponent<StatManager>().atk = data.atk;
             player.GetComponent<StatManager>().hp = data.hp;
             player.GetComponent<StatManager>().spe = data.spe;
             player.GetComponent<StatManager>().end = data.end;
             player.GetComponent<StatManager>().ran = data.ran;
-            player.GetComponent<StatManager>().rol = data.rol ;
+            player.GetComponent<StatManager>().rol = data.rol ;*/
         }
     }
 
-    void Update()
+    /*void Update()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -73,17 +73,17 @@ public class GameControl : MonoBehaviour {
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Load();
-    }
+    }*/
 }
 
 [Serializable]
 class PlayerData
 {
     public float life;
-    public PlayerStats atk;
+    /*public PlayerStats atk;
     public PlayerStats hp;
     public PlayerStats spe;
     public PlayerStats end;
     public PlayerStats ran;
-    public PlayerStats rol;
+    public PlayerStats rol;*/
 }
