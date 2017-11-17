@@ -35,7 +35,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4307426399570066}
   - component: {fileID: 33139179411733476}
-  - component: {fileID: 65486323562091368}
   - component: {fileID: 23524318212319922}
   m_Layer: 0
   m_Name: Glasses
@@ -98,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926701957401006}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -6, y: 0.5, z: 4.5}
+  m_LocalPosition: {x: -0.11, y: 0.52, z: -4.12}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4307426399570066}
@@ -188,18 +187,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926701957401006}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65486323562091368
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1667058515165978}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82948644215209118
 AudioSource:
   m_ObjectHideFlags: 1
@@ -352,7 +339,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  experienceTable: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  _staminaMax: 10
+  _staminaRegen: 1
 --- !u!136 &136127385553721194
 CapsuleCollider:
   m_ObjectHideFlags: 1
