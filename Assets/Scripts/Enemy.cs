@@ -89,6 +89,7 @@ public class Enemy : Living {
 	 */
 	public bool Shoot()
 	{
+		Debug.Log ("fire");	
 		if (shootingCooldown > specs.attackRate && _gun != null) {
 			_gun.Fire ();
 			shootingCooldown = 0;
@@ -112,12 +113,14 @@ public class Enemy : Living {
 			if (diff.magnitude < specs.sightRange && angle < (specs.sightAngle / 2f))
 			{
 				Vector3 enemyToPlayer = player.transform.position - transform.position;
-				Ray vision = new Ray (transform.position, enemyToPlayer.normalized);
+				Ray vision = new Ray (transform.position, enemyToPlayer);
 				RaycastHit hit;
 
-				if(Physics.Raycast(vision, out hit, specs.sightRange))
-				if(hit.collider.CompareTag("Player"))
-					return true;
+				if (Physics.Raycast (vision, out hit, specs.sightRange)) {
+//					Debug.Log("
+					if(hit.collider.CompareTag("Player"))
+						return true;
+				}
 
 				return false;
 			}
