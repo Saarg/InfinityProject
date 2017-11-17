@@ -20,6 +20,8 @@ public class PlayerController : Living {
 	public float staminaMax { get {return _staminaMax; }}
 	[SerializeField] protected float _staminaRegen = 1;
 
+	private float lastShotTime;
+
     protected override void Start()
     {
         base.Start();
@@ -119,6 +121,7 @@ public class PlayerController : Living {
 		 * Gun managment
 		 */
 		if (_gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
+			lastShotTime = 0;
 			_gun.Fire ();
             stat.end.count++;
 		}
@@ -126,6 +129,8 @@ public class PlayerController : Living {
 		if (_gun != null && MultiOSControls.GetValue ("Reload") != 0) {
 			_gun.StartReload ();
 		}
+
+		lastShotTime += Time.deltaTime;
 
         if (Input.GetKeyDown("a"))
         {
@@ -162,7 +167,14 @@ public class PlayerController : Living {
 			transform.RotateAround (transform.position, rotationAxis, _rollCurve.Evaluate((Time.realtimeSinceStartup - start) / _jumptime));
             yield return null;
         }
-        
     }
+
+	public bool HasFired()
+	{
+		if (lastShotTime < 0.5f)
+			return true;
+
+		return false;
+	}
 
 }
