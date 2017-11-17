@@ -10,9 +10,14 @@ namespace Weapons {
 
 		protected Rigidbody _rb;
 
-		void Start () {
-			_rb = GetComponent<Rigidbody> ();
+        protected Vector3 start;
+        protected Vector3 end;
 
+        protected float distance;
+
+        void Start () {
+			_rb = GetComponent<Rigidbody> ();
+            start = this.transform.position;
 			if (_rb == null) {
 				Debug.LogWarning ("No rigidbody found on bullet, destroying bullet script");
 				Destroy (this);
@@ -44,6 +49,13 @@ namespace Weapons {
 
 		public void ImpactDamage(Collision collision) {
 			collision.gameObject.SendMessage ("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
+            if(collision.gameObject.tag == "Enemy")
+            {
+                end = this.transform.position;
+                distance = Vector3.Distance(start, end);
+                Debug.Log(distance);
+                StatManager.instance.ran.count += (int)distance;
+            }
 		}
 
 		public float GetDamages() {
