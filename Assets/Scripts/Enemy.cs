@@ -48,7 +48,7 @@ public class Enemy : Living {
 		shootingCooldown += Time.deltaTime;
 	}
 
-	void OnDrawGizmos()
+	void OnDrawGizmosSelected()
 	{
 		if(sight != null && stateMachine != null)
 		{
@@ -62,13 +62,12 @@ public class Enemy : Living {
 			Vector3 rightSight = rightRotation * centerSight;
 			Gizmos.DrawRay(sight.position, rightSight);
 
-			//Draw hearing area
+			//Draw footsteps detection area
 			Gizmos.DrawWireSphere(transform.position, specs.soundDetectionRange);
 
-			//Draw attack range
-//			Gizmos.color = Color.magenta;
-//			Vector3 attackRay = sight.forward.normalized * specs.attackRange;
-//			Gizmos.DrawRay (sight.position, attackRay);
+			//Draw shot detection area
+			Gizmos.color = Color.gray;
+			Gizmos.DrawWireSphere(transform.position, specs.shotDetectionRange);
 		}
 	}
 
@@ -89,7 +88,6 @@ public class Enemy : Living {
 	 */
 	public bool Shoot()
 	{
-		Debug.Log ("fire");	
 		if (shootingCooldown > specs.attackRate && _gun != null) {
 			_gun.Fire ();
 			shootingCooldown = 0;
@@ -138,7 +136,12 @@ public class Enemy : Living {
 		if (player != null) {
 			Vector3 diff = player.position - transform.position;
 
+			//if player is close enough, the enemy hear the sounds of its footsteps
 			if (diff.magnitude < specs.soundDetectionRange) 
+				return true;
+
+			//if player fires its weapon close enough of the enemy, the sound is heard
+			if (diff.magnitude < specs.shotDetectionRange && player.gameObject.GetComponent<PlayerController> ().HasFired ())
 				return true;
 		}
 		return false;
@@ -166,13 +169,6 @@ public class Enemy : Living {
 		Debug.DrawRay (transform.position, centerSight, Color.magenta);
 		Debug.DrawRay (transform.position, leftSight, Color.magenta);
 		Debug.DrawRay (transform.position, rightSight, Color.magenta);
-
-//		if (Physics.Raycast (left, out wallHitLeft, specs.sightRange) || Physics.Raycast(right, out wallHitRight, specs.sightRange))
-//		if (wallHit.collider.CompareTag ("Player"))
-//			return false;
-//		else {
-//			return true;
-//		}
 
 		if (Physics.Raycast (left, out wallHitLeft, specs.wallAvoidance))
 		if (wallHitLeft.collider.CompareTag ("Player")) {

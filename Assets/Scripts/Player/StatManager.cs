@@ -35,6 +35,7 @@ public class StatManager {
         rol = new PlayerStats();
 
         spe.ratio = 1000;
+        ran.ratio = 8;
 
         stats[0] = atk;
         stats[1] = hp;
