@@ -54,7 +54,7 @@ public class PlayerController : Living {
 			RaycastHit hit;
 
 			if (Physics.Raycast (transform.position, transform.forward, out hit, 10.0f)) {
-				print ("Found an object - distance: " + hit.distance);
+				// print ("Found an object - distance: " + hit.distance);
 
 				gun.transform.LookAt (transform.position + transform.forward * hit.distance);
 			}

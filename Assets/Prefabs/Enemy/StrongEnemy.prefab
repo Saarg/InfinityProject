@@ -104,10 +104,10 @@ GameObject:
   - component: {fileID: 33838804228649388}
   - component: {fileID: 136792723498715808}
   - component: {fileID: 23349822071888592}
-  - component: {fileID: 143719430870141036}
   - component: {fileID: 114321941065912270}
   - component: {fileID: 95143023908917928}
   - component: {fileID: 82230691689244520}
+  - component: {fileID: 195218821408439234}
   m_Layer: 8
   m_Name: StrongEnemy
   m_TagString: Enemy
@@ -864,7 +864,7 @@ MonoBehaviour:
   _life: 80
   _maxLife: 80
   _speed: 5
-  _controller: {fileID: 143719430870141036}
+  _controller: {fileID: 0}
   _gravity: 20
   _gunAnchor: {fileID: 4249289012557332}
   _gun: {fileID: 114418958595373982}
@@ -875,6 +875,9 @@ MonoBehaviour:
   player: {fileID: 0}
   lastPlayerKnownLocation: {x: -2.4410598, y: 0.37, z: -0.97575146}
   sightColor: {r: 0, g: 0, b: 0, a: 0}
+  nma: {fileID: 0}
+  hitWallLeft: 0
+  hitWallRight: 0
 --- !u!114 &114418958595373982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -902,20 +905,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &143719430870141036
-CharacterController:
+--- !u!195 &195218821408439234
+NavMeshAgent:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480709944003260}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.9999999
+  m_Enabled: 0
+  m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.9999999
+  m_BaseOffset: 0.99999994
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
