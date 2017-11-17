@@ -19,8 +19,10 @@ public class ChaseBehaviour : EnemyState {
 			Chase ();
 		else if (enemy.PlayerIsHeard ())
 			LookAtPlayer ();
-		else
+		else {
+			enemy.lastPlayerKnownLocation = enemy.player.transform.position;
 			animator.SetBool ("PlayerIsDetected", false);
+		}
 	}
 
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {}

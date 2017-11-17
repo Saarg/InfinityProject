@@ -5,23 +5,26 @@ using UnityEngine.UI;
 
 public class PlayerGui : MonoBehaviour {
 
-	public Living player;
+	public PlayerController player;
 
 	public Image gunLogo;
 
 	public Slider healthBar;
 	public Slider ammoBar;
+	public Slider staminaBar;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Living> ();
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 
 		healthBar.maxValue = player.maxLife;
+		staminaBar.maxValue = player.staminaMax;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		healthBar.value = player.life;
+		staminaBar.value = player.stamina;
 
 		if (player.gun != null) {
 			ammoBar.gameObject.SetActive (true);

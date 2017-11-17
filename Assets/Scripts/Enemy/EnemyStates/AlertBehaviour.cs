@@ -25,18 +25,15 @@ public class AlertBehaviour : EnemyState {
 	private void SearchForPlayer(Animator animator)
 	{
 		Vector3 diff = enemy.lastPlayerKnownLocation - enemy.transform.position;
-		if (diff.magnitude < 2f) {
-			if (startRotation == null) {
-				startRotation = enemy.transform.rotation;
-			}
 
-			enemy.transform.Rotate (new Vector3(0, 360 * Time.deltaTime / enemy.specs.alertDuration, 0));
-
-			searchTime += Time.deltaTime;
-			if (searchTime > enemy.specs.alertDuration)
-				animator.SetBool ("PlayerIsLost", true);
-		} else {
-			enemy.Move (diff.normalized * enemy.specs.alertSpeed);
+		if (startRotation == null) {
+			startRotation = enemy.transform.rotation;
 		}
+
+		enemy.transform.Rotate (new Vector3(0, 360 * Time.deltaTime / enemy.specs.alertDuration, 0));
+
+		searchTime += Time.deltaTime;
+		if (searchTime > enemy.specs.alertDuration)
+			animator.SetBool ("PlayerIsLost", true);
 	}
 }

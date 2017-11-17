@@ -17,7 +17,10 @@ public class Living : MonoBehaviour {
 	public float sightRange;
 	public Vector3 destination;
 
-  	[SerializeField]
+    private IEnumerator coroutine;
+    private Color col;
+
+    [SerializeField]
     protected float _life = 100.0F;
 	public float life { 
 		get { return _life; } 
@@ -47,17 +50,14 @@ public class Living : MonoBehaviour {
 	protected AudioSource _audioSource;
 
 	protected virtual void Start() {
-		_controller = GetComponent<CharacterController>();
-
+        this.col = this.GetComponent<Renderer>().material.color;
+        _controller = GetComponent<CharacterController>();
 		_audioSource = GetComponent<AudioSource> ();
 	}
 
 	protected virtual void Update() {
 		if (transform.position.y < -10)
 			ApplyDamage(-transform.position.y);
-
-		if (_controller.velocity == Vector3.zero && _audioSource.clip == stepSound)
-			_audioSource.Pause ();
 	}
 
 	protected virtual void OnCollisionEnter(Collision collision) {
@@ -77,11 +77,26 @@ public class Living : MonoBehaviour {
 			_gun = newGun.GetComponent<Weapon> ();
 		}
 	}
-
     void ApplyDamage(float damage)
     {
+        coroutine = Blink();
+        StartCoroutine(coroutine);
         _life = _life - damage;
         if (_life <= 0)
+        {
             Destroy(this.gameObject);
+        }
+    }
+
+    private IEnumerator Blink()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            this.GetComponent<Renderer>().material.color = Color.white;
+            yield return new WaitForSeconds(.1f);
+            this.GetComponent<Renderer>().material.color = col;
+            yield return new WaitForSeconds(.1f);
+        }
+        this.GetComponent<Renderer>().material.color = col;
     }
 }
