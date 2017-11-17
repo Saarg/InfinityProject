@@ -50,12 +50,14 @@ public class PauseGame : MonoBehaviour
             canvas.gameObject.SetActive(true);
             Time.timeScale = 0;
             AudioListener.volume = 0;
+            Player.gameObject.SetActive(false);
         }
         else
         {
             canvas.gameObject.SetActive(false);
             Time.timeScale = 1;
             AudioListener.volume = 1;
+            Player.gameObject.SetActive(true);
         }
     }
 

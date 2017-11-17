@@ -25,15 +25,21 @@ public class GameControl : MonoBehaviour {
 	}
 
     public void Save()
-    {    
+    {
+        StatManager sm = new StatManager();
+
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
         PlayerData data = new PlayerData();
 
         data.life = player.GetComponent<PlayerController>().life;
-        /*data.level = player.GetComponent<PlayerStats>().level;
-        data.experience = player.GetComponent<PlayerStats>().experience;
-        data.count = player.GetComponent<PlayerStats>().count;*/
+        data.atk = sm.atk;
+        data.hp = sm.hp;
+        data.spe = sm.spe;
+        data.end = sm.end;
+        data.ran = sm.ran;
+        data.rol = sm.rol;
+
 
         bf.Serialize(file, data);
         file.Close();
@@ -50,6 +56,12 @@ public class GameControl : MonoBehaviour {
             file.Close();
 
             player.GetComponent<PlayerController>().life = data.life;
+            player.GetComponent<StatManager>().atk = data.atk;
+            player.GetComponent<StatManager>().hp = data.hp;
+            player.GetComponent<StatManager>().spe = data.spe;
+            player.GetComponent<StatManager>().end = data.end;
+            player.GetComponent<StatManager>().ran = data.ran;
+            player.GetComponent<StatManager>().rol = data.rol ;
         }
     }
 
@@ -67,5 +79,11 @@ public class GameControl : MonoBehaviour {
 [Serializable]
 class PlayerData
 {
-       public float life;
+    public float life;
+    public PlayerStats atk;
+    public PlayerStats hp;
+    public PlayerStats spe;
+    public PlayerStats end;
+    public PlayerStats ran;
+    public PlayerStats rol;
 }
