@@ -689,6 +689,8 @@ MonoBehaviour:
   lastPlayerKnownLocation: {x: -2.4410598, y: 0.37, z: -0.97575146}
   sightColor: {r: 0, g: 0, b: 0, a: 0}
   nma: {fileID: 0}
+  hitWallLeft: 0
+  hitWallRight: 0
 --- !u!136 &136818250324587402
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -708,7 +710,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507785927779818}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5

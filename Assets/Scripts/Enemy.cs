@@ -29,6 +29,7 @@ public class Enemy : Living {
 		lastPlayerKnownLocation = Vector3.zero;
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		nma = GetComponent<NavMeshAgent> ();
+		nma.enabled = true;
 		shootingCooldown = 0;
 		sightColor = Color.grey;
 
