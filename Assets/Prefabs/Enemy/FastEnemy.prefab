@@ -123,7 +123,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4205200900391390}
   - component: {fileID: 33442551574043096}
-  - component: {fileID: 65325585683324448}
   - component: {fileID: 23448007361790660}
   m_Layer: 0
   m_Name: Glasses
@@ -246,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1589843893745692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0258467, y: 0.44, z: 0.5151459}
+  m_LocalPosition: {x: 0.028366014, y: 0.065, z: -10.65593}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4205200900391390}
@@ -628,18 +627,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1701451468725532}
   m_Mesh: {fileID: 4300000, guid: c1232b0a1b78ddf44bd877453fb7a84c, type: 3}
---- !u!65 &65325585683324448
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763552747630266}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82038257734419644
 AudioSource:
   m_ObjectHideFlags: 1
