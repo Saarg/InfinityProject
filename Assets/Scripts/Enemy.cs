@@ -153,11 +153,11 @@ public class Enemy : Living {
 		Vector3 centerSight = sight.forward.normalized * specs.wallAvoidance;	
 		Quaternion leftRotation	= Quaternion.Euler (0, specs.sightAngle / -2f, 0);
 		Vector3 leftSight = leftRotation * centerSight;
-		Ray left = new Ray (transform.position, leftSight);
+		Ray left = new Ray (sight.transform.position, leftSight);
 
 		Quaternion rightRotation = Quaternion.Euler (0, specs.sightAngle / 2f, 0);
 		Vector3 rightSight = rightRotation * centerSight;
-		Ray right = new Ray (transform.position, rightSight);
+		Ray right = new Ray (sight.transform.position, rightSight);
 
 		Debug.DrawRay (transform.position, centerSight, Color.magenta);
 		Debug.DrawRay (transform.position, leftSight, Color.magenta);
