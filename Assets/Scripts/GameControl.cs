@@ -25,7 +25,7 @@ public class GameControl : MonoBehaviour {
 
     public void Save()
     {
-        StatManager sm = new StatManager();
+        StatManager sm = StatManager.Instance;
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
@@ -33,30 +33,30 @@ public class GameControl : MonoBehaviour {
 
         data.life = player.GetComponent<PlayerController>().life;
 
-        data.atkLevel = sm.atk.level;
-        data.atkExperience = sm.atk.experience;
-        data.atkCount = sm.atk.count;
-        data.atkratio = sm.atk.ratio;
-        data.hpLevel = sm.hp.level;
-        data.hpExperience = sm.hp.experience;
-        data. hpCount = sm.hp.count;
-        data.hpRatio = sm.hp.ratio;
-        data. speLevel = sm.spe.level;
-        data.speExperience = sm.spe.experience;
-        data.speCount = sm.spe.count;
-        data.speRatio = sm.spe.ratio;
-        data.endLevel = sm.end.level;
-        data.endExperience = sm.end.experience;
-        data.endCount = sm.end.count;
-        data.endRatio = sm.end.ratio;
-        data.ranLevel = sm.end.level;
-        data.ranExperience = sm.end.experience;
-        data.ranCount = sm.end.count;
-        data.ranRatio = sm.end.ratio;
-        data.rolLevel = sm.rol.level;
-        data.rolExperience = sm.rol.experience;
-        data.rolCount = sm.rol.count;
-        data.rolRatio = sm.rol.ratio;
+        data.atkLevel = sm.Atk.Level;
+        data.atkExperience = sm.Atk.Experience;
+        data.atkCount = sm.Atk.Count;
+        data.atkratio = sm.Atk.Ratio;
+        data.hpLevel = sm.Hp.Level;
+        data.hpExperience = sm.Hp.Experience;
+        data. hpCount = sm.Hp.Count;
+        data.hpRatio = sm.Hp.Ratio;
+        data. speLevel = sm.Spe.Level;
+        data.speExperience = sm.Spe.Experience;
+        data.speCount = sm.Spe.Count;
+        data.speRatio = sm.Spe.Ratio;
+        data.endLevel = sm.End.Level;
+        data.endExperience = sm.End.Experience;
+        data.endCount = sm.End.Count;
+        data.endRatio = sm.End.Ratio;
+        data.ranLevel = sm.End.Level;
+        data.ranExperience = sm.End.Experience;
+        data.ranCount = sm.End.Count;
+        data.ranRatio = sm.End.Ratio;
+        data.rolLevel = sm.Rol.Level;
+        data.rolExperience = sm.Rol.Experience;
+        data.rolCount = sm.Rol.Count;
+        data.rolRatio = sm.Rol.Ratio;
 
         bf.Serialize(file, data);
         file.Close();
@@ -66,7 +66,7 @@ public class GameControl : MonoBehaviour {
     {
         if(File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
         {
-            StatManager sm = new StatManager();
+            StatManager sm = StatManager.Instance;
 
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
@@ -76,30 +76,30 @@ public class GameControl : MonoBehaviour {
 
             player.GetComponent<PlayerController>().life = data.life;
 
-            sm.atk.level = data.atkLevel;
-            sm.atk.experience = data.atkExperience;
-            sm.atk.count = data.atkCount;
-            sm.atk.ratio = data.atkratio;
-            sm.hp.level = data.hpLevel;
-            sm.hp.experience = data.hpExperience;
-            sm.hp.count = data.hpCount;
-            sm.hp.ratio = data.hpRatio;
-            sm.spe.level = data.speLevel;
-            sm.spe.experience = data.speExperience;
-            sm.spe.count = data.speCount;
-            sm.spe.ratio = data.speRatio;
-            sm.end.level = data.endLevel;
-            sm.end.experience = data.endExperience;
-            sm.end.count = data.endCount;
-            sm.end.ratio = data.endRatio = sm.end.ratio;
-            sm.end.level = data.ranLevel = sm.end.level;
-            sm.end.experience = data.ranExperience = sm.end.experience;
-            sm.end.count = data.ranCount;
-            sm.end.ratio = data.ranRatio;
-            sm.rol.level = data.rolLevel;
-            sm.rol.experience = data.rolExperience;
-            sm.rol.count = data.rolCount;
-            sm.rol.ratio = data.rolRatio;
+            sm.Atk.Level = data.atkLevel;
+            sm.Atk.Experience = data.atkExperience;
+            sm.Atk.Count = data.atkCount;
+            sm.Atk.Ratio = data.atkratio;
+            sm.Hp.Level = data.hpLevel;
+            sm.Hp.Experience = data.hpExperience;
+            sm.Hp.Count = data.hpCount;
+            sm.Hp.Ratio = data.hpRatio;
+            sm.Spe.Level = data.speLevel;
+            sm.Spe.Experience = data.speExperience;
+            sm.Spe.Count = data.speCount;
+            sm.Spe.Ratio = data.speRatio;
+            sm.End.Level = data.endLevel;
+            sm.End.Experience = data.endExperience;
+            sm.End.Count = data.endCount;
+            sm.End.Ratio = data.endRatio = sm.End.Ratio;
+            sm.End.Level = data.ranLevel = sm.End.Level;
+            sm.End.Experience = data.ranExperience = sm.End.Experience;
+            sm.End.Count = data.ranCount;
+            sm.End.Ratio = data.ranRatio;
+            sm.Rol.Level = data.rolLevel;
+            sm.Rol.Experience = data.rolExperience;
+            sm.Rol.Count = data.rolCount;
+            sm.Rol.Ratio = data.rolRatio;
 
         }
     }
