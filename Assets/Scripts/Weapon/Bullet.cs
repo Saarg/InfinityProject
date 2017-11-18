@@ -59,7 +59,7 @@ namespace Weapons {
 		}
 
 		public float GetDamages() {
-			return _specs.damage +StatManager.instance.atk.level;
+			return _specs.damage + StatManager.instance.atk.level;
 		}
 
 		/*

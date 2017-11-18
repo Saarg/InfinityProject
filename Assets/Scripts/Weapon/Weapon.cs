@@ -89,5 +89,9 @@ namespace Weapons {
 		public Sprite GetLogo() {
 			return _specs.logo;
 		}
+
+		public WeaponSpec getSpecs(){
+			return _specs;
+		}
 	}
 }

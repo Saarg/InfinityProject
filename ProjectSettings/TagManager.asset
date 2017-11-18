@@ -10,6 +10,7 @@ TagManager:
   - Bonus
   - Weapon
   - ExplProjectile
+  - Boss
   layers:
   - Default
   - TransparentFX
