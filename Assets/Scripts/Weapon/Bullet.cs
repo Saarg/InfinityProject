@@ -15,6 +15,8 @@ namespace Weapons {
 
         protected float distance;
 
+        public Living owner;
+
         void Start () {
 			_rb = GetComponent<Rigidbody> ();
             start = this.transform.position;
@@ -49,7 +51,8 @@ namespace Weapons {
 
 		public void ImpactDamage(Collision collision) {
 			collision.gameObject.SendMessage ("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
-            if(collision.gameObject.tag == "Enemy")
+
+            if (collision.gameObject.tag == "Enemy" && owner.tag == "Player")
             {
                 End = this.transform.position;
                 distance = Vector3.Distance(start, End);
@@ -59,7 +62,9 @@ namespace Weapons {
 		}
 
 		public float GetDamages() {
-			return _specs.damage +StatManager.Instance.Atk.Level;
+            if(owner.tag == "Player")
+                return _specs.damage + StatManager.Instance.Atk.Level;
+            return _specs.damage;
 		}
 
 		/*

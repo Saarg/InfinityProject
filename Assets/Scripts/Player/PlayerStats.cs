@@ -76,6 +76,8 @@ public class PlayerStats{
         level = 0;
         experience = 0;
         count = 0;
+        bonus = new ArrayList();
+        malus = new ArrayList();
     }
 
     public void GiveBonusTo(PlayerStats ps)
