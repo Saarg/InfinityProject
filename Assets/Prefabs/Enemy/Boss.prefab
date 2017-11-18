@@ -972,7 +972,7 @@ MonoBehaviour:
   weapon1Ammo: {fileID: 0}
   weapon2: {fileID: 114815811528078228}
   weapon2Ammo: {fileID: 0}
-  fireball: {fileID: 1966989248939836, guid: 6a4dc786eb6cece419ec6029b8e45363, type: 2}
+  fireball: {fileID: 121802, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
   attackRange: 0
   fireballCooldown: 5
   fireballTime: 2.9930935
