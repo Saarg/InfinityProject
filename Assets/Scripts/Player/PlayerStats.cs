@@ -68,8 +68,8 @@ public class PlayerStats{
                 this.ratio = value;
         }
     }
-    public ArrayList bonus;
-    public ArrayList malus;
+	public ArrayList bonus = new ArrayList ();
+	public ArrayList malus = new ArrayList ();
 
     public PlayerStats()
     {

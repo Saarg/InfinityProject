@@ -62,9 +62,13 @@ namespace Weapons {
 		}
 
 		public float GetDamages() {
+<<<<<<< HEAD
             if(owner.tag == "Player")
                 return _specs.damage + StatManager.Instance.Atk.Level;
             return _specs.damage;
+=======
+			return _specs.damage + StatManager.Instance.Atk.Level;
+>>>>>>> e226c33ea7c6cd77355ec18bd2f3d8b1e3be56e8
 		}
 
 		/*
