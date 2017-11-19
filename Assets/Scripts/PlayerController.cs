@@ -107,7 +107,7 @@ public class PlayerController : Living {
 
         if(_moveDirection.magnitude > 0.1)
         {
-            stat.Spe.Count++;
+//            stat.Spe.Count++;
         }
 
 		/*
