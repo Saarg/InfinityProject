@@ -8,7 +8,13 @@ public class Boss : MonoBehaviour {
 
 	[SerializeField] private Transform player;
 	private NavMeshAgent nma;
+
+	[Header("Weapons")]
 	[SerializeField] protected float gravity = 20.0F;
+	[SerializeField] protected float fireballStrength = 20.0F;
+	public float getFireballStrength(){
+		return fireballStrength;
+	}
 
 	[Header("Weapons")]
 	[SerializeField] private Weapon weapon1;
@@ -31,6 +37,7 @@ public class Boss : MonoBehaviour {
 		weapon2Ammo = weapon2.getSpecs ().ammoPrefab;
 
 		fireballCooldown = 5f;
+
 		barrageCooldown = 3f;
 
 		fireballTime = 0;
@@ -92,7 +99,7 @@ public class Boss : MonoBehaviour {
 	{
 		Vector3 pos = player.position;
 		pos.y += 20;
-		Quaternion rot = Quaternion.Euler (new Vector3 (0, 0, 0));
+		Quaternion rot = Quaternion.Euler (new Vector3 (90, 0, 0));
 		Instantiate(fireball, pos, rot);
 	}
 

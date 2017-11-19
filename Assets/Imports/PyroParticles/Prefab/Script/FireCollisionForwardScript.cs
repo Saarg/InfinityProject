@@ -18,6 +18,9 @@ namespace DigitalRuby.PyroParticles
     {
         public ICollisionHandler CollisionHandler;
 
+		void Start () {
+		}
+
         public void OnCollisionEnter(Collision col)
         {
             CollisionHandler.HandleCollision(gameObject, col);

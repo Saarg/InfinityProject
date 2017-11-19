@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.53, z: -2.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469746}
@@ -215,7 +215,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -239,7 +239,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!82 &8299452
 AudioSource:
   m_ObjectHideFlags: 1
@@ -313,7 +313,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -337,7 +337,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!108 &10857032
 Light:
   m_ObjectHideFlags: 1
@@ -434,6 +434,7 @@ MonoBehaviour:
     m_Bits: 4294967039
   ProjectileDestroyParticleSystemsOnCollision:
   - {fileID: 19813804}
+  boss: {fileID: 114957729570118380, guid: 76cc7ba09a6679a4d865f24e684fdce0, type: 2}
 --- !u!135 &13563630
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -444,7 +445,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19813804
 ParticleSystem:

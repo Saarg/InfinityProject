@@ -45,6 +45,14 @@ namespace DigitalRuby.PyroParticles
         [Tooltip("Particle systems to destroy upon collision.")]
         public ParticleSystem[] ProjectileDestroyParticleSystemsOnCollision;
 
+		public Transform player;
+		public Boss boss;
+		public GameObject shadowPrefab;
+		private SpriteRenderer shadowRenderer;
+
+		private Vector3 startPos;
+		private float shadowOpacityMultiplier;
+
         [HideInInspector]
         public FireProjectileCollisionDelegate CollisionDelegate;
 
@@ -64,7 +72,37 @@ namespace DigitalRuby.PyroParticles
             base.Start();
 
             StartCoroutine(SendCollisionAfterDelay());
+
+			player = GameObject.FindGameObjectWithTag ("Player").transform;
+
+			//spawn shadow
+			startPos = new Vector3(player.position.x, 0.1f, player.position.z);
+			Vector3 rot = Vector3.zero;
+			rot.x = 90;
+			shadowRenderer = Instantiate (shadowPrefab, startPos, Quaternion.Euler(rot)).GetComponent<SpriteRenderer>();
+			if (shadowRenderer != null) {
+				//at the beginning, shadow is hidden
+				Color c = shadowRenderer.color;
+				c.a = 0f;
+				shadowRenderer.color = c;
+
+				shadowOpacityMultiplier = 1/((shadowRenderer.transform.position - startPos).magnitude);
+			} else {
+				Destroy (gameObject);
+			}
         }
+
+		protected override void Update()
+		{
+			base.Update ();
+
+			//update color of the shadow
+			float dist = (transform.position - startPos).magnitude;
+			float opacity = dist * shadowOpacityMultiplier;
+			Color c = shadowRenderer.color;
+			c.a = opacity;
+			shadowRenderer.color = c;
+		}
 
         public void HandleCollision(GameObject obj, Collision c)
         {
@@ -104,6 +142,11 @@ namespace DigitalRuby.PyroParticles
                     CollisionDelegate(this, c.contacts[0].point);
                 }
             }
+
+			//if collide with the player, inflicts damage
+			if(c.collider.CompareTag("Player")){
+				c.collider.gameObject.SendMessage ("ApplyDamage", boss.getFireballStrength(), SendMessageOptions.DontRequireReceiver);
+			}
         }
     }
 }
