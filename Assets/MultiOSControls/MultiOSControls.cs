@@ -186,4 +186,51 @@ public class MultiOSControls : MonoBehaviour {
 	static public ControllerNumber GetControllerNumber(PlayerNumber player = PlayerNumber.Player1) {
 		return instance.players [(int)player].controller;
 	}
+
+	static public void ChooseController(int c, PlayerNumber player = PlayerNumber.Player1) {
+		instance.players [(int)player].controller = (ControllerNumber)c;
+
+		instance.players [(int)player].keyboard = (c == 4);
+	}
+
+	static public void BindPosKey(string name, string key, PlayerNumber player = PlayerNumber.All) {
+		if (player == PlayerNumber.All) { // Read input from all players
+			foreach (PlayerNumber n in System.Enum.GetValues(typeof(PlayerNumber))) {
+				if (n == PlayerNumber.All) { // avoid infinite loop
+					continue;
+				}
+
+				BindPosKey (name, key, n);
+			}
+
+			return;
+		}
+
+		foreach (InputDefinition i in instance.players[(int)player].inputs) {
+			if (i.name == name) {
+				i.posKeys [0] = key;
+			}
+		}
+	}
+
+	static public void BindNegKey(string name, string key, PlayerNumber player = PlayerNumber.All) {
+		if (player == PlayerNumber.All) { // Read input from all players
+			foreach (PlayerNumber n in System.Enum.GetValues(typeof(PlayerNumber))) {
+				if (n == PlayerNumber.All) { // avoid infinite loop
+					continue;
+				}
+
+				BindNegKey (name, key, n);
+			}
+
+			return;
+		}
+
+		foreach (InputDefinition i in instance.players[(int)player].inputs) {
+			if (i.name == name) {
+				i.negKeys [0] = key;
+			}
+		}
+	}
+
 }
