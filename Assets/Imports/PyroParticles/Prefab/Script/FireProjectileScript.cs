@@ -50,8 +50,8 @@ namespace DigitalRuby.PyroParticles
 		public GameObject shadowPrefab;
 		private SpriteRenderer shadowRenderer;
 
-		private Vector3 startPos;
-		private float shadowOpacityMultiplier;
+		private Vector3 colliderStartPos;
+		private float maxDistanceToShadow;
 
 		[HideInInspector]
 		public FireProjectileCollisionDelegate CollisionDelegate;
@@ -75,8 +75,10 @@ namespace DigitalRuby.PyroParticles
 
 			player = GameObject.FindGameObjectWithTag ("Player").transform;
 
+			colliderStartPos = ProjectileColliderObject.transform.position;
+
 			//spawn shadow
-			startPos = new Vector3(player.position.x, 0.1f, player.position.z);
+			Vector3 startPos = new Vector3(player.position.x, 0.1f, player.position.z);
 			Vector3 rot = Vector3.zero;
 			rot.x = 90;
 			shadowRenderer = Instantiate (shadowPrefab, startPos, Quaternion.Euler(rot)).GetComponent<SpriteRenderer>();
@@ -86,7 +88,7 @@ namespace DigitalRuby.PyroParticles
 				c.a = 0f;
 				shadowRenderer.color = c;
 
-				shadowOpacityMultiplier = 1/((shadowRenderer.transform.position - startPos).magnitude);
+				maxDistanceToShadow = (shadowRenderer.gameObject.transform.position - colliderStartPos).magnitude;
 			} else {
 				Destroy (gameObject);
 			}
@@ -97,11 +99,13 @@ namespace DigitalRuby.PyroParticles
 			base.Update ();
 
 			//update color of the shadow
-			float dist = (transform.position - startPos).magnitude;
-			float opacity = dist * shadowOpacityMultiplier;
-			Color c = shadowRenderer.color;
-			c.a = opacity;
-			shadowRenderer.color = c;
+			if(shadowRenderer){
+				float dist = (ProjectileColliderObject.transform.position - colliderStartPos).magnitude;
+				float opacity = dist / maxDistanceToShadow;
+				Color c = shadowRenderer.color;
+				c.a = opacity;
+				shadowRenderer.color = c;
+			}
 		}
 
 		public void HandleCollision(GameObject obj, Collision c)
@@ -123,6 +127,8 @@ namespace DigitalRuby.PyroParticles
 				{
 					GameObject.Destroy(p, 0.1f);
 				}
+
+				GameObject.Destroy (shadowRenderer.gameObject);
 			}
 
 			// play collision sound
