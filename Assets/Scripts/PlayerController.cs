@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Living {
-    
+public class PlayerController : Living {    
     protected PlayerStats[] stats = new PlayerStats[6];
 
     [Header("Player Stats")]
@@ -19,6 +18,9 @@ public class PlayerController : Living {
 	[SerializeField] protected float _staminaMax = 10;
 	public float staminaMax { get {return _staminaMax; }}
 	[SerializeField] protected float _staminaRegen = 1;
+
+	[Space(10)]
+	public PlayerNumber player = PlayerNumber.Player1;
 
 	private float lastShotTime;
 
@@ -45,8 +47,8 @@ public class PlayerController : Living {
 		/*
 		 * Look at
 		 */
-		Vector3 LookAt = new Vector3 (MultiOSControls.GetValue ("RHorizontal"), 0, -MultiOSControls.GetValue ("RVertical"));
-		if (LookAt == Vector3.zero) {
+		Vector3 LookAt = new Vector3 (MultiOSControls.GetValue ("RHorizontal", player), 0, -MultiOSControls.GetValue ("RVertical", player));
+		if (LookAt == Vector3.zero && MultiOSControls.HasKeyboard(player)) {
 			Vector3 cursorPos = Input.mousePosition;
 
 			Vector3 playerScreenPos = Camera.main.WorldToScreenPoint (transform.position);
@@ -64,7 +66,7 @@ public class PlayerController : Living {
 		/*
 		 * Aim correction
 		 */
-		if (gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
+		if (gun != null && MultiOSControls.GetValue ("Fire1", player) != 0) {
 			RaycastHit hit;
 
 			if (Physics.Raycast (transform.position, transform.forward, out hit, 10.0f)) {
@@ -79,9 +81,9 @@ public class PlayerController : Living {
 		 */
 		if (_controller.isGrounded) 
 		{
-			_moveDirection = new Vector3(MultiOSControls.GetValue ("Horizontal"), 0, -MultiOSControls.GetValue ("Vertical"));
+			_moveDirection = new Vector3(MultiOSControls.GetValue ("Horizontal", player), 0, -MultiOSControls.GetValue ("Vertical", player));
 
-			if (MultiOSControls.GetValue ("Jump") != 0 && _stamina >= 2)
+			if (MultiOSControls.GetValue ("Jump", player) != 0 && _stamina >= 2)
             {
 				_stamina -= 2;
                 StartCoroutine("Jump");
@@ -120,13 +122,13 @@ public class PlayerController : Living {
 		/*
 		 * Gun managment
 		 */
-		if (_gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
+		if (_gun != null && MultiOSControls.GetValue ("Fire1", player) != 0) {
 			lastShotTime = 0;
 			_gun.Fire ();
             stat.End.Count++;
 		}
 		
-		if (_gun != null && MultiOSControls.GetValue ("Reload") != 0) {
+		if (_gun != null && MultiOSControls.GetValue ("Reload", player) != 0) {
 			_gun.StartReload ();
 		}
 

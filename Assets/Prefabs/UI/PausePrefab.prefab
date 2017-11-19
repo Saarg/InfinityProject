@@ -2082,8 +2082,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174481085170532}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.8677504, y: 1.1305742, z: 2.9624434}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224214978731074952}
@@ -5188,7 +5188,7 @@ MonoBehaviour:
   soundsMenu: {fileID: 224843408905518100}
   videoSettingsMenu: {fileID: 224778022187543708}
   controlsMenu: {fileID: 224256951260635858}
-  Player: {fileID: 0}
+  players: []
   gc: {fileID: 0}
 --- !u!114 &114679855669348790
 MonoBehaviour:
@@ -7270,7 +7270,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &224013615769670436
 RectTransform:
