@@ -21,7 +21,7 @@ public class PlayerController : Living {
 
 	[Space(10)]
 	public PlayerNumber player = PlayerNumber.Player1;
-	public Camera camera;
+	public Camera playerCamera;
 
 	private float lastShotTime;
 
@@ -32,8 +32,8 @@ public class PlayerController : Living {
 
 		_stamina = _staminaMax;
 
-		if (camera == null) {
-			camera = Camera.main;
+		if (playerCamera == null) {
+			playerCamera = Camera.main;
 		}
     }
 
@@ -56,7 +56,7 @@ public class PlayerController : Living {
 		if (LookAt == Vector3.zero && MultiOSControls.HasKeyboard(player)) {
 			Vector3 cursorPos = Input.mousePosition;
 
-			Vector3 playerScreenPos = camera.WorldToScreenPoint (transform.position);
+			Vector3 playerScreenPos = playerCamera.WorldToScreenPoint (transform.position);
 
 			LookAt = cursorPos - playerScreenPos;
 
@@ -66,7 +66,20 @@ public class PlayerController : Living {
 			LookAt.Normalize ();
 		}
 
-		transform.rotation = Quaternion.LookRotation (LookAt);
+		if (LookAt != Vector3.zero) {
+			transform.rotation = Quaternion.LookRotation (LookAt);
+		} else {
+			LookAt = _moveDirection;
+
+			LookAt.y = 0;
+
+			LookAt.Normalize ();
+
+			if (LookAt != Vector3.zero) {
+				transform.rotation = Quaternion.LookRotation (LookAt);
+			}
+		}
+
 
 		/*
 		 * Aim correction
@@ -163,7 +176,11 @@ public class PlayerController : Living {
 		Vector3 planeModeDir = _moveDirection;
 		planeModeDir.y = 0;
 
+		planeModeDir.Normalize ();
+
 		Vector3 rotationAxis = Quaternion.AngleAxis (90, Vector3.up) * planeModeDir;
+
+		rotationAxis.Normalize ();
 
 		_moveDirection *= _jumpSpeed;
         

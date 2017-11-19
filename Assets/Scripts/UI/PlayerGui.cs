@@ -26,7 +26,6 @@ public class PlayerGui : MonoBehaviour {
 
 		if (_player == null) {
 			Debug.LogError ("No player found for " +  name);
-			Destroy (gameObject);
 			return;
 		}
 
@@ -36,6 +35,10 @@ public class PlayerGui : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (_player == null) {
+			Start ();
+		}
+
 		healthBar.value = _player.life;
 		staminaBar.value = _player.stamina;
 

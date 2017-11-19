@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class DeathUI : MonoBehaviour {
 
-	public Living player;
+	public GameObject[] players;
+	public int minPlayerAlive = 0;
 
 	public Canvas canvas;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Living> ();
+		players = GameObject.FindGameObjectsWithTag ("Player");
 
 		canvas.gameObject.SetActive (false);
 
@@ -20,7 +21,15 @@ public class DeathUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((player == null || player.life <= 0) && Time.timeScale > 0) {
+		int livingPlayers = 0;
+		foreach (GameObject go in players) {
+			if (go != null) {
+				livingPlayers++;
+			}
+		}
+
+
+		if (livingPlayers <= minPlayerAlive && Time.timeScale > 0) {
 			Time.timeScale = 0;
 
 			canvas.gameObject.SetActive (true);

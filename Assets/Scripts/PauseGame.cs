@@ -61,7 +61,7 @@ public class PauseGame : MonoBehaviour
             Time.timeScale = 1;
             AudioListener.volume = 1;
 			foreach (GameObject player in players) {
-				player.SetActive (false);
+				player.SetActive (player.GetComponent<PlayerController>().playerCamera.gameObject.activeSelf);
 			}
         }
     }
