@@ -10,14 +10,17 @@ namespace Weapons {
 		public int spreadAngle = 20;
 
 
-		public override void Fire(Transform t) {
+		public override void Fire(Transform t, Living owner) {
 			Transform canon = t.Find ("Canon");
+            Bullet b;
 
-			for (int i = 0; i < bulletsPerShot; i++) {
+            for (int i = 0; i < bulletsPerShot; i++) {
 				GameObject o = Instantiate (ammoPrefab, canon.position, canon.rotation);
 
 				o.transform.Rotate (Random.Range(-spreadAngle, spreadAngle), Random.Range(-spreadAngle, spreadAngle), 0);
-			}
+                b = (Bullet) o.GetComponent(typeof(Bullet));
+                b.owner = owner;
+            }
 		}
 	}
 }

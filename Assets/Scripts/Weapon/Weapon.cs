@@ -21,6 +21,8 @@ namespace Weapons {
 		public AudioClip reloadSound;
 		private AudioSource _source;
 
+        public Living owner;
+
         // Use this for initialization
         void Start () {
 			ammos = _specs.clipSize;
@@ -45,7 +47,7 @@ namespace Weapons {
 				_source.clip = fireSound;
 				_source.Play ();
 
-                _specs.Fire(transform);
+                _specs.Fire(transform, owner);
 
 				ammos--;
             }

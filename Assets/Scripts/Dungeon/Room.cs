@@ -49,6 +49,13 @@ namespace Dungeon {
 			}
 
 			OnStart.Invoke ();
+
+			if (_waves.Length == 0) {
+				OnCompleted.Invoke ();
+
+				SpawnReward ();
+				Destroy (this);
+			}
 		}
 
 		IEnumerator ManageWaves () {

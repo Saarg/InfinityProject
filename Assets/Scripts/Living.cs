@@ -75,6 +75,7 @@ public class Living : MonoBehaviour {
 				Destroy (_gun.gameObject);
 
 			_gun = newGun.GetComponent<Weapon> ();
+            _gun.owner = this;
 		}
 	}
     void ApplyDamage(float damage)
