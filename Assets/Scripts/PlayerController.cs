@@ -21,6 +21,7 @@ public class PlayerController : Living {
 
 	[Space(10)]
 	public PlayerNumber player = PlayerNumber.Player1;
+	public Camera camera;
 
 	private float lastShotTime;
 
@@ -30,6 +31,10 @@ public class PlayerController : Living {
         stat = StatManager.Instance;
 
 		_stamina = _staminaMax;
+
+		if (camera == null) {
+			camera = Camera.main;
+		}
     }
 
     protected override void Update() 
@@ -51,7 +56,7 @@ public class PlayerController : Living {
 		if (LookAt == Vector3.zero && MultiOSControls.HasKeyboard(player)) {
 			Vector3 cursorPos = Input.mousePosition;
 
-			Vector3 playerScreenPos = Camera.main.WorldToScreenPoint (transform.position);
+			Vector3 playerScreenPos = camera.WorldToScreenPoint (transform.position);
 
 			LookAt = cursorPos - playerScreenPos;
 
