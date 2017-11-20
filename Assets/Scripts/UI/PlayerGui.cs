@@ -14,6 +14,8 @@ public class PlayerGui : MonoBehaviour {
 	public Slider ammoBar;
 	public Slider staminaBar;
 
+	public Text clipsText;
+
 	// Use this for initialization
 	void Start () {
 		foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
@@ -31,6 +33,8 @@ public class PlayerGui : MonoBehaviour {
 
 		healthBar.maxValue = _player.maxLife;
 		staminaBar.maxValue = _player.staminaMax;
+
+		clipsText.text = "0";
 	}
 	
 	// Update is called once per frame
@@ -49,6 +53,8 @@ public class PlayerGui : MonoBehaviour {
 			ammoBar.maxValue = _player.gun.GetClipSize ();
 			ammoBar.value = _player.gun.ammos;
 			gunLogo.sprite = _player.gun.GetLogo();
+
+			clipsText.text = "" + _player.gun.clips;
 		} else {
 			ammoBar.gameObject.SetActive (false);
 			gunLogo.gameObject.SetActive (false);

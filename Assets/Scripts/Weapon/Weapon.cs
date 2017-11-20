@@ -58,22 +58,21 @@ namespace Weapons {
 		}
 
 		IEnumerator Reload() {
-			if (clips <= 0)
-				yield return null;
+			if (clips > 0) {
+				canShoot = false;
+				float startTime = Time.realtimeSinceStartup;
 
-			canShoot = false;
-			float startTime = Time.realtimeSinceStartup;
+				_source.clip = reloadSound;
+				_source.Play ();
 
-			_source.clip = reloadSound;
-			_source.Play ();
+				while (ammos < _specs.clipSize) {
+					ammos++;
+					yield return new WaitForSeconds (_specs.reloadTime / _specs.clipSize);
+				}
 
-			while (ammos < _specs.clipSize) {
-				ammos++;
-				yield return new WaitForSeconds (_specs.reloadTime / _specs.clipSize);
+				clips--;
+				canShoot = true;
 			}
-
-			clips--;
-			canShoot = true;
 		}
 
 		public float GetFireRate() {

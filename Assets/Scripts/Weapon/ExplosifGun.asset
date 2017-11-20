@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Name: ExplosifGun
   m_EditorClassIdentifier: 
   clipSize: 5
-  clips: 40
+  clips: 10
   firerate: 0.5
-  accuracy: 1
-  dispersion: 360
   reloadTime: 2
   ammoPrefab: {fileID: 1836868741097378, guid: 7ece58ca30f4d6d4bb51ec28a3cac3f5, type: 2}
   logo: {fileID: 21300000, guid: 79fec51f30124487793673be6ff65b4d, type: 3}
