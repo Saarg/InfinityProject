@@ -58,7 +58,7 @@ namespace Weapons {
 		}
 
 		IEnumerator Reload() {
-			if (clips > 0) {
+			if (clips > 0 && canShoot && ammos < _specs.clipSize) {
 				canShoot = false;
 				float startTime = Time.realtimeSinceStartup;
 
