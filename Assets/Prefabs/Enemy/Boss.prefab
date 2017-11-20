@@ -941,6 +941,7 @@ MonoBehaviour:
   _specs: {fileID: 11400000, guid: 7b280dad5c7134700aa29d00eeea9058, type: 2}
   fireSound: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
   reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
+  owner: {fileID: 0}
 --- !u!114 &114815811528078228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -955,6 +956,7 @@ MonoBehaviour:
   _specs: {fileID: 11400000, guid: 7b280dad5c7134700aa29d00eeea9058, type: 2}
   fireSound: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
   reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
+  owner: {fileID: 0}
 --- !u!114 &114957729570118380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -968,6 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gravity: 20
+  fireballStrength: 20
   weapon1: {fileID: 114113711692874390}
   weapon1Ammo: {fileID: 0}
   weapon2: {fileID: 114815811528078228}
@@ -997,7 +1000,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1319963537647928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5

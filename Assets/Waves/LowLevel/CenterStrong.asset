@@ -14,5 +14,5 @@ MonoBehaviour:
   spawns:
   - p: {x: 0, y: 0.5, z: 0}
     go: {fileID: 1480709944003260, guid: 22f6efb8f021907479c683277dfb62a5, type: 2}
-  nextWaveCompletion: 0
+  nextWaveCompletion: 100
   completed: 0

@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c001dea2ee1df4a748fb99813c62c378, type: 3}
-  m_Name: CenterStrongLow
+  m_Name: Boss
   m_EditorClassIdentifier: 
   spawns:
-  - p: {x: 0, y: -0.5, z: 0}
-    go: {fileID: 1480709944003260, guid: 22f6efb8f021907479c683277dfb62a5, type: 2}
+  - p: {x: 0, y: 0, z: 0}
+    go: {fileID: 1319963537647928, guid: 76cc7ba09a6679a4d865f24e684fdce0, type: 2}
   nextWaveCompletion: 100
   completed: 0

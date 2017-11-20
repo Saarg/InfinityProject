@@ -36,6 +36,8 @@ public class Boss : MonoBehaviour {
 		weapon1Ammo = weapon1.getSpecs ().ammoPrefab;
 		weapon2Ammo = weapon2.getSpecs ().ammoPrefab;
 
+		GetComponent<NavMeshAgent> ().enabled = true;
+
 		fireballCooldown = 5f;
 
 		barrageCooldown = 3f;
