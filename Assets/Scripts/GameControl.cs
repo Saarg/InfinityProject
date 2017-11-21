@@ -23,6 +23,20 @@ public class GameControl : MonoBehaviour {
         Load();
 	}
 
+    public void maxLife()
+    {
+        StatManager sm = StatManager.Instance;
+
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
+        PlayerData data = new PlayerData();
+
+        data.life = 100;
+        bf.Serialize(file, data);
+        file.Close();
+
+    }
+
     public void Save()
     {
         StatManager sm = StatManager.Instance;

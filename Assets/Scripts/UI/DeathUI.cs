@@ -7,8 +7,9 @@ public class DeathUI : MonoBehaviour {
 
 	public GameObject[] players;
 	public int minPlayerAlive = 0;
+    public GameControl gc;
 
-	public Canvas canvas;
+    public Canvas canvas;
 
 	// Use this for initialization
 	void Start () {
@@ -37,10 +38,13 @@ public class DeathUI : MonoBehaviour {
 	}
 
 	public void LoadScene(string name) {
-		SceneManager.LoadScene(name, LoadSceneMode.Single);
+        gc.maxLife();
+        SceneManager.LoadScene(name, LoadSceneMode.Single);
 	}
 
 	public void ReloadScene() {
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        gc.maxLife();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }

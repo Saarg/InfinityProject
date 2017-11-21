@@ -27,7 +27,7 @@ public class PlayerGui : MonoBehaviour {
 		}
 
 		if (_player == null) {
-			Debug.LogError ("No player found for " +  name);
+			//Debug.LogError ("No player found for " +  name);
 			return;
 		}
 
