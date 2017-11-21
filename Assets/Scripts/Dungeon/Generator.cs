@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 namespace Dungeon {
 
@@ -45,9 +46,17 @@ namespace Dungeon {
 		private const float _HroomSize = _roomSize/2;
 		private IRoom[,] _grid = new IRoom[_levelSize, _levelSize];
 
+		[SerializeField]
+		private Canvas loadingCanvas;
+		[SerializeField]
+		private Slider loadingBar;
+
 		void Start () {
 			Random.InitState (System.Environment.TickCount);
 			_perlinScale = Random.Range (0.9f, 1.1f);
+
+			loadingBar.maxValue = 3*_levelSize + _levelSize*_levelSize;
+			loadingBar.value = 0;
 
 			StartCoroutine (Generate());
 
@@ -86,6 +95,8 @@ namespace Dungeon {
 				for (int y = 0; y < _levelSize; y++) {
 					_grid [x, y] = new IRoom ();
 				}
+				yield return null;
+				loadingBar.value++;
 			}
 
 			int xi=0;
@@ -103,16 +114,14 @@ namespace Dungeon {
 
 					xi++;
 				}
-
-				yield return new WaitForEndOfFrame();
-
 			}
 
 			for (int x = 0; x < _levelSize; x++) {
 				for (int y = 0; y < _levelSize; y++) {
 					GenerateIRoom (x, y);
 				}
-				yield return new WaitForEndOfFrame ();
+				yield return null;
+				loadingBar.value++;
 			}
 
 			_grid [_levelSize - 1, _levelSize - 1].top = new IRoom();
@@ -122,8 +131,6 @@ namespace Dungeon {
 			_grid [0, 0].left.gameObject = _start;
 
 			ValidateIRooms (_grid [0, 0]);
-
-			yield return new WaitForEndOfFrame();
 
 			for (int x = 0; x < _levelSize; x++) {
 				for (int y = 0; y < _levelSize; y++) {
@@ -175,7 +182,8 @@ namespace Dungeon {
 							_grid [x, y].gameObject.transform.Rotate (0, -90f, 0);
 					}
 				}
-				yield return new WaitForEndOfFrame ();
+				yield return null;
+				loadingBar.value++;
 			}
 
 			#if UNITY_EDITOR
@@ -184,19 +192,23 @@ namespace Dungeon {
 					if (_grid[x, y].gameObject != null)
 						_grid[x, y].gameObject.transform.SetParent(transform);
 				}
-				yield return new WaitForEndOfFrame ();
 			}
 			#endif
 
 			for (int x = 0; x < _levelSize; x++) {
 				for (int y = 0; y < _levelSize; y++) {
-					if (_grid[x, y].gameObject != null)
-						_grid[x, y].gameObject.GetComponent<NavMeshSurface>().BuildNavMesh ();
+					if (_grid [x, y].gameObject != null) {
+						_grid [x, y].gameObject.GetComponent<NavMeshSurface> ().BuildNavMesh ();
+						yield return null;
+					}
+
+					loadingBar.value++;
 				}
-				yield return new WaitForEndOfFrame ();
 			}
 
 			Time.timeScale = 1f;
+
+			loadingCanvas.gameObject.SetActive (false);
 			yield return null;
 		}
 

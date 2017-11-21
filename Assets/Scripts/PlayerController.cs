@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Living {
-    
+public class PlayerController : Living {    
     protected PlayerStats[] stats = new PlayerStats[6];
 
     [Header("Player Stats")]
@@ -20,6 +19,10 @@ public class PlayerController : Living {
 	public float staminaMax { get {return _staminaMax; }}
 	[SerializeField] protected float _staminaRegen = 1;
 
+	[Space(10)]
+	public PlayerNumber player = PlayerNumber.Player1;
+	public Camera playerCamera;
+
 	private float lastShotTime;
 
     protected override void Start()
@@ -28,6 +31,10 @@ public class PlayerController : Living {
         stat = StatManager.Instance;
 
 		_stamina = _staminaMax;
+
+		if (playerCamera == null) {
+			playerCamera = Camera.main;
+		}
     }
 
     protected override void Update() 
@@ -45,11 +52,11 @@ public class PlayerController : Living {
 		/*
 		 * Look at
 		 */
-		Vector3 LookAt = new Vector3 (MultiOSControls.GetValue ("RHorizontal"), 0, -MultiOSControls.GetValue ("RVertical"));
-		if (LookAt == Vector3.zero) {
+		Vector3 LookAt = new Vector3 (MultiOSControls.GetValue ("RHorizontal", player), 0, -MultiOSControls.GetValue ("RVertical", player));
+		if (LookAt == Vector3.zero && MultiOSControls.HasKeyboard(player)) {
 			Vector3 cursorPos = Input.mousePosition;
 
-			Vector3 playerScreenPos = Camera.main.WorldToScreenPoint (transform.position);
+			Vector3 playerScreenPos = playerCamera.WorldToScreenPoint (transform.position);
 
 			LookAt = cursorPos - playerScreenPos;
 
@@ -59,12 +66,25 @@ public class PlayerController : Living {
 			LookAt.Normalize ();
 		}
 
-		transform.rotation = Quaternion.LookRotation (LookAt);
+		if (LookAt != Vector3.zero) {
+			transform.rotation = Quaternion.LookRotation (LookAt);
+		} else {
+			LookAt = _moveDirection;
+
+			LookAt.y = 0;
+
+			LookAt.Normalize ();
+
+			if (LookAt != Vector3.zero) {
+				transform.rotation = Quaternion.LookRotation (LookAt);
+			}
+		}
+
 
 		/*
 		 * Aim correction
 		 */
-		if (gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
+		if (gun != null && MultiOSControls.GetValue ("Fire1", player) != 0) {
 			RaycastHit hit;
 
 			if (Physics.Raycast (transform.position, transform.forward, out hit, 10.0f)) {
@@ -79,9 +99,9 @@ public class PlayerController : Living {
 		 */
 		if (_controller.isGrounded) 
 		{
-			_moveDirection = new Vector3(MultiOSControls.GetValue ("Horizontal"), 0, -MultiOSControls.GetValue ("Vertical"));
+			_moveDirection = new Vector3(MultiOSControls.GetValue ("Horizontal", player), 0, -MultiOSControls.GetValue ("Vertical", player));
 
-			if (MultiOSControls.GetValue ("Jump") != 0 && _stamina >= 2)
+			if (MultiOSControls.GetValue ("Jump", player) != 0 && _stamina >= 2)
             {
 				_stamina -= 2;
                 StartCoroutine("Jump");
@@ -120,13 +140,13 @@ public class PlayerController : Living {
 		/*
 		 * Gun managment
 		 */
-		if (_gun != null && MultiOSControls.GetValue ("Fire1") != 0) {
+		if (_gun != null && MultiOSControls.GetValue ("Fire1", player) != 0) {
 			lastShotTime = 0;
 			_gun.Fire ();
             stat.End.Count++;
 		}
 		
-		if (_gun != null && MultiOSControls.GetValue ("Reload") != 0) {
+		if (_gun != null && MultiOSControls.GetValue ("Reload", player) != 0) {
 			_gun.StartReload ();
 		}
 
@@ -156,7 +176,11 @@ public class PlayerController : Living {
 		Vector3 planeModeDir = _moveDirection;
 		planeModeDir.y = 0;
 
+		planeModeDir.Normalize ();
+
 		Vector3 rotationAxis = Quaternion.AngleAxis (90, Vector3.up) * planeModeDir;
+
+		rotationAxis.Normalize ();
 
 		_moveDirection *= _jumpSpeed;
         

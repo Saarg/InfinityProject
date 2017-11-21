@@ -13,20 +13,20 @@ public class PauseGame : MonoBehaviour
     public Transform soundsMenu;
     public Transform videoSettingsMenu;
     public Transform controlsMenu;
-    public Transform Player;
+	public GameObject[] players;
     public GameControl gc;
 
 	private float lastToggle;
 
 	void Start() {
-		Player = GameObject.FindGameObjectWithTag ("Player").transform;
+		players = GameObject.FindGameObjectsWithTag ("Player");
 		lastToggle = Time.realtimeSinceStartup;
 	}
 
     // Update is called once per frame
     void Update()
     {
-		if (MultiOSControls.GetValue("Pause") != 0 )
+		if (MultiOSControls.GetValue("Pause", PlayerNumber.All) != 0)
         {
             Pause();
         }
@@ -50,14 +50,19 @@ public class PauseGame : MonoBehaviour
             canvas.gameObject.SetActive(true);
             Time.timeScale = 0;
             AudioListener.volume = 0;
-            Player.gameObject.SetActive(false);
+
+			foreach (GameObject player in players) {
+				player.SetActive (false);
+			}
         }
         else
         {
             canvas.gameObject.SetActive(false);
             Time.timeScale = 1;
             AudioListener.volume = 1;
-            Player.gameObject.SetActive(true);
+			foreach (GameObject player in players) {
+				player.SetActive (player.GetComponent<PlayerController>().playerCamera.gameObject.activeSelf);
+			}
         }
     }
 
@@ -126,5 +131,4 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenuErwann");
     }
-
 }

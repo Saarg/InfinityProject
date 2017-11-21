@@ -11,11 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a8269d5e5694ffdb0a753bd2362f65, type: 3}
   m_Name: BasicGun
   m_EditorClassIdentifier: 
-  clipSize: 20
-  clips: 1
+  clipSize: 10
+  clips: 30
   firerate: 0.33333334
-  accuracy: 1
-  dispersion: 30
   reloadTime: 1
   ammoPrefab: {fileID: 1002785135788406, guid: b2397ef13ab504523bd66393f32adbd3, type: 2}
   logo: {fileID: 21300000, guid: fa104ae57a9a04481b9a4365bd669827, type: 3}

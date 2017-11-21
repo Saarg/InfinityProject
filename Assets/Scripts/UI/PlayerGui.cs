@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerGui : MonoBehaviour {
 
-	public PlayerController player;
+	public PlayerNumber player;
+	private PlayerController _player;
 
 	public Image gunLogo;
 
@@ -13,26 +14,47 @@ public class PlayerGui : MonoBehaviour {
 	public Slider ammoBar;
 	public Slider staminaBar;
 
+	public Text clipsText;
+
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
+		foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
+			PlayerController pc = p.GetComponent<PlayerController> ();
 
-		healthBar.maxValue = player.maxLife;
-		staminaBar.maxValue = player.staminaMax;
+			if (pc != null && pc.player == player) {
+				_player = pc;
+			}
+		}
+
+		if (_player == null) {
+			Debug.LogError ("No player found for " +  name);
+			return;
+		}
+
+		healthBar.maxValue = _player.maxLife;
+		staminaBar.maxValue = _player.staminaMax;
+
+		clipsText.text = "0";
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		healthBar.value = player.life;
-		staminaBar.value = player.stamina;
+		if (_player == null) {
+			Start ();
+		}
 
-		if (player.gun != null) {
+		healthBar.value = _player.life;
+		staminaBar.value = _player.stamina;
+
+		if (_player.gun != null) {
 			ammoBar.gameObject.SetActive (true);
 			gunLogo.gameObject.SetActive (true);
 
-			ammoBar.maxValue = player.gun.GetClipSize ();
-			ammoBar.value = player.gun.ammos;
-			gunLogo.sprite = player.gun.GetLogo();
+			ammoBar.maxValue = _player.gun.GetClipSize ();
+			ammoBar.value = _player.gun.ammos;
+			gunLogo.sprite = _player.gun.GetLogo();
+
+			clipsText.text = "" + _player.gun.clips;
 		} else {
 			ammoBar.gameObject.SetActive (false);
 			gunLogo.gameObject.SetActive (false);

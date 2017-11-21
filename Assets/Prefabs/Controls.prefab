@@ -51,75 +51,298 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af6b94d0796a493890fca39a3b12d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputs:
-  - name: Horizontal
-    posKeys:
-    - d
-    negKeys:
-    - a
-    - q
-    axis: 02000000
-    buttons: 
-    deadzone: 0.2
-    value: 0
-  - name: RHorizontal
-    posKeys:
-    - right
-    negKeys:
-    - left
-    axis: 04000000
-    buttons: 
-    deadzone: 0.2
-    value: 0
-  - name: Vertical
-    posKeys:
-    - s
-    negKeys:
-    - w
-    - z
-    axis: 03000000
-    buttons: 
-    deadzone: 0.2
-    value: 0
-  - name: RVertical
-    posKeys:
-    - up
-    negKeys:
-    - down
-    axis: 05000000
-    buttons: 
-    deadzone: 0.2
-    value: 0
-  - name: Jump
-    posKeys:
-    - space
-    negKeys: []
-    axis: 
-    buttons: 04000000
-    deadzone: 0
-    value: 0
-  - name: Fire1
-    posKeys:
-    - mouse 0
-    negKeys: []
-    axis: 
-    buttons: 05000000
-    deadzone: 0
-    value: 0
-  - name: Reload
-    posKeys:
-    - r
-    negKeys: []
-    axis: 
-    buttons: 03000000
-    deadzone: 0
-    value: 0
-  - name: Pause
-    posKeys:
-    - p
-    - escape
-    negKeys: []
-    axis: 
-    buttons: 07000000
-    deadzone: 0
-    value: 0
+  players:
+  - name: Player 1
+    controller: 4
+    keyboard: 1
+    inputs:
+    - name: Horizontal
+      posKeys:
+      - d
+      negKeys:
+      - a
+      - q
+      axis: 02000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: RHorizontal
+      posKeys:
+      - right
+      negKeys:
+      - left
+      axis: 04000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: Vertical
+      posKeys:
+      - s
+      negKeys:
+      - w
+      - z
+      axis: 03000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: RVertical
+      posKeys:
+      - up
+      negKeys:
+      - down
+      axis: 05000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: Jump
+      posKeys:
+      - space
+      negKeys: []
+      axis: 
+      buttons: 04000000
+      deadzone: 0
+      value: 0
+    - name: Fire1
+      posKeys:
+      - mouse 0
+      negKeys: []
+      axis: 
+      buttons: 05000000
+      deadzone: 0
+      value: 0
+    - name: Reload
+      posKeys:
+      - r
+      negKeys: []
+      axis: 
+      buttons: 03000000
+      deadzone: 0
+      value: 0
+    - name: Pause
+      posKeys:
+      - p
+      - escape
+      negKeys: []
+      axis: 
+      buttons: 07000000
+      deadzone: 0
+      value: 0
+  - name: Player 2
+    controller: 0
+    keyboard: 0
+    inputs:
+    - name: Horizontal
+      posKeys:
+      - d
+      negKeys:
+      - a
+      axis: 02000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: RHorizontal
+      posKeys:
+      - right
+      negKeys:
+      - left
+      axis: 04000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: Vertical
+      posKeys:
+      - s
+      negKeys:
+      - w
+      axis: 03000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: RVertical
+      posKeys:
+      - up
+      negKeys:
+      - down
+      axis: 05000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: Jump
+      posKeys:
+      - space
+      negKeys: []
+      axis: 
+      buttons: 04000000
+      deadzone: 0
+      value: 0
+    - name: Fire1
+      posKeys:
+      - mouse 0
+      negKeys: []
+      axis: 
+      buttons: 05000000
+      deadzone: 0
+      value: 0
+    - name: Reload
+      posKeys:
+      - r
+      negKeys: []
+      axis: 
+      buttons: 03000000
+      deadzone: 0
+      value: 0
+    - name: Pause
+      posKeys:
+      - p
+      - escape
+      negKeys: []
+      axis: 
+      buttons: 07000000
+      deadzone: 0
+      value: 0
+  - name: Player 3
+    controller: 2
+    keyboard: 0
+    inputs:
+    - name: Horizontal
+      posKeys:
+      - d
+      negKeys:
+      - a
+      axis: 02000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: RHorizontal
+      posKeys:
+      - right
+      negKeys:
+      - left
+      axis: 04000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: Vertical
+      posKeys:
+      - s
+      negKeys:
+      - w
+      axis: 03000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: RVertical
+      posKeys:
+      - up
+      negKeys:
+      - down
+      axis: 05000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: Jump
+      posKeys:
+      - space
+      negKeys: []
+      axis: 
+      buttons: 04000000
+      deadzone: 0
+      value: 0
+    - name: Fire1
+      posKeys:
+      - mouse 0
+      negKeys: []
+      axis: 
+      buttons: 05000000
+      deadzone: 0
+      value: 0
+    - name: Reload
+      posKeys:
+      - r
+      negKeys: []
+      axis: 
+      buttons: 03000000
+      deadzone: 0
+      value: 0
+    - name: Pause
+      posKeys:
+      - p
+      - escape
+      negKeys: []
+      axis: 
+      buttons: 07000000
+      deadzone: 0
+      value: 0
+  - name: Player 4
+    controller: 3
+    keyboard: 0
+    inputs:
+    - name: Horizontal
+      posKeys:
+      - d
+      negKeys:
+      - a
+      axis: 02000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: RHorizontal
+      posKeys:
+      - right
+      negKeys:
+      - left
+      axis: 04000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: Vertical
+      posKeys:
+      - s
+      negKeys:
+      - w
+      axis: 03000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: RVertical
+      posKeys:
+      - up
+      negKeys:
+      - down
+      axis: 05000000
+      buttons: 
+      deadzone: 0.2
+      value: 0
+    - name: Jump
+      posKeys:
+      - space
+      negKeys: []
+      axis: 
+      buttons: 04000000
+      deadzone: 0
+      value: 0
+    - name: Fire1
+      posKeys:
+      - mouse 0
+      negKeys: []
+      axis: 
+      buttons: 05000000
+      deadzone: 0
+      value: 0
+    - name: Reload
+      posKeys:
+      - r
+      negKeys: []
+      axis: 
+      buttons: 03000000
+      deadzone: 0
+      value: 0
+    - name: Pause
+      posKeys:
+      - p
+      - escape
+      negKeys: []
+      axis: 
+      buttons: 07000000
+      deadzone: 0
+      value: 0

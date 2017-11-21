@@ -11,16 +11,22 @@ public class ControlBinding : MonoBehaviour {
     public InputField JumpField;
     public InputField FireField;
 
-    private MultiOSControls _controls;
+	public Dropdown Player1Controller;
+	public Dropdown Player2Controller;
+	public Dropdown Player3Controller;
+	public Dropdown Player4Controller;
+
+	public void ChooseController(Dropdown d, PlayerNumber p) {
+		MultiOSControls.ChooseController (d.value, p);
+	}
 
     // Checks if there is anything entered into the input field.
-    public void BindUp(InputField input)
+	public void BindUp(InputField input)
     {
-        if (input.text.Length > 0 && input.text.Length < 2)
+		if (ValidateInput(input.text))
         {
             Debug.Log("Up is" + input.text);
-            // Ici, on applique la valeur de l'input field up dans la clé qui correspond a up  dans notre input control
-            //_controls = GameObject.Find("Controls").GetComponent<MultiOSControls>();
+			MultiOSControls.BindNegKey ("Vertical", input.text);
             
         }
         else
@@ -31,9 +37,10 @@ public class ControlBinding : MonoBehaviour {
 
     public void BindDown(InputField input)
     {
-        if (input.text.Length > 0 && input.text.Length < 2)
+		if (ValidateInput(input.text))
         {
             Debug.Log("down is" + input.text);
+			MultiOSControls.BindPosKey ("Vertical", input.text);
         }
         else
         {
@@ -42,9 +49,10 @@ public class ControlBinding : MonoBehaviour {
 
     public void BindLeft(InputField input)
     {
-        if (input.text.Length > 0 && input.text.Length < 2)
+		if (ValidateInput(input.text))
         {
             Debug.Log("left is" + input.text);
+			MultiOSControls.BindNegKey ("Horizontal", input.text);
         }
         else
         {
@@ -54,9 +62,10 @@ public class ControlBinding : MonoBehaviour {
 
     public void BindRight(InputField input)
     {
-        if (input.text.Length > 0 && input.text.Length < 2)
+		if (ValidateInput(input.text))
         {
             Debug.Log("right is" + input.text);
+			MultiOSControls.BindPosKey ("Horizontal", input.text);
         }
         else
         {
@@ -66,9 +75,10 @@ public class ControlBinding : MonoBehaviour {
 
     public void BindJump(InputField input)
     {
-        if (input.text.Length > 0 && input.text.Length < 2)
+		if (ValidateInput(input.text))
         {
             Debug.Log("jump is" + input.text);
+			MultiOSControls.BindPosKey ("Jump", input.text);
         }
         else
         {
@@ -78,9 +88,10 @@ public class ControlBinding : MonoBehaviour {
 
     public void BindFire(InputField input)
     {
-        if (input.text.Length > 0 && input.text.Length < 2)
+		if (ValidateInput(input.text))
         {
             Debug.Log("fire is" + input.text);
+			MultiOSControls.BindPosKey ("Fire1", input.text);
         }
         else
         {
@@ -88,8 +99,25 @@ public class ControlBinding : MonoBehaviour {
         }
     }
 
+	public bool ValidateInput(string input) {
+		input = input.ToLower ();
+
+		foreach (KeyCode n in System.Enum.GetValues(typeof(KeyCode))) {
+			if (n.ToString ().ToLower () == input) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
     public void Start()
     {
+		Player1Controller.onValueChanged.AddListener(delegate { ChooseController(Player1Controller, PlayerNumber.Player1); });
+		Player2Controller.onValueChanged.AddListener(delegate { ChooseController(Player2Controller, PlayerNumber.Player2); });
+		Player3Controller.onValueChanged.AddListener(delegate { ChooseController(Player3Controller, PlayerNumber.Player3); });
+		Player4Controller.onValueChanged.AddListener(delegate { ChooseController(Player4Controller, PlayerNumber.Player4); });
+
         //Adds a listener that invokes the "LockInput" method when the player finishes editing the main input field.
         //Passes the main input field into the method when "LockInput" is invoked
         UpField.onEndEdit.AddListener(delegate { BindUp(UpField); });
