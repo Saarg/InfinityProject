@@ -14,8 +14,8 @@ public class PlayerStats{
         {
             if (value < 0)
                 this.level = 0;
-            else if (value > 20)
-                this.level = 20;
+            else if (value > 19)
+                this.level = 19;
             else
                 this.level = value;
         }
