@@ -129,6 +129,6 @@ public class PauseGame : MonoBehaviour
     {
         gc.Save();
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenuErwann");
+        SceneManager.LoadScene("MainMenu");
     }
 }
