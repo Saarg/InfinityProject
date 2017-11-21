@@ -468,7 +468,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab4379486cbe48a6acd06a25a27a095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  players: []
+  minPlayerAlive: 0
+  gc: {fileID: 0}
   canvas: {fileID: 223944378254934012}
 --- !u!114 &114742975560218952
 MonoBehaviour:
