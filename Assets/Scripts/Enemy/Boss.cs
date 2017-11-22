@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour {
 
 	[SerializeField] private Transform player;
 	private NavMeshAgent nma;
 
-	[Header("Weapons")]
+	[Header("Useful")]
 	[SerializeField] protected float gravity = 20.0F;
 	[SerializeField] protected float fireballStrength = 20.0F;
 	public float getFireballStrength(){
@@ -30,6 +31,17 @@ public class Boss : MonoBehaviour {
 	[SerializeField] protected float barrageCooldown;
 	[SerializeField] protected float barrageTime;
 
+	[Header("Health Management")]
+	public float maxLife = 100f;
+	[SerializeField] protected float _life;
+	public Slider slider;
+	public Image fillImage;
+	public Color fullHealthColor;
+	public Color zeroHealthColor;
+
+	private IEnumerator coroutine;
+	private Color col;
+
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -38,12 +50,17 @@ public class Boss : MonoBehaviour {
 
 		GetComponent<NavMeshAgent> ().enabled = true;
 
+		_life = maxLife;
+		slider.maxValue = maxLife;
+		slider.value = maxLife;
+
 		fireballCooldown = 5f;
-
 		barrageCooldown = 3f;
-
 		fireballTime = 0;
 		barrageTime = 0;
+
+		col = this.GetComponent<Renderer>().material.color;
+
 	}
 	
 	void Update () {
@@ -73,8 +90,9 @@ public class Boss : MonoBehaviour {
 			return;
 		}
 
-//		Shoot ();
-		
+		Shoot ();
+
+		UpdateHealth ();
 	}
 
 	/** Move(Vector3 direction) : Try to move to the given direction
@@ -114,5 +132,44 @@ public class Boss : MonoBehaviour {
 			rot.y += i;
 			Instantiate(w.getSpecs().ammoPrefab, canon.position, Quaternion.Euler(rot));
 		}
+	}
+
+	protected virtual void OnCollisionEnter(Collision collision) {
+		//TODO add sound to boss !
+//		_audioSource.clip = hurtSound;
+//		_audioSource.loop = false;
+//		_audioSource.Play ();
+	}
+	 
+	void ApplyDamage(float damage)
+	{
+		coroutine = Blink();
+		StartCoroutine(coroutine);
+		_life = _life - damage;
+		if (_life <= 0)
+		{
+			Destroy(this.gameObject);
+		}
+	}
+
+	private IEnumerator Blink()
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			this.GetComponent<Renderer>().material.color = Color.white;
+			yield return new WaitForSeconds(.1f);
+			this.GetComponent<Renderer>().material.color = col;
+			yield return new WaitForSeconds(.1f);
+		}
+		this.GetComponent<Renderer>().material.color = col;
+	}
+
+	public void UpdateHealth(){
+		Debug.Log ("update life");
+
+		slider.value = _life;
+		Debug.Log (_life / maxLife);
+
+		fillImage.color = Color.Lerp (zeroHealthColor, fullHealthColor, _life / maxLife);
 	}
 }
