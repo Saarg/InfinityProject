@@ -165,11 +165,12 @@ public class Boss : MonoBehaviour {
 	}
 
 	public void UpdateHealth(){
-		Debug.Log ("update life");
-
 		slider.value = _life;
-		Debug.Log (_life / maxLife);
 
 		fillImage.color = Color.Lerp (zeroHealthColor, fullHealthColor, _life / maxLife);
+
+		Debug.Log("current health : " + _life);
+		Debug.Log (" slider.val : " + slider.value);
+		Debug.Log(" lerp : " + (_life/maxLife));
 	}
 }

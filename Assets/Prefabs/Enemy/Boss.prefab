@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 0
-  m_FillOrigin: 2
+  m_FillOrigin: 0
 --- !u!114 &114664778905864428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1192,7 +1192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae1719ca1d061d4abe429b71819e954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UseRelativeRotation: 1
+  m_UseRelativeRotation: 0
 --- !u!114 &114957729570118380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1217,12 +1217,12 @@ MonoBehaviour:
   fireballTime: 2.9930935
   barrageCooldown: 3
   barrageTime: 2.91026
-  maxLife: 100
-  _life: 100
+  maxLife: 500
+  _life: 500
   slider: {fileID: 114664778905864428}
   fillImage: {fileID: 114572891990573006}
-  fullHealthColor: {r: 0, g: 0.525, b: 1, a: 0}
-  zeroHealthColor: {r: 1, g: 0.5019608, b: 0, a: 0}
+  fullHealthColor: {r: 0.034482475, g: 0, b: 1, a: 0.5882353}
+  zeroHealthColor: {r: 0.522, g: 0.91146046, b: 1, a: 0.5882353}
 --- !u!136 &136091395543357940
 CapsuleCollider:
   m_ObjectHideFlags: 1
