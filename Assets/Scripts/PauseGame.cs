@@ -26,7 +26,10 @@ public class PauseGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (MultiOSControls.GetValue("Pause", PlayerNumber.All) != 0)
+		if (!soundsMenu.gameObject.activeSelf &&
+			!videoSettingsMenu.gameObject.activeSelf &&
+			!controlsMenu.gameObject.activeSelf &&
+			MultiOSControls.GetValue("Pause", PlayerNumber.All) != 0)
         {
             Pause();
         }

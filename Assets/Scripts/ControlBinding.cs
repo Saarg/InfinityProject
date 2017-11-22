@@ -12,7 +12,8 @@ public class ControlBinding : MonoBehaviour {
     public InputField LeftField;
     public InputField RightField;
     public InputField JumpField;
-    public InputField FireField;
+	public InputField FireField;
+    public InputField PauseField;
 
 	public Dropdown Player1Controller;
 	public Dropdown Player2Controller;
@@ -102,6 +103,19 @@ public class ControlBinding : MonoBehaviour {
         }
     }
 
+	public void BindPause(InputField input)
+	{
+		if (ValidateInput(input.text))
+		{
+			Debug.Log("pause is" + input.text);
+			MultiOSControls.BindPosKey ("Pause", input.text);
+		}
+		else
+		{
+			//Debug.Log("Main Input Empty");
+		}
+	}
+
 	public bool ValidateInput(string input) {
 		input = input.ToLower ();
 
@@ -128,7 +142,8 @@ public class ControlBinding : MonoBehaviour {
         LeftField.onEndEdit.AddListener(delegate { BindLeft(LeftField); });
         RightField.onEndEdit.AddListener(delegate { BindRight(RightField); });
         JumpField.onEndEdit.AddListener(delegate { BindJump(JumpField); });
-        FireField.onEndEdit.AddListener(delegate { BindFire(FireField); });
+		FireField.onEndEdit.AddListener(delegate { BindFire(FireField); });
+		PauseField.onEndEdit.AddListener(delegate { BindPause(PauseField); });
 
 		if (File.Exists (Application.persistentDataPath + "/inputSettings.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
@@ -149,6 +164,8 @@ public class ControlBinding : MonoBehaviour {
 			BindJump(JumpField);
 			FireField.text = save.fire;
 			BindFire(FireField);
+			PauseField.text = save.pause;
+			BindPause(PauseField);
 
 			Player1Controller.value = save.playerController1;
 			Player2Controller.value = save.playerController2;
@@ -166,6 +183,7 @@ public class ControlBinding : MonoBehaviour {
 		save.right = RightField.text;
 		save.jump = JumpField.text;
 		save.fire = FireField.text;
+		save.pause = PauseField.text;
 
 		save.playerController1 = Player1Controller.value;
 		save.playerController2 = Player2Controller.value;
@@ -189,6 +207,7 @@ class ControlsSave
 	public string right = "d";
 	public string jump = "space";
 	public string fire = "mouse 0";
+	public string pause = "p";
 
 	public int playerController1 = 5;
 	public int playerController2 = 0;
