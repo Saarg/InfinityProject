@@ -30,8 +30,6 @@ public class PostProcesingController : MonoBehaviour {
 		_profile = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
 
 		if (File.Exists (Application.persistentDataPath + "/videoSettings.dat")) {
-			Debug.Log ("Loading video params");
-
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/videoSettings.dat", FileMode.Open);
 			_params = (VideoParam)bf.Deserialize (file);
@@ -46,15 +44,12 @@ public class PostProcesingController : MonoBehaviour {
 	}
 
 	void OnApplicationQuit() {
-		Debug.Log ("Saving video params");
-
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create(Application.persistentDataPath + "/videoSettings.dat");
 
 		bf.Serialize(file, _params);
 		file.Close();
 
-		Debug.Log ("Reseting video params");
 		PostProcessingProfile profile = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
 
 		profile.antialiasing.enabled = true;

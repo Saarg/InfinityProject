@@ -114,7 +114,11 @@ public class PlayerStats{
 
     public void Convert()
     {
-        
+		if (Ratio == 0) {
+			Debug.LogWarning ("Playerstat Ration is null !!!");
+			return;
+		}
+		
         experience += count / Ratio;
         count = 0;
     }

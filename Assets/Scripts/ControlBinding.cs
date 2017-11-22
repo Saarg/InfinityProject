@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.IO;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -126,5 +129,69 @@ public class ControlBinding : MonoBehaviour {
         RightField.onEndEdit.AddListener(delegate { BindRight(RightField); });
         JumpField.onEndEdit.AddListener(delegate { BindJump(JumpField); });
         FireField.onEndEdit.AddListener(delegate { BindFire(FireField); });
+
+		if (File.Exists (Application.persistentDataPath + "/inputSettings.dat")) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Application.persistentDataPath + "/inputSettings.dat", FileMode.Open);
+			ControlsSave save = (ControlsSave)bf.Deserialize (file);
+
+			file.Close (); 
+
+			UpField.text = save.up;
+			BindUp(UpField);
+			DownField.text = save.down;
+			BindDown(DownField);
+			LeftField.text = save.left;
+			BindLeft(LeftField);
+			RightField.text = save.right;
+			BindRight(RightField);
+			JumpField.text = save.jump;
+			BindJump(JumpField);
+			FireField.text = save.fire;
+			BindFire(FireField);
+
+			Player1Controller.value = save.playerController1;
+			Player2Controller.value = save.playerController2;
+			Player3Controller.value = save.playerController3;
+			Player4Controller.value = save.playerController4;
+		}
     }
+
+	void OnApplicationQuit() {
+		ControlsSave save = new ControlsSave ();
+
+		save.up = UpField.text;
+		save.down = DownField.text;
+		save.left = LeftField.text;
+		save.right = RightField.text;
+		save.jump = JumpField.text;
+		save.fire = FireField.text;
+
+		save.playerController1 = Player1Controller.value;
+		save.playerController2 = Player2Controller.value;
+		save.playerController3 = Player3Controller.value;
+		save.playerController4 = Player4Controller.value;
+
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create(Application.persistentDataPath + "/inputSettings.dat");
+
+		bf.Serialize(file, save);
+		file.Close();
+	}
+}
+
+[Serializable]
+class ControlsSave
+{
+	public string up = "w";
+	public string down = "s";
+	public string left = "a";
+	public string right = "d";
+	public string jump = "space";
+	public string fire = "mouse 0";
+
+	public int playerController1 = 5;
+	public int playerController2 = 0;
+	public int playerController3 = 1;
+	public int playerController4 = 2;
 }

@@ -291,48 +291,7 @@ Prefab:
       propertyPath: gc
       value: 
       objectReference: {fileID: 182491526}
-    - target: {fileID: 114373216453894976, guid: 8e1913a2a73594f51baa5248462013d6,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 921032825}
-    - target: {fileID: 114373216453894976, guid: 8e1913a2a73594f51baa5248462013d6,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableAntialiasing
-      objectReference: {fileID: 0}
-    - target: {fileID: 114029863078529258, guid: 8e1913a2a73594f51baa5248462013d6,
-        type: 2}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 921032825}
-    - target: {fileID: 114029863078529258, guid: 8e1913a2a73594f51baa5248462013d6,
-        type: 2}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AntialiasingQuality
-      objectReference: {fileID: 0}
-    - target: {fileID: 114653636847105236, guid: 8e1913a2a73594f51baa5248462013d6,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 921032825}
-    - target: {fileID: 114653636847105236, guid: 8e1913a2a73594f51baa5248462013d6,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableMotionBlur
-      objectReference: {fileID: 0}
-    - target: {fileID: 114546515535352158, guid: 8e1913a2a73594f51baa5248462013d6,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 921032825}
-    - target: {fileID: 114546515535352158, guid: 8e1913a2a73594f51baa5248462013d6,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableAO
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114835083919766384, guid: 8e1913a2a73594f51baa5248462013d6, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e1913a2a73594f51baa5248462013d6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &15196751 stripped
@@ -387,12 +346,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &303491547 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114546515535352158, guid: 8e1913a2a73594f51baa5248462013d6,
-    type: 2}
-  m_PrefabInternal: {fileID: 10528949}
-  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &305768254
 Prefab:
   m_ObjectHideFlags: 0
@@ -575,7 +528,7 @@ Prefab:
     - target: {fileID: 224857344950995768, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 224798632582988830, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
@@ -605,12 +558,12 @@ Prefab:
     - target: {fileID: 224517087237823888, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 224997316048268480, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 38.775
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53045ee64a1841a0a25e65711a62211, type: 2}
@@ -852,26 +805,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &921032824 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1174481085170532, guid: 8e1913a2a73594f51baa5248462013d6,
-    type: 2}
-  m_PrefabInternal: {fileID: 10528949}
---- !u!114 &921032825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 921032824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef552ee9dab5b4b6db31f84639513065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AAToggle: {fileID: 1687340526}
-  AAQuality: {fileID: 1573527828}
-  MBToggle: {fileID: 1853368847}
-  AOToggle: {fileID: 303491547}
 --- !u!1 &929801794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,12 +1382,6 @@ MonoBehaviour:
   - Don't jump and shoot, you'll hurt yourself.
   - Are you my mummy?
   - The small ones are not the weakest.
---- !u!114 &1573527828 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114029863078529258, guid: 8e1913a2a73594f51baa5248462013d6,
-    type: 2}
-  m_PrefabInternal: {fileID: 10528949}
-  m_Script: {fileID: 853051423, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1615286845
 Prefab:
   m_ObjectHideFlags: 0
@@ -1502,12 +1429,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99d735a2e0bc94ac9aceec99b42d0df0, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1687340526 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114373216453894976, guid: 8e1913a2a73594f51baa5248462013d6,
-    type: 2}
-  m_PrefabInternal: {fileID: 10528949}
-  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1721554996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,12 +1565,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1802529134}
---- !u!114 &1853368847 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114653636847105236, guid: 8e1913a2a73594f51baa5248462013d6,
-    type: 2}
-  m_PrefabInternal: {fileID: 10528949}
-  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1957486669 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1241142116002112, guid: 462fe27ed03844921962ec5040021ce5,
