@@ -410,6 +410,7 @@ GameObject:
   - component: {fileID: 4187258838366402}
   - component: {fileID: 114667010262152676}
   - component: {fileID: 114230503095435104}
+  - component: {fileID: 114508393628305044}
   m_Layer: 0
   m_Name: PausePrefab
   m_TagString: Untagged
@@ -2867,7 +2868,6 @@ GameObject:
   - component: {fileID: 224336998806346316}
   - component: {fileID: 222031696671610204}
   - component: {fileID: 114317575742102072}
-  - component: {fileID: 114835083919766384}
   m_Layer: 5
   m_Name: VideoMenu
   m_TagString: Untagged
@@ -3418,7 +3418,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114835083919766384}
+      - m_Target: {fileID: 114508393628305044}
         m_MethodName: AntialiasingQuality
         m_Mode: 0
         m_Arguments:
@@ -5687,7 +5687,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114835083919766384}
+      - m_Target: {fileID: 114508393628305044}
         m_MethodName: EnableAntialiasing
         m_Mode: 0
         m_Arguments:
@@ -6489,6 +6489,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114508393628305044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174481085170532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef552ee9dab5b4b6db31f84639513065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AAToggle: {fileID: 114373216453894976}
+  AAQuality: {fileID: 114029863078529258}
+  MBToggle: {fileID: 114653636847105236}
+  AOToggle: {fileID: 114546515535352158}
 --- !u!114 &114514376095674224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6889,7 +6904,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114835083919766384}
+      - m_Target: {fileID: 114508393628305044}
         m_MethodName: EnableAO
         m_Mode: 0
         m_Arguments:
@@ -7773,7 +7788,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114835083919766384}
+      - m_Target: {fileID: 114508393628305044}
         m_MethodName: EnableMotionBlur
         m_Mode: 0
         m_Arguments:
@@ -8768,17 +8783,6 @@ MonoBehaviour:
   m_Text: 'Sounds
 
 '
---- !u!114 &114835083919766384
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1961202249793792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef552ee9dab5b4b6db31f84639513065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114839102128581034
 MonoBehaviour:
   m_ObjectHideFlags: 1
