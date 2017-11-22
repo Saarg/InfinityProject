@@ -20,16 +20,22 @@ public class Boss : MonoBehaviour {
 	[Header("Weapons")]
 	[SerializeField] private Weapon weapon1;
 	[SerializeField] private GameObject weapon1Ammo;
+	[SerializeField] private ParticleSystem preloadWeapon1;
+
 	[SerializeField] private Weapon weapon2;
 	[SerializeField] private GameObject weapon2Ammo;
+	[SerializeField] private ParticleSystem preloadWeapon2;
+
 	[SerializeField] private GameObject fireball;
 
 	[Header("Stats")]
-	[SerializeField] protected float attackRange;
+	protected float attackRange;
 	[SerializeField] protected float fireballCooldown;
-	[SerializeField] protected float fireballTime;
+	protected float fireballTime;
 	[SerializeField] protected float barrageCooldown;
-	[SerializeField] protected float barrageTime;
+	protected float barrageTime;
+	[SerializeField] protected float preloadCooldown;
+	protected float preloadTime;
 
 	[Header("Health Management")]
 	public float maxLife = 100f;
@@ -55,12 +61,15 @@ public class Boss : MonoBehaviour {
 		slider.value = maxLife;
 
 		fireballCooldown = 5f;
-		barrageCooldown = 3f;
 		fireballTime = 0;
+
+		barrageCooldown = 3f;
 		barrageTime = 0;
 
-		col = this.GetComponent<Renderer>().material.color;
+		preloadCooldown = 1.5f;
+		preloadTime = 0;
 
+		col = this.GetComponent<Renderer>().material.color;
 	}
 	
 	void Update () {
@@ -73,7 +82,7 @@ public class Boss : MonoBehaviour {
 		fireballTime += Time.deltaTime;
 		barrageTime += Time.deltaTime;
 
-		if (fireballTime > fireballCooldown)
+		if (fireballTime > fireballCooldown) //fireball is ready
 		{
 			Fireball ();
 
@@ -81,15 +90,33 @@ public class Boss : MonoBehaviour {
 			return;
 		}
 
-		if(barrageTime > barrageCooldown)
-		{
-			if(weapon1) Barrage (weapon1);
-			if(weapon2) Barrage (weapon2);
+		if (barrageTime > barrageCooldown) { //barrage is ready
+			if (preloadTime < preloadCooldown) {
+				//preload
+//				if(!preloadWeapon1.isEmitting)
+					preloadWeapon1.Play();
 
-			barrageTime = 0;
+//				if(!preloadWeapon2.isEmitting)
+					preloadWeapon2.Play();
+				
+				preloadTime += Time.deltaTime;
+			} else {
+				//stop preload
+				preloadWeapon1.Stop ();
+				preloadWeapon2.Stop ();
+
+				//barrage
+				if (weapon1)
+					Barrage (weapon1);
+				if (weapon2)
+					Barrage (weapon2);
+
+				barrageTime = 0;
+				preloadTime = 0;
+			}
 			return;
 		}
-
+	
 		Shoot ();
 
 		UpdateHealth ();
