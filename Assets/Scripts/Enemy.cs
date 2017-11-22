@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : Living {
 
@@ -24,7 +25,14 @@ public class Enemy : Living {
 	public bool hitWallLeft;
 	public bool hitWallRight;
 
-	protected override void Start ()
+    [Header("Health Management")]
+
+    public Slider slider;
+    public Image fillImage;
+    public Color fullHealthColor;
+    public Color zeroHealthColor;
+
+    protected override void Start ()
 	{
 		lastPlayerKnownLocation = Vector3.zero;
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -33,7 +41,10 @@ public class Enemy : Living {
 		shootingCooldown = 0;
 		sightColor = Color.grey;
 
-		if (stateMachine == null) stateMachine = GetComponent<Animator> ();
+        slider.maxValue = maxLife;
+        slider.value = maxLife;
+
+        if (stateMachine == null) stateMachine = GetComponent<Animator> ();
 
 		base.Start ();
 	}
@@ -41,12 +52,13 @@ public class Enemy : Living {
 	protected override void Update()
 	{
 		base.Update ();
-
-		if (nma.velocity == Vector3.zero && _audioSource.clip == stepSound)
+        UpdateHealth();
+        if (nma.velocity == Vector3.zero && _audioSource.clip == stepSound)
 			_audioSource.Pause ();
 
 		shootingCooldown += Time.deltaTime;
-	}
+       
+    }
 
 	void OnDrawGizmosSelected()
 	{
@@ -188,5 +200,16 @@ public class Enemy : Living {
 
 		return false;
 	}
+
+    public void UpdateHealth()
+    {
+        slider.value = _life;
+
+        fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, _life / maxLife);
+
+        //Debug.Log("current health : " + _life);
+        //Debug.Log(" slider.val : " + slider.value);
+        //Debug.Log(" lerp : " + (_life / maxLife));
+    }
 }
 	
