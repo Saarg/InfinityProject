@@ -2,21 +2,19 @@ using UnityEngine;
 
 public class UIDirectionControl : MonoBehaviour
 {
-    public bool m_UseRelativeRotation = true;  
-
-
-    private Quaternion m_RelativeRotation;     
-
+    private Quaternion startRotation;
 
     private void Start()
     {
-        m_RelativeRotation = transform.parent.localRotation;
+		startRotation = Quaternion.Euler(new Vector3 (90,0,0));
     }
 
 
-    private void Update()
+    private void LateUpdate()
     {
-        if (m_UseRelativeRotation)
-            transform.rotation = m_RelativeRotation;
+		Vector3 rotParent = transform.parent.transform.rotation.eulerAngles
+
+		Debug.Log ("local");
+		Debug.Log (transform.parent.transform.localRotation.eulerAngles);
     }
 }

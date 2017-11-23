@@ -93,11 +93,8 @@ public class Boss : MonoBehaviour {
 		if (barrageTime > barrageCooldown) { //barrage is ready
 			if (preloadTime < preloadCooldown) {
 				//preload
-//				if(!preloadWeapon1.isEmitting)
-					preloadWeapon1.Play();
-
-//				if(!preloadWeapon2.isEmitting)
-					preloadWeapon2.Play();
+				preloadWeapon1.Play();
+				preloadWeapon2.Play();
 				
 				preloadTime += Time.deltaTime;
 			} else {
@@ -106,10 +103,8 @@ public class Boss : MonoBehaviour {
 				preloadWeapon2.Stop ();
 
 				//barrage
-				if (weapon1)
-					Barrage (weapon1);
-				if (weapon2)
-					Barrage (weapon2);
+				if (weapon1) Barrage (weapon1);
+				if (weapon2) Barrage (weapon2);
 
 				barrageTime = 0;
 				preloadTime = 0;
@@ -195,9 +190,5 @@ public class Boss : MonoBehaviour {
 		slider.value = _life;
 
 		fillImage.color = Color.Lerp (zeroHealthColor, fullHealthColor, _life / maxLife);
-
-		Debug.Log("current health : " + _life);
-		Debug.Log (" slider.val : " + slider.value);
-		Debug.Log(" lerp : " + (_life/maxLife));
 	}
 }
