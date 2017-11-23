@@ -3,69 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats{
-    protected int level;
+    protected int _level;
     public int Level
     {
         get
         {
-            return this.level;
+            return this._level;
         }
         set
         {
-            if (value < 0)
-                this.level = 0;
-            else if (value > 19)
-                this.level = 19;
+            if (value <= 0)
+                this._level = 0;
+            else if (value >= 19)
+                this._level = 19;
             else
-                this.level = value;
+                this._level = value;
         }
     }
 
-    protected int experience;
+    protected int _experience;
     public int Experience
     {
         get
         {
-            return this.experience;
+            return this._experience;
         }
         set
         {
             if (value < 0)
-                this.experience = 0;
+                this._experience = 0;
             else
-                this.experience = value;
+                this._experience = value;
         }
     }
 
-    protected int count;
+    protected int _count;
     public int Count
     {
         get
         {
-            return this.count;
+            return this._count;
         }
         set
         {
             if (value < 0)
-                this.count = 0;
+                this._count = 0;
             else
-                this.count = value;
+                this._count = value;
         }
     }
 
-    protected int ratio = 2;
+    protected int _ratio = 2;
     public int Ratio
     {
         get
         {
-            return this.ratio;
+            return this._ratio;
         }
         set
         {
-            if (value < 0)
-                this.ratio = 0;
+            if (value < 1)
+                this._ratio = 1;
             else
-                this.ratio = value;
+                this._ratio = value;
         }
     }
 	public ArrayList bonus = new ArrayList ();
@@ -73,9 +73,9 @@ public class PlayerStats{
 
     public PlayerStats()
     {
-        level = 0;
-        experience = 0;
-        count = 0;
+        _level = 0;
+        _experience = 0;
+        _count = 0;
         bonus = new ArrayList();
         malus = new ArrayList();
     }
@@ -92,19 +92,19 @@ public class PlayerStats{
 
     public bool LevelUp(int experienceCap)
     {
-        if(experience >= experienceCap)
+        if(_experience >= experienceCap)
         {
-            experience -= experienceCap;
-            level++;
-            if(level % 3 == 0)
+            _experience -= experienceCap;
+            Level++;
+            if(Level % 3 == 0)
             {
                 foreach(PlayerStats ps in bonus)
                 {
-                    ps.level++;
+                    ps.Level++;
                 }
                 foreach (PlayerStats ps in malus)
                 {
-                    ps.level--;
+                    ps.Level--;
                 }
             }
             return true;
@@ -114,12 +114,7 @@ public class PlayerStats{
 
     public void Convert()
     {
-		if (Ratio == 0) {
-			Debug.LogWarning ("Playerstat Ration is null !!!");
-			return;
-		}
-		
-        experience += count / Ratio;
-        count = 0;
+        Experience += Count / Ratio;
+        Count = 0;
     }
 }

@@ -13,6 +13,7 @@ public class StatManager {
     public PlayerStats Rol { get; }
 
     protected PlayerStats[] stats = new PlayerStats[6];
+    public PlayerStats[] Stats { get { return stats; } }
     protected static StatManager _instance = null;
 
     public static StatManager Instance
@@ -48,22 +49,25 @@ public class StatManager {
         Ran.GiveMalusTo(Atk);
         Rol.GiveMalusTo(Spe);
 
-        Spe.Ratio = 1000;
+        Spe.Ratio = 30;
         Ran.Ratio = 8;
-        
-        stats[0] = Atk;
+        End.Ratio = 10;
+
+        stats[0] = End;
         stats[1] = Hp;
-        stats[2] = Spe;
-        stats[3] = End;
-        stats[4] = Ran;
-        stats[5] = Rol;
+        stats[2] = Ran;
+        stats[3] = Spe;
+        stats[4] = Rol;
+        stats[5] = Atk;
     }
 
     public void LevelUp()
     {
+
         foreach (PlayerStats ps in stats)
         {
             ps.Convert();
+            
             while (ps.LevelUp(experienceTable[ps.Level]))
             {
 

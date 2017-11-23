@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Living {    
-    protected PlayerStats[] stats = new PlayerStats[6];
-
+    
     [Header("Player Stats")]
     [SerializeField] protected float _jumpSpeed = 6;
 	[SerializeField] protected float _jumptime = 1f;
 	[SerializeField] protected AnimationCurve _heightCurve;
 	[SerializeField] protected AnimationCurve _rollCurve;
-
-    protected StatManager stat;
     
+
 	protected float _stamina = 10;
 	public float stamina { get {return _stamina; }}
 	[SerializeField] protected float _staminaMax = 10;
@@ -24,13 +22,15 @@ public class PlayerController : Living {
 	public Camera playerCamera;
 
 	private float lastShotTime;
+    protected StatManager stat;
+    protected float totalMoveTime;
 
     protected override void Start()
     {
         base.Start();
         stat = StatManager.Instance;
-
-		_stamina = _staminaMax;
+        totalMoveTime = 0;
+        _stamina = _staminaMax;
 
 		if (playerCamera == null) {
 			playerCamera = Camera.main;
@@ -127,7 +127,8 @@ public class PlayerController : Living {
 
         if(_moveDirection.magnitude > 0.1)
         {
-//            stat.Spe.Count++;
+            totalMoveTime += Time.deltaTime;
+            stat.Spe.Count = (int)totalMoveTime;
         }
 
 		/*
