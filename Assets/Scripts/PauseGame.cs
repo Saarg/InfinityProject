@@ -26,7 +26,10 @@ public class PauseGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (MultiOSControls.GetValue("Pause", PlayerNumber.All) != 0)
+		if (!soundsMenu.gameObject.activeSelf &&
+			!videoSettingsMenu.gameObject.activeSelf &&
+			!controlsMenu.gameObject.activeSelf &&
+			MultiOSControls.GetValue("Pause", PlayerNumber.All) != 0)
         {
             Pause();
         }
@@ -52,7 +55,9 @@ public class PauseGame : MonoBehaviour
             AudioListener.volume = 0;
 
 			foreach (GameObject player in players) {
-				player.SetActive (false);
+				if (player != null) {
+					player.SetActive (false);
+				}
 			}
         }
         else
@@ -61,7 +66,9 @@ public class PauseGame : MonoBehaviour
             Time.timeScale = 1;
             AudioListener.volume = 1;
 			foreach (GameObject player in players) {
-				player.SetActive (player.GetComponent<PlayerController>().playerCamera.gameObject.activeSelf);
+				if (player != null) {
+					player.SetActive (player.GetComponent<PlayerController> ().playerCamera.gameObject.activeSelf);
+				}
 			}
         }
     }
@@ -109,21 +116,6 @@ public class PauseGame : MonoBehaviour
             pauseMenu.gameObject.SetActive(true);
         }
     }
-
-	void OnApplicationQuit() {
-		Debug.Log ("Reseting video params");
-		PostProcessingProfile profile = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
-
-		profile.antialiasing.enabled = true;
-
-		AntialiasingModel.Settings s = profile.antialiasing.settings;
-		s.fxaaSettings.preset = AntialiasingModel.FxaaPreset.Default;
-
-		profile.antialiasing.settings = s;
-
-		profile.motionBlur.enabled = true;
-		profile.ambientOcclusion.enabled = true;
-	}
 
     public void SaveAndQuit()
     {

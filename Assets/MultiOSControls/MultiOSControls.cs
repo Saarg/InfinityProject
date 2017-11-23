@@ -191,6 +191,11 @@ public class MultiOSControls : MonoBehaviour {
 		instance.players [(int)player].controller = (ControllerNumber)c;
 
 		instance.players [(int)player].keyboard = (c == 4);
+
+		// if no one is using keyboard allow player 1 to have keyboard as backup
+		if (!instance.players [1].keyboard && !instance.players [2].keyboard && !instance.players [3].keyboard) {
+			instance.players [0].keyboard = true;
+		}
 	}
 
 	static public void BindPosKey(string name, string key, PlayerNumber player = PlayerNumber.All) {

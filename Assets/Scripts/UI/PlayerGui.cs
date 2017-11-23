@@ -41,6 +41,7 @@ public class PlayerGui : MonoBehaviour {
 	void Update () {
 		if (_player == null) {
 			Start ();
+			return;
 		}
 
 		healthBar.value = _player.life;

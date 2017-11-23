@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.IO;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +12,8 @@ public class ControlBinding : MonoBehaviour {
     public InputField LeftField;
     public InputField RightField;
     public InputField JumpField;
-    public InputField FireField;
+	public InputField FireField;
+    public InputField PauseField;
 
 	public Dropdown Player1Controller;
 	public Dropdown Player2Controller;
@@ -99,6 +103,19 @@ public class ControlBinding : MonoBehaviour {
         }
     }
 
+	public void BindPause(InputField input)
+	{
+		if (ValidateInput(input.text))
+		{
+			Debug.Log("pause is" + input.text);
+			MultiOSControls.BindPosKey ("Pause", input.text);
+		}
+		else
+		{
+			//Debug.Log("Main Input Empty");
+		}
+	}
+
 	public bool ValidateInput(string input) {
 		input = input.ToLower ();
 
@@ -125,6 +142,75 @@ public class ControlBinding : MonoBehaviour {
         LeftField.onEndEdit.AddListener(delegate { BindLeft(LeftField); });
         RightField.onEndEdit.AddListener(delegate { BindRight(RightField); });
         JumpField.onEndEdit.AddListener(delegate { BindJump(JumpField); });
-        FireField.onEndEdit.AddListener(delegate { BindFire(FireField); });
+		FireField.onEndEdit.AddListener(delegate { BindFire(FireField); });
+		PauseField.onEndEdit.AddListener(delegate { BindPause(PauseField); });
+
+		if (File.Exists (Application.persistentDataPath + "/inputSettings.dat")) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Application.persistentDataPath + "/inputSettings.dat", FileMode.Open);
+			ControlsSave save = (ControlsSave)bf.Deserialize (file);
+
+			file.Close (); 
+
+			UpField.text = save.up;
+			BindUp(UpField);
+			DownField.text = save.down;
+			BindDown(DownField);
+			LeftField.text = save.left;
+			BindLeft(LeftField);
+			RightField.text = save.right;
+			BindRight(RightField);
+			JumpField.text = save.jump;
+			BindJump(JumpField);
+			FireField.text = save.fire;
+			BindFire(FireField);
+			PauseField.text = save.pause;
+			BindPause(PauseField);
+
+			Player1Controller.value = save.playerController1;
+			Player2Controller.value = save.playerController2;
+			Player3Controller.value = save.playerController3;
+			Player4Controller.value = save.playerController4;
+		}
     }
+
+	void OnApplicationQuit() {
+		ControlsSave save = new ControlsSave ();
+
+		save.up = UpField.text;
+		save.down = DownField.text;
+		save.left = LeftField.text;
+		save.right = RightField.text;
+		save.jump = JumpField.text;
+		save.fire = FireField.text;
+		save.pause = PauseField.text;
+
+		save.playerController1 = Player1Controller.value;
+		save.playerController2 = Player2Controller.value;
+		save.playerController3 = Player3Controller.value;
+		save.playerController4 = Player4Controller.value;
+
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create(Application.persistentDataPath + "/inputSettings.dat");
+
+		bf.Serialize(file, save);
+		file.Close();
+	}
+}
+
+[Serializable]
+class ControlsSave
+{
+	public string up = "w";
+	public string down = "s";
+	public string left = "a";
+	public string right = "d";
+	public string jump = "space";
+	public string fire = "mouse 0";
+	public string pause = "p";
+
+	public int playerController1 = 5;
+	public int playerController2 = 0;
+	public int playerController3 = 1;
+	public int playerController4 = 2;
 }

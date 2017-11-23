@@ -1,10 +1,20 @@
-﻿using System.Collections;
+﻿using System.IO;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour {
+
+	public GameObject cont;
+
+	void Start() {
+		if (File.Exists (Application.persistentDataPath + "/playerInfo.dat")) {
+			cont.SetActive (true);
+		} else {
+			cont.SetActive (false);
+		}
+	}
 
 	public void LoadScene(string name) {
 		SceneManager.LoadScene(name, LoadSceneMode.Single);
@@ -16,7 +26,7 @@ public class MainMenuUI : MonoBehaviour {
 
     public void NewGame(string name)
     {
-        FileUtil.DeleteFileOrDirectory(Application.persistentDataPath + "/playerInfo.dat");
+		File.Delete (Application.persistentDataPath + "/playerInfo.dat");
         SceneManager.LoadScene(name, LoadSceneMode.Single);
     }
 }
