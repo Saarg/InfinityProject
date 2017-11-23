@@ -243,6 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _specs: {fileID: 11400000, guid: a39d786f4a0ac472eafe34be953c6cda, type: 2}
+  owner: {fileID: 0}
+  Type: Baslistic
 --- !u!136 &136079978393308500
 CapsuleCollider:
   m_ObjectHideFlags: 1

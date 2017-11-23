@@ -918,6 +918,10 @@ MonoBehaviour:
   fillImage: {fileID: 114496403353626944}
   fullHealthColor: {r: 1, g: 0, b: 0, a: 0.728}
   zeroHealthColor: {r: 1, g: 0.66176474, b: 0.66176474, a: 0.722}
+  Weakness: none
+  WeaknessFactor: 1
+  Resistance: none
+  ResistanceFactor: 1
 --- !u!136 &136818250324587402
 CapsuleCollider:
   m_ObjectHideFlags: 1

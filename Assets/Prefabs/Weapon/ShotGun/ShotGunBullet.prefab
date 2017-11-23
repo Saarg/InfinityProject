@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _specs: {fileID: 11400000, guid: 4312f6ce151d84d209f6f4dd439544cf, type: 2}
+  owner: {fileID: 0}
+  Type: Balistic
 --- !u!136 &136835460121359740
 CapsuleCollider:
   m_ObjectHideFlags: 1

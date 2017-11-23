@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ namespace Weapons {
         protected float distance;
 
         public Living owner;
+
+        public string Type;
 
         void Start () {
 			_rb = GetComponent<Rigidbody> ();
@@ -54,7 +57,26 @@ namespace Weapons {
 		 */
 
 		public void ImpactDamage(Collision collision) {
-			collision.gameObject.SendMessage ("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
+            //if(collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().Resistance == this.Type)
+            if (collision.gameObject.tag == "Enemy")
+            {
+                if (String.Compare(collision.gameObject.GetComponent<Enemy>().Weakness, this.Type) == 0)
+                {
+                    collision.gameObject.SendMessage("ApplyDamage", GetDamages() * collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().WeaknessFactor, SendMessageOptions.DontRequireReceiver);
+                }
+                else
+                {
+                    if (String.Compare(collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().Resistance, this.Type) == 0)
+                    {
+                        collision.gameObject.SendMessage("ApplyDamage", GetDamages() * collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().ResistanceFactor, SendMessageOptions.DontRequireReceiver);
+                    }
+                    else
+                    {
+                        collision.gameObject.SendMessage("ApplyDamage", GetDamages() * collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().ResistanceFactor, SendMessageOptions.DontRequireReceiver);
+                    }
+                }
+            }
+			//collision.gameObject.SendMessage ("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
 
             if (collision.gameObject.tag == "Enemy" && owner.tag == "Player")
             {

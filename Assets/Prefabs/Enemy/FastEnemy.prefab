@@ -1012,6 +1012,10 @@ MonoBehaviour:
   fillImage: {fileID: 114574194563863682}
   fullHealthColor: {r: 1, g: 0, b: 0, a: 0.728}
   zeroHealthColor: {r: 1, g: 0.66176474, b: 0.66176474, a: 0.722}
+  Weakness: Laser
+  WeaknessFactor: 1.3
+  Resistance: all
+  ResistanceFactor: 0.85
 --- !u!114 &114488000702402328
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _specs: {fileID: 11400000, guid: 61c86d93efd734b45b879d89dff5c1b5, type: 2}
+  owner: {fileID: 0}
+  Type: Laser
 --- !u!136 &136390564771249700
 CapsuleCollider:
   m_ObjectHideFlags: 1

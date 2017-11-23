@@ -976,6 +976,10 @@ MonoBehaviour:
   fillImage: {fileID: 114811910690058680}
   fullHealthColor: {r: 1, g: 0, b: 0, a: 0.728}
   zeroHealthColor: {r: 1, g: 0.66176474, b: 0.66176474, a: 0.722}
+  Weakness: Explosive
+  WeaknessFactor: 1.5
+  Resistance: all
+  ResistanceFactor: 0.6
 --- !u!114 &114418958595373982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1112,7 +1116,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480709944003260}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.49999997
   m_Speed: 3.5

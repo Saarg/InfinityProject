@@ -171,6 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _specs: {fileID: 11400000, guid: 2813376f91e024fc2904014747a54808, type: 2}
+  owner: {fileID: 0}
+  Type: Explosive
 --- !u!135 &135662839833385096
 SphereCollider:
   m_ObjectHideFlags: 1

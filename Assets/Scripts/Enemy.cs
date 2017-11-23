@@ -32,6 +32,12 @@ public class Enemy : Living {
     public Color fullHealthColor;
     public Color zeroHealthColor;
 
+    [Header("Resistances")]
+    public string Weakness;
+    public float WeaknessFactor;
+    public string Resistance;
+    public float ResistanceFactor;
+
     protected override void Start ()
 	{
 		lastPlayerKnownLocation = Vector3.zero;
