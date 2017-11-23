@@ -174,7 +174,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224927147546335476}
   - component: {fileID: 114078898570594468}
-  - component: {fileID: 114290662155883656}
   m_Layer: 5
   m_Name: HealthSlider
   m_TagString: Untagged
@@ -274,6 +273,7 @@ GameObject:
   - component: {fileID: 223710807514222892}
   - component: {fileID: 114314382358792698}
   - component: {fileID: 114488000702402328}
+  - component: {fileID: 114835143457626082}
   m_Layer: 5
   m_Name: LifeDisplay
   m_TagString: Untagged
@@ -329,7 +329,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1589843893745692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.028366014, y: 0.065, z: -10.65593}
+  m_LocalPosition: {x: 3.626294, y: 2.01095, z: 7.638244}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 224529108739005652}
@@ -938,18 +938,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114290662155883656
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1778665960722396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae1719ca1d061d4abe429b71819e954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UseRelativeRotation: 0
 --- !u!114 &114314382358792698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1094,6 +1082,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 0
+--- !u!114 &114835143457626082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1953065645960882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae1719ca1d061d4abe429b71819e954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135174764926459020
 SphereCollider:
   m_ObjectHideFlags: 1
