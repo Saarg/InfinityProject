@@ -2,19 +2,22 @@ using UnityEngine;
 
 public class UIDirectionControl : MonoBehaviour
 {
-    private Quaternion startRotation;
+    private Vector3 startRotation;
+	private Vector3 parentStartRotation;
 
     private void Start()
     {
-		startRotation = Quaternion.Euler(new Vector3 (90,0,0));
+		startRotation = new Vector3 (90,0,0);
+		parentStartRotation = transform.parent.transform.rotation.eulerAngles;
     }
 
 
-    private void LateUpdate()
+    private void Update()
     {
-		Vector3 rotParent = transform.parent.transform.rotation.eulerAngles
+		Vector3 rotParent = transform.parent.transform.rotation.eulerAngles;
+		Vector3 diff = rotParent - parentStartRotation;
+		Vector3 newRot = new Vector3 (90 - diff.x, 0, 0);
 
-		Debug.Log ("local");
-		Debug.Log (transform.parent.transform.localRotation.eulerAngles);
+		transform.localRotation = Quaternion.Euler (newRot);
     }
 }
