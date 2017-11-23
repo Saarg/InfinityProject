@@ -28,7 +28,11 @@ namespace Weapons {
             Destroy(gameObject, _specs.lifespan);
 		}
 
-
+		void Update() {
+			if (_rb.velocity.magnitude < 1) {
+				Destroy (gameObject);
+			}
+		}
 
 		void OnCollisionEnter(Collision collision) {
             _rb.velocity = new Vector3(0,0,0);

@@ -528,7 +528,7 @@ Prefab:
     - target: {fileID: 224857344950995768, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 224798632582988830, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
@@ -558,16 +558,68 @@ Prefab:
     - target: {fileID: 224517087237823888, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 224997316048268480, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 38.775
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53045ee64a1841a0a25e65711a62211, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &548035049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 548035051}
+  - component: {fileID: 548035050}
+  m_Layer: 0
+  m_Name: GunSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &548035050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 548035049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52efa53ae87a44262934764d0a3a4d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 1215560145839970, guid: 969dc5a666f004bf1abaf6d3e91c97e9, type: 2}
+  - {fileID: 1547212003787376, guid: 81d0c9740ea6949f6b2a75f16e10e129, type: 2}
+  - {fileID: 1585236912945346, guid: 47d99c566835b47b79ab637428fbd91c, type: 2}
+  - {fileID: 1765193283609484, guid: b9d048ba8864f47d39f33694e4c334b4, type: 2}
+  - {fileID: 1108543867442708, guid: ac1c87ac17fda4c13b8b3ed329aaffaa, type: 2}
+  - {fileID: 1215560145839970, guid: 969dc5a666f004bf1abaf6d3e91c97e9, type: 2}
+  - {fileID: 1108543867442708, guid: ac1c87ac17fda4c13b8b3ed329aaffaa, type: 2}
+  spawnRateCurve: 0
+  spawnRate: 60
+  waitForDeath: 1
+  spawnOnDeath: 0
+--- !u!4 &548035051
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 548035049}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 57.18, y: 0.5, z: 86.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &638081421
 Prefab:
   m_ObjectHideFlags: 0
@@ -703,6 +755,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 706014085}
+--- !u!1 &713278994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 713278996}
+  - component: {fileID: 713278995}
+  m_Layer: 0
+  m_Name: GunSpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &713278995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 713278994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52efa53ae87a44262934764d0a3a4d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 1215560145839970, guid: 969dc5a666f004bf1abaf6d3e91c97e9, type: 2}
+  - {fileID: 1547212003787376, guid: 81d0c9740ea6949f6b2a75f16e10e129, type: 2}
+  - {fileID: 1585236912945346, guid: 47d99c566835b47b79ab637428fbd91c, type: 2}
+  - {fileID: 1765193283609484, guid: b9d048ba8864f47d39f33694e4c334b4, type: 2}
+  - {fileID: 1108543867442708, guid: ac1c87ac17fda4c13b8b3ed329aaffaa, type: 2}
+  - {fileID: 1215560145839970, guid: 969dc5a666f004bf1abaf6d3e91c97e9, type: 2}
+  - {fileID: 1108543867442708, guid: ac1c87ac17fda4c13b8b3ed329aaffaa, type: 2}
+  spawnRateCurve: 0
+  spawnRate: 60
+  waitForDeath: 1
+  spawnOnDeath: 0
+--- !u!4 &713278996
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 713278994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 71.18, y: 0.5, z: 86.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &760709433
 GameObject:
   m_ObjectHideFlags: 0
