@@ -55,7 +55,9 @@ public class PauseGame : MonoBehaviour
             AudioListener.volume = 0;
 
 			foreach (GameObject player in players) {
-				player.SetActive (false);
+				if (player != null) {
+					player.SetActive (false);
+				}
 			}
         }
         else
@@ -64,7 +66,9 @@ public class PauseGame : MonoBehaviour
             Time.timeScale = 1;
             AudioListener.volume = 1;
 			foreach (GameObject player in players) {
-				player.SetActive (player.GetComponent<PlayerController>().playerCamera.gameObject.activeSelf);
+				if (player != null) {
+					player.SetActive (player.GetComponent<PlayerController> ().playerCamera.gameObject.activeSelf);
+				}
 			}
         }
     }
