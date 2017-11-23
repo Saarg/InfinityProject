@@ -76,6 +76,10 @@ namespace Weapons {
                     }
                 }
             }
+            else
+            {
+                collision.gameObject.SendMessage("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
+            }
 			//collision.gameObject.SendMessage ("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
 
             if (collision.gameObject.tag == "Enemy" && owner.tag == "Player")
