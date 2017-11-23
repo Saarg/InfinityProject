@@ -32,12 +32,6 @@ public class Enemy : Living {
     public Color fullHealthColor;
     public Color zeroHealthColor;
 
-    [Header("Resistances")]
-    public string Weakness;
-    public float WeaknessFactor;
-    public string Resistance;
-    public float ResistanceFactor;
-
     protected override void Start ()
 	{
 		lastPlayerKnownLocation = Vector3.zero;
@@ -133,7 +127,6 @@ public class Enemy : Living {
 				RaycastHit hit;
 
 				if (Physics.Raycast (vision, out hit, specs.sightRange)) {
-//					Debug.Log("
 					if(hit.collider.CompareTag("Player"))
 						return true;
 				}
@@ -166,10 +159,10 @@ public class Enemy : Living {
 	}
 
 	/** WallIsSeen() : bool
-//	 * cast 1 ray as wall detectors and
-//	 * return true if a wall intersect with raycast
-//	 * return false otherwise
-//	 */
+	 * cast 1 ray as wall detectors and
+	 * return true if a wall intersect with raycast
+	 * return false otherwise
+	 */
 	public bool WallIsSeen()
 	{
 		hitWallLeft = false;
@@ -212,10 +205,6 @@ public class Enemy : Living {
         slider.value = _life;
 
         fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, _life / maxLife);
-
-        //Debug.Log("current health : " + _life);
-        //Debug.Log(" slider.val : " + slider.value);
-        //Debug.Log(" lerp : " + (_life / maxLife));
     }
 }
 	

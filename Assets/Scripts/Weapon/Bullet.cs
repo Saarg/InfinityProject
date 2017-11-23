@@ -16,17 +16,24 @@ namespace Weapons {
 
         protected float distance;
 
-        public Living owner;
+		public Living owner;
 
         public string Type;
 
         void Start () {
 			_rb = GetComponent<Rigidbody> ();
             start = this.transform.position;
+
 			if (_rb == null) {
-				Debug.LogWarning ("No rigidbody found on bullet, destroying bullet script");
-				Destroy (this);
+				Debug.LogError ("No rigidbody found on bullet, destroying bullet");
+				Destroy (gameObject);
 			}
+
+			if (owner == null) {
+				Debug.LogError ("No owner found on bullet, destroying bullet");
+				Destroy (gameObject);
+			}
+
             _rb.velocity = transform.forward * _specs.velocity;
             Destroy(gameObject, _specs.lifespan);
 		}
@@ -57,28 +64,21 @@ namespace Weapons {
 		 */
 
 		public void ImpactDamage(Collision collision) {
-            //if(collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().Resistance == this.Type)
-            if (collision.gameObject.tag == "Enemy")
-            {
-                if (String.Compare(collision.gameObject.GetComponent<Enemy>().Weakness, this.Type) == 0)
-                {
-                    collision.gameObject.SendMessage("ApplyDamage", GetDamages() * collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().WeaknessFactor, SendMessageOptions.DontRequireReceiver);
-                }
-                else
-                {
-                    if (String.Compare(collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().Resistance, this.Type) == 0)
-                    {
-                        collision.gameObject.SendMessage("ApplyDamage", GetDamages() * collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().ResistanceFactor, SendMessageOptions.DontRequireReceiver);
-                    }
-                    else
-                    {
-                        collision.gameObject.SendMessage("ApplyDamage", GetDamages() * collision.gameObject.GetComponent<Living>().GetComponent<Enemy>().ResistanceFactor, SendMessageOptions.DontRequireReceiver);
-                    }
-                }
-            }
-			//collision.gameObject.SendMessage ("ApplyDamage", GetDamages(), SendMessageOptions.DontRequireReceiver);
+            float damages = GetDamages ();
+			Living living = collision.gameObject.GetComponent<Living> ();
 
-            if (collision.gameObject.tag == "Enemy" && owner.tag == "Player")
+			if (living != null) {
+				if (String.Compare (living.Weakness, this.Type) == 0) {
+					damages *= living.WeaknessFactor;
+				}
+				if (String.Compare (collision.gameObject.GetComponent<Living> ().Resistance, this.Type) == 0) {
+					damages *= living.ResistanceFactor;
+				}
+			}
+
+			collision.gameObject.SendMessage ("ApplyDamage", damages, SendMessageOptions.DontRequireReceiver);
+
+			if (collision.gameObject.tag == "Enemy" && owner.tag == "Player")
             {
                 End = this.transform.position;
                 distance = Vector3.Distance(start, End);
@@ -88,9 +88,9 @@ namespace Weapons {
 		}
 
 		public float GetDamages() {
-            if(owner)
-                if(owner.tag == "Player")
-                    return _specs.damage;
+			if (owner.tag == "Player") {
+				return _specs.damage;
+			}
 			return _specs.damage + StatManager.Instance.Atk.Level;
 		}
 

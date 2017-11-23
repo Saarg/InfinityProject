@@ -20,6 +20,12 @@ public class Living : MonoBehaviour {
     private IEnumerator coroutine;
     private Color col;
 
+	[Header("Resistances")]
+	public string Weakness;
+	public float WeaknessFactor;
+	public string Resistance;
+	public float ResistanceFactor;
+
     [SerializeField]
     protected float _life = 100.0F;
 	public float life { 
@@ -75,7 +81,6 @@ public class Living : MonoBehaviour {
 				Destroy (_gun.gameObject);
 
 			_gun = newGun.GetComponent<Weapon> ();
-            _gun.owner = this;
 		}
 	}
     void ApplyDamage(float damage)
