@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 223376484199473116}
   - component: {fileID: 114431231077916868}
   - component: {fileID: 114987793968111184}
+  - component: {fileID: 114950533236685272}
   m_Layer: 5
   m_Name: LifeDisplay
   m_TagString: Untagged
@@ -158,7 +159,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224536052782238138}
   - component: {fileID: 114158440545538886}
-  - component: {fileID: 114729909577544336}
   m_Layer: 5
   m_Name: HealthSlider
   m_TagString: Untagged
@@ -450,7 +450,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480709944003260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21839625, y: 0.53, z: -9.543776}
+  m_LocalPosition: {x: 1.6516995, y: 2.18295, z: 7.1717014}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 224432550245492886}
@@ -1012,18 +1012,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114729909577544336
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1552293628728934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae1719ca1d061d4abe429b71819e954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UseRelativeRotation: 0
 --- !u!114 &114808040107316466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1078,6 +1066,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 0
+--- !u!114 &114950533236685272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442529061833522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae1719ca1d061d4abe429b71819e954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114987793968111184
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224076958900466776}
   - component: {fileID: 114453763329294194}
-  - component: {fileID: 114919908588842566}
   m_Layer: 5
   m_Name: HealthSlider
   m_TagString: Untagged
@@ -142,6 +141,7 @@ GameObject:
   - component: {fileID: 223803981884795714}
   - component: {fileID: 114160894775667476}
   - component: {fileID: 114802061945685180}
+  - component: {fileID: 114959821853882388}
   m_Layer: 5
   m_Name: LifeDisplay
   m_TagString: Untagged
@@ -313,8 +313,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482051691371612}
-  m_LocalRotation: {x: 0, y: 0.009424611, z: 0, w: 0.9999556}
-  m_LocalPosition: {x: -0.966, y: 0.5, z: 0.052}
+  m_LocalRotation: {x: -0, y: 0.009424611, z: -0, w: 0.9999556}
+  m_LocalPosition: {x: -0.36555284, y: 2.07095, z: 7.1750984}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 224249722308390026}
@@ -959,18 +959,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114919908588842566
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1275118068971860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae1719ca1d061d4abe429b71819e954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UseRelativeRotation: 0
 --- !u!114 &114931026194520136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1009,6 +997,17 @@ MonoBehaviour:
   fillImage: {fileID: 114370397797351934}
   fullHealthColor: {r: 1, g: 0, b: 0, a: 0.728}
   zeroHealthColor: {r: 1, g: 0.66176474, b: 0.66176474, a: 0.722}
+--- !u!114 &114959821853882388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1629250307018050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae1719ca1d061d4abe429b71819e954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136235001801938660
 CapsuleCollider:
   m_ObjectHideFlags: 1
