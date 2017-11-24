@@ -14,12 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Survival.unity
     guid: 578d5761ac5fe47639539a493a4df6ec
-  - enabled: 0
-    path: Assets/Scenes/ErwannScene.unity
-    guid: c14ab58f14f68db4194b5687354d94f2
-  - enabled: 0
-    path: Assets/Scenes/MainMenuErwann.unity
-    guid: 08e2ba4da4962264baa321910463211c
   - enabled: 1
     path: Assets/Scenes/Versus.unity
     guid: e66fbda1f58fd4101a7c1b233fe59272
