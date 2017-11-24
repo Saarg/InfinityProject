@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AlertBehaviour : EnemyState {
 
-	private Quaternion startRotation;
 	private float searchTime;
 
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -24,12 +23,6 @@ public class AlertBehaviour : EnemyState {
 
 	private void SearchForPlayer(Animator animator)
 	{
-		Vector3 diff = enemy.lastPlayerKnownLocation - enemy.transform.position;
-
-		if (startRotation == null) {
-			startRotation = enemy.transform.rotation;
-		}
-
 		enemy.transform.Rotate (new Vector3(0, 360 * Time.deltaTime / enemy.specs.alertDuration, 0));
 
 		searchTime += Time.deltaTime;

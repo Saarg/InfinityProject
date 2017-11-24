@@ -5,7 +5,7 @@ using Weapons;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class Boss : MonoBehaviour {
+public class Boss : MonoBehaviour { 
 
 	[SerializeField] private Transform player;
 	private NavMeshAgent nma;
@@ -19,11 +19,9 @@ public class Boss : MonoBehaviour {
 
 	[Header("Weapons")]
 	[SerializeField] private Weapon weapon1;
-	[SerializeField] private GameObject weapon1Ammo;
 	[SerializeField] private ParticleSystem preloadWeapon1;
 
 	[SerializeField] private Weapon weapon2;
-	[SerializeField] private GameObject weapon2Ammo;
 	[SerializeField] private ParticleSystem preloadWeapon2;
 
 	[SerializeField] private GameObject fireball;
@@ -51,8 +49,6 @@ public class Boss : MonoBehaviour {
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
-		weapon1Ammo = weapon1.getSpecs ().ammoPrefab;
-		weapon2Ammo = weapon2.getSpecs ().ammoPrefab;
 
 		GetComponent<NavMeshAgent> ().enabled = true;
 
@@ -152,7 +148,7 @@ public class Boss : MonoBehaviour {
 		for (i = -20; i < 21; i += 5) {
 			Vector3 rot = canon.rotation.eulerAngles;
 			rot.y += i;
-			Instantiate(w.getSpecs().ammoPrefab, canon.position, Quaternion.Euler(rot));
+			Instantiate(w.getSpecs().ammoPrefab, canon.position, Quaternion.Euler(rot)).GetComponent<Bullet>().owner = transform;
 		}
 	}
 

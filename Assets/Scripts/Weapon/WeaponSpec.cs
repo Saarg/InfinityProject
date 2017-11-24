@@ -16,7 +16,7 @@ namespace Weapons {
 
 		public Sprite logo;
 
-		public virtual void Fire(Transform t, Living owner) {
+		public virtual void Fire(Transform t, Transform owner) {
 			Transform canon = t.Find ("Canon");
             GameObject go = Instantiate(ammoPrefab, canon.position, canon.rotation);
             Bullet b = (Bullet)go.GetComponent(typeof(Bullet));

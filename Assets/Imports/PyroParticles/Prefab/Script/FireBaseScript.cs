@@ -64,11 +64,6 @@ namespace DigitalRuby.PyroParticles
                 if (ManualParticleSystems == null || ManualParticleSystems.Length == 0 ||
                     System.Array.IndexOf(ManualParticleSystems, p) < 0)
                 {
-                    if (p.startDelay == 0.0f)
-                    {
-                        // wait until next frame because the transform may change
-                        p.startDelay = 0.01f;
-                    }
                     p.Play();
                 }
             }
@@ -77,8 +72,8 @@ namespace DigitalRuby.PyroParticles
         protected virtual void Awake()
         {
             Starting = true;
-            int fireLayer = UnityEngine.LayerMask.NameToLayer("FireLayer");
-//            UnityEngine.Physics.IgnoreLayerCollision(fireLayer, fireLayer);
+            // int fireLayer = UnityEngine.LayerMask.NameToLayer("FireLayer");
+            // UnityEngine.Physics.IgnoreLayerCollision(fireLayer, fireLayer);
         }
 
         protected virtual void Start()

@@ -16,7 +16,7 @@ namespace Weapons {
 
         protected float distance;
 
-		public Living owner;
+		public Transform owner;
 
         public string Type;
 
@@ -82,7 +82,6 @@ namespace Weapons {
             {
                 End = this.transform.position;
                 distance = Vector3.Distance(start, End);
-                Debug.Log(distance);
                 StatManager.Instance.Ran.Count += (int)distance;
             }
 		}

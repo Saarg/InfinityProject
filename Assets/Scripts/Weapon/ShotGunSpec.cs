@@ -9,8 +9,7 @@ namespace Weapons {
 		public int bulletsPerShot = 3;
 		public int spreadAngle = 20;
 
-
-		public override void Fire(Transform t, Living owner) {
+		public override void Fire(Transform t, Transform owner) {
 			Transform canon = t.Find ("Canon");
             Bullet b;
 

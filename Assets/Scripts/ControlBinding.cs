@@ -24,95 +24,19 @@ public class ControlBinding : MonoBehaviour {
 		MultiOSControls.ChooseController (d.value, p);
 	}
 
-    // Checks if there is anything entered into the input field.
-	public void BindUp(InputField input)
-    {
-		if (ValidateInput(input.text))
-        {
-            Debug.Log("Up is" + input.text);
-			MultiOSControls.BindNegKey ("Vertical", input.text);
-            
-        }
-        else
-        {
-            //Debug.Log("Main Input Empty");
-        }
-    }
-
-    public void BindDown(InputField input)
-    {
-		if (ValidateInput(input.text))
-        {
-            Debug.Log("down is" + input.text);
-			MultiOSControls.BindPosKey ("Vertical", input.text);
-        }
-        else
-        {
-        }
-    }
-
-    public void BindLeft(InputField input)
-    {
-		if (ValidateInput(input.text))
-        {
-            Debug.Log("left is" + input.text);
-			MultiOSControls.BindNegKey ("Horizontal", input.text);
-        }
-        else
-        {
-            //Debug.Log("Main Input Empty");
-        }
-    }
-
-    public void BindRight(InputField input)
-    {
-		if (ValidateInput(input.text))
-        {
-            Debug.Log("right is" + input.text);
-			MultiOSControls.BindPosKey ("Horizontal", input.text);
-        }
-        else
-        {
-            //Debug.Log("Main Input Empty");
-        }
-    }
-
-    public void BindJump(InputField input)
-    {
-		if (ValidateInput(input.text))
-        {
-            Debug.Log("jump is" + input.text);
-			MultiOSControls.BindPosKey ("Jump", input.text);
-        }
-        else
-        {
-            //Debug.Log("Main Input Empty");
-        }
-    }
-
-    public void BindFire(InputField input)
-    {
-		if (ValidateInput(input.text))
-        {
-            Debug.Log("fire is" + input.text);
-			MultiOSControls.BindPosKey ("Fire1", input.text);
-        }
-        else
-        {
-            //Debug.Log("Main Input Empty");
-        }
-    }
-
-	public void BindPause(InputField input)
+	public void BindPos(InputField input, string name)
 	{
 		if (ValidateInput(input.text))
 		{
-			Debug.Log("pause is" + input.text);
-			MultiOSControls.BindPosKey ("Pause", input.text);
+			MultiOSControls.BindPosKey (name, input.text);
 		}
-		else
+	}
+
+	public void BindNeg(InputField input, string name)
+	{
+		if (ValidateInput(input.text))
 		{
-			//Debug.Log("Main Input Empty");
+			MultiOSControls.BindNegKey (name, input.text);
 		}
 	}
 
@@ -137,13 +61,13 @@ public class ControlBinding : MonoBehaviour {
 
         //Adds a listener that invokes the "LockInput" method when the player finishes editing the main input field.
         //Passes the main input field into the method when "LockInput" is invoked
-        UpField.onEndEdit.AddListener(delegate { BindUp(UpField); });
-        DownField.onEndEdit.AddListener(delegate { BindDown(DownField); });
-        LeftField.onEndEdit.AddListener(delegate { BindLeft(LeftField); });
-        RightField.onEndEdit.AddListener(delegate { BindRight(RightField); });
-        JumpField.onEndEdit.AddListener(delegate { BindJump(JumpField); });
-		FireField.onEndEdit.AddListener(delegate { BindFire(FireField); });
-		PauseField.onEndEdit.AddListener(delegate { BindPause(PauseField); });
+		UpField.onEndEdit.AddListener(delegate { BindNeg(UpField, "Vertical"); });
+		DownField.onEndEdit.AddListener(delegate { BindPos(DownField, "Vertical"); });
+		LeftField.onEndEdit.AddListener(delegate { BindNeg(LeftField, "Horizontal"); });
+		RightField.onEndEdit.AddListener(delegate { BindPos(RightField, "Horizontal"); });
+		JumpField.onEndEdit.AddListener(delegate { BindPos(JumpField, "Jump"); });
+		FireField.onEndEdit.AddListener(delegate { BindPos(FireField, "Fire1"); });
+		PauseField.onEndEdit.AddListener(delegate { BindPos(PauseField, "Pause"); });
 
 		if (File.Exists (Application.persistentDataPath + "/inputSettings.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
@@ -153,19 +77,19 @@ public class ControlBinding : MonoBehaviour {
 			file.Close (); 
 
 			UpField.text = save.up;
-			BindUp(UpField);
+			BindNeg(UpField, "Vertical");
 			DownField.text = save.down;
-			BindDown(DownField);
+			BindPos(DownField, "Vertical");
 			LeftField.text = save.left;
-			BindLeft(LeftField);
+			BindNeg(LeftField, "Horizontal");
 			RightField.text = save.right;
-			BindRight(RightField);
+			BindPos(RightField, "Horizontal");
 			JumpField.text = save.jump;
-			BindJump(JumpField);
+			BindPos(JumpField, "Jump");
 			FireField.text = save.fire;
-			BindFire(FireField);
+			BindPos(FireField, "Fire1");
 			PauseField.text = save.pause;
-			BindPause(PauseField);
+			BindPos(PauseField, "Pause");
 
 			Player1Controller.value = save.playerController1;
 			Player2Controller.value = save.playerController2;

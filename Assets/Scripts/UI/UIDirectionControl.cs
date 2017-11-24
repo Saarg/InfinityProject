@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class UIDirectionControl : MonoBehaviour
 {
-    private Vector3 startRotation;
 	private Vector3 parentStartRotation;
 
     private void Start()
     {
-		startRotation = new Vector3 (90,0,0);
 		parentStartRotation = transform.parent.transform.rotation.eulerAngles;
     }
-
 
     private void Update()
     {

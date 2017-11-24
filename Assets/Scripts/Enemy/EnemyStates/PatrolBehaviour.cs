@@ -7,15 +7,12 @@ public class PatrolBehaviour : EnemyState {
 	private float elapsedTime;
 	public Vector3 target;
 
-	private float interp;
-
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		enemy = animator.GetComponent<Enemy> ();
 		enemy.sightColor = Color.green;
 		animator.SetBool ("PlayerIsDetected", false);
 
 		elapsedTime = 0;
-		interp = 0;
 	}
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -35,9 +32,6 @@ public class PatrolBehaviour : EnemyState {
 
 	private void Patrol()
 	{
-		interp = 0;
-
-//		Debug.Log ("patrolling");
 		if (elapsedTime >= 1f) {
 			//modify rotation
 			float jitter = Random.Range (enemy.specs.wanderingRange * -1, enemy.specs.wanderingRange);

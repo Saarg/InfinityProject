@@ -17,9 +17,6 @@ public class Living : MonoBehaviour {
 	public float sightRange;
 	public Vector3 destination;
 
-    private IEnumerator coroutine;
-    private Color col;
-
 	[Header("Resistances")]
 	public string Weakness;
 	public float WeaknessFactor;
@@ -32,6 +29,7 @@ public class Living : MonoBehaviour {
 		get { return _life; } 
 		set { _life = value > _maxLife ? _maxLife : value ; }
 	}
+	private Color _color;
 
 	[SerializeField]
 	protected float _maxLife = 100.0F;
@@ -56,7 +54,7 @@ public class Living : MonoBehaviour {
 	protected AudioSource _audioSource;
 
 	protected virtual void Start() {
-        this.col = this.GetComponent<Renderer>().material.color;
+		_color = GetComponent<Renderer>().material.color;
         _controller = GetComponent<CharacterController>();
 		_audioSource = GetComponent<AudioSource> ();
 	}
@@ -85,24 +83,34 @@ public class Living : MonoBehaviour {
 	}
     void ApplyDamage(float damage)
     {
-        coroutine = Blink();
-        StartCoroutine(coroutine);
         _life = _life - damage;
         if (_life <= 0)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
+		StartCoroutine(Blink());
     }
 
     private IEnumerator Blink()
     {
-        for (int i = 0; i < 5; i++)
-        {
-            this.GetComponent<Renderer>().material.color = Color.white;
-            yield return new WaitForSeconds(.1f);
-            this.GetComponent<Renderer>().material.color = col;
-            yield return new WaitForSeconds(.1f);
+		float time = 0;
+
+		for (int i = 0; i < 5; i++)
+		{
+			while (time < 0.1f) {
+				time += Time.deltaTime;
+				GetComponent<Renderer> ().material.color = Color.Lerp (_color, Color.white, time/0.1f);
+				yield return null;
+			}
+			time = 0;
+			while (time < 0.1f) {
+				time += Time.deltaTime;
+				GetComponent<Renderer> ().material.color = Color.Lerp (Color.white, _color, time/0.1f);
+				yield return null;
+
+			}
         }
-        this.GetComponent<Renderer>().material.color = col;
+
+		GetComponent<Renderer>().material.color = _color;
     }
 }

@@ -21,7 +21,7 @@ namespace Weapons {
 		public AudioClip reloadSound;
 		private AudioSource _source;
 
-        private Living _owner;
+		private Transform _owner;
 
         // Use this for initialization
         void Start () {
@@ -30,7 +30,7 @@ namespace Weapons {
 
 			canShoot = true;
 
-			_owner = transform.parent.GetComponent<Living> ();
+			_owner = transform.parent;
 
 			_source = GetComponent<AudioSource> ();
 		}
