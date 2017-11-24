@@ -98,7 +98,7 @@ public class ControlBinding : MonoBehaviour {
 		}
     }
 
-	void OnApplicationQuit() {
+	void OnDestroy() {
 		ControlsSave save = new ControlsSave ();
 
 		save.up = UpField.text;

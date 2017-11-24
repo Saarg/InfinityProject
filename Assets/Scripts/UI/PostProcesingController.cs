@@ -43,24 +43,22 @@ public class PostProcesingController : MonoBehaviour {
 		}
 	}
 
-	void OnApplicationQuit() {
+	void OnDestroy() {
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create(Application.persistentDataPath + "/videoSettings.dat");
 
 		bf.Serialize(file, _params);
 		file.Close();
 
-		PostProcessingProfile profile = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+		_profile.antialiasing.enabled = true;
 
-		profile.antialiasing.enabled = true;
-
-		AntialiasingModel.Settings s = profile.antialiasing.settings;
+		AntialiasingModel.Settings s = _profile.antialiasing.settings;
 		s.fxaaSettings.preset = AntialiasingModel.FxaaPreset.Default;
 
-		profile.antialiasing.settings = s;
+		_profile.antialiasing.settings = s;
 
-		profile.motionBlur.enabled = true;
-		profile.ambientOcclusion.enabled = true;
+		_profile.motionBlur.enabled = true;
+		_profile.ambientOcclusion.enabled = true;
 	}
 
 	public void EnableAntialiasing(bool value) {

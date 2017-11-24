@@ -119,7 +119,9 @@ public class PauseGame : MonoBehaviour
 
     public void SaveAndQuit()
     {
-        gc.Save();
+		if (gc != null) {
+			gc.Save ();
+		}
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
