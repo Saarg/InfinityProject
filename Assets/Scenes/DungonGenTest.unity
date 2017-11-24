@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 706014088}
   tips:
-  - Remaining ammunitions are lost while reloading.
+  - Remaining ammos are lost when reloading.
   - Don't die...
   - North East is the direction.
   - Don't jump and shoot, you'll hurt yourself.
