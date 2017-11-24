@@ -121,6 +121,7 @@ public class PauseGame : MonoBehaviour
     {
         gc.Save();
         Time.timeScale = 1;
+        AudioListener.volume = 1;
         SceneManager.LoadScene("MainMenu");
     }
 }
