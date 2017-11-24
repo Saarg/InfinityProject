@@ -16,13 +16,14 @@ MonoBehaviour:
   soundDetectionRange: 1.5
   securityDistance: 3
   wallAvoidance: 1.5
+  shotDetectionRange: 2.5
   patrollingSpeed: 0.5
   patrollingTurningSpeed: 0.5
   wanderingRange: 10
   attackRange: 4
   attackRate: 0.2
   attackForce: 40
-  chasingSpeed: 1
+  chasingSpeed: 0.7
   chasingTurningSpeed: 0.5
   alertDuration: 3
   alertSpeed: 0.7

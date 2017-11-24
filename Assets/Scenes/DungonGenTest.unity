@@ -352,12 +352,12 @@ Prefab:
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 408
+      value: 417.5
       objectReference: {fileID: 0}
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 229.5
+      value: 211
       objectReference: {fileID: 0}
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
@@ -1487,8 +1487,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1569688285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 408, y: 229.5, z: 0}
-  m_LocalScale: {x: 0.425, y: 0.425, z: 0.425}
+  m_LocalPosition: {x: 417.5, y: 211, z: 0}
+  m_LocalScale: {x: 0.43489584, y: 0.43489584, z: 0.43489584}
   m_Children:
   - {fileID: 1306800}
   - {fileID: 2050974578}
@@ -1571,12 +1571,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 706014088}
   tips:
-  - Reloading looses the remaining ammunition.
+  - Remaining ammunitions are lost while reloading.
   - Don't die...
   - North East is the direction.
   - Don't jump and shoot, you'll hurt yourself.
   - Are you my mummy?
   - The small ones are not the weakest.
+  - One coffee to rule them all...
 --- !u!1001 &1615286845
 Prefab:
   m_ObjectHideFlags: 0

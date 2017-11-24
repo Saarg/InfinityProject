@@ -11,15 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683a1d0860c421d44a0b4e359703637c, type: 3}
   m_Name: WeakEnemySpecs
   m_EditorClassIdentifier: 
-  alertDuration: 3
+  sightRange: 4
+  sightAngle: 25
+  soundDetectionRange: 1.5
+  securityDistance: 2
+  wallAvoidance: 1.5
+  shotDetectionRange: 2.5
+  patrollingSpeed: 0.7
+  patrollingTurningSpeed: 0.5
+  wanderingRange: 10
   attackRange: 3
   attackRate: 0.1
   attackForce: 20
-  patrollingSpeed: 0.7
-  chasingSpeed: 1
+  chasingSpeed: 0.8
+  chasingTurningSpeed: 0.5
+  alertDuration: 3
   alertSpeed: 1
-  securityDistance: 2
-  searchTurningSpeed: 120
-  sightRange: 4
-  sightAngle: 25
-  wanderingRange: 10
+  alertTurningSpeed: 120
