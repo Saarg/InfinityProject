@@ -15,7 +15,7 @@ public class ChaseBehaviour : EnemyState {
 	}
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		if (enemy.PlayerIsSeen ())
+		if (enemy.PlayerIsSeen () || enemy.IsHit)
 			Chase ();
 		else if (enemy.PlayerIsHeard ())
 			LookAtPlayer ();

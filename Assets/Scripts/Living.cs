@@ -29,6 +29,11 @@ public class Living : MonoBehaviour {
 		get { return _life; } 
 		set { _life = value > _maxLife ? _maxLife : value ; }
 	}
+	protected bool _isHit = false;
+	public bool IsHit { 
+		get { return _isHit; } 
+	}
+
 	private Color _color;
 
 	[SerializeField]
@@ -95,6 +100,7 @@ public class Living : MonoBehaviour {
     private IEnumerator Blink()
     {
 		float time = 0;
+		this._isHit = true;
 
 		for (int i = 0; i < 5; i++)
 		{
@@ -113,5 +119,6 @@ public class Living : MonoBehaviour {
         }
 
 		GetComponent<Renderer>().material.color = _color;
+		this._isHit = false;
     }
 }
