@@ -55,7 +55,7 @@ namespace Dungeon {
 			Random.InitState (System.Environment.TickCount);
 			_perlinScale = Random.Range (0.9f, 1.1f);
 
-			loadingBar.maxValue = 3*_levelSize + _levelSize*_levelSize;
+			loadingBar.maxValue = 3*_levelSize + 1;
 			loadingBar.value = 0;
 
 			StartCoroutine (Generate());
@@ -195,16 +195,8 @@ namespace Dungeon {
 			}
 			#endif
 
-			for (int x = 0; x < _levelSize; x++) {
-				for (int y = 0; y < _levelSize; y++) {
-					if (_grid [x, y].gameObject != null) {
-						_grid [x, y].gameObject.GetComponent<NavMeshSurface> ().BuildNavMesh ();
-						yield return null;
-					}
-
-					loadingBar.value++;
-				}
-			}
+			_grid [0, 0].gameObject.GetComponent<NavMeshSurface> ().BuildNavMesh ();
+			loadingBar.value++;
 
 			Time.timeScale = 1f;
 
