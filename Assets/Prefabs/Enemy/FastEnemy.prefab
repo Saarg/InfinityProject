@@ -973,7 +973,6 @@ MonoBehaviour:
   _specs: {fileID: 11400000, guid: 7b280dad5c7134700aa29d00eeea9058, type: 2}
   fireSound: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
   reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
-  owner: {fileID: 0}
 --- !u!114 &114464876862486268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -991,6 +990,10 @@ MonoBehaviour:
   sight: {fileID: 4700452271847942}
   sightRange: 0
   destination: {x: 0, y: 0, z: 0}
+  Weakness: Laser
+  WeaknessFactor: 1.3
+  Resistance: all
+  ResistanceFactor: 0.85
   _life: 40
   _maxLife: 40
   _speed: 6
@@ -1012,10 +1015,6 @@ MonoBehaviour:
   fillImage: {fileID: 114574194563863682}
   fullHealthColor: {r: 1, g: 0, b: 0, a: 0.728}
   zeroHealthColor: {r: 1, g: 0.66176474, b: 0.66176474, a: 0.722}
-  Weakness: Laser
-  WeaknessFactor: 1.3
-  Resistance: all
-  ResistanceFactor: 0.85
 --- !u!114 &114488000702402328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1105,7 +1104,7 @@ SphereCollider:
   m_GameObject: {fileID: 1883196233017860}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -1117,7 +1116,7 @@ SphereCollider:
   m_GameObject: {fileID: 1918190238526298}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

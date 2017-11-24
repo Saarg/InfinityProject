@@ -315,7 +315,7 @@ Transform:
   m_GameObject: {fileID: 1482051691371612}
   m_LocalRotation: {x: -0, y: 0.009424611, z: -0, w: 0.9999556}
   m_LocalPosition: {x: -0.36555284, y: 2.07095, z: 7.1750984}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 224249722308390026}
   - {fileID: 4695798557453498}
@@ -623,7 +623,7 @@ BoxCollider:
   m_GameObject: {fileID: 1989429672746412}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -867,7 +867,6 @@ MonoBehaviour:
   _specs: {fileID: 11400000, guid: 18f541b7070984746b5e501fcc79b72a, type: 2}
   fireSound: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
   reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
-  owner: {fileID: 0}
 --- !u!114 &114398545144161644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -976,6 +975,10 @@ MonoBehaviour:
   sight: {fileID: 4874933513427642}
   sightRange: 0
   destination: {x: 0, y: 0, z: 0}
+  Weakness: none
+  WeaknessFactor: 1
+  Resistance: none
+  ResistanceFactor: 1
   _life: 20
   _maxLife: 20
   _speed: 5
@@ -997,10 +1000,6 @@ MonoBehaviour:
   fillImage: {fileID: 114370397797351934}
   fullHealthColor: {r: 1, g: 0, b: 0, a: 0.728}
   zeroHealthColor: {r: 1, g: 0.66176474, b: 0.66176474, a: 0.722}
-  Weakness: none
-  WeaknessFactor: 1
-  Resistance: none
-  ResistanceFactor: 1
 --- !u!114 &114959821853882388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1020,7 +1019,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1848322529809050}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1

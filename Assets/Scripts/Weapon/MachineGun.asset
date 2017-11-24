@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipSize: 10
   clips: 20
-  firerate: 0.1
+  firerate: 0.2
   reloadTime: 0.8
   ammoPrefab: {fileID: 1019604852011772, guid: ca048e9afac7c46159c337f663af8df1, type: 2}
   logo: {fileID: 21300000, guid: 3de24768b68294effa178ab48b96e2d9, type: 3}

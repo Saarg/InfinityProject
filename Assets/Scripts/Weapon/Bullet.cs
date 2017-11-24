@@ -78,7 +78,7 @@ namespace Weapons {
 
 			collision.gameObject.SendMessage ("ApplyDamage", damages, SendMessageOptions.DontRequireReceiver);
 
-			if (collision.gameObject.tag == "Enemy" && owner.tag == "Player")
+			if (collision.gameObject.tag == "Enemy" && owner != null && owner.tag == "Player")
             {
                 End = this.transform.position;
                 distance = Vector3.Distance(start, End);

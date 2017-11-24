@@ -13,8 +13,10 @@ public class PlayerController : Living {
 
 	protected float _stamina = 10;
 	public float stamina { get {return _stamina; }}
+
 	[SerializeField] protected float _staminaMax = 10;
 	public float staminaMax { get {return _staminaMax; }}
+
 	[SerializeField] protected float _staminaRegen = 1;
 
 	[Space(10)]
@@ -87,9 +89,7 @@ public class PlayerController : Living {
 		if (gun != null && MultiOSControls.GetValue ("Fire1", player) != 0) {
 			RaycastHit hit;
 
-			if (Physics.Raycast (transform.position, transform.forward, out hit, 10.0f)) {
-				// print ("Found an object - distance: " + hit.distance);
-
+			if (Physics.Raycast (transform.position, transform.forward, out hit, 10.0f, 8)) {// 8 = only living
 				gun.transform.LookAt (transform.position + transform.forward * hit.distance);
 			}
 		}

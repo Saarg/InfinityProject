@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875e02802a5524d199265b43a665de76, type: 3}
   m_Name: RifleBullet
   m_EditorClassIdentifier: 
-  damage: 8
+  damage: 6
   velocity: 5
   lifespan: 10
   bounces: 0
