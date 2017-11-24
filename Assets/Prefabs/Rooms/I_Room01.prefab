@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 65378671599690738}
   - component: {fileID: 114430351778852004}
   - component: {fileID: 114523244892333020}
+  - component: {fileID: 65038153843117464}
   m_Layer: 0
   m_Name: I_Room01
   m_TagString: Untagged
@@ -702,6 +703,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 0ec36c022485745f8a25bd49d91f3c21, type: 3}
+--- !u!65 &65038153843117464
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1649110666390292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 0.5, z: 7}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!65 &65378671599690738
 BoxCollider:
   m_ObjectHideFlags: 1
