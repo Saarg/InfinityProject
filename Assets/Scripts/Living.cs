@@ -65,6 +65,7 @@ public class Living : MonoBehaviour {
 	}
 
 	protected virtual void OnCollisionEnter(Collision collision) {
+		_audioSource.enabled = true;
 		_audioSource.clip = hurtSound;
 		_audioSource.loop = false;
 		_audioSource.Play ();

@@ -69,6 +69,10 @@ public class Boss : MonoBehaviour {
 	}
 	
 	void Update () {
+		if (Time.timeScale == 0) {
+			return;
+		}
+
 		Vector3 direction = player.position - transform.position;
 		//always look at the player
 		if(direction != Vector3.zero)
