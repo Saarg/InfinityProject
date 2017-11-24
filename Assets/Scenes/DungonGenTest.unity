@@ -701,6 +701,26 @@ Prefab:
       propertyPath: m_Name
       value: Finish
       objectReference: {fileID: 0}
+    - target: {fileID: 65883735676636216, guid: 462fe27ed03844921962ec5040021ce5,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65906755800378972, guid: 462fe27ed03844921962ec5040021ce5,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65588738278772792, guid: 462fe27ed03844921962ec5040021ce5,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65027720042832936, guid: 462fe27ed03844921962ec5040021ce5,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 462fe27ed03844921962ec5040021ce5, type: 2}
   m_IsPrefabParent: 0
@@ -1372,6 +1392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1424993222}
   - component: {fileID: 1424993221}
+  - component: {fileID: 1424993223}
   m_Layer: 0
   m_Name: I_Room03
   m_TagString: Untagged
@@ -1423,6 +1444,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &1424993223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1424993220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 0.5, z: 7}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!4 &1528635208 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4136811311826934, guid: 462fe27ed03844921962ec5040021ce5,
@@ -1587,6 +1620,11 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 143808444913122978, guid: 99d735a2e0bc94ac9aceec99b42d0df0,
+        type: 2}
+      propertyPath: m_SlopeLimit
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99d735a2e0bc94ac9aceec99b42d0df0, type: 2}

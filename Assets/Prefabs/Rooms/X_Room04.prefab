@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 65867966773035006}
   - component: {fileID: 114789089278795064}
   - component: {fileID: 114155995077267464}
+  - component: {fileID: 65762098249362028}
   m_Layer: 0
   m_Name: X_Room04
   m_TagString: Untagged
@@ -905,6 +906,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65762098249362028
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437880770771980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 0.5, z: 7}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!65 &65833855215813724
 BoxCollider:
   m_ObjectHideFlags: 1

@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 65665844556592058}
   - component: {fileID: 114434934627196756}
   - component: {fileID: 114737026581761352}
+  - component: {fileID: 65775813849708784}
   m_Layer: 0
   m_Name: X_Room01
   m_TagString: Untagged
@@ -499,6 +500,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 1, z: 6}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!65 &65775813849708784
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270397070864932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 0.5, z: 7}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!65 &65863579392104450
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -522,10 +535,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39b1f9757d894db2a700d4f246dfc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minWaves: 0
+  _maxWaves: 10
   _waves:
   - {fileID: 11400000, guid: 9381d91caf54449478fbe700c435ee9e, type: 2}
-  _reward: {fileID: 0}
-  _rewardChance: 0.2
+  _rewards: []
   OnStart:
     m_PersistentCalls:
       m_Calls:
