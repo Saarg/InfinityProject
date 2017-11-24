@@ -801,7 +801,8 @@ AudioSource:
   m_GameObject: {fileID: 1724809402692230}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243344452170375906, guid: 14a65697a0ae245edbc1bf18fefc20ea,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -955,6 +956,10 @@ MonoBehaviour:
   sight: {fileID: 4334637099001436}
   sightRange: 0
   destination: {x: 0, y: 0, z: 0}
+  Weakness: Explosive
+  WeaknessFactor: 1.5
+  Resistance: all
+  ResistanceFactor: 0.6
   _life: 80
   _maxLife: 80
   _speed: 5
@@ -976,10 +981,6 @@ MonoBehaviour:
   fillImage: {fileID: 114811910690058680}
   fullHealthColor: {r: 1, g: 0, b: 0, a: 0.728}
   zeroHealthColor: {r: 1, g: 0.66176474, b: 0.66176474, a: 0.722}
-  Weakness: Explosive
-  WeaknessFactor: 1.5
-  Resistance: all
-  ResistanceFactor: 0.6
 --- !u!114 &114418958595373982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -994,7 +995,6 @@ MonoBehaviour:
   _specs: {fileID: 11400000, guid: a1e26f2cefcf3354180c3a1240123a6f, type: 2}
   fireSound: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
   reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
-  owner: {fileID: 0}
 --- !u!114 &114431231077916868
 MonoBehaviour:
   m_ObjectHideFlags: 1
