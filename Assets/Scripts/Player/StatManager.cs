@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class StatManager {
 
-    protected int[] experienceTable = new int[20] {3,6,8,11,14,17,21,24,29,33,38,43,49,56,63,70,78,87,97,107};
+    protected int[] experienceTable = new int[20] { 3, 6, 8, 11, 14, 17, 21, 24, 29, 33, 38, 43, 49, 56, 63, 70, 78, 87, 97, 107 };
+    public int[] ExperienceTable { get { return experienceTable; } }
     public PlayerStats Atk { get; }
     public PlayerStats Hp { get; }
     public PlayerStats Spe { get; }
@@ -49,7 +50,7 @@ public class StatManager {
         Ran.GiveMalusTo(Atk);
         Rol.GiveMalusTo(Spe);
 
-        Spe.Ratio = 30;
+        Spe.Ratio = 10;
         Ran.Ratio = 8;
         End.Ratio = 10;
 
@@ -60,7 +61,7 @@ public class StatManager {
         stats[4] = Rol;
         stats[5] = Atk;
     }
-
+    
     public void LevelUp()
     {
 
@@ -71,7 +72,34 @@ public class StatManager {
             while (ps.LevelUp(experienceTable[ps.Level]))
             {
 
+            } 
+        }
+    }
+
+    public void LevelUp(PlayerStats ps)
+    {
+        ps.Convert();
+
+        while (ps.LevelUp(experienceTable[ps.Level]))
+        {
+
+        }
+    }
+
+    public bool LevelUp(PlayerStats ps, bool OneLevelOnly)
+    {
+        bool leveledUp = false;
+        ps.Convert();
+
+        if (OneLevelOnly)
+            return ps.LevelUp(experienceTable[ps.Level]);
+        else
+        { 
+            while (ps.LevelUp(experienceTable[ps.Level]))
+            {
+                leveledUp = true;
             }
+            return leveledUp;
         }
     }
 }

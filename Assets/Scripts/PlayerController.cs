@@ -105,11 +105,17 @@ public class PlayerController : Living {
             {
 				_stamina -= 2;
                 StartCoroutine("Jump");
-                stat.Rol.Experience++;
+                stat.Rol.Count++;
             }
             else
             {
-                _moveDirection *= _speed + (float)stat.Spe.Level/10;
+                if (_moveDirection.magnitude > 0.1)
+                {
+                    totalMoveTime += Time.deltaTime;
+                    stat.Spe.Count = (int)totalMoveTime;
+                }
+
+                _moveDirection *= _speed + (float)stat.Spe.Level / 10;
             }
 		}
         else
@@ -124,12 +130,6 @@ public class PlayerController : Living {
 		} else if (_moveDirection.magnitude < 0.1 && _audioSource.isPlaying) {
 			_audioSource.Stop ();
 		}
-
-        if(_moveDirection.magnitude > 0.1)
-        {
-            totalMoveTime += Time.deltaTime;
-            stat.Spe.Count = (int)totalMoveTime;
-        }
 
 		/*
 		 * Apply Movement
@@ -152,11 +152,6 @@ public class PlayerController : Living {
 		}
 
 		lastShotTime += Time.deltaTime;
-
-        if (Input.GetKeyDown("a"))
-        {
-            stat.LevelUp();
-        }
     }
 
     protected override void OnCollisionEnter(Collision collision)

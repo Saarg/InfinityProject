@@ -14,7 +14,7 @@ public class LevelDisplay : MonoBehaviour {
     public Text speLevel;
 
     protected StatManager statManager;
-
+    /*
     // Use this for initialization
     void Start () {
         statManager = StatManager.Instance;
@@ -39,5 +39,5 @@ public class LevelDisplay : MonoBehaviour {
         atkLevel.text = "" + statManager.Atk.Level;
         rollLevel.text = "" + statManager.Rol.Level;
         speLevel.text = "" + statManager.Spe.Level;
-    }
+    }*/
 }
