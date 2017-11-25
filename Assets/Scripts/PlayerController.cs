@@ -27,6 +27,8 @@ public class PlayerController : Living {
     protected StatManager stat;
     protected float totalMoveTime;
 
+    private IEnumerator coroutine;
+
     protected override void Start()
     {
         base.Start();
@@ -163,6 +165,19 @@ public class PlayerController : Living {
     {
         base.OnCollisionEnter(collision);
         stat.Hp.Count++;
+    }
+
+    //Empéche le joueur de rester sur un ennemis
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag.Equals("Enemy"))
+        {
+            
+            Vector3 dir = hit.point - transform.position;
+            dir = -dir.normalized;
+            GetComponent<Rigidbody>().AddForce(dir * 200);
+        }
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     IEnumerator Jump()

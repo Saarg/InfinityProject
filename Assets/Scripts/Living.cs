@@ -76,7 +76,8 @@ public class Living : MonoBehaviour {
 		_audioSource.Play ();
     }
 
-	public void PickGun(GameObject g) {
+
+    public void PickGun(GameObject g) {
 		if (g != null && g.GetComponent<Weapon> () != null) {
 			GameObject newGun = Instantiate (g, _gunAnchor.position, _gunAnchor.rotation);
 			newGun.transform.SetParent (transform);
