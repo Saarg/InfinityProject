@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e2b8cc3f55e8b5b4f99d0e33e9981817
+timeCreated: 1511571763
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 200
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Porter
+  fontNames:
+  - Porter
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
