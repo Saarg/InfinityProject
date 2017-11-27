@@ -100,6 +100,7 @@ public class PlayerController : Living {
 		if (_controller.isGrounded) 
 		{
 			_moveDirection = new Vector3(MultiOSControls.GetValue ("Horizontal", player), 0, -MultiOSControls.GetValue ("Vertical", player));
+			_moveDirection.Normalize ();
 
 			if (MultiOSControls.GetValue ("Jump", player) != 0 && _stamina >= 2)
             {
