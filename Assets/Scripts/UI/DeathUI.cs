@@ -22,6 +22,10 @@ public class DeathUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (MultiOSControls.GetValue("Join", PlayerNumber.All) != 0)
+			players = GameObject.FindGameObjectsWithTag ("Player");
+
+
 		int livingPlayers = 0;
 		foreach (GameObject go in players) {
 			if (go != null) {

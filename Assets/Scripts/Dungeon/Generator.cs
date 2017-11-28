@@ -41,10 +41,10 @@ namespace Dungeon {
 		private float _perlinScale;
 
 		[SerializeField]
-		private const int _levelSize = 6;
+		private int _levelSize = 6;
 	    private const float _roomSize = 9f*1.3f;
 		private const float _HroomSize = _roomSize/2;
-		private IRoom[,] _grid = new IRoom[_levelSize, _levelSize];
+		private IRoom[,] _grid;
 
 		[SerializeField]
 		private Canvas loadingCanvas;
@@ -52,6 +52,11 @@ namespace Dungeon {
 		private Slider loadingBar;
 
 		void Start () {
+			_levelSize += (int)GameMode.difficulty;
+			_finish.transform.Translate ((int)GameMode.difficulty * _roomSize, 0, (int)GameMode.difficulty * _roomSize);
+
+			_grid = new IRoom[_levelSize, _levelSize];
+
 			Random.InitState (System.Environment.TickCount);
 			_perlinScale = Random.Range (0.9f, 1.1f);
 
@@ -66,7 +71,7 @@ namespace Dungeon {
 		}
 
 		IEnumerator DrawLines() {
-			yield return new WaitForSeconds (0.1f);
+			yield return new WaitForSeconds (1f);
 
 			while (true) {
 				for (int x = 0; x < _levelSize; x++) {

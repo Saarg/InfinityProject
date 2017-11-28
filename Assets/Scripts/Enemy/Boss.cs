@@ -73,6 +73,10 @@ public class Boss : MonoBehaviour {
 			return;
 		}
 
+		if (player == null) {
+			player = GameObject.FindGameObjectWithTag ("Player").transform;
+		}
+
 		Vector3 direction = player.position - transform.position;
 		//always look at the player
 		if(direction != Vector3.zero)

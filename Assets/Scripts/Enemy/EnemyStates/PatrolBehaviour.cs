@@ -18,7 +18,7 @@ public class PatrolBehaviour : EnemyState {
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		elapsedTime += Time.deltaTime;
 
-		if (enemy.PlayerIsSeen () || enemy.PlayerIsHeard() || enemy.IsHit)
+		if (enemy.PlayerIsSeen () || enemy.PlayerIsHeard() || (enemy.IsHit && enemy.player != null))
 			animator.SetBool ("PlayerIsDetected", true);
 		else {
 			if (enemy.WallIsSeen ()) {

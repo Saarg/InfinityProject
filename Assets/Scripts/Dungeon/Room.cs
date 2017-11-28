@@ -41,7 +41,12 @@ namespace Dungeon {
 
 		void Start () {
 			_maxWaves = Mathf.Clamp(_maxWaves, 0, _waves.Length);
-			_minWaves = Mathf.Clamp(_minWaves, 0, _maxWaves);
+			if ((int)GameMode.difficulty < _maxWaves)
+				_minWaves = Mathf.Clamp (_minWaves, (int)GameMode.difficulty, _maxWaves);
+			else {
+				_minWaves = _maxWaves;
+			}
+
 			_maxWaves = Mathf.Clamp(_maxWaves, _minWaves, _waves.Length);
 
 			foreach (RewardEditor r in _rewards) {

@@ -87,7 +87,7 @@ public class Living : MonoBehaviour {
 			_gun = newGun.GetComponent<Weapon> ();
 		}
 	}
-    void ApplyDamage(float damage)
+    protected virtual void ApplyDamage(float damage)
     {
         _life = _life - damage;
         if (_life <= 0)

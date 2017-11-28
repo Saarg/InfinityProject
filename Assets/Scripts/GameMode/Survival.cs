@@ -6,22 +6,21 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Survival : MonoBehaviour {
+public class Survival : GameMode {
 
 	private float _start;
 	private float _finalTime;
-
-	private GameObject _player;
 
 	public Text scoreboard;
 
 	public float[] highscores;
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
 		_start = Time.realtimeSinceStartup;
 
-		_player = GameObject.FindGameObjectWithTag ("Player");
+		base.Start ();
+		allowCoop = false;
 
 		if (File.Exists (Application.persistentDataPath + "/survival.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
@@ -35,8 +34,8 @@ public class Survival : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (_player == null || _player.GetComponent<PlayerController> ().life <= 0) {
+	protected override void Update () {
+		if (_player1 == null || _player1.GetComponent<PlayerController> ().life <= 0) {
 			_finalTime = Time.realtimeSinceStartup - _start;
 
 			scoreboard.text = "";

@@ -15,13 +15,15 @@ public class ChaseBehaviour : EnemyState {
 	}
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		if (enemy.PlayerIsSeen () || enemy.IsHit)
+		if (enemy.PlayerIsSeen () || (enemy.IsHit && enemy.player != null))
 			Chase ();
 		else if (enemy.PlayerIsHeard ())
 			LookAtPlayer ();
-		else if(enemy.player != null){
+		else if (enemy.player != null) {
 			enemy.lastPlayerKnownLocation = enemy.player.transform.position;
 			animator.SetBool ("PlayerIsDetected", false);
+		} else {
+			animator.SetBool ("PlayerIsDead", true);
 		}
 	}
 

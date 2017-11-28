@@ -127,6 +127,14 @@ MonoBehaviour:
       buttons: 07000000
       deadzone: 0
       value: 0
+    - name: Join
+      posKeys:
+      - return
+      negKeys: []
+      axis: 
+      buttons: 06000000
+      deadzone: 0
+      value: 0
   - name: Player 2
     controller: 0
     keyboard: 0
@@ -198,6 +206,14 @@ MonoBehaviour:
       negKeys: []
       axis: 
       buttons: 07000000
+      deadzone: 0
+      value: 0
+    - name: Join
+      posKeys:
+      - return
+      negKeys: []
+      axis: 
+      buttons: 06000000
       deadzone: 0
       value: 0
   - name: Player 3
@@ -273,6 +289,14 @@ MonoBehaviour:
       buttons: 07000000
       deadzone: 0
       value: 0
+    - name: Join
+      posKeys:
+      - return
+      negKeys: []
+      axis: 
+      buttons: 06000000
+      deadzone: 0
+      value: 0
   - name: Player 4
     controller: 3
     keyboard: 0
@@ -344,5 +368,13 @@ MonoBehaviour:
       negKeys: []
       axis: 
       buttons: 07000000
+      deadzone: 0
+      value: 0
+    - name: Join
+      posKeys:
+      - return
+      negKeys: []
+      axis: 
+      buttons: 06000000
       deadzone: 0
       value: 0

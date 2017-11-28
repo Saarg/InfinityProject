@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Weapons;
 
 public class Enemy : Living {
 
 	public EnemySpecs specs;
 
+	public Transform[] players;
 	public Transform player;
 
 	public Vector3 lastPlayerKnownLocation;
@@ -35,7 +37,12 @@ public class Enemy : Living {
     protected override void Start ()
 	{
 		lastPlayerKnownLocation = Vector3.zero;
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
+
+		GameObject[] gos = GameObject.FindGameObjectsWithTag ("Player");
+		players = new Transform[gos.Length];
+		for (int i = 0 ; i < gos.Length ; i++)
+			players[i] = gos[i].transform;
+		
 		nma = GetComponent<NavMeshAgent> ();
 		nma.enabled = true;
 		shootingCooldown = 0;
@@ -52,6 +59,14 @@ public class Enemy : Living {
 	protected override void Update()
 	{
 		base.Update ();
+
+		if (MultiOSControls.GetValue ("Join", PlayerNumber.All) != 0) {
+			GameObject[] gos = GameObject.FindGameObjectsWithTag ("Player");
+			players = new Transform[gos.Length];
+			for (int i = 0 ; i < gos.Length ; i++)
+				players[i] = gos[i].transform;
+		}
+
         UpdateHealth();
         if (nma.velocity == Vector3.zero && _audioSource.clip == stepSound)
 			_audioSource.Pause ();
@@ -59,6 +74,14 @@ public class Enemy : Living {
 		shootingCooldown += Time.deltaTime;
        
     }
+
+	protected override void OnCollisionEnter(Collision collision) {
+		base.OnCollisionEnter(collision);
+
+		if (collision.gameObject.GetComponent<Bullet> () != null && collision.gameObject.GetComponent<Bullet> ().owner.tag == "Player") {
+			player = collision.gameObject.GetComponent<Bullet> ().owner;
+		}
+	}
 
 	void OnDrawGizmosSelected()
 	{
@@ -116,22 +139,23 @@ public class Enemy : Living {
 	 */
 	public bool PlayerIsSeen()
 	{
-		if (player != null) {
-			Vector3 diff = player.position - transform.position;
-			float angle = Vector3.Angle (diff, transform.forward);
+		foreach (Transform p in players) {
+			if (p != null) {
+				Vector3 diff = p.position - transform.position;
+				float angle = Vector3.Angle (diff, transform.forward);
 
-			if (diff.magnitude < specs.sightRange && angle < (specs.sightAngle / 2f))
-			{
-				Vector3 enemyToPlayer = player.transform.position - transform.position;
-				Ray vision = new Ray (transform.position, enemyToPlayer);
-				RaycastHit hit;
+				if (diff.magnitude < specs.sightRange && angle < (specs.sightAngle / 2f)) {
+					Vector3 enemyToPlayer = p.transform.position - transform.position;
+					Ray vision = new Ray (transform.position, enemyToPlayer);
+					RaycastHit hit;
 
-				if (Physics.Raycast (vision, out hit, specs.sightRange)) {
-					if(hit.collider.CompareTag("Player"))
-						return true;
+					if (Physics.Raycast (vision, out hit, specs.sightRange)) {
+						if (hit.collider.CompareTag ("Player")) {
+							player = p;
+							return true;
+						}
+					}
 				}
-
-				return false;
 			}
 		}
 		return false;
@@ -144,16 +168,22 @@ public class Enemy : Living {
 	 */
 	public bool PlayerIsHeard()
 	{
-		if (player != null) {
-			Vector3 diff = player.position - transform.position;
+		foreach (Transform p in players) {
+			if (p != null) {
+				Vector3 diff = p.position - transform.position;
 
-			//if player is close enough, the enemy hear the sounds of its footsteps
-			if (diff.magnitude < specs.soundDetectionRange) 
-				return true;
+				//if player is close enough, the enemy hear the sounds of its footsteps
+				if (diff.magnitude < specs.soundDetectionRange) {
+					player = p;
+					return true;
+				}
 
-			//if player fires its weapon close enough of the enemy, the sound is heard
-			if (diff.magnitude < specs.shotDetectionRange && player.gameObject.GetComponent<PlayerController> ().HasFired ())
-				return true;
+				//if player fires its weapon close enough of the enemy, the sound is heard
+				if (diff.magnitude < specs.shotDetectionRange && p.gameObject.GetComponent<PlayerController> ().HasFired ()) {
+					player = p;
+					return true;
+				}
+			}
 		}
 		return false;
 	}
