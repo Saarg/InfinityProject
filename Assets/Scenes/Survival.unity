@@ -140,8 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c72dbfcbc08242d9a086b0fcbe5669a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player3: {fileID: 0}
   startDifficulty: 1
   allowCoop: 0
+  spawnOnPlayer: 1
   scoreboard: {fileID: 1191101976}
   highscores: []
 --- !u!4 &2689625
@@ -750,6 +752,11 @@ Prefab:
     - target: {fileID: 1010912708456666, guid: 8e1913a2a73594f51baa5248462013d6, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114367037895221532, guid: 8e1913a2a73594f51baa5248462013d6,
+        type: 2}
+      propertyPath: m_Text
+      value: Quit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e1913a2a73594f51baa5248462013d6, type: 2}
@@ -1678,6 +1685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _players: []
+  _player: {fileID: 0}
 --- !u!1 &1519572633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,7 +2519,7 @@ Prefab:
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -39.63778
       objectReference: {fileID: 0}
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
@@ -2616,7 +2624,7 @@ Prefab:
     - target: {fileID: 224857344950995768, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 224910682309636756, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
@@ -2687,12 +2695,12 @@ Prefab:
     - target: {fileID: 224997316048268480, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 38.775
       objectReference: {fileID: 0}
     - target: {fileID: 224517087237823888, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53045ee64a1841a0a25e65711a62211, type: 2}
