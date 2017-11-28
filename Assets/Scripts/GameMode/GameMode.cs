@@ -12,7 +12,7 @@ public class GameMode : MonoBehaviour {
 
 	protected GameObject _player1;
 	protected GameObject _player2;
-	public GameObject _player3;
+	protected GameObject _player3;
 	protected GameObject _player4;
 
 	public Difficulty startDifficulty = Difficulty.Normal;

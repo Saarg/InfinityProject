@@ -13,4 +13,8 @@ public class DungeonMode : GameMode {
 	protected override void Update () {
 		base.Update ();
 	}
+
+	public void StartDungeon() {
+		allowCoop = false;
+	}
 }

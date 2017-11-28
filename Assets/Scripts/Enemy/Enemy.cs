@@ -78,7 +78,7 @@ public class Enemy : Living {
 	protected override void OnCollisionEnter(Collision collision) {
 		base.OnCollisionEnter(collision);
 
-		if (collision.gameObject.GetComponent<Bullet> () != null && collision.gameObject.GetComponent<Bullet> ().owner.tag == "Player") {
+		if (collision.gameObject.GetComponent<Bullet> () != null && collision.gameObject.GetComponent<Bullet> ().owner != null && collision.gameObject.GetComponent<Bullet> ().owner.tag == "Player") {
 			player = collision.gameObject.GetComponent<Bullet> ().owner;
 		}
 	}
