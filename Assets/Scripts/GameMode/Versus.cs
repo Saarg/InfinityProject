@@ -36,11 +36,19 @@ public class Versus : GameMode {
 		while (Time.realtimeSinceStartup - _startTime < 6) {
 			Time.timeScale = 0.0f;
 
-
 			if (MultiOSControls.GetValue ("Join", PlayerNumber.Player4) != 0 || MultiOSControls.GetValue ("Join", PlayerNumber.Player3) != 0) {
+				Vector3 cameraPos = new Vector3 (0, 5f, 0);
+
+				_player1.GetComponent<PlayerController> ().playerCamera.transform.position = cameraPos;
 				_player1.GetComponent<PlayerController> ().playerCamera.rect = new Rect (0f, 0.5f, 0.5f, 0.5f);
+
+				_player2.GetComponent<PlayerController> ().playerCamera.transform.position = cameraPos;
 				_player2.GetComponent<PlayerController> ().playerCamera.rect = new Rect (0.5f, 0.5f, 0.5f, 0.5f);
+
+				_player3.GetComponent<PlayerController> ().playerCamera.transform.position = cameraPos;
 				_player3.GetComponent<PlayerController> ().playerCamera.rect = new Rect (0.5f, 0f, 0.5f, 0.5f);
+
+				_player4.GetComponent<PlayerController> ().playerCamera.transform.position = cameraPos;
 				_player4.GetComponent<PlayerController> ().playerCamera.rect = new Rect (0f, 0f, 0.5f, 0.5f);
 			}
 
