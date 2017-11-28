@@ -156,9 +156,19 @@ public class PlayerController : Living {
     }
 
     protected override void OnCollisionEnter(Collision collision)
-    {
-        base.OnCollisionEnter(collision);
-        stat.Hp.Count++;
+	{
+		base.OnCollisionEnter (collision);
+		stat.Hp.Count++;
+	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit) {
+		if (hit.gameObject.tag.Equals("Enemy") || hit.gameObject.tag.Equals("Boss"))
+		{     
+			Vector3 dir = hit.point - transform.position;
+			dir = -dir.normalized;
+			GetComponent<Rigidbody>().AddForce(dir * 200);
+		}
+		GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     IEnumerator Jump()

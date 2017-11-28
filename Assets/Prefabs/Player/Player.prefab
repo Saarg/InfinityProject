@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114388034469583896}
   - component: {fileID: 143808444913122978}
   - component: {fileID: 82948644215209118}
+  - component: {fileID: 54719270821965766}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -96,9 +97,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926701957401006}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.11, y: 0.52, z: -4.12}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -37.47701, y: -0.69415486, z: -24.0985}
+  m_LocalScale: {x: 0.30000013, y: 0.3, z: 0.30000013}
   m_Children:
   - {fileID: 4307426399570066}
   - {fileID: 4227599545794952}
@@ -187,6 +188,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926701957401006}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54719270821965766
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926701957401006}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &82948644215209118
 AudioSource:
   m_ObjectHideFlags: 1
@@ -285,6 +301,10 @@ MonoBehaviour:
   sight: {fileID: 0}
   sightRange: 0
   destination: {x: 0, y: 0, z: 0}
+  Weakness: 
+  WeaknessFactor: 0
+  Resistance: 
+  ResistanceFactor: 0
   _life: 100
   _maxLife: 100
   _speed: 3
@@ -341,6 +361,8 @@ MonoBehaviour:
     m_RotationOrder: 0
   _staminaMax: 10
   _staminaRegen: 1
+  player: 0
+  playerCamera: {fileID: 0}
 --- !u!136 &136127385553721194
 CapsuleCollider:
   m_ObjectHideFlags: 1

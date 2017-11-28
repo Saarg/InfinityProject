@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 469746}
   - component: {fileID: 19813804}
   - component: {fileID: 19914032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireboltParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 11415228}
   - component: {fileID: 8299452}
   - component: {fileID: 8285056}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Firebolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 424326}
   - component: {fileID: 19843370}
   - component: {fileID: 19947910}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: FireboltExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 11466612}
   - component: {fileID: 5471416}
   - component: {fileID: 10857032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireboltCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

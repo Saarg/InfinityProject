@@ -32,6 +32,31 @@ public class GameControl : MonoBehaviour {
         PlayerData data = new PlayerData();
 
         data.life = 100;
+		data.atkLevel = sm.Atk.Level;
+		data.atkExperience = sm.Atk.Experience;
+		data.atkCount = sm.Atk.Count;
+		data.atkratio = sm.Atk.Ratio;
+		data.hpLevel = sm.Hp.Level;
+		data.hpExperience = sm.Hp.Experience;
+		data.hpCount = sm.Hp.Count;
+		data.hpRatio = sm.Hp.Ratio;
+		data.speLevel = sm.Spe.Level;
+		data.speExperience = sm.Spe.Experience;
+		data.speCount = sm.Spe.Count;
+		data.speRatio = sm.Spe.Ratio;
+		data.endLevel = sm.End.Level;
+		data.endExperience = sm.End.Experience;
+		data.endCount = sm.End.Count;
+		data.endRatio = sm.End.Ratio;
+		data.ranLevel = sm.End.Level;
+		data.ranExperience = sm.End.Experience;
+		data.ranCount = sm.End.Count;
+		data.ranRatio = sm.End.Ratio;
+		data.rolLevel = sm.Rol.Level;
+		data.rolExperience = sm.Rol.Experience;
+		data.rolCount = sm.Rol.Count;
+		data.rolRatio = sm.Rol.Ratio;
+
         bf.Serialize(file, data);
         file.Close();
 

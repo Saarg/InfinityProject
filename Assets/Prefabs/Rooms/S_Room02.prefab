@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 114167975134214036}
   - component: {fileID: 65389361682318728}
   - component: {fileID: 114958880129046138}
+  - component: {fileID: 65290784242266004}
   m_Layer: 0
   m_Name: S_Room02
   m_TagString: Untagged
@@ -1427,6 +1428,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2, z: 0.8}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!65 &65290784242266004
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406346141614052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 0.5, z: 7}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!65 &65389361682318728
 BoxCollider:
   m_ObjectHideFlags: 1
