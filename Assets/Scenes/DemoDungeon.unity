@@ -2107,7 +2107,8 @@ AudioSource:
   m_GameObject: {fileID: 1029153187}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 14a65697a0ae245edbc1bf18fefc20ea,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1e46c5ec4254d4d51b194665310a13c9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3827,6 +3828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _players: []
+  _player: {fileID: 0}
 --- !u!114 &1785913634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4289,8 +4291,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7d970c324044e6bb1988d9ba02b3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player3: {fileID: 0}
   startDifficulty: 1
   allowCoop: 1
+  spawnOnPlayer: 1
 --- !u!4 &1921083787
 Transform:
   m_ObjectHideFlags: 0

@@ -52,7 +52,12 @@ public class ChaseBehaviour : EnemyState {
 	{
 		Quaternion start = enemy.transform.rotation;
 		Quaternion finish = enemy.transform.rotation;
-		finish.SetLookRotation (enemy.player.transform.position - enemy.transform.position);
+
+		// cancel height to avoid loking strainght up if player is on my head
+		Vector3 lookat = enemy.player.transform.position - enemy.transform.position;
+		lookat.y = 0;
+
+		finish.SetLookRotation (lookat);
 
 		enemy.transform.rotation = Quaternion.Lerp (start, finish, interp);
 
