@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Versus : GameMode {
@@ -9,6 +10,8 @@ public class Versus : GameMode {
 	public Text countDownText;
 
 	private float _startTime;
+
+	public UnityEvent EndCountDown;
 
 	// Use this for initialization
 	protected override void Start () {
@@ -47,6 +50,9 @@ public class Versus : GameMode {
 		}
 
 		countDownCanvas.gameObject.SetActive (false);
+
+		EndCountDown.Invoke ();
+
 		Time.timeScale = 1.0f;
 		allowCoop = false;
 	}

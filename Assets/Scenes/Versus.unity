@@ -1279,12 +1279,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_Font: {fileID: 12800000, guid: e2b8cc3f55e8b5b4f99d0e33e9981817, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 100
+    m_MaxSize: 200
     m_Alignment: 7
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2903,11 +2903,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315ba87ec35ca44109c7eb80abd0a775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player3: {fileID: 0}
   startDifficulty: 1
   allowCoop: 1
   spawnOnPlayer: 0
   countDownCanvas: {fileID: 1457010307}
   countDownText: {fileID: 1523789946}
+  EndCountDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2043241688}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!4 &1503679257
 Transform:
   m_ObjectHideFlags: 0
@@ -3989,9 +4006,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1174481085170532, guid: 8e1913a2a73594f51baa5248462013d6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667010262152676, guid: 8e1913a2a73594f51baa5248462013d6,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e1913a2a73594f51baa5248462013d6, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2043241688 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114667010262152676, guid: 8e1913a2a73594f51baa5248462013d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 2043241684}
+  m_Script: {fileID: 11500000, guid: 0ee6bb961262c164882610e42ccfc6aa, type: 3}
 --- !u!1 &2106232272
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,6 @@ public class GameMode : MonoBehaviour {
 	public bool spawnOnPlayer = true;
 
 	protected virtual void Awake () {
-		Debug.Log ("Awake");
 		SceneManager.sceneLoaded += OnSceneLoad;
 
 		DontDestroyOnLoad (gameObject);
@@ -31,8 +30,6 @@ public class GameMode : MonoBehaviour {
 			SceneManager.sceneLoaded -= OnSceneLoad;
 			Destroy (gameObject);
 		} else if (scene.name != "DontDestroyOnLoad") {
-			Debug.Log (scene.name);
-
 			_difficulty = startDifficulty;
 
 			foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
