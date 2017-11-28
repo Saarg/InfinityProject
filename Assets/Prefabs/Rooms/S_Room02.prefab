@@ -586,8 +586,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498250022055878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000000091699, y: 0.45, z: -4.0625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.000000091699, y: 0.4824, z: -3.681}
+  m_LocalScale: {x: 1.0000005, y: 0.9351301, z: 0.23751146}
   m_Children: []
   m_Father: {fileID: 4643697154877930}
   m_RootOrder: 0
@@ -626,8 +626,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1311155216812090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000009169899, y: 0.42, z: 4.0625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.00000009169899, y: 0.4736, z: 3.659}
+  m_LocalScale: {x: 1.0000005, y: 0.89274114, z: 0.19228125}
   m_Children: []
   m_Father: {fileID: 4643697154877930}
   m_RootOrder: 1
@@ -884,7 +884,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1406346141614052}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0875, y: -0.196, z: -21.431}
+  m_LocalPosition: {x: 0, y: 2, z: 2}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 4176795888328702}
@@ -1450,7 +1450,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 1, z: 6}
+  m_Size: {x: 7, y: 1, z: 5}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!65 &65442252082440648
 BoxCollider:
@@ -1574,15 +1574,15 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 0.25
-      value: 0.1
+      value: 0.05
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 0.75
-      value: -0.1
-      inSlope: -0.030639116
-      outSlope: -0.030639116
+      value: -0.05
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -1616,15 +1616,15 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 0.25
-      value: 0.1
+      value: 0.05
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 0.75
-      value: -0.1
-      inSlope: -0.030639116
-      outSlope: -0.030639116
+      value: -0.05
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -1658,15 +1658,15 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 0.25
-      value: 0.1
+      value: 0.05
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 0.75
-      value: -0.1
-      inSlope: -0.030639116
-      outSlope: -0.030639116
+      value: -0.05
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -1700,15 +1700,15 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 0.25
-      value: 0.1
+      value: 0.05
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 0.75
-      value: -0.1
-      inSlope: -0.030639116
-      outSlope: -0.030639116
+      value: -0.05
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1

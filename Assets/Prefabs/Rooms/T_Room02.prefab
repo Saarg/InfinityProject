@@ -44,7 +44,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1167439025474202
 GameObject:
   m_ObjectHideFlags: 1
@@ -95,7 +95,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1281769038836064
 GameObject:
   m_ObjectHideFlags: 1
@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 114982486781408844}
   - component: {fileID: 114171047736322464}
   - component: {fileID: 65732529703676200}
+  - component: {fileID: 65820988582418238}
+  - component: {fileID: 65445669221976840}
   m_Layer: 0
   m_Name: T_Room02
   m_TagString: Untagged
@@ -314,21 +316,21 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4101314123460438
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959055516140722}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -1, y: 0.3, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.308, y: 0.4, z: -0.414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4297601959281914}
   m_Father: {fileID: 4567140176491682}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4107194820829774
 Transform:
   m_ObjectHideFlags: 1
@@ -336,8 +338,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870556943237670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6e-14, y: 0.5, z: -4.0625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.6e-14, y: 0.4801, z: -3.66}
+  m_LocalScale: {x: 1.0000005, y: 0.9505371, z: 0.19506265}
   m_Children: []
   m_Father: {fileID: 4941471107329586}
   m_RootOrder: 0
@@ -433,8 +435,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515067872965462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.0625, y: 0.5, z: 0.00000009127}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.6657, y: 0.4935, z: 0}
+  m_LocalScale: {x: 0.20639645, y: 0.9324826, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 4941471107329586}
   m_RootOrder: 1
@@ -458,14 +460,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1269477446586546}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -1, y: 0.299, z: -9.15}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.31, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4142400308141716}
   m_Father: {fileID: 4567140176491682}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4557808924706876
 Transform:
   m_ObjectHideFlags: 1
@@ -503,14 +505,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1133923971654514}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 1, y: 0.4, z: -9.15}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: -1.183077}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4167165385413456}
   m_Father: {fileID: 4567140176491682}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4652218329361018
 Transform:
   m_ObjectHideFlags: 1
@@ -544,8 +546,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1734740862193282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.0625, y: 0.5, z: 0.00000009127}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.6681, y: 0.4817, z: 0}
+  m_LocalScale: {x: 0.21118802, y: 0.9633939, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 4941471107329586}
   m_RootOrder: 2
@@ -1016,6 +1018,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65445669221976840
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331009545188078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6406397, y: 1, z: 1.6257186}
+  m_Center: {x: -2.679677, y: 0.5, z: -2.6871367}
 --- !u!65 &65704809647974300
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1040,6 +1054,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7, y: 0.5, z: 7}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!65 &65820988582418238
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331009545188078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6406397, y: 1, z: 1.6257186}
+  m_Center: {x: 2.6796768, y: 0.5, z: -2.6871367}
 --- !u!65 &65829375086583752
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1050,8 +1076,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 1, z: 6}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 4, y: 1, z: 5.478124}
+  m_Center: {x: 0, y: 0.5, z: 0.7609382}
 --- !u!65 &65898698713663306
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1114,15 +1140,15 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 0.25
-      value: 0.1
+      value: 0.05
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 0.75
-      value: -0.1
-      inSlope: -0.030639116
-      outSlope: -0.030639116
+      value: -0.05
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -1156,15 +1182,15 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 0.25
-      value: 0.1
+      value: 0.05
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 0.75
-      value: -0.1
-      inSlope: -0.030639116
-      outSlope: -0.030639116
+      value: -0.05
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -1271,15 +1297,15 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 0.25
-      value: 0.1
+      value: 0.05
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 0.75
-      value: -0.1
-      inSlope: -0.030639116
-      outSlope: -0.030639116
+      value: -0.05
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
