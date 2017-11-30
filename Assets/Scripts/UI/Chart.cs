@@ -34,7 +34,9 @@ public class Chart : MonoBehaviour {
         levelBoxes = new Text[6] { endLevel, hpLevel, ranLevel, speLevel, rollLevel, atkLevel };
         statManager.LevelUp();
 
-        StartCoroutine("LevelUp");
+		StartCoroutine(LevelUp());
+
+		Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -101,7 +103,7 @@ public class Chart : MonoBehaviour {
     {
         Debug.Log("Coroutine de textBox update");
         yield return new WaitForSeconds(1f);
-        StartCoroutine("UpdateChart");
+		StartCoroutine(UpdateChart());
 
         while (UpdateLevelTextBox())
         {
@@ -119,6 +121,7 @@ public class Chart : MonoBehaviour {
             }
         }
         statManager.Displayed();
+		Debug.Log("Coroutine de textBox ended");
 
     }
 
