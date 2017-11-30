@@ -69,8 +69,6 @@ public class StatManager {
     
     public void LevelUp()
     {
-        
-        //foreach (PlayerStats ps in stats)
         for (int i = 0; i < stats.Length; i++)
         {
             PlayerStats ps = stats[i];
