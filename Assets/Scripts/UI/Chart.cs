@@ -7,6 +7,7 @@ public class Chart : MonoBehaviour {
 
     public PlayerNumber player = PlayerNumber.Player1;
     public GameObject quitButton;
+    public GameObject levelUpIcon;
     [Space(10)]
     public Text endLevel;
     public Text hpLevel;
@@ -21,7 +22,10 @@ public class Chart : MonoBehaviour {
     protected StatManager statManager;
     protected Vector3[] points;
     protected Vector3[] basePoints;
-    
+    protected PlayerStats[] baseStats;
+    protected PlayerStats[] finalStats;
+    protected Text[] levelBoxes;
+
     // Use this for initialization
     void Start () {
         lineRenderer = this.GetComponent<LineRenderer>();
@@ -29,8 +33,10 @@ public class Chart : MonoBehaviour {
         points = new Vector3[6];
         basePoints = new Vector3[6];
         lineRenderer.GetPositions(basePoints);
+        levelBoxes = new Text[6] { endLevel, hpLevel, ranLevel, speLevel, rollLevel, atkLevel };
+        //PlayerStats[] baseStats = statManager.Stats;
+        //statManager.LevelUp();
 
-        PlayerStats[] baseStats = statManager.Stats;
         StartCoroutine("LevelUp");
     }
 
@@ -44,39 +50,124 @@ public class Chart : MonoBehaviour {
         }
     }
 
-    protected void UpdateChart()
+    protected void InitializeChart()
     {
+        for(int i = 0; i < 6; i++)
+        {
+            points[i].x = basePoints[i].x * 1.0F / 20;
+            points[i].y = basePoints[i].y * 1.0F / 20;
+        }
+        lineRenderer.SetPositions(points);
+    }
+
+    protected bool UpdateLevelTextBox()
+    {
+        bool changed = false;
+
+        if (AddToBox(endLevel, statManager.End.Level))
+            changed = true;
+
+        if (AddToBox(hpLevel, statManager.Hp.Level))
+            changed = true;
+
+        if (AddToBox(ranLevel, statManager.Ran.Level))
+            changed = true;
+
+        if (AddToBox(atkLevel, statManager.Atk.Level))
+            changed = true;
+
+        if (AddToBox(rollLevel, statManager.Rol.Level))
+            changed = true;
+
+        if (AddToBox(speLevel, statManager.Spe.Level))
+            changed = true;
+
+        return changed;
+    }
+
+    protected bool AddToBox(Text textBox, int limit)
+    {
+        int value = System.Int32.Parse(textBox.text);
+        if (value < limit)
+        {
+            value++;
+            textBox.text = "" + value;
+            return true;
+        }
+        return false;
+    }
+
+    IEnumerator LevelUp()
+    {
+        yield return new WaitForSeconds(1f);
+        StartCoroutine("UpdateChart");
+        while (UpdateLevelTextBox())
+        {
+            yield return new WaitForSeconds(0.1F);
+            UpdateLevelTextBox();
+        }
+        for(int i=0;i< levelBoxes.Length;i++)
+        {
+            if(statManager.Up[i] == true)
+            {
+                GameObject go = GameObject.Instantiate(levelUpIcon, levelBoxes[i].transform);
+                go.transform.localScale += new Vector3(19,11);
+                go.transform.localPosition +=  new Vector3(0,7);
+            }
+        }
+        statManager.Displayed();
+
+    }
+
+    IEnumerator UpdateChart()
+    {
+        Vector3[] moving = new Vector3[6];
+        float step = 1f * Time.deltaTime;
+
+        InitializeChart();
+
         for (int i = 0; i < 6; i++)
         {
             points[i].x = basePoints[i].x * (float)(statManager.Stats[i].Level + 1) / 20;
             points[i].y = basePoints[i].y * (float)(statManager.Stats[i].Level + 1) / 20;
         }
-        lineRenderer.SetPositions(points);
-    }
 
-    protected void UpdateLevelTextBox()
-    {
-        endLevel.text = "" + statManager.End.Level;
-        hpLevel.text = "" + statManager.Hp.Level;
-        ranLevel.text = "" + statManager.Ran.Level;
-        atkLevel.text = "" + statManager.Atk.Level;
-        rollLevel.text = "" + statManager.Rol.Level;
-        speLevel.text = "" + statManager.Spe.Level;
-    }
+        lineRenderer.GetPositions(moving);
 
-    IEnumerator LevelUp()
-    {
-        UpdateChart();
-        foreach (PlayerStats ps in statManager.Stats)
+        while (!AreEqual(moving, points))
         {
-            while (statManager.LevelUp(ps,true))
+            for (int i = 0; i < 6; i++)
             {
-                yield return new WaitForSeconds(0.1F);
-                UpdateLevelTextBox();
-                UpdateChart();
+                moving[i] = Vector3.MoveTowards(moving[i], points[i], step);
             }
-            
+            lineRenderer.SetPositions(moving);
+            yield return null;
         }
         
+    }
+
+    protected bool AreEqual(Vector3[] a, Vector3[] b)
+    {
+        bool equal = true;
+        for(int i =0; i<a.Length; i++)
+        {
+            if((a[i].x != b[i].x) || (a[i].y != b[i].y))
+            {
+                equal = false;
+            }
+        }
+        return equal;
+    }
+
+    public void SaveBase(PlayerStats[] stats)
+    {
+        baseStats = stats;
+        Debug.Log("Base stats saved");
+    }
+
+    public void SaveFinal(PlayerStats[] stats)
+    {
+        finalStats = stats;
+        Debug.Log("Final stats saved");
     }
 }

@@ -8,6 +8,7 @@ public class DeathUI : MonoBehaviour {
 	public GameObject[] players;
 	public int minPlayerAlive = 0;
     public GameControl gc;
+    public GameObject Chart;
 
     public Canvas canvas;
 
@@ -18,7 +19,9 @@ public class DeathUI : MonoBehaviour {
 		canvas.gameObject.SetActive (false);
 
 		Time.timeScale = 1;
-	}
+
+        AutoLevelUp();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,10 +35,11 @@ public class DeathUI : MonoBehaviour {
 
 		if (livingPlayers <= minPlayerAlive && Time.timeScale > 0) {
 			Time.timeScale = 0;
-
-			canvas.gameObject.SetActive (true);
-		}
-	}
+            
+            canvas.gameObject.SetActive (true);
+            
+        }
+    }
 
 	public void LoadScene(string name) {
 		if (gc != null)
@@ -50,4 +54,10 @@ public class DeathUI : MonoBehaviour {
 		
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
+
+    protected void AutoLevelUp()
+    {
+        StatManager sm = StatManager.Instance;
+        sm.LevelUp();
+    }
 }

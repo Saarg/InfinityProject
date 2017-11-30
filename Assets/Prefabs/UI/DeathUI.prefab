@@ -352,7 +352,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Internship Progress
+  m_Text: Stats
 --- !u!114 &114393757021943018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,6 +539,7 @@ MonoBehaviour:
   players: []
   minPlayerAlive: 0
   gc: {fileID: 0}
+  Chart: {fileID: 1746331115949408, guid: fa83f703646fe884ba9fc4755c15e801, type: 2}
   canvas: {fileID: 223944378254934012}
 --- !u!114 &114596907757916352
 MonoBehaviour:
@@ -833,7 +834,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1020593474875550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1000061, y: -20, z: 0}
+  m_LocalPosition: {x: -1.1000061, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224414896721834386}
@@ -842,7 +843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.1000061, y: -20}
+  m_AnchoredPosition: {x: -1.1000061, y: 20}
   m_SizeDelta: {x: 129.5, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224098723868409006

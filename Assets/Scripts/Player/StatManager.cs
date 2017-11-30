@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class StatManager {
 
+    protected static StatManager _instance = null;
+
     protected int[] experienceTable = new int[20] { 3, 6, 8, 11, 14, 17, 21, 24, 29, 33, 38, 43, 49, 56, 63, 70, 78, 87, 97, 107 };
     public int[] ExperienceTable { get { return experienceTable; } }
+
+    protected PlayerStats[] stats = new PlayerStats[6];
+    public PlayerStats[] Stats { get { return stats; } }
+
+    protected bool[] up = new bool[6] { false, false, false, false, false, false };
+    public bool[] Up { get { return up; } }
+
     public PlayerStats Atk { get; }
     public PlayerStats Hp { get; }
     public PlayerStats Spe { get; }
     public PlayerStats End { get; }
     public PlayerStats Ran { get; }
     public PlayerStats Rol { get; }
-
-    protected PlayerStats[] stats = new PlayerStats[6];
-    public PlayerStats[] Stats { get { return stats; } }
-    protected static StatManager _instance = null;
-
+    
     public static StatManager Instance
     {
         get
@@ -64,14 +69,16 @@ public class StatManager {
     
     public void LevelUp()
     {
-
-        foreach (PlayerStats ps in stats)
+        
+        //foreach (PlayerStats ps in stats)
+        for (int i = 0; i < stats.Length; i++)
         {
+            PlayerStats ps = stats[i];
             ps.Convert();
             
             while (ps.LevelUp(experienceTable[ps.Level]))
             {
-
+                up[i] = true;
             } 
         }
     }
@@ -101,5 +108,11 @@ public class StatManager {
             }
             return leveledUp;
         }
+    }
+
+    public void Displayed()
+    {
+        for (int i = 0; i < up.Length; i++)
+            up[i] = false;
     }
 }
