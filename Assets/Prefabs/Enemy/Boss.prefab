@@ -921,7 +921,7 @@ AudioSource:
   m_GameObject: {fileID: 1319963537647928}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243504996714166920, guid: 14a65697a0ae245edbc1bf18fefc20ea,
+  OutputAudioMixerGroup: {fileID: 243344452170375906, guid: 14a65697a0ae245edbc1bf18fefc20ea,
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
@@ -1088,7 +1088,6 @@ MonoBehaviour:
   _specs: {fileID: 11400000, guid: 7b280dad5c7134700aa29d00eeea9058, type: 2}
   fireSound: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
   reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
-  owner: {fileID: 0}
 --- !u!114 &114249716366671518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1242,7 +1241,6 @@ MonoBehaviour:
   _specs: {fileID: 11400000, guid: 7b280dad5c7134700aa29d00eeea9058, type: 2}
   fireSound: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
   reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
-  owner: {fileID: 0}
 --- !u!114 &114904882802130844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1254,7 +1252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae1719ca1d061d4abe429b71819e954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent: {fileID: 1319963537647928}
 --- !u!114 &114957729570118380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1270,10 +1267,8 @@ MonoBehaviour:
   gravity: 20
   fireballStrength: 20
   weapon1: {fileID: 114113711692874390}
-  weapon1Ammo: {fileID: 0}
   preloadWeapon1: {fileID: 198821563807475610}
   weapon2: {fileID: 114815811528078228}
-  weapon2Ammo: {fileID: 0}
   preloadWeapon2: {fileID: 198006343517727662}
   fireball: {fileID: 141530, guid: 369eee557c4d41c479225bf744fa6a5f, type: 2}
   fireballCooldown: 5
