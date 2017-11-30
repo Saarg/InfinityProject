@@ -3955,8 +3955,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13, y: 28, z: 4}
-  m_Center: {x: 0, y: 15, z: -7}
+  m_Size: {x: 13, y: 27.999996, z: 4.4133964}
+  m_Center: {x: 0, y: 15, z: -6.793301}
 --- !u!65 &1539127122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4985,7 +4985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047587615}
   m_Layer: 10
-  m_Name: Babyproofing
+  m_Name: ZurnProofing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
