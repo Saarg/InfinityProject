@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683a1d0860c421d44a0b4e359703637c, type: 3}
   m_Name: StrongEnemySpecs
   m_EditorClassIdentifier: 
-  sightRange: 5
-  sightAngle: 40
+  sightRange: 7
+  sightAngle: 80
   soundDetectionRange: 1.5
   securityDistance: 3
   wallAvoidance: 1.5

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public enum Difficulty { Easy, Normal, Hard, Insane }
 
@@ -19,39 +18,25 @@ public class GameMode : MonoBehaviour {
 	public bool allowCoop;
 	public bool spawnOnPlayer = true;
 
-	protected virtual void Awake () {
-		SceneManager.sceneLoaded += OnSceneLoad;
-
-		DontDestroyOnLoad (gameObject);
-	}
-
-	void OnSceneLoad(Scene scene, LoadSceneMode mode) {
-		if (scene.name == "MainMenu") {
-			SceneManager.sceneLoaded -= OnSceneLoad;
-			Destroy (gameObject);
-		} else if (scene.name != "DontDestroyOnLoad") {
-			_difficulty = startDifficulty;
-
-			foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
-				if (p.GetComponent<PlayerController> ().player == PlayerNumber.Player1) {
-					_player1 = p;
-					_player1.transform.parent.gameObject.SetActive (true);
-				} else if (p.GetComponent<PlayerController> ().player == PlayerNumber.Player2) {
-					_player2 = p;
-					_player2.transform.parent.gameObject.SetActive (false);
-				} else if (p.GetComponent<PlayerController> ().player == PlayerNumber.Player3) {
-					_player3 = p;
-					_player3.transform.parent.gameObject.SetActive (false);
-				} else if (p.GetComponent<PlayerController> ().player == PlayerNumber.Player4) {
-					_player4 = p;
-					_player4.transform.parent.gameObject.SetActive (false);
-				}
-			}
-		}
-	}
-
 	// Use this for initialization
 	protected virtual void Start () {
+		_difficulty = startDifficulty;
+
+		foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
+			if (p.GetComponent<PlayerController> ().player == PlayerNumber.Player1) {
+				_player1 = p;
+				_player1.transform.parent.gameObject.SetActive (true);
+			} else if (p.GetComponent<PlayerController> ().player == PlayerNumber.Player2) {
+				_player2 = p;
+				_player2.transform.parent.gameObject.SetActive (false);
+			} else if (p.GetComponent<PlayerController> ().player == PlayerNumber.Player3) {
+				_player3 = p;
+				_player3.transform.parent.gameObject.SetActive (false);
+			} else if (p.GetComponent<PlayerController> ().player == PlayerNumber.Player4) {
+				_player4 = p;
+				_player4.transform.parent.gameObject.SetActive (false);
+			}
+		}
 	}
 	
 	// Update is called once per frame

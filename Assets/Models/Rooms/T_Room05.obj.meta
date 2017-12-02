@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f8aedf2e0d5374dd0bca50d7d22e3b9a
-timeCreated: 1510866954
+guid: 51ee6ab8369c34be68407408eedd3043
+timeCreated: 1512179445
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -23,6 +23,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: stone
     second: {fileID: 2100000, guid: 6adc08192ec925745b8f4d02b813e914, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: 10640e63767c03647b55ed43ddf6c649, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

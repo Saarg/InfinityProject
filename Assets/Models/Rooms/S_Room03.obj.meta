@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 0f46575627fad4e48ae5a1aa93b41413
-timeCreated: 1510866954
+guid: 16fbf26a3efe34c6d85e6b9c94a8b401
+timeCreated: 1512179445
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -16,11 +16,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: darkStone
-    second: {fileID: 2100000, guid: 9a514fa09079741e3aa7cf5b7a11aaf6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: lightStone
     second: {fileID: 2100000, guid: beb56bb406604694f8109af324165f74, type: 2}
   - first:
@@ -28,6 +23,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: stone
     second: {fileID: 2100000, guid: 6adc08192ec925745b8f4d02b813e914, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: 10640e63767c03647b55ed43ddf6c649, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
