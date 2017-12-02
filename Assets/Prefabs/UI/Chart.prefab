@@ -355,6 +355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 0
   quitButton: {fileID: 0}
+  levelUpIcon: {fileID: 1449312985663098, guid: 12e629db1a588c246baf50e0867d45b4,
+    type: 2}
   endLevel: {fileID: 0}
   hpLevel: {fileID: 0}
   ranLevel: {fileID: 0}
@@ -529,12 +531,12 @@ LineRenderer:
   - {x: 0, y: 3.5, z: 0}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.05
+    widthMultiplier: 0.08
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 1
         value: 1
         inSlope: 0
         outSlope: 0

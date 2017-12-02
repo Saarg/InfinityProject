@@ -75,7 +75,7 @@ public class PlayerStats{
     {
         _level = 0;
         _experience = 0;
-        _count = 200;
+        _count = 0;
         bonus = new ArrayList();
         malus = new ArrayList();
     }
