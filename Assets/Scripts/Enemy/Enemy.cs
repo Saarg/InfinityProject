@@ -11,8 +11,7 @@ public class Enemy : Living {
 
 	public Transform[] players;
 	public Transform player;
-
-	public Vector3 lastPlayerKnownLocation;
+	private Vector3 playerLastPosition;
 
 	private float inverseMoveTime; 	//useful to improve efficiency of calculation
 	private float shootingCooldown; //time since the last bullet was fire
@@ -36,12 +35,13 @@ public class Enemy : Living {
 
     protected override void Start ()
 	{
-		lastPlayerKnownLocation = Vector3.zero;
-
 		GameObject[] gos = GameObject.FindGameObjectsWithTag ("Player");
 		players = new Transform[gos.Length];
 		for (int i = 0 ; i < gos.Length ; i++)
 			players[i] = gos[i].transform;
+
+		player = players [0];
+		playerLastPosition = player.transform.position;
 		
 		nma = GetComponent<NavMeshAgent> ();
 		nma.enabled = true;
@@ -68,11 +68,13 @@ public class Enemy : Living {
 		}
 
         UpdateHealth();
-        if (nma.velocity == Vector3.zero && _audioSource.clip == stepSound)
-			_audioSource.Pause ();
+//        if (nma.velocity == Vector3.zero && _audioSource.clip == stepSound)
+//			_audioSource.Pause ();
 
 		shootingCooldown += Time.deltaTime;
-       
+
+		//used next frame
+		playerLastPosition = player.transform.position;       
     }
 
 	protected override void OnCollisionEnter(Collision collision) {
@@ -123,6 +125,14 @@ public class Enemy : Living {
 	 */
 	public bool Shoot()
 	{
+		Vector3 diffPlayerPos = player.transform.position - playerLastPosition;
+		Vector3 playerSpeed = diffPlayerPos / Time.deltaTime;
+		float bulletSpeed = _gun.getSpecs ().GetAmmoPrefab ().GetComponent<Bullet> ().GetBulletSpecs ().velocity;
+
+		Vector3 target = predictedTargetPosition (player.position, transform.position, playerSpeed, bulletSpeed);
+
+		transform.LookAt(target);
+
 		if (shootingCooldown > specs.attackRate && _gun != null) {
 			_gun.Fire ();
 			shootingCooldown = 0;
@@ -130,6 +140,24 @@ public class Enemy : Living {
 		} else {
 			return false;
 		}					
+	}
+
+	private Vector3 predictedTargetPosition(	
+		Vector3 currentTargetPosition,
+		Vector3 currentShooterPosition,
+		Vector3 targetVelocity,
+		float projectileSpeed){
+
+		Vector3 displacement = currentTargetPosition - currentShooterPosition;
+		float targetMoveAngle = Vector3.Angle (-displacement, targetVelocity) * Mathf.Deg2Rad;
+
+		if (targetVelocity.magnitude == 0 || targetVelocity.magnitude > projectileSpeed && Mathf.Sin (targetMoveAngle) / projectileSpeed > Mathf.Cos (targetMoveAngle) / targetVelocity.magnitude) {
+//			Debug.Log ("Impossible to predict position");
+			return currentTargetPosition;
+		}
+
+		float shootAngle = Mathf.Asin (Mathf.Sin (targetMoveAngle) * targetVelocity.magnitude / projectileSpeed);
+		return currentTargetPosition + targetVelocity * displacement.magnitude / Mathf.Sin (Mathf.PI - targetMoveAngle - shootAngle) * Mathf.Sin (shootAngle) / targetVelocity.magnitude;
 	}
 
 	/** PlayerIsSeen() : bool

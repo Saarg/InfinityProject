@@ -134,5 +134,9 @@ namespace Weapons {
 				}
 			}
 		}
+
+		public BulletSpec GetBulletSpecs(){
+			return _specs;
+		}
 	}
 }

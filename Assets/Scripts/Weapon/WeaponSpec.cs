@@ -22,5 +22,9 @@ namespace Weapons {
             Bullet b = (Bullet)go.GetComponent(typeof(Bullet));
             b.owner = owner;
         }
+
+		public GameObject GetAmmoPrefab(){
+			return ammoPrefab;
+		}
 	}
 }

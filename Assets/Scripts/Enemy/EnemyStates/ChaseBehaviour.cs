@@ -20,7 +20,6 @@ public class ChaseBehaviour : EnemyState {
 		else if (enemy.PlayerIsHeard ())
 			LookAtPlayer ();
 		else if (enemy.player != null) {
-			enemy.lastPlayerKnownLocation = enemy.player.transform.position;
 			animator.SetBool ("PlayerIsDetected", false);
 		} else {
 			animator.SetBool ("PlayerIsDead", true);
