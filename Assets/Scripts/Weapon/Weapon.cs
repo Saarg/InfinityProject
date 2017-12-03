@@ -33,6 +33,9 @@ namespace Weapons {
 
 			_owner = transform.parent;
 
+			_fireSoundSource.clip = fireSound;
+			_reloadSoundSource.clip = reloadSound;
+
 			// Enemy can't run out of ammo
 			if (_owner.GetComponent<Enemy> () != null)
 				clips = 9999;
