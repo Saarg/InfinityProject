@@ -19,7 +19,8 @@ namespace Weapons {
 
 		public AudioClip fireSound;
 		public AudioClip reloadSound;
-		private AudioSource _source;
+		[SerializeField] private AudioSource _fireSoundSource;
+		[SerializeField] private AudioSource _reloadSoundSource;
 
 		private Transform _owner;
 
@@ -35,8 +36,6 @@ namespace Weapons {
 			// Enemy can't run out of ammo
 			if (_owner.GetComponent<Enemy> () != null)
 				clips = 9999;
-
-			_source = GetComponent<AudioSource> ();
 		}
 
 		public void Fire() {
@@ -50,8 +49,7 @@ namespace Weapons {
             {
                 nextFire = Time.time + this.GetFireRate();
 
-				_source.clip = fireSound;
-				_source.Play ();
+				_fireSoundSource.Play ();
 
 				_specs.Fire(transform, _owner);
 
@@ -68,8 +66,7 @@ namespace Weapons {
 				canShoot = false;
 				float startTime = Time.realtimeSinceStartup;
 
-				_source.clip = reloadSound;
-				_source.Play ();
+				_reloadSoundSource.Play();
 
 				while (ammos < _specs.clipSize) {
 					ammos++;
