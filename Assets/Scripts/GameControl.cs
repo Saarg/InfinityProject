@@ -31,7 +31,7 @@ public class GameControl : MonoBehaviour {
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
         PlayerData data = new PlayerData();
 
-        data.life = 100;
+        //data.life = 200;
 		data.atkLevel = sm.Atk.Level;
 		data.atkExperience = sm.Atk.Experience;
 		data.atkCount = sm.Atk.Count;
@@ -70,7 +70,7 @@ public class GameControl : MonoBehaviour {
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
         PlayerData data = new PlayerData();
 
-        data.life = player.GetComponent<PlayerController>().life;
+        //data.life = player.GetComponent<PlayerController>().life;
 
         data.atkLevel = sm.Atk.Level;
         data.atkExperience = sm.Atk.Experience;
@@ -114,7 +114,7 @@ public class GameControl : MonoBehaviour {
 
 	            file.Close();
 
-	            player.GetComponent<PlayerController>().life = data.life;
+	            //player.GetComponent<PlayerController>().life = data.life;
 
 	            sm.Atk.Level = data.atkLevel;
 	            sm.Atk.Experience = data.atkExperience;
