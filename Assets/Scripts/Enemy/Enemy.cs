@@ -142,17 +142,11 @@ public class Enemy : Living {
 		}					
 	}
 
-	private Vector3 predictedTargetPosition(	
-		Vector3 currentTargetPosition,
-		Vector3 currentShooterPosition,
-		Vector3 targetVelocity,
-		float projectileSpeed){
-
+	private Vector3 predictedTargetPosition(Vector3 currentTargetPosition, Vector3 currentShooterPosition, Vector3 targetVelocity, float projectileSpeed){
 		Vector3 displacement = currentTargetPosition - currentShooterPosition;
 		float targetMoveAngle = Vector3.Angle (-displacement, targetVelocity) * Mathf.Deg2Rad;
 
 		if (targetVelocity.magnitude == 0 || targetVelocity.magnitude > projectileSpeed && Mathf.Sin (targetMoveAngle) / projectileSpeed > Mathf.Cos (targetMoveAngle) / targetVelocity.magnitude) {
-//			Debug.Log ("Impossible to predict position");
 			return currentTargetPosition;
 		}
 
