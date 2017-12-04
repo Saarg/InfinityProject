@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _specs: {fileID: 11400000, guid: 7b280dad5c7134700aa29d00eeea9058, type: 2}
   fireSound: {fileID: 8300000, guid: 5254f10f5a205954d813f932d699961c, type: 3}
-  reloadSound: {fileID: 8300000, guid: 5d178636480b07e42bb9237b855bb97c, type: 3}
+  reloadSound: {fileID: 8300000, guid: c2072befcb68a7e488c7113ac5d4664f, type: 3}
   _fireSoundSource: {fileID: 82672643524893688}
   _reloadSoundSource: {fileID: 82973997864269810}
 --- !u!114 &114249716366671518

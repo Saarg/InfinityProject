@@ -48,8 +48,8 @@ public class Chart : MonoBehaviour {
         {
             quitButton.GetComponent<Button>().onClick.Invoke();
         }
-		if (MultiOSControls.GetValue ("Fire1", player) != 0)
-			restartButton.GetComponent<Button> ().onClick.Invoke ();
+		// if (MultiOSControls.GetValue ("Fire1", player) != 0)
+		// 	restartButton.GetComponent<Button> ().onClick.Invoke ();
     }
 
     // Put every stat on chart at level 1
