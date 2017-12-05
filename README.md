@@ -1,4 +1,4 @@
-![Main Menu](Screenshots/LogoLight.png)
+![Main Menu](Screenshots/LogoDark.png)
 
 You finally made it! You found an internship! However after weeks of development
 your boss, the SCRUM MASTER, traps you in an infinite loop of rush. Your only
