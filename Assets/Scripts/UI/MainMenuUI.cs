@@ -17,7 +17,12 @@ public class MainMenuUI : MonoBehaviour {
 	}
 
 	public void LoadScene(string name) {
-		SceneManager.LoadScene(name, LoadSceneMode.Single);
+		StartCoroutine(LoadSceneAfterDelay(name, 0.1f));
+	}
+
+	IEnumerator LoadSceneAfterDelay(string name, float delay) {
+		yield return new WaitForSeconds(0.3f);
+		SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);
 	}
 
 	public void Quit() {

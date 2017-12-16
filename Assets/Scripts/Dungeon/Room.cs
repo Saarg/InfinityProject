@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace Dungeon {
+
+	/*
+	 * Class used to display reward array in editor
+	 */
 	[System.Serializable]
 	public struct RewardEditor {
 		public GameObject gameobject;
@@ -12,6 +16,9 @@ namespace Dungeon {
 		public float rewardChance;
 	}
 
+	/*
+	 * Room script: spawns, rewards and events
+	 */
 	public class Room : MonoBehaviour {
 
 		static Color[] waveColors = {Color.red, Color.green, Color.blue, Color.yellow, Color.cyan};
@@ -39,6 +46,10 @@ namespace Dungeon {
 		protected PlayerController _player;
 		public PlayerController player { get { return _player; } }
 
+		/*
+		 * Init room according to difficulty
+		 * Spawn reward if no wave to spawn
+		 */
 		void Start () {
 			_maxWaves = Mathf.Clamp(_maxWaves, 0, _waves.Length);
 			if ((int)GameMode.difficulty < _maxWaves)
@@ -63,6 +74,9 @@ namespace Dungeon {
 			}
 		}
 
+		/*
+		 * Room main loop
+		 */
 		IEnumerator ManageWaves () {
 			int nbWaves = Random.Range (_minWaves, _maxWaves);
 
@@ -89,6 +103,9 @@ namespace Dungeon {
 			}
 		}
 
+		/*
+		 * Detection of player
+		 */
 		void OnTriggerEnter(Collider other) {
 			if (other.tag == "Player" && _curWave == -1) {
 				_player = other.GetComponent<PlayerController>();
@@ -99,6 +116,9 @@ namespace Dungeon {
 			}
 		}
 
+		/*
+		 * Randomly spawn a reward from list
+		 */
 		void SpawnReward() {
 			foreach (RewardEditor r in _rewards) {
 				if (Random.Range (0f, 1f) < r.rewardChance) {
@@ -108,6 +128,9 @@ namespace Dungeon {
 			}
 		}
 
+		/*
+		 * Draw waves spawn in editor
+		 */
 		void OnDrawGizmos() {
 			for (int i = 0; i < _waves.Length; i++) {
 				Gizmos.color = waveColors[i % _waves.Length];

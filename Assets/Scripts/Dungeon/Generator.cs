@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 namespace Dungeon {
 
+	/*
+	 * Graph representation of a room
+	 */
 	public class IRoom {
 		public GameObject gameObject;
 		public IRoom top;
@@ -17,6 +20,9 @@ namespace Dungeon {
 		public bool validated = false;
 	}
 
+	/*
+	 * Dungeon generator
+	 */
 	public class Generator : MonoBehaviour {
 
 		[SerializeField]
@@ -51,6 +57,9 @@ namespace Dungeon {
 		[SerializeField]
 		private Slider loadingBar;
 
+		/*
+		 * Levelsize depending on difficulty + init grid and loading bar
+		 */
 		void Start () {
 			_levelSize += (int)GameMode.difficulty;
 			_finish.transform.Translate ((int)GameMode.difficulty * _roomSize, 0, (int)GameMode.difficulty * _roomSize);
@@ -70,6 +79,9 @@ namespace Dungeon {
 			#endif
 		}
 
+		/*
+		 * Editor only: draw graph
+		 */
 		IEnumerator DrawLines() {
 			yield return new WaitForSeconds (1f);
 
@@ -93,6 +105,9 @@ namespace Dungeon {
 			}
 		}
 
+		/*
+		 * Generate graph and instanciate rooms
+		 */
 		IEnumerator Generate() {
 			Time.timeScale = 0f;
 
@@ -209,6 +224,9 @@ namespace Dungeon {
 			yield return null;
 		}
 
+		/*
+		 * Generate graph node with perlin noise
+		 */
 		void GenerateIRoom(int x, int y) {
 			if (_grid [x, y].generated)
 				return;
@@ -236,6 +254,9 @@ namespace Dungeon {
 			_grid [x, y].generated = true;
 		}
 
+		/*
+		 * Path validation to clear unused rooms
+		 */
 		void ValidateIRooms(IRoom r) {
 			if (r.validated)
 				return;
@@ -255,6 +276,9 @@ namespace Dungeon {
 				ValidateIRooms(r.right);
 		}
 
+		/*
+		 * Draw dungeon grid
+		 */
 		void OnDrawGizmos() {
 			Gizmos.color = Color.red;
 

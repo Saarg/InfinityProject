@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Class handling camera to follow the average position of a player list with an offset
+ */
 public class CameraController : MonoBehaviour {
 	
 	public GameObject[] _players;

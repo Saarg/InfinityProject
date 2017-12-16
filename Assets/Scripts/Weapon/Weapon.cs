@@ -6,6 +6,9 @@ namespace Weapons {
 	
 	[RequireComponent(typeof(AudioSource))]
 
+	/*
+	 * All weapons are using this class
+	 */
 	public class Weapon : MonoBehaviour {
 
 		[SerializeField]

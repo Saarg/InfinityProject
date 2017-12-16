@@ -5,6 +5,9 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using Weapons;
 
+/*
+ * Enemy class handling AI state machine
+ */
 public class Enemy : Living {
 
 	public EnemySpecs specs;

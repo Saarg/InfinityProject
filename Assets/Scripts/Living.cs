@@ -6,6 +6,9 @@ using Weapons;
 
 [RequireComponent(typeof(AudioSource))]
 
+/*
+ * Main class to all exept boss (enemies ans player)
+ */
 public class Living : MonoBehaviour {
 
 	[Header("Stats")]
@@ -18,10 +21,10 @@ public class Living : MonoBehaviour {
 	public Vector3 destination;
 
 	[Header("Resistances")]
-	public string Weakness;
-	public float WeaknessFactor;
-	public string Resistance;
-	public float ResistanceFactor;
+	public string weakness;
+	public float weaknessFactor;
+	public string resistance;
+	public float resistanceFactor;
 
     [SerializeField]
     protected float _life = 100.0F;
@@ -58,17 +61,26 @@ public class Living : MonoBehaviour {
 	public AudioClip hurtSound;
 	protected AudioSource _audioSource;
 
+	/*
+	 * Init conponents
+	 */
 	protected virtual void Start() {
 		_color = GetComponent<Renderer>().material.color;
         _controller = GetComponent<CharacterController>();
 		_audioSource = GetComponent<AudioSource> ();
 	}
 
+	/*
+	 * Apply damage if under dungeon
+	 */
 	protected virtual void Update() {
 		if (transform.position.y < -10)
 			ApplyDamage(-transform.position.y);
 	}
 
+	/*
+	 * Play sound when hit
+	 */
 	protected virtual void OnCollisionEnter(Collision collision) {
 		_audioSource.enabled = true;
 		_audioSource.clip = hurtSound;
@@ -76,6 +88,9 @@ public class Living : MonoBehaviour {
 		_audioSource.Play ();
     }
 
+	/*
+	 * Equip new gun and destroy old gun
+	 */
 	public void PickGun(GameObject g) {
 		if (g != null && g.GetComponent<Weapon> () != null) {
 			GameObject newGun = Instantiate (g, _gunAnchor.position, _gunAnchor.rotation);
@@ -87,6 +102,10 @@ public class Living : MonoBehaviour {
 			_gun = newGun.GetComponent<Weapon> ();
 		}
 	}
+
+	/*
+	 * Damage function
+	 */
     protected virtual void ApplyDamage(float damage)
     {
         _life = _life - damage;
@@ -97,6 +116,9 @@ public class Living : MonoBehaviour {
 		StartCoroutine(Blink());
     }
 
+	/*
+	 * Hit feedback
+	 */
     private IEnumerator Blink()
     {
 		float time = 0;

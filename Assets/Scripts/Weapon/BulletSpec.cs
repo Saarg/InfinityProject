@@ -9,8 +9,6 @@ namespace Weapons{
 
 		public float velocity = 6;
 		public float lifespan = 10;
-		public int bounces = 0;
-		public float bounceChance = 0;
 
 		public GameObject onHitParticles;
 
