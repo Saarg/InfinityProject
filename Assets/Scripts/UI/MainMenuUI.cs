@@ -17,21 +17,26 @@ public class MainMenuUI : MonoBehaviour {
 	}
 
 	public void LoadScene(string name) {
-		StartCoroutine(LoadSceneAfterDelay(name, 0.1f));
+		StartCoroutine(LoadSceneAfterDelay(name));
 	}
 
-	IEnumerator LoadSceneAfterDelay(string name, float delay) {
+	IEnumerator LoadSceneAfterDelay(string name) {
 		yield return new WaitForSeconds(0.3f);
 		SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);
 	}
 
 	public void Quit() {
+		StartCoroutine(QuitAfterDelay());
+	}
+
+	IEnumerator QuitAfterDelay() {
+		yield return new WaitForSeconds(0.3f);
 		Application.Quit ();
 	}
 
     public void NewGame(string name)
     {
 		File.Delete (Application.persistentDataPath + "/playerInfo.dat");
-        SceneManager.LoadScene(name, LoadSceneMode.Single);
+		StartCoroutine(LoadSceneAfterDelay(name));
     }
 }
