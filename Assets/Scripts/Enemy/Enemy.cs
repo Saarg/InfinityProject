@@ -10,9 +10,7 @@ public class Enemy : Living {
 	public EnemySpecs specs;
 
 	public Transform[] players;
-	public Transform player;
-
-	public Vector3 lastPlayerKnownLocation;
+	public Transform target;
 
 	private float inverseMoveTime; 	//useful to improve efficiency of calculation
 	private float shootingCooldown; //time since the last bullet was fire
@@ -36,21 +34,23 @@ public class Enemy : Living {
 
     protected override void Start ()
 	{
-		lastPlayerKnownLocation = Vector3.zero;
+		//init main values
+		shootingCooldown = 0;
+		sightColor = Color.grey;
+		slider.maxValue = maxLife;
+		slider.value = maxLife;
 
+		// init all players
 		GameObject[] gos = GameObject.FindGameObjectsWithTag ("Player");
 		players = new Transform[gos.Length];
 		for (int i = 0 ; i < gos.Length ; i++)
 			players[i] = gos[i].transform;
-		
+
+		//init navmeshagent
 		nma = GetComponent<NavMeshAgent> ();
 		nma.enabled = true;
-		shootingCooldown = 0;
-		sightColor = Color.grey;
 
-        slider.maxValue = maxLife;
-        slider.value = maxLife;
-
+		//init state machine
         if (stateMachine == null) stateMachine = GetComponent<Animator> ();
 
 		base.Start ();
@@ -60,26 +60,22 @@ public class Enemy : Living {
 	{
 		base.Update ();
 
-		if (MultiOSControls.GetValue ("Join", PlayerNumber.All) != 0) {
-			GameObject[] gos = GameObject.FindGameObjectsWithTag ("Player");
-			players = new Transform[gos.Length];
-			for (int i = 0 ; i < gos.Length ; i++)
-				players[i] = gos[i].transform;
-		}
-
+		//update current health display
         UpdateHealth();
+
+		//update navmeshagent
         if (nma.velocity == Vector3.zero && _audioSource.clip == stepSound)
 			_audioSource.Pause ();
 
+		//update useful vars
 		shootingCooldown += Time.deltaTime;
-       
     }
 
 	protected override void OnCollisionEnter(Collision collision) {
 		base.OnCollisionEnter(collision);
 
 		if (collision.gameObject.GetComponent<Bullet> () != null && collision.gameObject.GetComponent<Bullet> ().owner != null && collision.gameObject.GetComponent<Bullet> ().owner.tag == "Player") {
-			player = collision.gameObject.GetComponent<Bullet> ().owner;
+			target = collision.gameObject.GetComponent<Bullet> ().owner;
 		}
 	}
 
@@ -98,6 +94,7 @@ public class Enemy : Living {
 			Gizmos.DrawRay(sight.position, rightSight);
 
 			//Draw footsteps detection area
+			Gizmos.color = Color.blue;
 			Gizmos.DrawWireSphere(transform.position, specs.soundDetectionRange);
 
 			//Draw shot detection area
@@ -105,6 +102,7 @@ public class Enemy : Living {
 			Gizmos.DrawWireSphere(transform.position, specs.shotDetectionRange);
 		}
 	}
+
 
 	/** Move(Vector3 direction) : Try to move to the given direction
 	 * return true if the enemy moves
@@ -116,6 +114,7 @@ public class Enemy : Living {
 		nma.Move(direction * Time.deltaTime);
 		return true;
 	}
+
 
 	/** Shoot() : Try to use the gun
 	 * return true if a shooting accurs
@@ -132,8 +131,9 @@ public class Enemy : Living {
 		}					
 	}
 
+
 	/** PlayerIsSeen() : bool
-	 * cast a ray as line of sight and
+	 * cast a cone as range of sight
 	 * return true if the player intersect with raycast
 	 * return false otherwise
 	 */
@@ -144,22 +144,16 @@ public class Enemy : Living {
 				Vector3 diff = p.position - transform.position;
 				float angle = Vector3.Angle (diff, transform.forward);
 
+				//check if one of the players is in the range of sight of the enemy
 				if (diff.magnitude < specs.sightRange && angle < (specs.sightAngle / 2f)) {
-					Vector3 enemyToPlayer = p.transform.position - transform.position;
-					Ray vision = new Ray (transform.position, enemyToPlayer);
-					RaycastHit hit;
-
-					if (Physics.Raycast (vision, out hit, specs.sightRange)) {
-						if (hit.collider.CompareTag ("Player")) {
-							player = p;
-							return true;
-						}
-					}
+					target = p;
+					return true;
 				}
 			}
 		}
 		return false;
 	}
+
 
 	/** PlayerIsHeard() : bool
 	 * cast a sphere wrapping the enemy and
@@ -174,19 +168,21 @@ public class Enemy : Living {
 
 				//if player is close enough, the enemy hear the sounds of its footsteps
 				if (diff.magnitude < specs.soundDetectionRange) {
-					player = p;
+					target = p;
+					Debug.Log ("player is heard 1");
 					return true;
 				}
 
 				//if player fires its weapon close enough of the enemy, the sound is heard
 				if (diff.magnitude < specs.shotDetectionRange && p.gameObject.GetComponent<PlayerController> ().HasFired ()) {
-					player = p;
+					target = p;
 					return true;
 				}
 			}
 		}
 		return false;
 	}
+
 
 	/** WallIsSeen() : bool
 	 * cast 1 ray as wall detectors and
@@ -207,9 +203,9 @@ public class Enemy : Living {
 		Vector3 rightSight = rightRotation * centerSight;
 		Ray right = new Ray (sight.transform.position, rightSight);
 
-		Debug.DrawRay (transform.position, centerSight, Color.magenta);
-		Debug.DrawRay (transform.position, leftSight, Color.magenta);
-		Debug.DrawRay (transform.position, rightSight, Color.magenta);
+//		Debug.DrawRay (transform.position, centerSight, Color.magenta);
+//		Debug.DrawRay (transform.position, leftSight, Color.magenta);
+//		Debug.DrawRay (transform.position, rightSight, Color.magenta);
 
 		if (Physics.Raycast (left, out wallHitLeft, specs.wallAvoidance))
 		if (wallHitLeft.collider.CompareTag ("Player")) {
@@ -230,6 +226,20 @@ public class Enemy : Living {
 		return false;
 	}
 
+	/** IsUnderAttack() : bool
+	 * check if the enemy got hit by the player
+	 * return true if so
+	 * return false otherwise
+ 	*/
+	public bool IsUnderAttack()
+	{
+		return (IsHit && target != null);
+	}
+
+
+	/** UpdateHealth() : void
+	 * take the current health value and displays it as a circle around the enem
+	 */
     public void UpdateHealth()
     {
         slider.value = _life;

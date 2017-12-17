@@ -15,12 +15,10 @@ public class ChaseBehaviour : EnemyState {
 	}
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		if (enemy.PlayerIsSeen () || (enemy.IsHit && enemy.player != null))
+		if (enemy.PlayerIsSeen () || enemy.IsUnderAttack() || enemy.PlayerIsHeard())
 			Chase ();
-		else if (enemy.PlayerIsHeard ())
-			LookAtPlayer ();
-		else if (enemy.player != null) {
-			enemy.lastPlayerKnownLocation = enemy.player.transform.position;
+		else if (enemy.target != null) {
+			enemy.lastPlayerKnownLocation = enemy.target.transform.position;
 			animator.SetBool ("PlayerIsDetected", false);
 		} else {
 			animator.SetBool ("PlayerIsDead", true);
@@ -29,9 +27,13 @@ public class ChaseBehaviour : EnemyState {
 
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {}
 
+
+	/** Chase() : void
+	 * Look at the player than move towards it if too far or attack if enemy in attack range
+	 */
 	private void Chase()
 	{
-		Vector3 direction = enemy.player.position - enemy.transform.position;
+		Vector3 direction = enemy.target.position - enemy.transform.position;
 
 		if(direction != Vector3.zero){
 			enemy.transform.rotation = Quaternion.LookRotation(direction);
@@ -48,13 +50,16 @@ public class ChaseBehaviour : EnemyState {
 		}
 	}
 
+	/** LookAtPlayer() : void 	[legacy]
+	 * rotate enemy towards player
+	 */
 	private void LookAtPlayer()
 	{
 		Quaternion start = enemy.transform.rotation;
 		Quaternion finish = enemy.transform.rotation;
 
 		// cancel height to avoid loking strainght up if player is on my head
-		Vector3 lookat = enemy.player.transform.position - enemy.transform.position;
+		Vector3 lookat = enemy.target.transform.position - enemy.transform.position;
 		lookat.y = 0;
 
 		finish.SetLookRotation (lookat);

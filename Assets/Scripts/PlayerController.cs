@@ -33,6 +33,7 @@ public class PlayerController : Living {
         stat = StatManager.Instance;
         totalMoveTime = 0;
         _stamina = _staminaMax;
+		lastShotTime = 1f;
 
 		if (playerCamera == null) {
 			playerCamera = Camera.main;

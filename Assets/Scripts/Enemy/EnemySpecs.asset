@@ -16,7 +16,7 @@ MonoBehaviour:
   soundDetectionRange: 2.5
   securityDistance: 2
   wallAvoidance: 1.5
-  shotDetectionRange: 2.5
+  shotDetectionRange: 10
   patrollingSpeed: 0.7
   patrollingTurningSpeed: 0.5
   wanderingRange: 30
