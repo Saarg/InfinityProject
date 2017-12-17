@@ -33,6 +33,7 @@ public class ChaseBehaviour : EnemyState {
 	private void Chase()
 	{
 		Vector3 direction = enemy.target.position - enemy.transform.position;
+		direction.y = 0;
 
 		if(direction != Vector3.zero){
 			enemy.transform.rotation = Quaternion.LookRotation(direction);
@@ -47,24 +48,5 @@ public class ChaseBehaviour : EnemyState {
 			//close enough to attack
 			enemy.Shoot();
 		}
-	}
-
-	/** LookAtPlayer() : void 	[legacy]
-	 * rotate enemy towards player
-	 */
-	private void LookAtPlayer()
-	{
-		Quaternion start = enemy.transform.rotation;
-		Quaternion finish = enemy.transform.rotation;
-
-		// cancel height to avoid loking strainght up if player is on my head
-		Vector3 lookat = enemy.target.transform.position - enemy.transform.position;
-		lookat.y = 0;
-
-		finish.SetLookRotation (lookat);
-
-		enemy.transform.rotation = Quaternion.Lerp (start, finish, interp);
-
-		interp += enemy.specs.chasingTurningSpeed * Time.deltaTime;
 	}
 }

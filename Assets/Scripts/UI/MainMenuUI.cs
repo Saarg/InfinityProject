@@ -17,6 +17,8 @@ public class MainMenuUI : MonoBehaviour {
 	}
 
 	public void LoadScene(string name) {
+		Time.timeScale = 1f;
+
 		StartCoroutine(LoadSceneAfterDelay(name));
 	}
 
@@ -26,6 +28,8 @@ public class MainMenuUI : MonoBehaviour {
 	}
 
 	public void Quit() {
+		Time.timeScale = 1f;
+
 		StartCoroutine(QuitAfterDelay());
 	}
 
