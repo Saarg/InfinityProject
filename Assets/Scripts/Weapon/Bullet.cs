@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Weapons {
+
+	/*
+	 * Weapon projectiles script
+	 */
 	public class Bullet : MonoBehaviour {
 
 		[SerializeField]
@@ -20,6 +24,9 @@ namespace Weapons {
 
         public string Type;
 
+		/*
+		 * Get components + init vars
+		 */
         void Start () {
 			_rb = GetComponent<Rigidbody> ();
             start = this.transform.position;
@@ -38,12 +45,18 @@ namespace Weapons {
             Destroy(gameObject, _specs.lifespan);
 		}
 
+		/*
+		 * Destroy if too slow (like when the boss meteor stopped it)
+		 */
 		void Update() {
 			if (_rb.velocity.magnitude < 1) {
 				Destroy (gameObject);
 			}
 		}
 
+		/*
+		 * Apply particles and damages if needed
+		 */
 		void OnCollisionEnter(Collision collision) {
             _rb.velocity = new Vector3(0,0,0);
 
@@ -62,17 +75,16 @@ namespace Weapons {
 		/*
 		 * Damages 
 		 */
-
 		public void ImpactDamage(Collision collision) {
             float damages = GetDamages ();
 			Living living = collision.gameObject.GetComponent<Living> ();
 
 			if (living != null) {
-				if (String.Compare (living.Weakness, this.Type) == 0) {
-					damages *= living.WeaknessFactor;
+				if (String.Compare (living.weakness, this.Type) == 0) {
+					damages *= living.weaknessFactor;
 				}
-				if (String.Compare (collision.gameObject.GetComponent<Living> ().Resistance, this.Type) == 0) {
-					damages *= living.ResistanceFactor;
+				if (String.Compare (collision.gameObject.GetComponent<Living> ().resistance, this.Type) == 0) {
+					damages *= living.resistanceFactor;
 				}
 			}
 
@@ -96,7 +108,6 @@ namespace Weapons {
 		/*
 		 * Explosive Damages 
 		 */
-
 		public float GetArea()
 		{
 			return _specs.areaofeffect;

@@ -5,6 +5,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.SceneManagement;
 
+/*
+ * Class managing saving and loading stats in game
+ */
 public class GameControl : MonoBehaviour {
 
     public static GameControl control;
@@ -78,9 +81,9 @@ public class GameControl : MonoBehaviour {
         data.atkratio = sm.Atk.Ratio;
         data.hpLevel = sm.Hp.Level;
         data.hpExperience = sm.Hp.Experience;
-        data. hpCount = sm.Hp.Count;
+        data.hpCount = sm.Hp.Count;
         data.hpRatio = sm.Hp.Ratio;
-        data. speLevel = sm.Spe.Level;
+        data.speLevel = sm.Spe.Level;
         data.speExperience = sm.Spe.Experience;
         data.speCount = sm.Spe.Count;
         data.speRatio = sm.Spe.Ratio;

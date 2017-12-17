@@ -5,12 +5,18 @@ using UnityEngine;
 
 namespace Dungeon {
 
+	/*
+	 * Class used to have spawn array in editor
+	 */
 	[Serializable]
 	public class ISpawns {
 		public Vector3 p;
 		public GameObject go;
 	}
 
+	/*
+	 * wave definition
+	 */
 	[CreateAssetMenu(fileName = "Wave", menuName = "Dungeon/Wave", order = 1)]
 	public class Wave : ScriptableObject {
 

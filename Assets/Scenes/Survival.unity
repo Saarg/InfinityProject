@@ -140,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c72dbfcbc08242d9a086b0fcbe5669a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player3: {fileID: 0}
   startDifficulty: 1
   allowCoop: 0
   spawnOnPlayer: 1
@@ -221,6 +220,54 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 5}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!1 &189771695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 189771696}
+  - component: {fileID: 189771697}
+  m_Layer: 0
+  m_Name: VariousSpawn (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &189771696
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189771695}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.53, y: 1.362211, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1953560049}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &189771697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189771695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52efa53ae87a44262934764d0a3a4d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
+  - {fileID: 1589843893745692, guid: b420ee9ce98907545837056bb64af930, type: 2}
+  - {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
+  spawnRateCurve: 0
+  spawnRate: 60
+  waitForDeath: 0
+  spawnOnDeath: 0
 --- !u!1 &203281442
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,10 +328,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawns:
   - {fileID: 1480709944003260, guid: 22f6efb8f021907479c683277dfb62a5, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 180
-  waitForDeath: 0
-  spawnOnDeath: 1
+  spawnRateCurve: 0
+  spawnRate: 10
+  waitForDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &222781593
 Transform:
   m_ObjectHideFlags: 0
@@ -413,10 +460,10 @@ MonoBehaviour:
   - {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   - {fileID: 1589843893745692, guid: b420ee9ce98907545837056bb64af930, type: 2}
   - {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 60
-  waitForDeath: 0
-  spawnOnDeath: 1
+  spawnRateCurve: 0
+  spawnRate: 10
+  waitForDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &394817312
 Transform:
   m_ObjectHideFlags: 0
@@ -650,6 +697,54 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
     type: 2}
   m_PrefabInternal: {fileID: 1957904869}
+--- !u!1 &588696854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 588696855}
+  - component: {fileID: 588696856}
+  m_Layer: 0
+  m_Name: VariousSpawn (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &588696855
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 588696854}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.47, y: 1.362211, z: -8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1953560049}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &588696856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 588696854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52efa53ae87a44262934764d0a3a4d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
+  - {fileID: 1589843893745692, guid: b420ee9ce98907545837056bb64af930, type: 2}
+  - {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
+  spawnRateCurve: 0
+  spawnRate: 50
+  waitForDeath: 0
+  spawnOnDeath: 0
 --- !u!1 &590507971
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,7 +923,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 810943781}
   m_LocalRotation: {x: 0, y: 0, z: -0.17364825, w: 0.9848078}
-  m_LocalPosition: {x: 860, y: 460, z: 0}
+  m_LocalPosition: {x: 860.00006, y: 460.30157, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1278205659}
@@ -921,10 +1016,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawns:
   - {fileID: 1480709944003260, guid: 22f6efb8f021907479c683277dfb62a5, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 180
-  waitForDeath: 0
-  spawnOnDeath: 1
+  spawnRateCurve: 0
+  spawnRate: 10
+  waitForDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &862984276
 Transform:
   m_ObjectHideFlags: 0
@@ -1016,6 +1111,7 @@ MonoBehaviour:
   players: []
   minPlayerAlive: 0
   gc: {fileID: 0}
+  Chart: {fileID: 0}
   canvas: {fileID: 1976917362}
 --- !u!1 &1017500551
 GameObject:
@@ -1048,10 +1144,10 @@ MonoBehaviour:
   - {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   - {fileID: 1589843893745692, guid: b420ee9ce98907545837056bb64af930, type: 2}
   - {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 60
-  waitForDeath: 0
-  spawnOnDeath: 1
+  spawnRateCurve: 0
+  spawnRate: 25
+  waitForDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &1017500553
 Transform:
   m_ObjectHideFlags: 0
@@ -1297,10 +1393,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawns:
   - {fileID: 1480709944003260, guid: 22f6efb8f021907479c683277dfb62a5, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 180
-  waitForDeath: 0
-  spawnOnDeath: 1
+  spawnRateCurve: 0
+  spawnRate: 10
+  waitForDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &1222334301
 Transform:
   m_ObjectHideFlags: 0
@@ -1397,8 +1493,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1278205655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 410.1961, y: 201.31999, z: -39.63778}
-  m_LocalScale: {x: 0.425, y: 0.425, z: 0.425}
+  m_LocalPosition: {x: 400.1961, y: 195.81999, z: -39.63778}
+  m_LocalScale: {x: 0.4145833, y: 0.4145833, z: 0.4145833}
   m_Children:
   - {fileID: 810943782}
   m_Father: {fileID: 203281443}
@@ -1918,10 +2014,10 @@ MonoBehaviour:
   - {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   - {fileID: 1589843893745692, guid: b420ee9ce98907545837056bb64af930, type: 2}
   - {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 60
-  waitForDeath: 0
-  spawnOnDeath: 1
+  spawnRateCurve: 0
+  spawnRate: 10
+  waitForDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &1576555094
 Transform:
   m_ObjectHideFlags: 0
@@ -1966,10 +2062,10 @@ MonoBehaviour:
   - {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   - {fileID: 1589843893745692, guid: b420ee9ce98907545837056bb64af930, type: 2}
   - {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 60
-  waitForDeath: 0
-  spawnOnDeath: 1
+  spawnRateCurve: 0
+  spawnRate: 10
+  waitForDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &1638857667
 Transform:
   m_ObjectHideFlags: 0
@@ -2284,10 +2380,10 @@ MonoBehaviour:
   - {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   - {fileID: 1589843893745692, guid: b420ee9ce98907545837056bb64af930, type: 2}
   - {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 60
+  spawnRateCurve: 0
+  spawnRate: 30
   waitForDeath: 0
-  spawnOnDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &1784911482
 Transform:
   m_ObjectHideFlags: 0
@@ -2491,6 +2587,8 @@ Transform:
   - {fileID: 1017500553}
   - {fileID: 1576555094}
   - {fileID: 1784911482}
+  - {fileID: 588696855}
+  - {fileID: 189771696}
   m_Father: {fileID: 713265821}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2509,12 +2607,12 @@ Prefab:
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 410.1961
+      value: 400.1961
       objectReference: {fileID: 0}
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 201.31999
+      value: 195.81999
       objectReference: {fileID: 0}
     - target: {fileID: 224691252006970182, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
@@ -2624,7 +2722,7 @@ Prefab:
     - target: {fileID: 224857344950995768, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224910682309636756, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
@@ -2695,12 +2793,12 @@ Prefab:
     - target: {fileID: 224997316048268480, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 38.775
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224517087237823888, guid: d53045ee64a1841a0a25e65711a62211,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53045ee64a1841a0a25e65711a62211, type: 2}
@@ -2902,10 +3000,10 @@ MonoBehaviour:
   - {fileID: 1482051691371612, guid: 332d3e70bb2964f418f5bef847de93f7, type: 2}
   - {fileID: 1589843893745692, guid: b420ee9ce98907545837056bb64af930, type: 2}
   - {fileID: 1507785927779818, guid: 22348d88711c84c3e8565f5f40252094, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 60
-  waitForDeath: 0
-  spawnOnDeath: 1
+  spawnRateCurve: 0
+  spawnRate: 25
+  waitForDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &2128310100
 Transform:
   m_ObjectHideFlags: 0
@@ -2989,10 +3087,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawns:
   - {fileID: 1480709944003260, guid: 22f6efb8f021907479c683277dfb62a5, type: 2}
-  spawnRateCurve: 3
-  spawnRate: 180
-  waitForDeath: 0
-  spawnOnDeath: 1
+  spawnRateCurve: 0
+  spawnRate: 10
+  waitForDeath: 1
+  spawnOnDeath: 0
 --- !u!4 &2143616600
 Transform:
   m_ObjectHideFlags: 0

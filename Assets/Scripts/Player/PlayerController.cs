@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Player controller inherits Living and handles all player movement and stats
+ */
 public class PlayerController : Living {    
     
     [Header("Player Stats")]
@@ -9,7 +12,6 @@ public class PlayerController : Living {
 	[SerializeField] protected float _jumptime = 1f;
 	[SerializeField] protected AnimationCurve _heightCurve;
 	[SerializeField] protected AnimationCurve _rollCurve;
-    
 
 	protected float _stamina = 10;
 	public float stamina { get {return _stamina; }}
@@ -27,6 +29,9 @@ public class PlayerController : Living {
     protected StatManager stat;
     protected float totalMoveTime;
 
+	/*
+	 * Living.Start() and stats init
+	 */
     protected override void Start()
     {
         base.Start();
@@ -40,6 +45,11 @@ public class PlayerController : Living {
 		}
     }
 
+	/*
+	 * Movement update
+	 * Gun update
+	 * Stats update
+	 */
     protected override void Update() 
 	{
 		base.Update ();
@@ -156,12 +166,20 @@ public class PlayerController : Living {
 		lastShotTime += Time.deltaTime;
     }
 
+	/*
+	 * Living.OnCollisionEnter(collision) and update stat
+	 */
     protected override void OnCollisionEnter(Collision collision)
 	{
 		base.OnCollisionEnter (collision);
-		stat.Hp.Count++;
+
+		if(collision.transform.tag == "Projectile" || collision.transform.tag == "ExplProjectile")
+			stat.Hp.Count++;
 	}
 
+	/*
+	 * HACK force player away from enemy to avoid 'climbing him'
+	 */
 	void OnControllerColliderHit(ControllerColliderHit hit) {
 		if (hit.gameObject.tag.Equals("Enemy") || hit.gameObject.tag.Equals("Boss"))
 		{     
@@ -172,6 +190,9 @@ public class PlayerController : Living {
 		GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
+	/*
+	 * Jump coroutine handling airtime and rotation
+	 */
     IEnumerator Jump()
     {
 
@@ -201,12 +222,12 @@ public class PlayerController : Living {
         }
     }
 
+	/*
+	 * true if last shot is withing 0.5s
+	 */
 	public bool HasFired()
 	{
-		if (lastShotTime < 0.5f)
-			return true;
-
-		return false;
+		return lastShotTime < 0.5f;
 	}
 
 }

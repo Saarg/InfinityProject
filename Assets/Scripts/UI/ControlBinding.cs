@@ -6,6 +6,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Script used to rebind controls from UI
+ */
 public class ControlBinding : MonoBehaviour {
     public InputField UpField;
     public InputField DownField;
@@ -121,7 +124,9 @@ public class ControlBinding : MonoBehaviour {
 		file.Close();
 	}
 }
-
+/*
+ * Serializable class used to save data into file
+ */
 [Serializable]
 class ControlsSave
 {
