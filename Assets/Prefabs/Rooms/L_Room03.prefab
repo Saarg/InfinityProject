@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65501190616986232}
   - component: {fileID: 23777558299334478}
   - component: {fileID: 114526926667289660}
+  - component: {fileID: 208660008900423564}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -152,6 +153,7 @@ GameObject:
   - component: {fileID: 65354037801551184}
   - component: {fileID: 23357294922415314}
   - component: {fileID: 114074699188697192}
+  - component: {fileID: 208603772943688830}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -682,7 +684,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114074699188697192
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1821251351628596}
@@ -694,7 +696,7 @@ MonoBehaviour:
   _guid: f0949cbe-8966-4c21-94d6-7a64597aa28a
 --- !u!114 &114127786610278942
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141511389711830}
@@ -706,7 +708,7 @@ MonoBehaviour:
   _guid: aa961686-bda8-453a-9d65-fb2428d0ae74
 --- !u!114 &114310278441195860
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1847971720696122}
@@ -718,7 +720,7 @@ MonoBehaviour:
   _guid: 244d89e6-b481-4ca9-be45-6580e436fca2
 --- !u!114 &114403937022541350
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743669268655488}
@@ -730,7 +732,7 @@ MonoBehaviour:
   _guid: 7990df0e-a708-4eae-81e9-c8e63e046473
 --- !u!114 &114487711187870870
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1384103411415748}
@@ -742,7 +744,7 @@ MonoBehaviour:
   _guid: 2216d7d7-a69a-4fbb-9930-133344360856
 --- !u!114 &114526926667289660
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1099793375388256}
@@ -754,7 +756,7 @@ MonoBehaviour:
   _guid: ca601632-48f1-478a-8ac4-c8127ab10056
 --- !u!114 &114557281482861274
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935170100607934}
@@ -794,7 +796,7 @@ MonoBehaviour:
   m_NavMeshData: {fileID: 0}
 --- !u!114 &114693855846768660
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542901923235984}
@@ -848,7 +850,7 @@ MonoBehaviour:
   lifeRegen: 20
 --- !u!114 &114737052790811496
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407535252687706}
@@ -860,7 +862,7 @@ MonoBehaviour:
   _guid: 14f7eafe-6d77-4d8d-82cb-aa698c167d40
 --- !u!114 &114740440455506274
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648277240023738}
@@ -872,7 +874,7 @@ MonoBehaviour:
   _guid: 99ec280c-30d5-45b3-81cc-3c06433edc05
 --- !u!114 &114927329427061382
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743669268655488}
@@ -4261,3 +4263,33 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!208 &208603772943688830
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1821251351628596}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!208 &208660008900423564
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099793375388256}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

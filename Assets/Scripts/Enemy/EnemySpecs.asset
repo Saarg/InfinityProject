@@ -17,13 +17,14 @@ MonoBehaviour:
   securityDistance: 2
   wallAvoidance: 1.5
   shotDetectionRange: 10
+  antisocialFactor: 2
   patrollingSpeed: 0.7
   patrollingTurningSpeed: 0.5
   wanderingRange: 30
   attackRange: 3
   attackRate: 0.1
   attackForce: 30
-  chasingSpeed: 0.8
+  chasingSpeed: 2
   chasingTurningSpeed: 0.5
   alertDuration: 3
   alertSpeed: 1

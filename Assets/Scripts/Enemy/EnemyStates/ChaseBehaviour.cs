@@ -35,12 +35,14 @@ public class ChaseBehaviour : EnemyState {
 		int eCount = 0;
 		Vector3 avgRejection = Vector3.zero;
 		foreach (Enemy e in Enemy.enemies) {
-			if ((e.transform.position - enemy.transform.position).magnitude < 1f) {
-				avgRejection += Vector3.one - (e.transform.position - enemy.transform.position);
+			Vector3 dist = enemy.transform.position - e.transform.position;
+			if (dist.magnitude < enemy.specs.antisocialFactor && e != enemy) {
+				avgRejection += dist.normalized / dist.magnitude;
 				eCount++;
 			}
 		}
-		avgRejection /= eCount;
+		avgRejection = eCount > 0 ? avgRejection / eCount : Vector3.zero;
+		avgRejection.Normalize ();
 
 		Vector3 direction = enemy.target.position - enemy.transform.position;
 		direction.y = 0;
@@ -51,8 +53,7 @@ public class ChaseBehaviour : EnemyState {
 			
 		if (direction.magnitude > enemy.specs.attackRange*.5f) {
 			//too far
-			enemy.Move (direction);
-			enemy.Move (enemy.specs.antisocialFactor * avgRejection);
+			enemy.Move ((avgRejection + direction).normalized * enemy.specs.chasingSpeed);
 		} 
 
 		if (direction.magnitude <= enemy.specs.attackRange){ 

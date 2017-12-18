@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65034929442328856}
   - component: {fileID: 23356295088717204}
   - component: {fileID: 114945819980073422}
+  - component: {fileID: 208620592614510350}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -276,7 +277,7 @@ BoxCollider:
   m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &114115735029580412
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715221944302040}
@@ -288,7 +289,7 @@ MonoBehaviour:
   _guid: 6c6b238e-0b2d-4d8d-9149-555512cbf67b
 --- !u!114 &114174704110487052
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516606528009174}
@@ -336,7 +337,7 @@ MonoBehaviour:
   m_NavMeshData: {fileID: 0}
 --- !u!114 &114750668156342386
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618036992911012}
@@ -348,7 +349,7 @@ MonoBehaviour:
   _guid: b56bfb8f-d168-45ca-9393-2d392381bc54
 --- !u!114 &114945819980073422
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318508113857256}
@@ -360,7 +361,7 @@ MonoBehaviour:
   _guid: 084d4655-11f2-4aa0-9698-6fb9da82e989
 --- !u!114 &114954245011071598
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516606528009174}
@@ -370,3 +371,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guid: ae21d76d-7a15-4ce3-a9a0-fe831dbaad8f
+--- !u!208 &208620592614510350
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318508113857256}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

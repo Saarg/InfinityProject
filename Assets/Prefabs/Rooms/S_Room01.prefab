@@ -157,7 +157,7 @@ BoxCollider:
   m_Center: {x: 0, y: 0.035946507, z: 0}
 --- !u!114 &114114823971005526
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879621155196528}
@@ -169,7 +169,7 @@ MonoBehaviour:
   _guid: 46867ac6-468e-4028-9c0a-97d0728d1cef
 --- !u!114 &114360435393140822
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1894828691810118}
@@ -181,7 +181,7 @@ MonoBehaviour:
   _guid: 48e34d7d-910d-4b13-9755-3c1927d96da4
 --- !u!114 &114364875314915958
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879621155196528}

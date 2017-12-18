@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 65137346243143040}
   - component: {fileID: 23196956822769652}
   - component: {fileID: 114862547753627380}
+  - component: {fileID: 208494826551668838}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -330,7 +331,7 @@ BoxCollider:
   m_Center: {x: 0, y: 2.25, z: 0}
 --- !u!114 &114129364853301666
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731724986033690}
@@ -342,7 +343,7 @@ MonoBehaviour:
   _guid: ed4eebba-99c6-43de-9ea3-2b77252146b3
 --- !u!114 &114261371134134480
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220662706116092}
@@ -382,7 +383,7 @@ MonoBehaviour:
   m_NavMeshData: {fileID: 0}
 --- !u!114 &114449271637931138
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1584936926849186}
@@ -458,7 +459,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114862547753627380
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510737098456244}
@@ -470,7 +471,7 @@ MonoBehaviour:
   _guid: 314481a4-2097-4270-856d-69cef2d4a1ac
 --- !u!114 &114937781275041462
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220662706116092}
@@ -488,3 +489,18 @@ MonoBehaviour:
     - {fileID: 1584936926849186}
     - {fileID: 1510737098456244}
   _assetGuid: f62ce62b30d19447e8da214293bc654d
+--- !u!208 &208494826551668838
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1510737098456244}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
