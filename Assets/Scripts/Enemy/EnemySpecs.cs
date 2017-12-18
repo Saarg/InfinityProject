@@ -12,6 +12,7 @@ public class EnemySpecs : ScriptableObject {
 	public float securityDistance = 2f;
 	public float wallAvoidance = 1.5f;
 	public float shotDetectionRange = 2.5f;
+	public float antisocialFactor = 2f;
 
 
 //	[Header("Patrol")]

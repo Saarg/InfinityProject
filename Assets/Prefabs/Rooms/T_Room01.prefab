@@ -1389,8 +1389,8 @@ MonoBehaviour:
   _minWaves: 1
   _maxWaves: 2
   _waves:
-  - {fileID: 11400000, guid: c2fb68d2ab300415e8786b32555fdf56, type: 2}
-  - {fileID: 11400000, guid: 9381d91caf54449478fbe700c435ee9e, type: 2}
+  - {fileID: 11400000, guid: b48e6083261604e66b52daf0ddb7ad85, type: 2}
+  - {fileID: 11400000, guid: 5dd065605122146a7b7befe2a17da3d7, type: 2}
   _rewards:
   - gameobject: {fileID: 1460359583133258}
     rewardChance: 0.9

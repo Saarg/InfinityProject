@@ -547,7 +547,7 @@ MonoBehaviour:
   _minWaves: 0
   _maxWaves: 10
   _waves:
-  - {fileID: 11400000, guid: c2fb68d2ab300415e8786b32555fdf56, type: 2}
+  - {fileID: 11400000, guid: b48e6083261604e66b52daf0ddb7ad85, type: 2}
   _rewards: []
   OnStart:
     m_PersistentCalls:

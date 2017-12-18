@@ -10,6 +10,9 @@ using Weapons;
  */
 public class Enemy : Living {
 
+	private static List<Enemy> _enemies = new List<Enemy>();
+	public static List<Enemy> enemies { get { return _enemies; } }
+
 	public EnemySpecs specs;
 
 	public Transform[] players;
@@ -37,6 +40,8 @@ public class Enemy : Living {
 
     protected override void Start ()
 	{
+		_enemies.Add (this);
+
 		//init main values
 		shootingCooldown = 0;
 		sightColor = Color.grey;
@@ -57,6 +62,10 @@ public class Enemy : Living {
         if (stateMachine == null) stateMachine = GetComponent<Animator> ();
 
 		base.Start ();
+	}
+
+	void OnDestroy() {
+		_enemies.Remove (this);
 	}
 
 	protected override void Update()
