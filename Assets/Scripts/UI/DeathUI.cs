@@ -47,14 +47,14 @@ public class DeathUI : MonoBehaviour {
 
 	public void LoadScene(string name) {
 		if (gc != null)
-        	gc.maxLife();
+        	gc.Save();
 		
         SceneManager.LoadScene(name, LoadSceneMode.Single);
 	}
 
 	public void ReloadScene() {
 		if (gc != null)
-        	gc.maxLife();
+        	gc.Save();
 		
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
