@@ -53,7 +53,7 @@ namespace Weapons {
 			}
 			else if (Time.time > nextFire)
             {
-                nextFire = Time.time + this.GetFireRate();
+				nextFire = Time.time + (this.GetFireRate() * (1.2f - StatManager.Instance.Ran.Level/20f) );
 
 				_fireSoundSource.Play ();
 

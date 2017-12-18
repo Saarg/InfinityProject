@@ -57,8 +57,8 @@ public class Chart : MonoBehaviour {
     {
         for(int i = 0; i < 6; i++)
         {
-            endPoints[i].x = basePoints[i].x * 1.0F / 20;
-            endPoints[i].y = basePoints[i].y * 1.0F / 20;
+            endPoints[i].x = basePoints[i].x / 10f;
+            endPoints[i].y = basePoints[i].y / 10f;
         }
         lineRenderer.SetPositions(endPoints);
     }
@@ -139,8 +139,8 @@ public class Chart : MonoBehaviour {
         // Define end position of chart
         for (int i = 0; i < 6; i++)
         {
-            endPoints[i].x = basePoints[i].x * (float)(statManager.Stats[i].Level + 1) / 20;
-            endPoints[i].y = basePoints[i].y * (float)(statManager.Stats[i].Level + 1) / 20;
+            endPoints[i].x = basePoints[i].x * (float)(statManager.Stats[i].Level + 1) / 10f;
+            endPoints[i].y = basePoints[i].y * (float)(statManager.Stats[i].Level + 1) / 10f;
         }
 
         // Animate chart and move it toward end position

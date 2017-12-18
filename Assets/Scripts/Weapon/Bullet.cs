@@ -94,15 +94,21 @@ namespace Weapons {
             {
                 End = this.transform.position;
                 distance = Vector3.Distance(start, End);
-                StatManager.Instance.Ran.Count += (int)distance;
+                StatManager.Instance.Ran.Count += 1 + (int)distance;
             }
+			else if (collision.gameObject.tag == "Player") {
+				StatManager.Instance.Hp.Count++;
+			}
 		}
 
 		public float GetDamages() {
+			// If owner is player take stats into account
 			if (owner != null && owner.tag == "Player") {
-				return _specs.damage;
+				return _specs.damage + StatManager.Instance.Atk.Level;
+			} else if (owner != null && owner.tag != "Player") {
+				StatManager.Instance.Atk.Count++;
 			}
-			return _specs.damage + StatManager.Instance.Atk.Level;
+			return _specs.damage;
 		}
 
 		/*

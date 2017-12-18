@@ -4,70 +4,17 @@ using UnityEngine;
 
 public class PlayerStats{
     protected int _level;
-    public int Level
-    {
-        get
-        {
-            return this._level;
-        }
-        set
-        {
-            if (value <= 0)
-                this._level = 0;
-            else if (value >= 19)
-                this._level = 19;
-            else
-                this._level = value;
-        }
-    }
+    public int Level { get { return _level; } set { _level = Mathf.Clamp (value, 0, 19); } }
 
     protected int _experience;
-    public int Experience
-    {
-        get
-        {
-            return this._experience;
-        }
-        set
-        {
-            if (value < 0)
-                this._experience = 0;
-            else
-                this._experience = value;
-        }
-    }
+    public int Experience { get { return _experience; } set { _experience = value > 0 ? value : 0; }}
 
     protected int _count;
-    public int Count
-    {
-        get
-        {
-            return this._count;
-        }
-        set
-        {
-            if (value < 0)
-                this._count = 0;
-            else
-                this._count = value;
-        }
-    }
+	public int Count { get { return _count; } set { _count = value > 0 ? value : 0; }}
 
     protected int _ratio = 2;
-    public int Ratio
-    {
-        get
-        {
-            return this._ratio;
-        }
-        set
-        {
-            if (value < 1)
-                this._ratio = 1;
-            else
-                this._ratio = value;
-        }
-    }
+	public int Ratio { get { return _ratio; } set { _ratio = value > 1 ? value : 1; }}
+
 	public ArrayList bonus = new ArrayList ();
 	public ArrayList malus = new ArrayList ();
 

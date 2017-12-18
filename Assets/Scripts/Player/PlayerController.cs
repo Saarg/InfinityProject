@@ -34,10 +34,18 @@ public class PlayerController : Living {
 	 */
     protected override void Start()
     {
+		stat = StatManager.Instance;
+		_maxLife += stat.Hp.Level;
+
         base.Start();
-        stat = StatManager.Instance;
         totalMoveTime = 0;
+
+		_staminaMax = _staminaMax + stat.End.Level;
         _stamina = _staminaMax;
+
+		_jumpSpeed += stat.Spe.Level / 10f + stat.Rol.Level / 10f;
+		_jumptime += stat.Rol.Level / 100f;
+
 		lastShotTime = 1f;
 
 		if (playerCamera == null) {
@@ -56,6 +64,11 @@ public class PlayerController : Living {
 
 		if (_controller.velocity == Vector3.zero && _audioSource.clip == stepSound)
 			_audioSource.Pause ();
+
+		// Update stat endurance if the stamina has been fully regenerated
+		if (_stamina < _staminaMax && _stamina + _staminaRegen * Time.deltaTime > _staminaMax) {
+			stat.End.Count++;
+		}
 
 		/*
 		 * Stamina regen
@@ -117,23 +130,23 @@ public class PlayerController : Living {
             {
 				_stamina -= 2;
                 StartCoroutine("Jump");
+
+				// Update statmanager Rol stat
                 stat.Rol.Count++;
             }
             else
             {
+				// Update statmanager speed stat if player is moving
                 if (_moveDirection.magnitude > 0.1)
                 {
                     totalMoveTime += Time.deltaTime;
                     stat.Spe.Count = (int)totalMoveTime;
                 }
 
+				// Apply speed to normalized moveDirection (using the speed stat)
                 _moveDirection *= _speed + (float)stat.Spe.Level / 10;
             }
 		}
-        else
-        {
-            
-        }
 
 		if (_moveDirection.magnitude > 0.1 && !_audioSource.isPlaying && _moveDirection.y == 0) {
 			_audioSource.clip = stepSound;
@@ -156,7 +169,6 @@ public class PlayerController : Living {
 		if (_gun != null && MultiOSControls.GetValue ("Fire1", player) != 0) {
 			lastShotTime = 0;
 			_gun.Fire ();
-            stat.End.Count++;
 		}
 		
 		if (_gun != null && MultiOSControls.GetValue ("Reload", player) != 0) {
@@ -165,17 +177,6 @@ public class PlayerController : Living {
 
 		lastShotTime += Time.deltaTime;
     }
-
-	/*
-	 * Living.OnCollisionEnter(collision) and update stat
-	 */
-    protected override void OnCollisionEnter(Collision collision)
-	{
-		base.OnCollisionEnter (collision);
-
-		if(collision.transform.tag == "Projectile" || collision.transform.tag == "ExplProjectile")
-			stat.Hp.Count++;
-	}
 
 	/*
 	 * HACK force player away from enemy to avoid 'climbing him'

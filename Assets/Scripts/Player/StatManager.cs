@@ -6,7 +6,7 @@ public class StatManager {
 
     protected static StatManager _instance = null;
 
-    protected int[] experienceTable = new int[20] { 3, 6, 8, 11, 14, 17, 21, 24, 29, 33, 38, 43, 49, 56, 63, 70, 78, 87, 97, 107 };
+    protected int[] experienceTable = new int[10] { 2, 4, 7, 10, 14, 18, 22, 27, 32, 40 };
     public int[] ExperienceTable { get { return experienceTable; } }
 
     protected PlayerStats[] stats = new PlayerStats[6];
@@ -22,15 +22,7 @@ public class StatManager {
     public PlayerStats Ran { get; }
     public PlayerStats Rol { get; }
     
-    public static StatManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = new StatManager();
-            return _instance;
-        }
-    }
+	public static StatManager Instance { get { return (_instance == null) ? (_instance = new StatManager ()) : _instance; }}
 
     protected StatManager()
     {
@@ -55,9 +47,10 @@ public class StatManager {
         Ran.GiveMalusTo(Atk);
         Rol.GiveMalusTo(Spe);
 
+		Atk.Ratio = 10;
         Spe.Ratio = 10;
         Ran.Ratio = 8;
-        End.Ratio = 10;
+        End.Ratio = 2;
 
         stats[0] = End;
         stats[1] = Hp;
