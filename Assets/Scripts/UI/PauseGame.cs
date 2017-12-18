@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.PostProcessing;
 using UnityEngine.SceneManagement;
 
-//using UnityStandardAssets.Characters.FirstPerson;
-
+/*
+ * Class managing the pause Menu and its components in game 
+ */
 public class PauseGame : MonoBehaviour
 {
     public Transform canvas;
@@ -34,6 +35,11 @@ public class PauseGame : MonoBehaviour
             Pause();
         }
     }
+
+    /*
+     * Function Allowing the player to pause the game. When the pause button is pressed, the game time and audio stop.
+     * When the pause button is pressed a second time, the game time and audio restart and the player leaver the pause menu
+     */
     public void Pause()
     {
 		if (Time.realtimeSinceStartup - lastToggle > 0.3f)
@@ -73,6 +79,14 @@ public class PauseGame : MonoBehaviour
         }
     }
 
+    /*
+     * All Function under this are called by the canvas inside the game, when the button corresponding button is pressed.
+     * They allow the player nagivate trought all menus the game has.
+     */
+
+    /*
+     * This function handle the Sound menu, and is called when the Sound button from the pause menu is pressed
+     */
     public void Sounds(bool Open)
     {
         if (Open)
@@ -87,7 +101,9 @@ public class PauseGame : MonoBehaviour
         }
     }
 
-
+    /*
+     * This function handle the Video menu, and is called when the Video button from the pause menu is pressed
+     */
     public void VideoSettings(bool Open)
     {
         if (Open)
@@ -102,7 +118,9 @@ public class PauseGame : MonoBehaviour
         }
     }
 
-
+    /*
+     * This function handle the Control menu, and is called when the Control button from the pause menu is pressed
+     */
     public void Controls(bool Open)
     {
         if (Open)
@@ -117,6 +135,10 @@ public class PauseGame : MonoBehaviour
         }
     }
 
+    /*
+     *  This function handle the Save & Quit of the game. It call for a save trought the GameControl script, restart the sound and time, and load the main menu
+     */
+
     public void SaveAndQuit()
     {
 		if (gc != null) {
@@ -127,3 +149,8 @@ public class PauseGame : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 }
+
+/*
+ * This class is based and inspired by the series "Unity 5 making a more advanced pause menu" by MrBuFF 1 on youtube 
+ * 
+ */

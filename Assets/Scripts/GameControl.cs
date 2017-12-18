@@ -26,45 +26,9 @@ public class GameControl : MonoBehaviour {
         Load();
 	}
 
-    public void maxLife()
-    {
-        StatManager sm = StatManager.Instance;
-
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
-        PlayerData data = new PlayerData();
-
-        //data.life = 200;
-		data.atkLevel = sm.Atk.Level;
-		data.atkExperience = sm.Atk.Experience;
-		data.atkCount = sm.Atk.Count;
-		data.atkratio = sm.Atk.Ratio;
-		data.hpLevel = sm.Hp.Level;
-		data.hpExperience = sm.Hp.Experience;
-		data.hpCount = sm.Hp.Count;
-		data.hpRatio = sm.Hp.Ratio;
-		data.speLevel = sm.Spe.Level;
-		data.speExperience = sm.Spe.Experience;
-		data.speCount = sm.Spe.Count;
-		data.speRatio = sm.Spe.Ratio;
-		data.endLevel = sm.End.Level;
-		data.endExperience = sm.End.Experience;
-		data.endCount = sm.End.Count;
-		data.endRatio = sm.End.Ratio;
-		data.ranLevel = sm.End.Level;
-		data.ranExperience = sm.End.Experience;
-		data.ranCount = sm.End.Count;
-		data.ranRatio = sm.End.Ratio;
-		data.rolLevel = sm.Rol.Level;
-		data.rolExperience = sm.Rol.Experience;
-		data.rolCount = sm.Rol.Count;
-		data.rolRatio = sm.Rol.Ratio;
-
-        bf.Serialize(file, data);
-        file.Close();
-
-    }
-
+    /*
+     *  Function used to save the game. It save statistics into a .dat file when call.
+     */
     public void Save()
     {
         StatManager sm = StatManager.Instance;
@@ -104,6 +68,9 @@ public class GameControl : MonoBehaviour {
         file.Close();
     }
 
+    /*
+     *  Function used to load the game. It load statistics from the .dat created when saving.
+     */
     public void Load()
     {
 		try {
@@ -151,6 +118,9 @@ public class GameControl : MonoBehaviour {
     }
 }
 
+/* 
+ * Local class used to save the attributs. It containe all variables for the statistics. It is this class that's save into the .dat file
+ */
 [Serializable]
 class PlayerData
 {
@@ -181,4 +151,6 @@ class PlayerData
     public int rolRatio;
 }
 
-
+/*
+ * This class is based and inspired by the tutorial "Persistence - Saving and Loading Data " on unity3d.com
+ */
