@@ -6,6 +6,7 @@ public class StatManager {
 
     protected static StatManager _instance = null;
 
+	// expérience needed for each levelup
     protected int[] experienceTable = new int[10] { 2, 4, 7, 10, 14, 18, 22, 27, 32, 40 };
     public int[] ExperienceTable { get { return experienceTable; } }
 
@@ -24,6 +25,9 @@ public class StatManager {
     
 	public static StatManager Instance { get { return (_instance == null) ? (_instance = new StatManager ()) : _instance; }}
 
+	/*
+	 * Constructor setting ratios and links between stats
+	 */
     protected StatManager()
     {
         Atk = new PlayerStats();
@@ -60,6 +64,9 @@ public class StatManager {
         stats[5] = Atk;
     }
     
+	/*
+	 * Apply levelups for all stats
+	 */
     public void LevelUp()
     {
         for (int i = 0; i < stats.Length; i++)
@@ -74,6 +81,9 @@ public class StatManager {
         }
     }
 
+	/*
+	 * Apply levelups for ps
+	 */
     public void LevelUp(PlayerStats ps)
     {
         ps.Convert();
@@ -84,6 +94,9 @@ public class StatManager {
         }
     }
 
+	/*
+	 * Apply one levelup for ps
+	 */
     public bool LevelUp(PlayerStats ps, bool OneLevelOnly)
     {
         bool leveledUp = false;
