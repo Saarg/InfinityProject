@@ -40,6 +40,8 @@ public class MainMenuUI : MonoBehaviour {
 
     public void NewGame(string name)
     {
+		Time.timeScale = 1f;
+
 		File.Delete (Application.persistentDataPath + "/playerInfo.dat");
 		StartCoroutine(LoadSceneAfterDelay(name));
     }
