@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4802384322015708}
   - component: {fileID: 33673377331482900}
   - component: {fileID: 23575267017694486}
+  - component: {fileID: 114848069756488568}
   m_Layer: 0
   m_Name: Mesh1_Group2_Group1_Model
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4414375449016786}
   - component: {fileID: 33690112905163002}
   - component: {fileID: 23126322461450968}
+  - component: {fileID: 114739420244254184}
   m_Layer: 0
   m_Name: Mesh2_Group3_Group1_Model
   m_TagString: Untagged
@@ -53,6 +55,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4532106183082928}
+  - component: {fileID: 114314335615582086}
   m_Layer: 0
   m_Name: machinegun
   m_TagString: Untagged
@@ -71,6 +74,8 @@ GameObject:
   - component: {fileID: 114897758743931490}
   - component: {fileID: 82839104373744854}
   - component: {fileID: 82733165118041322}
+  - component: {fileID: 114895103224813294}
+  - component: {fileID: 114340156762954518}
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Weapon
@@ -86,6 +91,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4887093382033494}
+  - component: {fileID: 114368274597133698}
   m_Layer: 0
   m_Name: Canon
   m_TagString: Untagged
@@ -410,6 +416,87 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114314335615582086
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436195394222306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: b8db84a3-8133-4bc8-9af7-0083437799b8
+--- !u!114 &114340156762954518
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1472042221932516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 286464c1-0897-4629-b08c-9ac7db35be16
+--- !u!114 &114368274597133698
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1536129327973046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: b7b6890a-b841-4d49-9707-ba08b701c785
+--- !u!114 &114739420244254184
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425838131378758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: b6b64f58-cd75-4106-b14b-cb61ba2ed024
+--- !u!114 &114848069756488568
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1128718749270594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 5c842270-5d13-47a6-a3f7-990d72704b15
+--- !u!114 &114895103224813294
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1472042221932516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1472042221932516}
+    - {fileID: 1536129327973046}
+    - {fileID: 1436195394222306}
+    - {fileID: 1128718749270594}
+    - {fileID: 1425838131378758}
+  _assetGuid: da1cec6b3e8da4ae8b2fcbf874136f47
 --- !u!114 &114897758743931490
 MonoBehaviour:
   m_ObjectHideFlags: 1

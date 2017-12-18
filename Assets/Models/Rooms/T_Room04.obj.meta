@@ -12,6 +12,9 @@ ModelImporter:
     2300000: default
     3300000: default
     4300000: default
+    11400000: default
+    11400002: //RootNode
+    11400004: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material

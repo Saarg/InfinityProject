@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4169821549323020}
   - component: {fileID: 95733116222720328}
   - component: {fileID: 212179345919383520}
+  - component: {fileID: 114136824225800306}
+  - component: {fileID: 114484625756298334}
   m_Layer: 0
   m_Name: LevelUpAnim
   m_TagString: Untagged
@@ -58,6 +60,35 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114136824225800306
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449312985663098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1449312985663098}
+  _assetGuid: 12e629db1a588c246baf50e0867d45b4
+--- !u!114 &114484625756298334
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449312985663098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 50a9a923-d18a-4ee2-a4c0-cf3b28b1bd1d
 --- !u!212 &212179345919383520
 SpriteRenderer:
   m_ObjectHideFlags: 1

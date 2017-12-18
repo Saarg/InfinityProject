@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 464710}
   - component: {fileID: 19891030}
   - component: {fileID: 19923492}
+  - component: {fileID: 114264643333438568}
   m_Layer: 8
   m_Name: FlamethrowerSmoke
   m_TagString: Untagged
@@ -27,6 +28,8 @@ GameObject:
   - component: {fileID: 412958}
   - component: {fileID: 11498850}
   - component: {fileID: 8256470}
+  - component: {fileID: 114277358450056466}
+  - component: {fileID: 114336369847513284}
   m_Layer: 8
   m_Name: Flamethrower
   m_TagString: Untagged
@@ -44,6 +47,7 @@ GameObject:
   - component: {fileID: 437028}
   - component: {fileID: 19810244}
   - component: {fileID: 19900262}
+  - component: {fileID: 114848651748181268}
   m_Layer: 8
   m_Name: FlamethrowerFire
   m_TagString: Untagged
@@ -6818,3 +6822,58 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163286}
   m_IsPrefabParent: 1
+--- !u!114 &114264643333438568
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 920ddc7a-26cc-4655-b6e7-d0d2b731285e
+--- !u!114 &114277358450056466
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 163286}
+    - {fileID: 188146}
+    - {fileID: 114036}
+  _assetGuid: 50daa816369323b42b56093bb108296f
+--- !u!114 &114336369847513284
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 18f5fe9e-2e0e-4d56-972e-22039e499a2a
+--- !u!114 &114848651748181268
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e808194b-b054-4873-9a6d-676193358c22

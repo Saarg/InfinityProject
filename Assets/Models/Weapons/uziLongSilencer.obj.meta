@@ -32,6 +32,13 @@ ModelImporter:
     4300004: Mesh3_Group4_Group1_Model
     4300006: Mesh4_Group5_Group1_Model
     4300008: Mesh5_Group6_Group1_Model
+    11400000: Mesh1_Group2_Group1_Model
+    11400002: Mesh2_Group3_Group1_Model
+    11400004: Mesh3_Group4_Group1_Model
+    11400006: Mesh4_Group5_Group1_Model
+    11400008: Mesh5_Group6_Group1_Model
+    11400010: //RootNode
+    11400012: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material

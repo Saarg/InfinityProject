@@ -22,6 +22,11 @@ ModelImporter:
     4300000: Mesh1_Group2_Group1_Model
     4300002: Mesh2_Group3_Group1_Model
     4300004: Mesh3_Group4_Group1_Model
+    11400000: //RootNode
+    11400002: //RootNode
+    11400004: Mesh1_Group2_Group1_Model
+    11400006: Mesh2_Group3_Group1_Model
+    11400008: Mesh3_Group4_Group1_Model
   externalObjects:
   - first:
       type: UnityEngine:Material

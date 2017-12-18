@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4505758332049600}
   - component: {fileID: 198931277014333668}
   - component: {fileID: 199277456488187352}
+  - component: {fileID: 114321166777542360}
   m_Layer: 0
   m_Name: PartSpots
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4109178458953494}
   - component: {fileID: 198650478005094412}
   - component: {fileID: 199190705690622082}
+  - component: {fileID: 114016291078540010}
   m_Layer: 0
   m_Name: PartTesla
   m_TagString: Untagged
@@ -55,6 +57,8 @@ GameObject:
   - component: {fileID: 4581874830690176}
   - component: {fileID: 198952140268421598}
   - component: {fileID: 199555673704569912}
+  - component: {fileID: 114446660091224968}
+  - component: {fileID: 114954584969452910}
   m_Layer: 0
   m_Name: VfxBoltLightning
   m_TagString: Untagged
@@ -72,6 +76,7 @@ GameObject:
   - component: {fileID: 4108075204564944}
   - component: {fileID: 198440480065539292}
   - component: {fileID: 199362699182294524}
+  - component: {fileID: 114528204008130412}
   m_Layer: 0
   m_Name: PartSparks
   m_TagString: Untagged
@@ -134,6 +139,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114016291078540010
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505020933592040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: b6f61140-418f-437a-8252-7b38416751f1
+--- !u!114 &114321166777542360
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1495892274616384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 3a5d9bc1-661b-4ef8-af47-4159d8ac04f9
+--- !u!114 &114446660091224968
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594449160331678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1594449160331678}
+    - {fileID: 1920790332883114}
+    - {fileID: 1495892274616384}
+    - {fileID: 1505020933592040}
+  _assetGuid: 86bf5ea41080346548038b8102b367d0
+--- !u!114 &114528204008130412
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1920790332883114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 21d33460-f51e-4ff5-81f8-27903c1c1363
+--- !u!114 &114954584969452910
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594449160331678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 94f1e33e-3d91-4d9d-b842-63445c93ae15
 --- !u!198 &198440480065539292
 ParticleSystem:
   m_ObjectHideFlags: 1

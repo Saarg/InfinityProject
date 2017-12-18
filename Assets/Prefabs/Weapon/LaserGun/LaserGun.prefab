@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4262125564236490}
   - component: {fileID: 33663141157418412}
   - component: {fileID: 23645411967351334}
+  - component: {fileID: 114004250956971924}
   m_Layer: 0
   m_Name: Mesh1_Group2_Group1_Model
   m_TagString: Untagged
@@ -39,6 +40,8 @@ GameObject:
   - component: {fileID: 114236667767127446}
   - component: {fileID: 82015759759907182}
   - component: {fileID: 82826449873962616}
+  - component: {fileID: 114852432507332228}
+  - component: {fileID: 114581054202023862}
   m_Layer: 0
   m_Name: LaserGun
   m_TagString: Weapon
@@ -56,6 +59,7 @@ GameObject:
   - component: {fileID: 4376804736887202}
   - component: {fileID: 33992071379056672}
   - component: {fileID: 23475410679766080}
+  - component: {fileID: 114265692686730704}
   m_Layer: 0
   m_Name: Mesh2_Group3_Group1_Model
   m_TagString: Untagged
@@ -71,6 +75,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4043886735501350}
+  - component: {fileID: 114386775105448708}
   m_Layer: 0
   m_Name: Canon
   m_TagString: Untagged
@@ -86,6 +91,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4040598079109338}
+  - component: {fileID: 114804020634359602}
   m_Layer: 0
   m_Name: flamethrower
   m_TagString: Untagged
@@ -412,6 +418,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114004250956971924
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1243695441847696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 7d147151-5d65-454b-8a91-7a028bd0e4d7
 --- !u!114 &114236667767127446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -428,3 +446,72 @@ MonoBehaviour:
   reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
   _fireSoundSource: {fileID: 82015759759907182}
   _reloadSoundSource: {fileID: 82826449873962616}
+--- !u!114 &114265692686730704
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576334936186240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 722e04a3-dcf7-4ac5-9b0a-1dd6e869961e
+--- !u!114 &114386775105448708
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581973580223334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 83158777-803d-4d83-b4e8-0eead2fe97d8
+--- !u!114 &114581054202023862
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1465193414209524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 16cf2b20-21b9-4b5f-ba62-0479db85cffd
+--- !u!114 &114804020634359602
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1941366555168660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 7f4412fb-d851-40ea-b11d-bb3c0a59257e
+--- !u!114 &114852432507332228
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1465193414209524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1465193414209524}
+    - {fileID: 1581973580223334}
+    - {fileID: 1941366555168660}
+    - {fileID: 1243695441847696}
+    - {fileID: 1576334936186240}
+  _assetGuid: 8858fd1bbf84f41aaa5ac9fc6a75f9ca

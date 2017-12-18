@@ -3,7 +3,7 @@ guid: 8635ad619200dd0488f99cbb185e8363
 timeCreated: 1488323316
 licenseType: Store
 ModelImporter:
-  serializedVersion: 18
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: Bowl.000
     100002: Bowl.000.Collider.Bottom
@@ -648,32 +648,72 @@ ModelImporter:
     4300224: CafetiereLid
     4300226: Cafetiere.Collider
     4300228: CafetiereInnards
+    11400000: Bowl.000
+    11400002: Bowl.000_LOD0
+    11400004: DeepDish.001
+    11400006: DeepDish.001_LOD0
+    11400008: //RootNode
+    11400010: //RootNode
+    11400012: Mug
+    11400014: Mug_LOD0
+    11400016: Plate.000
+    11400018: Plate.000_LOD0
+    11400020: Plate.004
+    11400022: Plate.004_LOD0
+    11400024: Teacup
+    11400026: Teacup_LOD0
+    11400028: Teacupsaucer
+    11400030: Teacupsaucer_LOD0
+    11400032: Teapot
+    11400034: TeapotBase
+    11400036: TeapotBase_LOD0
+    11400038: TeapotLid
+    11400040: TeapotLid_LOD0
     20500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DishesOpaque
+    second: {fileID: 2100000, guid: 53212c90bf1de1b42b71cb5139b3efc8, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages:
-    - .25
-    - .00999999978
+    - 0.25
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -687,24 +727,30 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 0
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

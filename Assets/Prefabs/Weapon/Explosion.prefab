@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4925293375050658}
   - component: {fileID: 198607700426197592}
   - component: {fileID: 199700290554421474}
+  - component: {fileID: 114068058159909064}
   m_Layer: 0
   m_Name: Sparks
   m_TagString: Untagged
@@ -38,6 +39,8 @@ GameObject:
   - component: {fileID: 4494774233658104}
   - component: {fileID: 198395342412284008}
   - component: {fileID: 199902268743549910}
+  - component: {fileID: 114843629101383376}
+  - component: {fileID: 114633801343208670}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -72,6 +75,48 @@ Transform:
   m_Father: {fileID: 4494774233658104}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114068058159909064
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1025027470291794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 64b99347-954c-4053-a8e9-379591ed04e9
+--- !u!114 &114633801343208670
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388731745231246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 6d07087b-8460-4fb7-bdc3-df4292d5c63c
+--- !u!114 &114843629101383376
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388731745231246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1388731745231246}
+    - {fileID: 1025027470291794}
+  _assetGuid: 98f9a98ea77214b83b7824e02e5282bf
 --- !u!198 &198395342412284008
 ParticleSystem:
   m_ObjectHideFlags: 1

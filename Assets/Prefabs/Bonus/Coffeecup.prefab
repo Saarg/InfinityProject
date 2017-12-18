@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4201773127089910}
   - component: {fileID: 198807711461338452}
   - component: {fileID: 199050608019226572}
+  - component: {fileID: 114832955968556822}
   m_Layer: 0
   m_Name: steam
   m_TagString: Untagged
@@ -39,6 +40,8 @@ GameObject:
   - component: {fileID: 33081437407798984}
   - component: {fileID: 23507193236972268}
   - component: {fileID: 64733071537252202}
+  - component: {fileID: 114464110897332336}
+  - component: {fileID: 114432094416339682}
   m_Layer: 0
   m_Name: Coffeecup
   m_TagString: Untagged
@@ -57,6 +60,7 @@ GameObject:
   - component: {fileID: 33812530873945636}
   - component: {fileID: 135171878104074226}
   - component: {fileID: 23022685068495106}
+  - component: {fileID: 114615730378083838}
   m_Layer: 0
   m_Name: coffee
   m_TagString: Untagged
@@ -201,6 +205,61 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300200, guid: 8635ad619200dd0488f99cbb185e8363, type: 3}
+--- !u!114 &114432094416339682
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709272528367908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: ea596d29-c9d6-4220-9021-5381b52388bb
+--- !u!114 &114464110897332336
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709272528367908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1709272528367908}
+    - {fileID: 1892007778514714}
+    - {fileID: 1139617432306288}
+  _assetGuid: 69dfa885816ad1c4dbd5ff88c757ad96
+--- !u!114 &114615730378083838
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892007778514714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 0e8fc636-dab7-4a33-a7bc-a1bc80388808
+--- !u!114 &114832955968556822
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139617432306288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e7edd981-914a-4821-b20e-1ced1d6f79d1
 --- !u!135 &135171878104074226
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4092932643886992}
   - component: {fileID: 33090225270732272}
   - component: {fileID: 23762361785689046}
+  - component: {fileID: 114916539154278118}
   m_Layer: 0
   m_Name: Coffeecup
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4470915556677916}
+  - component: {fileID: 114160164189432684}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -53,6 +55,8 @@ GameObject:
   - component: {fileID: 4484109493525672}
   - component: {fileID: 135725214312249274}
   - component: {fileID: 114296117239901194}
+  - component: {fileID: 114738482128722798}
+  - component: {fileID: 114176789263195266}
   m_Layer: 0
   m_Name: MaxLife
   m_TagString: Bonus
@@ -70,6 +74,7 @@ GameObject:
   - component: {fileID: 4084820206387934}
   - component: {fileID: 33675911456718988}
   - component: {fileID: 23455865948673160}
+  - component: {fileID: 114111878049089718}
   m_Layer: 0
   m_Name: coffee
   m_TagString: Untagged
@@ -87,6 +92,7 @@ GameObject:
   - component: {fileID: 4632136091006556}
   - component: {fileID: 198890024501513498}
   - component: {fileID: 199625128884501162}
+  - component: {fileID: 114375091857332088}
   m_Layer: 0
   m_Name: steam
   m_TagString: Untagged
@@ -245,6 +251,42 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1631353367902610}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114111878049089718
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631353367902610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 549bcb22-b12c-49b9-a4d2-6b98fedbd86f
+--- !u!114 &114160164189432684
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458671803359986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: fa467bab-b9e0-4a27-be37-9f937316c70f
+--- !u!114 &114176789263195266
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573279306891820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 5338f467-cb69-4468-9b25-0a5a35e27299
 --- !u!114 &114296117239901194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,6 +329,51 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   lifeRegen: 9999
+--- !u!114 &114375091857332088
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807865349313202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 97209029-9326-42e4-b822-e0a3b099d9a4
+--- !u!114 &114738482128722798
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573279306891820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1573279306891820}
+    - {fileID: 1458671803359986}
+    - {fileID: 1041224256234672}
+    - {fileID: 1631353367902610}
+    - {fileID: 1807865349313202}
+  _assetGuid: 034aea89c96084dda91c58cccafea423
+--- !u!114 &114916539154278118
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041224256234672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 85aaa425-18db-46fd-8a48-3e95dfd11364
 --- !u!135 &135725214312249274
 SphereCollider:
   m_ObjectHideFlags: 1

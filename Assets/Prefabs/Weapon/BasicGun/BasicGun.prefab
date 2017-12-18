@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4682547194876214}
+  - component: {fileID: 114212080015331928}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -34,6 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4002756486439532}
+  - component: {fileID: 114896123105230148}
   m_Layer: 0
   m_Name: Canon
   m_TagString: Untagged
@@ -52,6 +54,8 @@ GameObject:
   - component: {fileID: 114941029351881340}
   - component: {fileID: 82253431118284126}
   - component: {fileID: 82438117658618558}
+  - component: {fileID: 114244748449092436}
+  - component: {fileID: 114398661484580060}
   m_Layer: 0
   m_Name: BasicGun
   m_TagString: Weapon
@@ -69,6 +73,7 @@ GameObject:
   - component: {fileID: 4708728922958536}
   - component: {fileID: 33377191527287590}
   - component: {fileID: 23956851839139256}
+  - component: {fileID: 114637350787256500}
   m_Layer: 0
   m_Name: Mesh2_Group3_Group1_Model
   m_TagString: Untagged
@@ -86,6 +91,7 @@ GameObject:
   - component: {fileID: 4333052725561542}
   - component: {fileID: 33937066400444374}
   - component: {fileID: 23335338733361026}
+  - component: {fileID: 114121581463143210}
   m_Layer: 0
   m_Name: Mesh1_Group2_Group1_Model
   m_TagString: Untagged
@@ -408,6 +414,87 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114121581463143210
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888591755303362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 9edf2236-5770-4e98-8a27-406201bd4e31
+--- !u!114 &114212080015331928
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1007127137682546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 394bdcb3-7600-4e4e-973e-cbb07b8c431b
+--- !u!114 &114244748449092436
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202708191521844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1202708191521844}
+    - {fileID: 1161747348997496}
+    - {fileID: 1007127137682546}
+    - {fileID: 1888591755303362}
+    - {fileID: 1858696252496594}
+  _assetGuid: d12a81c47205d4090912baf025b88061
+--- !u!114 &114398661484580060
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202708191521844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 8b17e6b1-3254-45a5-92da-f93ce2cd92d0
+--- !u!114 &114637350787256500
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858696252496594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 7edeef24-9883-45ea-8809-065a717ef4b2
+--- !u!114 &114896123105230148
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161747348997496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 0ab987c9-2801-40fc-a179-78b84387e1ef
 --- !u!114 &114941029351881340
 MonoBehaviour:
   m_ObjectHideFlags: 1

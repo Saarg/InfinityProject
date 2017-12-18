@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 414434}
   - component: {fileID: 19873038}
   - component: {fileID: 19929662}
+  - component: {fileID: 114831858112372326}
   m_Layer: 8
   m_Name: MeteorShrapnelParticleSystem
   m_TagString: Untagged
@@ -26,6 +27,8 @@ GameObject:
   m_Component:
   - component: {fileID: 424980}
   - component: {fileID: 11447354}
+  - component: {fileID: 114047405407873510}
+  - component: {fileID: 114378689116363428}
   m_Layer: 8
   m_Name: MeteorSwarm
   m_TagString: Untagged
@@ -43,6 +46,7 @@ GameObject:
   - component: {fileID: 466070}
   - component: {fileID: 19841648}
   - component: {fileID: 19912860}
+  - component: {fileID: 114989980215948234}
   m_Layer: 8
   m_Name: MeteorExplosionParticleSystem
   m_TagString: Untagged
@@ -6875,3 +6879,58 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165786}
   m_IsPrefabParent: 1
+--- !u!114 &114047405407873510
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 165786}
+    - {fileID: 180176}
+    - {fileID: 130302}
+  _assetGuid: d7b50f004cdc74b409188d8b822292fc
+--- !u!114 &114378689116363428
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: fb449175-11a5-45c9-92b2-96c6cbad5813
+--- !u!114 &114831858112372326
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 4dc2842a-251e-412e-ae2f-3c25d936e4e2
+--- !u!114 &114989980215948234
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 9df5d579-f16a-4bd6-8857-d3c2deec849a

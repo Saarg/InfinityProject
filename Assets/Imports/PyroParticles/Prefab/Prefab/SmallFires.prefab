@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 403168}
   - component: {fileID: 19922014}
   - component: {fileID: 19818194}
+  - component: {fileID: 114513150528978468}
   m_Layer: 8
   m_Name: SmallFiresSparksParticleSystem
   m_TagString: Untagged
@@ -26,6 +27,7 @@ GameObject:
   m_Component:
   - component: {fileID: 437396}
   - component: {fileID: 10880456}
+  - component: {fileID: 114826818761024982}
   m_Layer: 8
   m_Name: SmallFiresLight
   m_TagString: Untagged
@@ -43,6 +45,7 @@ GameObject:
   - component: {fileID: 437804}
   - component: {fileID: 19963694}
   - component: {fileID: 19830650}
+  - component: {fileID: 114997592951444480}
   m_Layer: 8
   m_Name: SmallFiresSmoke
   m_TagString: Untagged
@@ -60,6 +63,7 @@ GameObject:
   - component: {fileID: 411110}
   - component: {fileID: 19809690}
   - component: {fileID: 19907964}
+  - component: {fileID: 114237647077432622}
   m_Layer: 8
   m_Name: SmallFiresParticleSystem
   m_TagString: Untagged
@@ -76,6 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 429132}
   - component: {fileID: 8233310}
+  - component: {fileID: 114774687768253724}
   m_Layer: 8
   m_Name: SmallFiresSound
   m_TagString: Untagged
@@ -93,6 +98,8 @@ GameObject:
   - component: {fileID: 458676}
   - component: {fileID: 11426332}
   - component: {fileID: 11437672}
+  - component: {fileID: 114956416671608698}
+  - component: {fileID: 114179237414829448}
   m_Layer: 8
   m_Name: SmallFires
   m_TagString: Untagged
@@ -10470,3 +10477,97 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 198690}
   m_IsPrefabParent: 1
+--- !u!114 &114179237414829448
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: a3e0d4ca-10df-4fdc-a9a9-59a6c60de203
+--- !u!114 &114237647077432622
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 3d68b864-617a-476f-ac7d-b4c9558c022c
+--- !u!114 &114513150528978468
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 15936ce0-6994-46cd-af6d-79c963c8cb6f
+--- !u!114 &114774687768253724
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 39e4f8e6-a000-47bf-bead-ba80860539f4
+--- !u!114 &114826818761024982
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: d07aa9ae-4f61-4140-97db-da820aa6c1c3
+--- !u!114 &114956416671608698
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 198690}
+    - {fileID: 164568}
+    - {fileID: 121464}
+    - {fileID: 170630}
+    - {fileID: 125252}
+    - {fileID: 125106}
+  _assetGuid: 18faec2a14493684d905501076799765
+--- !u!114 &114997592951444480
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 32d79a8e-f284-4a27-af91-6ef7cb9ad2de

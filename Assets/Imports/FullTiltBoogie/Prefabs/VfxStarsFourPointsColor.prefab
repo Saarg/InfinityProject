@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4229216837901108}
   - component: {fileID: 198642185104091302}
   - component: {fileID: 199904633538571564}
+  - component: {fileID: 114735502035655676}
   m_Layer: 0
   m_Name: StarsFourPointsWhite
   m_TagString: Untagged
@@ -38,6 +39,8 @@ GameObject:
   - component: {fileID: 4011109011392102}
   - component: {fileID: 198354506248529134}
   - component: {fileID: 199628128786104444}
+  - component: {fileID: 114767238628035942}
+  - component: {fileID: 114122366218046284}
   m_Layer: 0
   m_Name: VfxStarsFourPointsColor
   m_TagString: Untagged
@@ -72,6 +75,48 @@ Transform:
   m_Father: {fileID: 4011109011392102}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114122366218046284
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1946409831965702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 3c1a0dd4-7ed3-4128-8e58-18dc0d57582b
+--- !u!114 &114735502035655676
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890092943436966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: b7e7d261-abc0-4ee5-b32d-48107eaf8db2
+--- !u!114 &114767238628035942
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1946409831965702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1946409831965702}
+    - {fileID: 1890092943436966}
+  _assetGuid: 27c09fea11be34b148f96c4e2b673aa3
 --- !u!198 &198354506248529134
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4793133414487432}
   - component: {fileID: 198564572868971068}
   - component: {fileID: 199128685745559198}
+  - component: {fileID: 114677853588422530}
   m_Layer: 0
   m_Name: steam
   m_TagString: Untagged
@@ -38,6 +39,8 @@ GameObject:
   - component: {fileID: 4484109493525672}
   - component: {fileID: 135725214312249274}
   - component: {fileID: 114296117239901194}
+  - component: {fileID: 114904263313983362}
+  - component: {fileID: 114505613258417326}
   m_Layer: 0
   m_Name: Life
   m_TagString: Bonus
@@ -55,6 +58,7 @@ GameObject:
   - component: {fileID: 4076548592915074}
   - component: {fileID: 33896373503384148}
   - component: {fileID: 23383453284917042}
+  - component: {fileID: 114610208967743238}
   m_Layer: 0
   m_Name: Coffeecup
   m_TagString: Untagged
@@ -70,6 +74,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4373829407257936}
+  - component: {fileID: 114089741635667262}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -87,6 +92,7 @@ GameObject:
   - component: {fileID: 4388549215404104}
   - component: {fileID: 33142416278346126}
   - component: {fileID: 23775859366286894}
+  - component: {fileID: 114544970258623252}
   m_Layer: 0
   m_Name: coffee
   m_TagString: Untagged
@@ -245,6 +251,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1586981852012544}
   m_Mesh: {fileID: 4300200, guid: 8635ad619200dd0488f99cbb185e8363, type: 3}
+--- !u!114 &114089741635667262
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1887698904763426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 3a38f380-c776-4a9c-bc97-67bc2e8a7e80
 --- !u!114 &114296117239901194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,6 +305,75 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   lifeRegen: 20
+--- !u!114 &114505613258417326
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573279306891820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 7c27d629-8570-44b2-8f00-8cce9b17463c
+--- !u!114 &114544970258623252
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889643671562000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: c68a5d40-9fec-46e9-871b-d40459484dde
+--- !u!114 &114610208967743238
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1586981852012544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 29b5cdbf-ca27-44cd-9db4-09e2e75dba37
+--- !u!114 &114677853588422530
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1023991217566578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 5289e2e4-410b-43e6-b198-4cfd3e8c03d3
+--- !u!114 &114904263313983362
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573279306891820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1573279306891820}
+    - {fileID: 1887698904763426}
+    - {fileID: 1586981852012544}
+    - {fileID: 1889643671562000}
+    - {fileID: 1023991217566578}
+  _assetGuid: cddc9aac8f52e4d06bc945d01ae3ecb9
 --- !u!135 &135725214312249274
 SphereCollider:
   m_ObjectHideFlags: 1

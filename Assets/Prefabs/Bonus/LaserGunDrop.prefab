@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4770505568483730}
   - component: {fileID: 33906196723037394}
   - component: {fileID: 23601753564102174}
+  - component: {fileID: 114990162624027688}
   m_Layer: 0
   m_Name: Mesh1_Group2_Group1_Model
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4591955993057818}
   - component: {fileID: 33488172801053994}
   - component: {fileID: 23417658188110516}
+  - component: {fileID: 114644270413948302}
   m_Layer: 0
   m_Name: Mesh2_Group3_Group1_Model
   m_TagString: Untagged
@@ -55,6 +57,8 @@ GameObject:
   - component: {fileID: 4091550594350922}
   - component: {fileID: 135016025918368668}
   - component: {fileID: 114353546722036298}
+  - component: {fileID: 114987504772549356}
+  - component: {fileID: 114537370814064666}
   m_Layer: 0
   m_Name: LaserGunDrop
   m_TagString: Bonus
@@ -70,6 +74,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4300188958944702}
+  - component: {fileID: 114069424790429142}
   m_Layer: 0
   m_Name: flamethrower
   m_TagString: Untagged
@@ -220,6 +225,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015579663842002}
   m_Mesh: {fileID: 4300000, guid: 605c61b4d47005948ab7a3524736b875, type: 3}
+--- !u!114 &114069424790429142
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1676344467022642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 3d3c3972-5af2-4d61-9f5e-cf89c11bdd5c
 --- !u!114 &114353546722036298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,6 +279,62 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   gun: {fileID: 1465193414209524, guid: 8858fd1bbf84f41aaa5ac9fc6a75f9ca, type: 2}
+--- !u!114 &114537370814064666
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585236912945346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 3aa0dd42-1d5a-4623-a7e0-7027d655d442
+--- !u!114 &114644270413948302
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219297984446450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 3b1cc4f2-f9a1-4161-815a-e8caa6c8ae58
+--- !u!114 &114987504772549356
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585236912945346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1585236912945346}
+    - {fileID: 1676344467022642}
+    - {fileID: 1015579663842002}
+    - {fileID: 1219297984446450}
+  _assetGuid: 47d99c566835b47b79ab637428fbd91c
+--- !u!114 &114990162624027688
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015579663842002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: c2464d90-e2c7-43ff-aeda-a7912f07df03
 --- !u!135 &135016025918368668
 SphereCollider:
   m_ObjectHideFlags: 1

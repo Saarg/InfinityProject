@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4909247211457658}
   - component: {fileID: 212456959993897290}
+  - component: {fileID: 114385993787172080}
+  - component: {fileID: 114795986502195662}
   m_Layer: 0
   m_Name: FireboltShadow
   m_TagString: Untagged
@@ -40,6 +42,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &114385993787172080
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618832561364566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1618832561364566}
+  _assetGuid: febfed2e4a14b9f4a8b69181c600b0dc
+--- !u!114 &114795986502195662
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618832561364566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 5390982c-6bb6-459c-85a5-b7f00390a10e
 --- !u!212 &212456959993897290
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4231521631792078}
+  - component: {fileID: 114302446014689046}
+  - component: {fileID: 114760408864615300}
   m_Layer: 0
   m_Name: BigRoom01
   m_TagString: Untagged
@@ -37,6 +39,7 @@ GameObject:
   - component: {fileID: 33175806785636834}
   - component: {fileID: 23845334519536008}
   - component: {fileID: 64289467603677318}
+  - component: {fileID: 114117185326456612}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -128,3 +131,45 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 913eeb241729f41c5b7a45a193da97ea, type: 3}
+--- !u!114 &114117185326456612
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299385205592188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 2b6a0eeb-a545-4d46-a523-acd9015f9c78
+--- !u!114 &114302446014689046
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1241142116002112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1241142116002112}
+    - {fileID: 1299385205592188}
+  _assetGuid: 462fe27ed03844921962ec5040021ce5
+--- !u!114 &114760408864615300
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1241142116002112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 79abfcf7-7774-4e82-9aa9-f45c82a07818

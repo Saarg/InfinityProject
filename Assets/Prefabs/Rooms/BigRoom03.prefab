@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4316114977224704}
   - component: {fileID: 114590656112721138}
+  - component: {fileID: 114515418110194802}
+  - component: {fileID: 114207240651870744}
   m_Layer: 0
   m_Name: BigRoom03
   m_TagString: Untagged
@@ -38,6 +40,7 @@ GameObject:
   - component: {fileID: 33000199726897024}
   - component: {fileID: 23861167452344772}
   - component: {fileID: 64586775378816188}
+  - component: {fileID: 114253971862610734}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -129,6 +132,48 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ce9d088eaa122454fae28907abd2b213, type: 3}
+--- !u!114 &114207240651870744
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229481069390292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 567fc60e-55b8-4633-a1e8-a2ba5bd97fe4
+--- !u!114 &114253971862610734
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1513158287498968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 34822337-9941-42c8-bade-f19a0c8e841a
+--- !u!114 &114515418110194802
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229481069390292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1229481069390292}
+    - {fileID: 1513158287498968}
+  _assetGuid: 39b5e81e63df34fb7a7ebf8547c7840e
 --- !u!114 &114590656112721138
 MonoBehaviour:
   m_ObjectHideFlags: 1

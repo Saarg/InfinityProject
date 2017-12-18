@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4031128410014908}
   - component: {fileID: 198002010229779104}
   - component: {fileID: 199720059720028738}
+  - component: {fileID: 114839170572441674}
   m_Layer: 0
   m_Name: FireworkSecondary
   m_TagString: Untagged
@@ -38,6 +39,8 @@ GameObject:
   - component: {fileID: 4282450904195556}
   - component: {fileID: 198146951261414848}
   - component: {fileID: 199755001500899396}
+  - component: {fileID: 114653749306833704}
+  - component: {fileID: 114291867379086724}
   m_Layer: 0
   m_Name: VfxBoomFireworks
   m_TagString: Untagged
@@ -72,6 +75,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -51, y: 0, z: 0}
+--- !u!114 &114291867379086724
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529346900646540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 20de876a-2296-4b27-80b1-5e77b818fb15
+--- !u!114 &114653749306833704
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529346900646540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1529346900646540}
+    - {fileID: 1035758650956878}
+  _assetGuid: f84c9d08380504b3cacfb91e6a345927
+--- !u!114 &114839170572441674
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035758650956878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: abf0ed2a-d0b4-4478-9d35-24f8a6251c63
 --- !u!198 &198002010229779104
 ParticleSystem:
   m_ObjectHideFlags: 1

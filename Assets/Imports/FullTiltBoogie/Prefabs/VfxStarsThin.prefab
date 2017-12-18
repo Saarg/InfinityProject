@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4496706374772336}
   - component: {fileID: 198780762164436258}
   - component: {fileID: 199683810215730214}
+  - component: {fileID: 114839770908717074}
+  - component: {fileID: 114605264416036394}
   m_Layer: 0
   m_Name: VfxStarsThin
   m_TagString: Untagged
@@ -41,6 +43,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114605264416036394
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1933607824282986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 0be2bc68-f3fd-49ef-ba7a-1e95c2bde40f
+--- !u!114 &114839770908717074
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1933607824282986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1933607824282986}
+  _assetGuid: 3c87503deada045dfad4b3f34d340ae0
 --- !u!198 &198780762164436258
 ParticleSystem:
   m_ObjectHideFlags: 1

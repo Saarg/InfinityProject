@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8228610}
   - component: {fileID: 11462752}
   - component: {fileID: 11450262}
+  - component: {fileID: 114794672013076724}
+  - component: {fileID: 114000557415920396}
   m_Layer: 8
   m_Name: Fireball
   m_TagString: Untagged
@@ -31,6 +33,7 @@ GameObject:
   - component: {fileID: 5453920}
   - component: {fileID: 10860366}
   - component: {fileID: 11437010}
+  - component: {fileID: 114847041132398268}
   m_Layer: 8
   m_Name: FireballCollider
   m_TagString: Untagged
@@ -48,6 +51,7 @@ GameObject:
   - component: {fileID: 419864}
   - component: {fileID: 19886674}
   - component: {fileID: 19993248}
+  - component: {fileID: 114077786398420206}
   m_Layer: 8
   m_Name: FireballProjectiles
   m_TagString: Untagged
@@ -65,6 +69,7 @@ GameObject:
   - component: {fileID: 492682}
   - component: {fileID: 19810394}
   - component: {fileID: 19908910}
+  - component: {fileID: 114920939415731238}
   m_Layer: 8
   m_Name: FireballTail
   m_TagString: Untagged
@@ -82,6 +87,7 @@ GameObject:
   - component: {fileID: 407174}
   - component: {fileID: 19899590}
   - component: {fileID: 19998884}
+  - component: {fileID: 114709330290044824}
   m_Layer: 8
   m_Name: FireballExplosion
   m_TagString: Untagged
@@ -450,6 +456,9 @@ MonoBehaviour:
   ProjectileDestroyParticleSystemsOnCollision:
   - {fileID: 19810394}
   - {fileID: 19886674}
+  player: {fileID: 0}
+  boss: {fileID: 0}
+  shadowPrefab: {fileID: 0}
 --- !u!114 &11462752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10452,3 +10461,84 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121802}
   m_IsPrefabParent: 1
+--- !u!114 &114000557415920396
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 7cb31412-b61a-46e1-9d26-b6a4db342904
+--- !u!114 &114077786398420206
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 6e531fe1-21ca-4850-bbc6-c822d713d850
+--- !u!114 &114709330290044824
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: be98fc4a-adae-4243-a3db-89845cb212e7
+--- !u!114 &114794672013076724
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 121802}
+    - {fileID: 132348}
+    - {fileID: 160908}
+    - {fileID: 130866}
+    - {fileID: 196570}
+  _assetGuid: 8f18e1d8c46c51f429429815455062fc
+--- !u!114 &114847041132398268
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 83514ffc-feda-4e9a-af90-1d7b749684af
+--- !u!114 &114920939415731238
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 60f5afdf-b958-4f4b-a904-6f6cc9bf4611

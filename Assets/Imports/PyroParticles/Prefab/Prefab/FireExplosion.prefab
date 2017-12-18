@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 11444152}
   - component: {fileID: 8229636}
   - component: {fileID: 11450062}
+  - component: {fileID: 114101635295680634}
+  - component: {fileID: 114877831662196078}
   m_Layer: 8
   m_Name: FireExplosion
   m_TagString: Untagged
@@ -28,6 +30,7 @@ GameObject:
   - component: {fileID: 408734}
   - component: {fileID: 19868290}
   - component: {fileID: 19945006}
+  - component: {fileID: 114945020566197082}
   m_Layer: 8
   m_Name: FireShrapnel
   m_TagString: Untagged
@@ -44,6 +47,7 @@ GameObject:
   m_Component:
   - component: {fileID: 477072}
   - component: {fileID: 10875142}
+  - component: {fileID: 114812423800562950}
   m_Layer: 8
   m_Name: FireBallLight
   m_TagString: Untagged
@@ -61,6 +65,7 @@ GameObject:
   - component: {fileID: 496920}
   - component: {fileID: 19834194}
   - component: {fileID: 19979720}
+  - component: {fileID: 114708316868427572}
   m_Layer: 8
   m_Name: Explosion
   m_TagString: Untagged
@@ -7030,3 +7035,71 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131164}
   m_IsPrefabParent: 1
+--- !u!114 &114101635295680634
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 131164}
+    - {fileID: 159814}
+    - {fileID: 156142}
+    - {fileID: 157898}
+  _assetGuid: 3c5f4e32698bdb04eaed647f60310510
+--- !u!114 &114708316868427572
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e47e9645-52e2-4814-b920-4a9c6e5d274b
+--- !u!114 &114812423800562950
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: f3073ee3-5662-441c-ab10-7b5fa4f979f0
+--- !u!114 &114877831662196078
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e36194f2-4e6f-4573-ab28-2e0b339472f6
+--- !u!114 &114945020566197082
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: b0264ac2-ad50-48ff-833f-67a9d9031f55

@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 9617906}
   - component: {fileID: 8206854}
   - component: {fileID: 13509832}
+  - component: {fileID: 114576176434348804}
+  - component: {fileID: 114135381625995436}
   m_Layer: 8
   m_Name: Meteor
   m_TagString: Untagged
@@ -316,3 +318,32 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 164416}
   m_IsPrefabParent: 1
+--- !u!114 &114135381625995436
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 5331f46d-2070-48cd-ae36-8eee1fa2ce29
+--- !u!114 &114576176434348804
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 164416}
+  _assetGuid: 8aeb2c0224fe763499eed3ec0587162b

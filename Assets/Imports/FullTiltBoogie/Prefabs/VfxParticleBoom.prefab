@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4304038805052794}
   - component: {fileID: 198299737526043884}
   - component: {fileID: 199255698050053800}
+  - component: {fileID: 114817202081615658}
+  - component: {fileID: 114022859530033736}
   m_Layer: 0
   m_Name: VfxParticleBoom
   m_TagString: Untagged
@@ -41,6 +43,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114022859530033736
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1506902717015244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e2962d5e-1680-42e4-b376-7c2b2ac125f4
+--- !u!114 &114817202081615658
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1506902717015244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1506902717015244}
+  _assetGuid: 260289419ad374fd49c4be36e2c1165e
 --- !u!198 &198299737526043884
 ParticleSystem:
   m_ObjectHideFlags: 1

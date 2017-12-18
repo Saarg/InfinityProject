@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4066674752302788}
   - component: {fileID: 33173880880304042}
   - component: {fileID: 23172470483050174}
+  - component: {fileID: 114177379403143952}
   m_Layer: 0
   m_Name: Mesh2_Group3_Group1_Model
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4050884367862570}
+  - component: {fileID: 114038783907033102}
   m_Layer: 0
   m_Name: rocketlauncher
   m_TagString: Untagged
@@ -53,6 +55,7 @@ GameObject:
   - component: {fileID: 4194888821963130}
   - component: {fileID: 33110101513540062}
   - component: {fileID: 23139883727566382}
+  - component: {fileID: 114722099818590768}
   m_Layer: 0
   m_Name: Mesh1_Group2_Group1_Model
   m_TagString: Untagged
@@ -70,6 +73,8 @@ GameObject:
   - component: {fileID: 4161709161492044}
   - component: {fileID: 135735958792445684}
   - component: {fileID: 114230928435037082}
+  - component: {fileID: 114053156070645262}
+  - component: {fileID: 114232006712934266}
   m_Layer: 0
   m_Name: ExplGunDrop
   m_TagString: Bonus
@@ -218,6 +223,50 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207552826618464}
   m_Mesh: {fileID: 4300002, guid: 4fb74fb21026918458c30bf3c72ab0ed, type: 3}
+--- !u!114 &114038783907033102
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305412310820884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: f7e55a60-46e2-4352-a226-3f4824455ac3
+--- !u!114 &114053156070645262
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547212003787376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1547212003787376}
+    - {fileID: 1305412310820884}
+    - {fileID: 1325352458510346}
+    - {fileID: 1207552826618464}
+  _assetGuid: 81d0c9740ea6949f6b2a75f16e10e129
+--- !u!114 &114177379403143952
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1207552826618464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 56334d8a-b67c-41aa-a612-9b562d6eb17f
 --- !u!114 &114230928435037082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -260,6 +309,30 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   gun: {fileID: 1423002512118080, guid: 8892387d1adaa4a4a945a5aac62b0cdc, type: 2}
+--- !u!114 &114232006712934266
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547212003787376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 7e3d7ba1-4444-429a-a30c-bee55b366386
+--- !u!114 &114722099818590768
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325352458510346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 50ad7162-7cbf-41f3-8ea8-a6b91017cef3
 --- !u!135 &135735958792445684
 SphereCollider:
   m_ObjectHideFlags: 1

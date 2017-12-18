@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4203847557005818}
   - component: {fileID: 114492741285341114}
+  - component: {fileID: 114364875314915958}
+  - component: {fileID: 114114823971005526}
   m_Layer: 0
   m_Name: S_Room01
   m_TagString: Untagged
@@ -40,6 +42,7 @@ GameObject:
   - component: {fileID: 65915322684999464}
   - component: {fileID: 65281960082161948}
   - component: {fileID: 65277484012162054}
+  - component: {fileID: 114360435393140822}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -152,6 +155,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.325, y: 0.071893014, z: 9.125}
   m_Center: {x: 0, y: 0.035946507, z: 0}
+--- !u!114 &114114823971005526
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1879621155196528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 46867ac6-468e-4028-9c0a-97d0728d1cef
+--- !u!114 &114360435393140822
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894828691810118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 48e34d7d-910d-4b13-9755-3c1927d96da4
+--- !u!114 &114364875314915958
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1879621155196528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1879621155196528}
+    - {fileID: 1894828691810118}
+  _assetGuid: bf9053b2d1b1d41d18976c9074047dfc
 --- !u!114 &114492741285341114
 MonoBehaviour:
   m_ObjectHideFlags: 1

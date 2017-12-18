@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4423955923121002}
   - component: {fileID: 198216200989262582}
   - component: {fileID: 199939416232737592}
+  - component: {fileID: 114301821171652376}
+  - component: {fileID: 114439702450352996}
   m_Layer: 0
   m_Name: VfxStarWide
   m_TagString: Untagged
@@ -41,6 +43,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114301821171652376
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098245772625174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1098245772625174}
+  _assetGuid: d350ad29b27c64ecbad769fd1feff30a
+--- !u!114 &114439702450352996
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098245772625174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: f4069ae4-74b3-4e9a-99a4-e1a51669642e
 --- !u!198 &198216200989262582
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4611820387977554}
   - component: {fileID: 114688035070572200}
+  - component: {fileID: 114142808219504854}
+  - component: {fileID: 114312825376267746}
   m_Layer: 0
   m_Name: BigRoom02
   m_TagString: Untagged
@@ -38,6 +40,7 @@ GameObject:
   - component: {fileID: 33283846588747884}
   - component: {fileID: 23748911830342288}
   - component: {fileID: 64618186639927090}
+  - component: {fileID: 114378601847819840}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -129,6 +132,48 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 4ec7c7e7a02a94e39a2f8c2ce1fde13a, type: 3}
+--- !u!114 &114142808219504854
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1413097189674088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1413097189674088}
+    - {fileID: 1895068613213666}
+  _assetGuid: 896c85a366d974b2fa61a33cf504c55c
+--- !u!114 &114312825376267746
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1413097189674088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 99c67ca0-3eee-4074-841a-abb35e13e13c
+--- !u!114 &114378601847819840
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1895068613213666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: dd218b5d-cd19-42fb-91da-8e1068bbc341
 --- !u!114 &114688035070572200
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4227599545794952}
+  - component: {fileID: 114797485511937690}
   m_Layer: 8
   m_Name: GunAnchor
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   - component: {fileID: 4307426399570066}
   - component: {fileID: 33139179411733476}
   - component: {fileID: 23524318212319922}
+  - component: {fileID: 114983169726872572}
   m_Layer: 0
   m_Name: Glasses
   m_TagString: Untagged
@@ -58,6 +60,8 @@ GameObject:
   - component: {fileID: 143808444913122978}
   - component: {fileID: 82948644215209118}
   - component: {fileID: 54719270821965766}
+  - component: {fileID: 114778155369771598}
+  - component: {fileID: 114500454062554786}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -301,10 +305,10 @@ MonoBehaviour:
   sight: {fileID: 0}
   sightRange: 0
   destination: {x: 0, y: 0, z: 0}
-  Weakness: 
-  WeaknessFactor: 0
-  Resistance: 
-  ResistanceFactor: 0
+  weakness: 
+  weaknessFactor: 0
+  resistance: 
+  resistanceFactor: 0
   _life: 200
   _maxLife: 200
   _speed: 3
@@ -363,6 +367,61 @@ MonoBehaviour:
   _staminaRegen: 1
   player: 0
   playerCamera: {fileID: 0}
+--- !u!114 &114500454062554786
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926701957401006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: c2bf9e96-9b5c-4aa6-9b6d-869723c54c54
+--- !u!114 &114778155369771598
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926701957401006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1926701957401006}
+    - {fileID: 1667058515165978}
+    - {fileID: 1300562174168322}
+  _assetGuid: 99d735a2e0bc94ac9aceec99b42d0df0
+--- !u!114 &114797485511937690
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1300562174168322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: fb438a15-24e6-4c1e-8442-2cc058afafc9
+--- !u!114 &114983169726872572
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667058515165978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 685edfc4-755e-4dc7-808d-c90b90ff8e07
 --- !u!136 &136127385553721194
 CapsuleCollider:
   m_ObjectHideFlags: 1

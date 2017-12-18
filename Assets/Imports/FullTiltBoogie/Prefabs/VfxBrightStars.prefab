@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4249359944124282}
   - component: {fileID: 198221453913853704}
   - component: {fileID: 199918003474289206}
+  - component: {fileID: 114308148421850816}
+  - component: {fileID: 114582592509289822}
   m_Layer: 0
   m_Name: VfxBrightStars
   m_TagString: Untagged
@@ -41,6 +43,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114308148421850816
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015576372813440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1015576372813440}
+  _assetGuid: fbdb0b280789440678aa36806de97767
+--- !u!114 &114582592509289822
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015576372813440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 3874de99-75b6-42cf-9b27-f2a41e98fcb4
 --- !u!198 &198221453913853704
 ParticleSystem:
   m_ObjectHideFlags: 1

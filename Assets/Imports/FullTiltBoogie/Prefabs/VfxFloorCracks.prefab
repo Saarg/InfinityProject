@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4034258267964544}
   - component: {fileID: 198916127662964932}
   - component: {fileID: 199961930931942566}
+  - component: {fileID: 114206537361412136}
   m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
@@ -38,6 +39,8 @@ GameObject:
   - component: {fileID: 4501410924341958}
   - component: {fileID: 198911104483476078}
   - component: {fileID: 199356963113204450}
+  - component: {fileID: 114329545028009446}
+  - component: {fileID: 114883958157380188}
   m_Layer: 0
   m_Name: VfxFloorCracks
   m_TagString: Untagged
@@ -72,6 +75,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114206537361412136
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1185325302264186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 53dba1f0-0752-458e-a0a4-a3c332dea10a
+--- !u!114 &114329545028009446
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669516710580868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1669516710580868}
+    - {fileID: 1185325302264186}
+  _assetGuid: 26b77f0fd87cf4c3cad946a4ddd18e35
+--- !u!114 &114883958157380188
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669516710580868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 44d30e30-d538-47f8-a50c-3dfdd3b2eda1
 --- !u!198 &198911104483476078
 ParticleSystem:
   m_ObjectHideFlags: 1

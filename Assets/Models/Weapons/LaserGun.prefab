@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4212253831405432}
   - component: {fileID: 33247141966982560}
   - component: {fileID: 23891193919813146}
+  - component: {fileID: 114627373046250142}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4637130127621676}
   - component: {fileID: 33500395559750982}
   - component: {fileID: 23686223273046630}
+  - component: {fileID: 114891090499072810}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -55,6 +57,7 @@ GameObject:
   - component: {fileID: 4319152310047324}
   - component: {fileID: 33313089449057706}
   - component: {fileID: 23175982722690732}
+  - component: {fileID: 114787020722955308}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -72,6 +75,7 @@ GameObject:
   - component: {fileID: 4061892446991226}
   - component: {fileID: 33042221404700894}
   - component: {fileID: 23635326567513016}
+  - component: {fileID: 114011976573677402}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -89,6 +93,7 @@ GameObject:
   - component: {fileID: 4864776787715870}
   - component: {fileID: 33461727171833426}
   - component: {fileID: 23617890373880928}
+  - component: {fileID: 114634921726178440}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -106,6 +111,7 @@ GameObject:
   - component: {fileID: 4555969804390056}
   - component: {fileID: 33666202104062184}
   - component: {fileID: 23826698382499508}
+  - component: {fileID: 114179710165324458}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -123,6 +129,7 @@ GameObject:
   - component: {fileID: 4498125807228624}
   - component: {fileID: 33211560771731606}
   - component: {fileID: 23836913963520940}
+  - component: {fileID: 114329831321016880}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -138,6 +145,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4325821457590536}
+  - component: {fileID: 114836544299483618}
+  - component: {fileID: 114083130222595538}
   m_Layer: 0
   m_Name: LaserGun
   m_TagString: Untagged
@@ -543,3 +552,123 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387242596465486}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114011976573677402
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257136951580996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 23ca3c70-aca3-43dc-92b5-be9d499f7e19
+--- !u!114 &114083130222595538
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844136131928408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1540323c-1a72-4726-ae0c-10bfd8613c8f
+--- !u!114 &114179710165324458
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387242596465486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: bb187733-65f4-4d71-9065-29458ebeaca6
+--- !u!114 &114329831321016880
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1645807370454112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: f1c58eeb-51d5-41d8-80e7-9419d122f19b
+--- !u!114 &114627373046250142
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086561999579862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1d9c4a1d-5b68-4a8d-a0c6-37e6d1fba208
+--- !u!114 &114634921726178440
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287420493646354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: b813a909-bc31-441d-8aa2-783bd1b4a9e9
+--- !u!114 &114787020722955308
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1223126451430824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: c67806bc-3f11-4ccb-801d-e58c7573180e
+--- !u!114 &114836544299483618
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844136131928408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1844136131928408}
+    - {fileID: 1086561999579862}
+    - {fileID: 1645807370454112}
+    - {fileID: 1287420493646354}
+    - {fileID: 1223126451430824}
+    - {fileID: 1257136951580996}
+    - {fileID: 1387242596465486}
+    - {fileID: 1132846862702796}
+  _assetGuid: 5af28943494fb4d99a0770ae6f3acad8
+--- !u!114 &114891090499072810
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132846862702796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: ab081049-1f8b-4226-8116-e7867969ad5b

@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4587652113425590}
+  - component: {fileID: 114213023972508444}
   m_Layer: 9
   m_Name: ammo_rocket
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   - component: {fileID: 4317756431943688}
   - component: {fileID: 33498454526924046}
   - component: {fileID: 23006627103016216}
+  - component: {fileID: 114671731156083752}
   m_Layer: 9
   m_Name: Mesh1_Group1_Model
   m_TagString: Untagged
@@ -54,6 +56,8 @@ GameObject:
   - component: {fileID: 135662839833385096}
   - component: {fileID: 54757472127139560}
   - component: {fileID: 114794152188751304}
+  - component: {fileID: 114943352926534016}
+  - component: {fileID: 114513358944401054}
   m_Layer: 9
   m_Name: ExplBullet
   m_TagString: ExplProjectile
@@ -159,6 +163,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114213023972508444
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1595633270579698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: f47b582c-7713-444f-8a37-f3e6b23dfd99
+--- !u!114 &114513358944401054
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1836868741097378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: e0b8e125-9375-4d18-bb94-90f45d5e3228
+--- !u!114 &114671731156083752
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798974786974644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 875067f2-1a88-42bb-b925-0bc6f3a36e87
 --- !u!114 &114794152188751304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +213,25 @@ MonoBehaviour:
   _specs: {fileID: 11400000, guid: 2813376f91e024fc2904014747a54808, type: 2}
   owner: {fileID: 0}
   Type: Explosive
+--- !u!114 &114943352926534016
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1836868741097378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1836868741097378}
+    - {fileID: 1595633270579698}
+    - {fileID: 1798974786974644}
+  _assetGuid: 7ece58ca30f4d6d4bb51ec28a3cac3f5
 --- !u!135 &135662839833385096
 SphereCollider:
   m_ObjectHideFlags: 1

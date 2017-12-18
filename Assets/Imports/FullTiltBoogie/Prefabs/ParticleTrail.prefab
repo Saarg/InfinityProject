@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4286283437009128}
   - component: {fileID: 198064713177833144}
   - component: {fileID: 199908070248919538}
+  - component: {fileID: 114712920376538804}
+  - component: {fileID: 114374442065496086}
   m_Layer: 0
   m_Name: ParticleTrail
   m_TagString: Untagged
@@ -41,6 +43,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114374442065496086
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1209033374770636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 112998890, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: c2d93dcc-c7eb-454e-b3c2-ab9306b0df30
+--- !u!114 &114712920376538804
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1209033374770636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -605777808, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isConnected: 1
+  _guid: 
+  _referenceCollection:
+    _collection:
+    - {fileID: 1209033374770636}
+  _assetGuid: bab2f13eaaf31454aafa3d30787c5b15
 --- !u!198 &198064713177833144
 ParticleSystem:
   m_ObjectHideFlags: 1
