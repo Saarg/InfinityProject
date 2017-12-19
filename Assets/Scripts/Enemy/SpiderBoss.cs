@@ -53,34 +53,6 @@ public class SpiderBoss : MonoBehaviour {
 			transform.rotation = Quaternion.Lerp (startRotation, targetRotation, Time.deltaTime);
 		}
 
-		// Handle arms
-		{
-			Vector3 startRayPos = (transform.position + transform.up + transform.forward);
-
-			// Handle left arms
-			RaycastHit hit;
-			Vector3 rayDir = LArmTarget.position - startRayPos;
-			Ray ray = new Ray (startRayPos, rayDir);
-			if (Physics.Raycast (ray, out hit, rayDir.magnitude, layerMask)) {
-				LArmTarget.position = hit.point;
-			}
-
-			// Handle right arms
-			rayDir = RArmTarget.position - (startRayPos);
-			ray = new Ray (startRayPos, rayDir);
-			if (Physics.Raycast (ray, out hit, rayDir.magnitude, layerMask)) {
-				RArmTarget.position = hit.point;
-			}
-
-			// Handle left gun arms
-			Vector3 offset = gunOffset;
-			LGunArmTarget.position = startRayPos + (_target.transform.position + offset - startRayPos)/2;
-
-			// Handle right gun arms
-			offset = Vector3.Scale(offset, new Vector3(-1, 1, 1));
-			RGunArmTarget.position = startRayPos + (_target.transform.position + offset - startRayPos)/2;
-		}
-
 		leftGun.transform.LookAt (_target.transform.position);
 		leftGun.Fire ();
 
@@ -92,6 +64,33 @@ public class SpiderBoss : MonoBehaviour {
 		} else if (Vector3.Angle(transform.forward, _target.transform.position - transform.position) > 10f && !LArmBusy && !RArmBusy) {
 			StartCoroutine (LegWalk ());
 		}
+	}
+
+	void LateUpdate() {
+		Vector3 startRayPos = (transform.position + transform.up + transform.forward);
+
+		// Handle left arms
+		RaycastHit hit;
+		Vector3 rayDir = LArmTarget.position - startRayPos;
+		Ray ray = new Ray (startRayPos, rayDir);
+		if (Physics.Raycast (ray, out hit, rayDir.magnitude, layerMask)) {
+			LArmTarget.position = hit.point;
+		}
+
+		// Handle right arms
+		rayDir = RArmTarget.position - (startRayPos);
+		ray = new Ray (startRayPos, rayDir);
+		if (Physics.Raycast (ray, out hit, rayDir.magnitude, layerMask)) {
+			RArmTarget.position = hit.point;
+		}
+
+		// Handle left gun arms
+		Vector3 offset = gunOffset;
+		LGunArmTarget.position = startRayPos + (_target.transform.position + offset - startRayPos)/2;
+
+		// Handle right gun arms
+		offset = Vector3.Scale(offset, new Vector3(-1, 1, 1));
+		RGunArmTarget.position = startRayPos + (_target.transform.position + offset - startRayPos)/2;
 	}
 
 	IEnumerator LegWalk() {
