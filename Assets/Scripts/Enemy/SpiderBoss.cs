@@ -17,6 +17,12 @@ public class SpiderBoss : MonoBehaviour {
 	public Color fullHealthColor;
 	public Color zeroHealthColor;
 
+	[Header("Head animation")]
+	[SerializeField]
+	private float headSpeed = 1f;
+	[SerializeField]
+	private Transform head;
+
 	[Header("Spawn animation")]
 	[SerializeField]
 	private float spawnLength = 1f;
@@ -86,10 +92,18 @@ public class SpiderBoss : MonoBehaviour {
 		if (ready && _target != null) {
 			// Look At
 			float angle = Vector3.Angle (transform.forward, _target.transform.position - transform.position);
-			if (angle > 10f) {
-				Vector3 lookAt = _target.transform.position;
-				lookAt.y = lookAt.y < 0 ? 0 : lookAt.y;
 
+			Vector3 lookAt = _target.transform.position;
+
+			lookAt.y = lookAt.y < 0 ? 0 : lookAt.y;
+
+			Quaternion headStartRotation = head.localRotation;
+			head.LookAt (lookAt);
+			Quaternion headTargetRotation = head.localRotation;
+
+			head.localRotation = Quaternion.Lerp (headStartRotation, headTargetRotation, Time.deltaTime * headSpeed);
+
+			if (angle > 10f) {
 				Quaternion startRotation = transform.rotation;
 				transform.LookAt (lookAt);
 				Quaternion targetRotation = transform.rotation;
