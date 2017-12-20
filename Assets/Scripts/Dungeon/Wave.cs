@@ -11,6 +11,7 @@ namespace Dungeon {
 	[Serializable]
 	public class ISpawns {
 		public Vector3 p;
+		public Vector3 rotation;
 		public GameObject go;
 	}
 
@@ -31,7 +32,7 @@ namespace Dungeon {
 			_spawned = new GameObject[spawns.Length];
 
 			for (int i = 0; i < spawns.Length; i++) {
-				_spawned[i] = Instantiate (spawns[i].go, position + spawns[i].p, Quaternion.identity);
+				_spawned[i] = Instantiate (spawns[i].go, position + spawns[i].p, Quaternion.Euler(spawns[i].rotation));
 			}
 		}
 

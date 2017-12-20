@@ -497,6 +497,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4069514126614242}
   - component: {fileID: 114047629272330568}
+  - component: {fileID: 135190838191357264}
+  - component: {fileID: 114804737204841040}
   m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
@@ -1317,6 +1319,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4214991115920224}
   - component: {fileID: 114783695913607948}
+  - component: {fileID: 135197459196894112}
+  - component: {fileID: 114869602985001840}
   m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
@@ -5631,6 +5635,20 @@ MonoBehaviour:
   reloadSound: {fileID: 8300000, guid: c2072befcb68a7e488c7113ac5d4664f, type: 3}
   _fireSoundSource: {fileID: 82820882654513948}
   _reloadSoundSource: {fileID: 82455222507494130}
+--- !u!114 &114804737204841040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262060494775668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d1c8cf2ca1841fbaecb1565df7da90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 1
+  damages: 30
+  hitCooldown: 0.1
 --- !u!114 &114818649989844928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5679,6 +5697,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guid: 2183570f-880b-4bed-b59e-ccadfc17bed0
+--- !u!114 &114869602985001840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802739432824672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d1c8cf2ca1841fbaecb1565df7da90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 1
+  damages: 30
+  hitCooldown: 0.1
 --- !u!114 &114872909016027154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6354,6 +6386,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135190838191357264
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262060494775668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0.3}
+--- !u!135 &135197459196894112
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802739432824672}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0.3}
 --- !u!135 &135256092826526276
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -6620,7 +6676,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172946626414582}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: -0.9000001, z: 1.25}
+  m_LocalPosition: {x: 0, y: -0.70000005, z: 1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224858994518333730}
@@ -6629,7 +6685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.9}
+  m_AnchoredPosition: {x: 0, y: -0.7}
   m_SizeDelta: {x: 3.5, y: 3.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224973481852994794

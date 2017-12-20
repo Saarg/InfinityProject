@@ -6,6 +6,7 @@ using Weapons;
 
 public class SpiderBoss : MonoBehaviour { 
 	private GameObject[] _players;
+	private GameObject _target1;
 	private GameObject _target;
 
 	[Header("Health Management")]
@@ -65,8 +66,10 @@ public class SpiderBoss : MonoBehaviour {
 		_players = GameObject.FindGameObjectsWithTag ("Player");
 		_target = null;
 
-		slider.maxValue = maxLife + (int)GameMode.difficulty * 100;
-		slider.value = maxLife + (int)GameMode.difficulty * 100;
+		maxLife += (int)GameMode.difficulty * 100;
+		life = maxLife;
+		slider.maxValue = maxLife;
+		slider.value = maxLife;
 
 		StartCoroutine (Spawn());
 	}
@@ -82,9 +85,13 @@ public class SpiderBoss : MonoBehaviour {
 
 		if (ready && _target != null) {
 			// Look At
-			if (Vector3.Angle (transform.forward, _target.transform.position - transform.position) > 10f) {
+			float angle = Vector3.Angle (transform.forward, _target.transform.position - transform.position);
+			if (angle > 10f) {
+				Vector3 lookAt = _target.transform.position;
+				lookAt.y = lookAt.y < 0 ? 0 : lookAt.y;
+
 				Quaternion startRotation = transform.rotation;
-				transform.LookAt (_target.transform.position);
+				transform.LookAt (lookAt);
 				Quaternion targetRotation = transform.rotation;
 
 				transform.rotation = Quaternion.Lerp (startRotation, targetRotation, Time.deltaTime);
@@ -104,12 +111,14 @@ public class SpiderBoss : MonoBehaviour {
 						break;
 					}
 				}
-			} else if (Vector3.Angle (transform.forward, _target.transform.position - transform.position) > 10f && !LArmBusy && !RArmBusy) {
-				StartCoroutine (LegWalk ());
-			}
+			} 
 		} else if (_target != null) {
 			leftGun.transform.LookAt (_target.transform.position);
 			rightGun.transform.LookAt (_target.transform.position);
+		}
+
+		if (_target != null && Vector3.Angle (transform.forward, _target.transform.position - transform.position) > 10f && !LArmBusy && !RArmBusy) {
+			StartCoroutine (LegWalk ());
 		}
 
 		UpdateHealth ();
@@ -118,19 +127,21 @@ public class SpiderBoss : MonoBehaviour {
 	void LateUpdate() {
 		Vector3 startRayPos = (transform.position + transform.up + transform.forward);
 
-		// Handle left arms
-		RaycastHit hit;
-		Vector3 rayDir = LArmTarget.position - startRayPos;
-		Ray ray = new Ray (startRayPos, rayDir);
-		if (Physics.Raycast (ray, out hit, rayDir.magnitude, layerMask)) {
-			LArmTarget.position = hit.point;
-		}
+		if (ready) {
+			// Handle left arms
+			RaycastHit hit;
+			Vector3 rayDir = LArmTarget.position - startRayPos;
+			Ray ray = new Ray (startRayPos, rayDir);
+			if (Physics.Raycast (ray, out hit, rayDir.magnitude, layerMask)) {
+				LArmTarget.position = hit.point;
+			}
 
-		// Handle right arms
-		rayDir = RArmTarget.position - (startRayPos);
-		ray = new Ray (startRayPos, rayDir);
-		if (Physics.Raycast (ray, out hit, rayDir.magnitude, layerMask)) {
-			RArmTarget.position = hit.point;
+			// Handle right arms
+			rayDir = RArmTarget.position - (startRayPos);
+			ray = new Ray (startRayPos, rayDir);
+			if (Physics.Raycast (ray, out hit, rayDir.magnitude, layerMask)) {
+				RArmTarget.position = hit.point;
+			}
 		}
 
 		if (_target != null) {
@@ -141,6 +152,9 @@ public class SpiderBoss : MonoBehaviour {
 			// Handle right gun arms
 			offset = Vector3.Scale (offset, new Vector3 (-1, 1, 1));
 			RGunArmTarget.position = startRayPos + (_target.transform.position + offset - startRayPos) / 2;
+		} else {
+			LGunArmTarget.transform.position += Vector3.up * Time.deltaTime;
+			RGunArmTarget.transform.position += Vector3.up * Time.deltaTime;
 		}
 	}
 
@@ -211,7 +225,7 @@ public class SpiderBoss : MonoBehaviour {
 			Vector3 startLocaPos = target.localPosition;
 
 			float time = Time.realtimeSinceStartup - startTime;
-			while (time < armAnimationLength) {
+			while (_target != null && time < armAnimationLength) {
 				Debug.DrawLine (startWorlPos, 
 					startWorlPos + (_target.transform.position - startWorlPos) * AttackZ.Evaluate (time / armAnimationLength), 
 					Color.red, 0.05f);
@@ -227,7 +241,7 @@ public class SpiderBoss : MonoBehaviour {
 			startTime = Time.realtimeSinceStartup;
 			time = Time.realtimeSinceStartup - startTime;
 
-			while (time < 1f) {
+			while (target != null && time < 1f) {
 				target.localPosition = Vector3.Lerp (target.localPosition, startLocaPos, time / 1f);
 
 				yield return new WaitForSeconds (0.05f);

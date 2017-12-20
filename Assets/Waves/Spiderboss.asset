@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: Spiderboss
   m_EditorClassIdentifier: 
   spawns:
-  - p: {x: 0, y: 0.7, z: 5.6}
+  - p: {x: 0, y: 0.8, z: 6.4}
+    rotation: {x: 0, y: 180, z: 0}
     go: {fileID: 1405978284502492, guid: 61234527487884a819efe30d6e51f14a, type: 2}
   nextWaveCompletion: 100
   completed: 0
