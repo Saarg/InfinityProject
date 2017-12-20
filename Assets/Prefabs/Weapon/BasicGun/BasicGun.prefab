@@ -106,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1161747348997496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0002, y: 0.064, z: 0.415}
+  m_LocalPosition: {x: 0, y: 0.064, z: 0.263}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4910771657903338}
@@ -416,7 +416,7 @@ AudioSource:
     m_RotationOrder: 0
 --- !u!114 &114121581463143210
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888591755303362}
@@ -428,7 +428,7 @@ MonoBehaviour:
   _guid: 9edf2236-5770-4e98-8a27-406201bd4e31
 --- !u!114 &114212080015331928
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007127137682546}
@@ -440,7 +440,7 @@ MonoBehaviour:
   _guid: 394bdcb3-7600-4e4e-973e-cbb07b8c431b
 --- !u!114 &114244748449092436
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202708191521844}
@@ -461,7 +461,7 @@ MonoBehaviour:
   _assetGuid: d12a81c47205d4090912baf025b88061
 --- !u!114 &114398661484580060
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202708191521844}
@@ -473,7 +473,7 @@ MonoBehaviour:
   _guid: 8b17e6b1-3254-45a5-92da-f93ce2cd92d0
 --- !u!114 &114637350787256500
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1858696252496594}
@@ -485,7 +485,7 @@ MonoBehaviour:
   _guid: 7edeef24-9883-45ea-8809-065a717ef4b2
 --- !u!114 &114896123105230148
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1161747348997496}

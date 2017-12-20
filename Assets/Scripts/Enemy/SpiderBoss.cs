@@ -1,13 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Weapons;
 
 public class SpiderBoss : MonoBehaviour { 
-	[SerializeField]
+	private GameObject[] _players;
 	private GameObject _target;
 
+	[Header("Health Management")]
+	public float maxLife = 800f;
+	public float life = 800f;
+	public Slider slider;
+	public Image fillImage;
+	public Color fullHealthColor;
+	public Color zeroHealthColor;
+
+	[Header("Spawn animation")]
+	[SerializeField]
+	private float spawnLength = 1f;
+	[SerializeField]
+	private AnimationCurve SpawnY;
+	[SerializeField]
+	private AnimationCurve SpawnZ;
+
 	[Header("Arms")]
+	[SerializeField]
+	private float armAnimationLength = 1f;
+	[SerializeField]
+	private float walkAnimationLength = 1f;
 	[SerializeField]
 	private Transform LArmTarget;
 	[SerializeField]
@@ -37,33 +58,61 @@ public class SpiderBoss : MonoBehaviour {
 	[SerializeField]
 	private Weapon rightGun;
 
+	private bool ready = false;
+
 	// Use this for initialization
 	void Start () {
-		_target = GameObject.FindGameObjectWithTag ("Player");
+		_players = GameObject.FindGameObjectsWithTag ("Player");
+		_target = null;
+
+		slider.maxValue = maxLife + (int)GameMode.difficulty * 100;
+		slider.value = maxLife + (int)GameMode.difficulty * 100;
+
+		StartCoroutine (Spawn());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		// Look At
-		if (Vector3.Angle(transform.forward, _target.transform.position - transform.position) > 10f) {
-			Quaternion startRotation = transform.rotation;
-			transform.LookAt (_target.transform.position);
-			Quaternion targetRotation = transform.rotation;
 
-			transform.rotation = Quaternion.Lerp (startRotation, targetRotation, Time.deltaTime);
+	void Update() {
+		if (_target == null) {
+			foreach (GameObject go in _players) {
+				if (go != null && (_target == null || _target.GetComponent<Living> ().life > go.GetComponent<Living> ().life)) {
+					_target = go;
+				}
+			}
 		}
 
-		leftGun.transform.LookAt (_target.transform.position);
-		leftGun.Fire ();
+		if (ready && _target != null) {
+			// Look At
+			if (Vector3.Angle (transform.forward, _target.transform.position - transform.position) > 10f) {
+				Quaternion startRotation = transform.rotation;
+				transform.LookAt (_target.transform.position);
+				Quaternion targetRotation = transform.rotation;
 
-		rightGun.transform.LookAt (_target.transform.position);
-		rightGun.Fire ();
+				transform.rotation = Quaternion.Lerp (startRotation, targetRotation, Time.deltaTime);
+			}
 
-		if ((_target.transform.position - transform.position).magnitude < 7f && !LArmBusy && !RArmBusy) {
-			StartCoroutine (LegAttack ());
-		} else if (Vector3.Angle(transform.forward, _target.transform.position - transform.position) > 10f && !LArmBusy && !RArmBusy) {
-			StartCoroutine (LegWalk ());
+			leftGun.transform.LookAt (_target.transform.position);
+			leftGun.Fire ();
+
+			rightGun.transform.LookAt (_target.transform.position);
+			rightGun.Fire ();
+
+			if (!LArmBusy && !RArmBusy) {
+				foreach (GameObject go in _players) {
+					if (go != null && (go.transform.position - transform.position).magnitude < 7f) {
+						_target = go;
+						StartCoroutine (LegAttack ());
+						break;
+					}
+				}
+			} else if (Vector3.Angle (transform.forward, _target.transform.position - transform.position) > 10f && !LArmBusy && !RArmBusy) {
+				StartCoroutine (LegWalk ());
+			}
+		} else if (_target != null) {
+			leftGun.transform.LookAt (_target.transform.position);
+			rightGun.transform.LookAt (_target.transform.position);
 		}
+
+		UpdateHealth ();
 	}
 
 	void LateUpdate() {
@@ -84,13 +133,33 @@ public class SpiderBoss : MonoBehaviour {
 			RArmTarget.position = hit.point;
 		}
 
-		// Handle left gun arms
-		Vector3 offset = gunOffset;
-		LGunArmTarget.position = startRayPos + (_target.transform.position + offset - startRayPos)/2;
+		if (_target != null) {
+			// Handle left gun arms
+			Vector3 offset = gunOffset;
+			LGunArmTarget.position = startRayPos + (_target.transform.position + offset - startRayPos) / 2;
 
-		// Handle right gun arms
-		offset = Vector3.Scale(offset, new Vector3(-1, 1, 1));
-		RGunArmTarget.position = startRayPos + (_target.transform.position + offset - startRayPos)/2;
+			// Handle right gun arms
+			offset = Vector3.Scale (offset, new Vector3 (-1, 1, 1));
+			RGunArmTarget.position = startRayPos + (_target.transform.position + offset - startRayPos) / 2;
+		}
+	}
+
+	IEnumerator Spawn() {
+		float startTime = Time.realtimeSinceStartup;
+		Vector3 startPos = transform.position;
+
+		while(Time.realtimeSinceStartup - startTime < spawnLength) {
+			transform.position = startPos;
+			transform.position += Vector3.up * SpawnY.Evaluate((Time.realtimeSinceStartup - startTime) / spawnLength);
+			transform.position += Vector3.forward * SpawnZ.Evaluate((Time.realtimeSinceStartup - startTime) / spawnLength);
+
+			yield return new WaitForEndOfFrame ();
+
+			Vector3 startRayPos = (transform.position + transform.up + transform.forward);
+
+			yield return null;
+		}
+		ready = true;
 	}
 
 	IEnumerator LegWalk() {
@@ -103,9 +172,9 @@ public class SpiderBoss : MonoBehaviour {
 			Vector3 RstartPos = RArmTarget.localPosition;
 
 			float time = Time.realtimeSinceStartup - startTime;
-			while (time < 1f) {
-				LArmTarget.localPosition = LstartPos + Vector3.up * RotateY.Evaluate (Time.realtimeSinceStartup % 1f);
-				RArmTarget.localPosition = RstartPos + Vector3.up * RotateY.Evaluate ((Time.realtimeSinceStartup + 0.5f) % 1f);
+			while (time < walkAnimationLength) {
+				LArmTarget.localPosition = LstartPos + Vector3.up * RotateY.Evaluate (Time.realtimeSinceStartup % walkAnimationLength);
+				RArmTarget.localPosition = RstartPos + Vector3.up * RotateY.Evaluate ((Time.realtimeSinceStartup + walkAnimationLength/2f) % walkAnimationLength);
 
 				yield return new WaitForSeconds (0.01f);
 				time = Time.realtimeSinceStartup - startTime;
@@ -142,13 +211,13 @@ public class SpiderBoss : MonoBehaviour {
 			Vector3 startLocaPos = target.localPosition;
 
 			float time = Time.realtimeSinceStartup - startTime;
-			while (time < 1f) {
+			while (time < armAnimationLength) {
 				Debug.DrawLine (startWorlPos, 
-					startWorlPos + (_target.transform.position - startWorlPos) * AttackZ.Evaluate (time / 1f), 
+					startWorlPos + (_target.transform.position - startWorlPos) * AttackZ.Evaluate (time / armAnimationLength), 
 					Color.red, 0.05f);
 
 				target.position = startWorlPos;
-				target.position += (_target.transform.position - startWorlPos) * AttackZ.Evaluate (time / 1f);
+				target.position += (_target.transform.position - startWorlPos) * AttackZ.Evaluate (time / armAnimationLength);
 				target.position += Vector3.up * AttackY.Evaluate (time / 1f);
 
 				yield return new WaitForSeconds (0.05f);
@@ -170,6 +239,21 @@ public class SpiderBoss : MonoBehaviour {
 			LArmBusy = target == LArmTarget ? false : LArmBusy;
 			RArmBusy = target == RArmTarget ? false : RArmBusy;
 		}
+	}
+
+	void ApplyDamage(float damage)
+	{
+		life -= damage;
+		if (life <= 0)
+		{
+			Destroy(this.gameObject);
+		}
+	}
+
+	public void UpdateHealth(){
+		slider.value = life;
+
+		fillImage.color = Color.Lerp (zeroHealthColor, fullHealthColor, life / maxLife);
 	}
 
 	void OnDrawGizmos() {

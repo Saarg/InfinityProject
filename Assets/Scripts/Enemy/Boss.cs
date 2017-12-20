@@ -52,6 +52,7 @@ public class Boss : MonoBehaviour {
 
 		GetComponent<NavMeshAgent> ().enabled = true;
 
+		maxLife += (int)GameMode.difficulty * 100;
 		_life = maxLife;
 		slider.maxValue = maxLife;
 		slider.value = maxLife;
