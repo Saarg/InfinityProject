@@ -225,7 +225,7 @@ public class SpiderBoss : MonoBehaviour {
 			Vector3 startLocaPos = target.localPosition;
 
 			float time = Time.realtimeSinceStartup - startTime;
-			while (_target != null && time < armAnimationLength) {
+			while (_target != null && time < armAnimationLength && (_target.transform.position - transform.position).magnitude < 8f) {
 				Debug.DrawLine (startWorlPos, 
 					startWorlPos + (_target.transform.position - startWorlPos) * AttackZ.Evaluate (time / armAnimationLength), 
 					Color.red, 0.05f);
