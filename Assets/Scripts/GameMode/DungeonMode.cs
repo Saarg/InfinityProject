@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Dungeon;
+
 public class DungeonMode : GameMode {
 
-	public TriggerEvent start;
+	[SerializeField]
+	private Generator generator;
 
 	// Use this for initialization
 	protected override void Start () {

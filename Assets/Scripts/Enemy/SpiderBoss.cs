@@ -183,8 +183,6 @@ public class SpiderBoss : MonoBehaviour {
 
 			yield return new WaitForEndOfFrame ();
 
-			Vector3 startRayPos = (transform.position + transform.up + transform.forward);
-
 			yield return null;
 		}
 		ready = true;
@@ -204,7 +202,7 @@ public class SpiderBoss : MonoBehaviour {
 				LArmTarget.localPosition = LstartPos + Vector3.up * RotateY.Evaluate (Time.realtimeSinceStartup % walkAnimationLength);
 				RArmTarget.localPosition = RstartPos + Vector3.up * RotateY.Evaluate ((Time.realtimeSinceStartup + walkAnimationLength/2f) % walkAnimationLength);
 
-				yield return new WaitForSeconds (0.01f);
+				yield return null;
 				time = Time.realtimeSinceStartup - startTime;
 			}
 
@@ -258,7 +256,7 @@ public class SpiderBoss : MonoBehaviour {
 			while (target != null && time < 1f) {
 				target.localPosition = Vector3.Lerp (target.localPosition, startLocaPos, time / 1f);
 
-				yield return new WaitForSeconds (0.05f);
+				yield return null;
 				time = Time.realtimeSinceStartup - startTime;
 			}
 

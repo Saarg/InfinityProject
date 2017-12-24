@@ -60,7 +60,7 @@ namespace Dungeon {
 		/*
 		 * Levelsize depending on difficulty + init grid and loading bar
 		 */
-		void Start () {
+		public void StartBuildingDungeon () {
 			_levelSize += (int)GameMode.difficulty;
 			_finish.transform.Translate ((int)GameMode.difficulty * _roomSize, 0, (int)GameMode.difficulty * _roomSize);
 

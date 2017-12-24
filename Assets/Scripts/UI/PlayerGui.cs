@@ -44,15 +44,20 @@ public class PlayerGui : MonoBehaviour {
 			return;
 		}
 
-		healthBar.value = _player.life;
-		staminaBar.value = _player.stamina;
+        if (healthBar.value != _player.life)
+		    healthBar.value = _player.life;
+        if (staminaBar.value != _player.stamina)
+		    staminaBar.value = _player.stamina;
 
 		if (_player.gun != null) {
 			ammoBar.gameObject.SetActive (true);
 			gunLogo.gameObject.SetActive (true);
 
-			ammoBar.maxValue = _player.gun.GetClipSize ();
-			ammoBar.value = _player.gun.ammos;
+            if (ammoBar.maxValue != _player.gun.GetClipSize())
+			    ammoBar.maxValue = _player.gun.GetClipSize ();
+            if (ammoBar.value != _player.gun.ammos)
+			    ammoBar.value = _player.gun.ammos;
+
 			gunLogo.sprite = _player.gun.GetLogo();
 
 			clipsText.text = "" + _player.gun.clips;

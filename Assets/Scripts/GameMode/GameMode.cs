@@ -8,6 +8,10 @@ public class GameMode : MonoBehaviour {
 
 	static protected Difficulty _difficulty;
 	static public Difficulty difficulty { get { return _difficulty; } }
+	public void SetEasy() { _difficulty = Difficulty.Easy; }
+	public void SetNormal() { _difficulty = Difficulty.Normal; }
+	public void SetHard() { _difficulty = Difficulty.Hard; }
+	public void SetInsane() { _difficulty = Difficulty.Insane; }
 
 	protected GameObject _player1;
 	protected GameObject _player2;

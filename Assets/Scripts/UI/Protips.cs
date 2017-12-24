@@ -9,7 +9,7 @@ public class Protips : MonoBehaviour {
 	public string[] tips;
 
 	void Awake() {
-		GetComponent<Canvas> ().enabled = true;
+		// GetComponent<Canvas> ().enabled = true;
 	}
 
 	// Use this for initialization

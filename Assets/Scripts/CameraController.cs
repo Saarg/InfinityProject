@@ -32,6 +32,10 @@ public class CameraController : MonoBehaviour {
 			_players = GameObject.FindGameObjectsWithTag ("Player");
 	}
 
+	public void UpdatePlayers() {
+		_players = GameObject.FindGameObjectsWithTag ("Player");
+	}
+
 	// LateUpdate is called after Update each frame
 	void LateUpdate () 
 	{

@@ -3,7 +3,7 @@ guid: 8e43c4e8a9a474ba1b70448f3bd7d8a3
 timeCreated: 1434700987
 licenseType: Store
 ModelImporter:
-  serializedVersion: 18
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: Calf_L
     100002: Calf_R
@@ -96,26 +96,77 @@ ModelImporter:
     7400002: Wolf Idle
     9500000: //RootNode
     11100000: //RootNode
+    11400000: Calf_L
+    11400002: Calf_R
+    11400004: Camera
+    11400006: Ear_L_1
+    11400008: Ear_L_2
+    11400010: Ear_L_3
+    11400012: Ear_R_1
+    11400014: Ear_R_2
+    11400016: Ear_R_3
+    11400018: Fingers_L
+    11400020: Fingers_R
+    11400022: Foot_L
+    11400024: Foot_R
+    11400026: Forearm_L
+    11400028: Forearm_R
+    11400030: Hand_L
+    11400032: Hand_R
+    11400034: Head
+    11400036: Hip_L
+    11400038: Hip_R
+    11400040: Light
+    11400042: Neck_1
+    11400044: Neck_2
+    11400046: Pelvis
+    11400048: Shoulder_L
+    11400050: Shoulder_R
+    11400052: Spine_1
+    11400054: Spine_2
+    11400056: Spine_3
+    11400058: Spine_4
+    11400060: Tail_1
+    11400062: Tail_2
+    11400064: Tail_3
+    11400066: Tail_4
+    11400068: Tail_5
+    11400070: Thigh_L
+    11400072: Thigh_R
+    11400074: Toes_L
+    11400076: Toes_R
+    11400078: UpperArm_L
+    11400080: UpperArm_R
+    11400082: //RootNode
+    11400084: Wolf
+    11400086: //RootNode
     13700000: Wolf
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 3
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Wolf Run
@@ -127,6 +178,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 1
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 1
@@ -229,6 +281,7 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Wolf Idle
       takeName: Base Stack
@@ -239,6 +292,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 1
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 1
@@ -341,13 +395,17 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00899999961
+    globalScale: 0.009
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -361,24 +419,30 @@ ModelImporter:
     useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: Wolf
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

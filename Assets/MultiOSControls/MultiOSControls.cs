@@ -106,6 +106,8 @@ public class PlayerInput {
 public class MultiOSControls : MonoBehaviour {
 
 	public static MultiOSControls instance;
+	[SerializeField]
+	public bool locked;
 
 	public PlayerInput[] players;
 
@@ -157,6 +159,9 @@ public class MultiOSControls : MonoBehaviour {
 	}
 		
 	static public float GetValue(string name, PlayerNumber player = PlayerNumber.Player1) {
+		if (instance.locked)
+			return 0f;
+
 		if (player == PlayerNumber.All) { // Read input from all players
 			foreach (PlayerNumber n in System.Enum.GetValues(typeof(PlayerNumber))) {
 				if (n == PlayerNumber.All) { // avoid infinite loop
