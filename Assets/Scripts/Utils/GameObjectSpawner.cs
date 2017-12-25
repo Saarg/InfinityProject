@@ -30,7 +30,8 @@ public class GameObjectSpawner : MonoBehaviour {
 	void Start () {
 		lastSpawn = Time.realtimeSinceStartup + Random.Range(0, spawnRate/10);
 
-		_spawned = Instantiate (spawns [Random.Range(0, spawns.Length-1)], transform.position, transform.rotation);
+		_spawned = Instantiate (spawns [Random.Range(0, spawns.Length-1)], transform); 
+		_spawned.transform.localPosition = Vector3.zero;
 
 		switch (spawnRateCurve) {
 		case SpawnRate.cons:
