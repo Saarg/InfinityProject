@@ -148,7 +148,6 @@ public class SpiderBoss : MonoBehaviour {
 			Vector3 rayDir = LArmTarget.position - startRayPos;
 			Ray ray = new Ray (startRayPos, rayDir);
 			if (Physics.Raycast (ray, out hit, rayDir.magnitude, layerMask)) {
-				Debug.Log (hit.collider.name);
 				LArmTarget.position = hit.point;
 			}
 

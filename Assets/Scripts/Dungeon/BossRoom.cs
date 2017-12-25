@@ -39,6 +39,8 @@ public class BossRoom : MonoBehaviour {
 			started = true;
 
 			OnPlayerEnter.Invoke ();
+
+			Camera.main.GetComponent<CameraController> ().SetTarget (transform);
 		}
 	}
 }

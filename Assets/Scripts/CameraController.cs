@@ -39,19 +39,34 @@ public class CameraController : MonoBehaviour {
 	// LateUpdate is called after Update each frame
 	void LateUpdate () 
 	{
-		int i = 0;
 		Vector3 avg = Vector3.zero;
-		foreach (GameObject p in _players) {
-			if (p != null) {
-				avg += p.transform.position;
-				i++;
+
+		if (_player == null) {
+			int i = 0;
+			foreach (GameObject p in _players) {
+				if (p != null) {
+					avg += p.transform.position;
+					i++;
+				}
 			}
+
+			if (i == 0) {
+				return;
+			}
+
+			avg /= i;
+		} else {
+			avg = _player.transform.position;
 		}
 
-		if (i == 0) { return; }
-
-		avg /= i;
-
 		transform.position = Vector3.Lerp(transform.position, avg + _offset, 3*Time.deltaTime);
+	}
+
+	public void Zoom(float z) {
+		_offset += transform.forward * z;
+	}
+
+	public void SetTarget(Transform t) {
+		_player = t.gameObject;
 	}
 }
